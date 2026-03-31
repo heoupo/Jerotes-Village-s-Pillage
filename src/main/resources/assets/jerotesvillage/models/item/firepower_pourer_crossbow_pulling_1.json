@@ -1,6 +1,0 @@
-{
-  "parent": "jerotesvillage:item/firepower_pourer_crossbow",
-  "textures": {
-    "layer0": "jerotesvillage:item/firepower_pourer_crossbow_pulling_1"
-  }
-}

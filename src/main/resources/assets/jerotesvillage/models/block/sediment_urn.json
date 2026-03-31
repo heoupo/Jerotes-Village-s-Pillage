@@ -1,8 +1,0 @@
-{
-  "parent": "jerotesvillage:block/base_sediment_urn",
-  "textures": {
-    "0": "jerotesvillage:block/sediment_urn",
-    "particle": "jerotesvillage:block/sediment_urn_particle"
-  },
-  "render_type": "cutout"
-}

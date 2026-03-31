@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "jerotesvillage:block/sediment_mud_bricks",
-    "particle": "jerotesvillage:block/sediment_mud_bricks"
-  }
-}

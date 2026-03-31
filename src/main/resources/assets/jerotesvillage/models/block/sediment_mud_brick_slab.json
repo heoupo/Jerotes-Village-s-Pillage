@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "jerotesvillage:block/sediment_mud_bricks",
-    "side": "jerotesvillage:block/sediment_mud_bricks",
-    "top": "jerotesvillage:block/sediment_mud_bricks"
-  }
-}

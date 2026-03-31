@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "jerotesvillage:item/spirve_wooden_back_scratcher"
-  }
-}

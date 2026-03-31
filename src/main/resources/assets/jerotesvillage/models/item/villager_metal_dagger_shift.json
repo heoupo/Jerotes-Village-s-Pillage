@@ -1,6 +1,0 @@
-{
-  "parent": "jerotesvillage:item/base_dagger_shift",
-  "textures": {
-    "layer0": "jerotesvillage:item/villager_metal_dagger"
-  }
-}

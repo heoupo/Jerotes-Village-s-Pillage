@@ -1,6 +1,0 @@
-{
-  "parent": "jerotesvillage:item/shrapnel_launcher",
-  "textures": {
-    "layer0": "jerotesvillage:item/shrapnel_launcher_pulling_2"
-  }
-}

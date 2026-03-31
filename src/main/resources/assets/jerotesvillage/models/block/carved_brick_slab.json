@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "jerotesvillage:block/carved_bricks",
-    "side": "jerotesvillage:block/carved_bricks",
-    "top": "jerotesvillage:block/carved_bricks"
-  }
-}

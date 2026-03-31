@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "jerotesvillage:block/glitter_sandstone_bottom",
-    "side": "jerotesvillage:block/glitter_sandstone",
-    "top": "jerotesvillage:block/glitter_sandstone_top"
-  }
-}

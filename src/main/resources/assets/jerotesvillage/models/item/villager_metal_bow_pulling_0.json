@@ -1,6 +1,0 @@
-{
-  "parent": "jerotesvillage:item/villager_metal_bow",
-  "textures": {
-    "layer0": "jerotesvillage:item/villager_metal_bow_pulling_0"
-  }
-}

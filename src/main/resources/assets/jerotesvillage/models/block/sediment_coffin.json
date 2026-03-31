@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_bottom_top",
-  "textures": {
-    "bottom": "jerotesvillage:block/sediment_coffin_bottom",
-    "side": "jerotesvillage:block/sediment_coffin",
-    "top": "jerotesvillage:block/sediment_coffin_top"
-  }
-}

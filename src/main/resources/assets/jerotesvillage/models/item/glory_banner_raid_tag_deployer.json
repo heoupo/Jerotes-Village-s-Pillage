@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "jerotesvillage:item/glory_banner_raid_tag_deployer"
-  }
-}

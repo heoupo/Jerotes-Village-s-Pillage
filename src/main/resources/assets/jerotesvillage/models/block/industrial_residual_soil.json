@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "jerotesvillage:block/industrial_residual_soil",
-    "particle": "jerotesvillage:block/industrial_residual_soil"
-  }
-}

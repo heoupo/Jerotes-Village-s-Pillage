@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "jerotesvillage:block/carved_lodestone_top",
-    "side": "jerotesvillage:block/carved_lodestone_side"
-  }
-}
