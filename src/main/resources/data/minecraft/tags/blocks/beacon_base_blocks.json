@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "jerotesvillage:villager_metal_block",
+    "jerotesvillage:ocean_gemstone_block",
+    "jerotesvillage:enchanted_stone",
+    "jerotesvillage:golden_bright_melon_crate"
+  ]
+}

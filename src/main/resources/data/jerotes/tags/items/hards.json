@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "jerotesvillage:aastrong_grass_block",
+    "jerotesvillage:aastrong_dirt",
+
+    "jerotesvillage:meror_projection_table",
+    "jerotesvillage:hags_cauldron",
+    "jerotesvillage:unstable_hags_cauldron",
+    "jerotesvillage:dirty_hags_cauldron",
+    "jerotesvillage:new_hags_cauldron"
+  ]
+}

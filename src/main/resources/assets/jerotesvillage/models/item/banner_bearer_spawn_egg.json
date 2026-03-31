@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "jerotesvillage:item/banner_bearer_spawn_egg"
+  }
+}

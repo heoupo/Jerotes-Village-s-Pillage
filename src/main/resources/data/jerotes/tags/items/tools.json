@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "jerotesvillage:ominous_probe",
+
+    "jerotesvillage:spirve_insect_net",
+
+    "jerotesvillage:spirve_scissors",
+    "jerotesvillage:spirve_razor",
+
+    "jerotesvillage:hags_brush",
+    "jerotesvillage:spirve_broom",
+    "jerotesvillage:spirve_duster",
+    "jerotesvillage:spirve_mop",
+
+    "jerotesvillage:hag_eye",
+    "jerotesvillage:purple_sand_hag_eye",
+
+    "jerotesvillage:wooden_slingshot",
+    "jerotesvillage:leather_sling"
+  ]
+}

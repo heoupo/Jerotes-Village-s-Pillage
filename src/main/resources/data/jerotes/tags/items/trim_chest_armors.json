@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "jerotesvillage:villager_metal_chestplate",
+    "jerotesvillage:giant_monster_chestplate",
+    "jerotesvillage:explorer_chestplate",
+    "jerotesvillage:explorer_iron_chestplate",
+    "jerotesvillage:spirve_chestplate",
+    "jerotesvillage:slavery_supervisor_chestplate"
+
+  ]
+}

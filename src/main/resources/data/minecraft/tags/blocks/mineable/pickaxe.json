@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+
+    "jerotesvillage:hags_cauldron",
+    "jerotesvillage:unstable_hags_cauldron",
+    "jerotesvillage:dirty_hags_cauldron",
+    "jerotesvillage:new_hags_cauldron",
+
+    "jerotesvillage:drought_fire_stone",
+    "jerotesvillage:drought_fire_bricks",
+    "jerotesvillage:sediment_mud_bricks",
+    "jerotesvillage:firelight_stone",
+
+    "jerotesvillage:second_round_anchor_core",
+
+    "jerotesvillage:sediment_coffin",
+    "jerotesvillage:sediment_urn",
+
+    "jerotesvillage:enchanted_stone",
+    "jerotesvillage:villager_metal_block",
+    "jerotesvillage:villager_metal_base_block",
+    "jerotesvillage:ice_rock",
+    "jerotesvillage:ocean_gemstone_block",
+    "jerotesvillage:bright_cobblestone",
+    "jerotesvillage:carved_bricks",
+    "jerotesvillage:carved_villager_concertina_wire",
+    "jerotesvillage:carved_lodestone",
+    "jerotesvillage:meror_projection_table"
+  ]
+}

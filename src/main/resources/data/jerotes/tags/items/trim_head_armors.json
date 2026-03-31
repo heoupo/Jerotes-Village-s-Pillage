@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "jerotesvillage:big_witchs_hat",
+    "jerotesvillage:horned_helmet",
+    "jerotesvillage:giant_monster_horned_helmet",
+
+    "jerotesvillage:villager_metal_helmet",
+    "jerotesvillage:explorer_helmet",
+    "jerotesvillage:explorer_iron_helmet",
+    "jerotesvillage:spirve_helmet",
+    "jerotesvillage:slavery_supervisor_helmet"
+  ]
+}

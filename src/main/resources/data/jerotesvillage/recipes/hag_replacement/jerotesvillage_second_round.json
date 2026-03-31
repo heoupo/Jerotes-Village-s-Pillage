@@ -1,0 +1,13 @@
+{
+  "type": "jerotesvillage:hag_replacement",
+  "base": [
+    {
+      "item": "jerotesvillage:second_round_world_teleport_stone"
+    }
+  ],
+  "result": [
+    {
+      "item": "jerotesvillage:meror_projection_table"
+    }
+  ]
+}

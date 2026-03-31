@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "jerotesvillage:giant_monster_helmet",
+    "jerotesvillage:giant_monster_horned_helmet",
+    "jerotesvillage:giant_monster_chestplate",
+    "jerotesvillage:giant_monster_leggings",
+    "jerotesvillage:giant_monster_boots",
+    "jerotesvillage:explorer_helmet",
+    "jerotesvillage:explorer_chestplate",
+    "jerotesvillage:explorer_leggings",
+    "jerotesvillage:explorer_boots"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "jerotesvillage:item/ax_crazy_spawn_egg"
+  }
+}

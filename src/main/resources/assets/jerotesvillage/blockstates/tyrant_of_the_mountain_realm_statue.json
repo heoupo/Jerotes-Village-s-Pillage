@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "jerotesvillage:block/tyrant_of_the_mountain_realm_statue"
+    },
+    "facing=east": {
+      "model": "jerotesvillage:block/tyrant_of_the_mountain_realm_statue",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "jerotesvillage:block/tyrant_of_the_mountain_realm_statue",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jerotesvillage:block/tyrant_of_the_mountain_realm_statue",
+      "y": 270
+    }
+  }
+}
