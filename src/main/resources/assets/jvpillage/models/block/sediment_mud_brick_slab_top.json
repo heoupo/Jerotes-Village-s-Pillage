@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "jvpillage:block/sediment_mud_bricks",
+    "side": "jvpillage:block/sediment_mud_bricks",
+    "top": "jvpillage:block/sediment_mud_bricks"
+  }
+}

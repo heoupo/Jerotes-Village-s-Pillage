@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "jvpillage:block/wonderland_pressure_plate"
+    },
+    "powered=true": {
+      "model": "jvpillage:block/wonderland_pressure_plate_down"
+    }
+  }
+}

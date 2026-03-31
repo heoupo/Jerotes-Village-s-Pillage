@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Hawker",
+  "icon": "jvpillage:villager_block_hawker",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_hawker",
+      "title": "Villager Block Hawker",
+      "text": "$(l:villager_profession/hawker)Hawker$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_hawker_craft"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "jvpillage:purple_sand_alchemy_bomb"
+    }
+  ],
+  "result": [
+    {
+      "item": "jvpillage:purple_sand_explosive_alchemy_bomb"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    }
+  ]
+}

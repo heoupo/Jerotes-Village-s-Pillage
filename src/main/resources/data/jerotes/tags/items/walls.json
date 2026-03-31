@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:purple_sandstone_wall",
+    "jvpillage:sun_sandstone_wall",
+    "jvpillage:glitter_sandstone_wall",
+    "jvpillage:bright_cobblestone_wall"
+  ]
+}

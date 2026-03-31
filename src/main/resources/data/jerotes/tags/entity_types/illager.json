@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:explorer",
+    "jvpillage:mapmaker",
+    "jvpillage:executioner",
+    "jvpillage:defector",
+    "jvpillage:banner_bearer",
+    "jvpillage:javelin_thrower",
+    "jvpillage:zombie_keeper",
+    "jvpillage:blaster",
+    "jvpillage:trumpeter",
+    "jvpillage:teleporter",
+    "jvpillage:cycloner",
+    "jvpillage:bitter_cold_sorcerer",
+    "jvpillage:fire_spitter",
+    "jvpillage:wild_finder",
+    "jvpillage:submariner",
+    "jvpillage:lamp_wizard",
+    "jvpillage:slavery_supervisor",
+    "jvpillage:necromancy_warlock",
+    "jvpillage:gaviler",
+    "jvpillage:ax_crazy"
+  ]
+}

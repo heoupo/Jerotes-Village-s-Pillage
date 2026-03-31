@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "jvpillage:block/sediment_mud_bricks",
+    "particle": "jvpillage:block/sediment_mud_bricks"
+  }
+}

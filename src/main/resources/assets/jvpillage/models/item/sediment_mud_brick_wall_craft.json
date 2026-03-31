@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "jvpillage:sediment_mud_bricks"
+    }
+  },
+  "result": {
+    "count": 6,
+    "item": "jvpillage:sediment_mud_brick_wall"
+  }
+}

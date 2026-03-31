@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "aa",
+    "aa"
+  ],
+  "key": {
+    "a": {
+      "item": "jvpillage:drought_fire_stone"
+    }
+  },
+  "result": {
+    "count": 4,
+    "item": "jvpillage:drought_fire_bricks"
+  }
+}

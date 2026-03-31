@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:banner_bearer",
+    "jvpillage:mapmaker",
+    "jvpillage:trumpeter",
+    "jvpillage:teleporter"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "jvpillage:ocean_gemstone_block"
+    }
+  ],
+  "result": {
+    "item": "jvpillage:ocean_gemstone",
+    "count": 9
+  }
+}

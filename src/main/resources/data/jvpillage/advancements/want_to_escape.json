@@ -1,0 +1,96 @@
+{
+  "parent": "jvpillage:magic_world",
+  "display": {
+    "icon": {
+      "item": "jvpillage:purple_sand_hag_hair"
+    },
+    "title": {
+      "translate": "advancements.jvpillage.want_to_escape.title"
+    },
+    "description": {
+      "translate": "advancements.jvpillage.want_to_escape.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "want_to_escape": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "jvpillage:purple_sand_hag"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "jvpillage:hag_replacement/jerotesvillage_bright_melon",
+      "jvpillage:hag_replacement/jerotesvillage_celestial_coilvine_carpet",
+      "jvpillage:hag_replacement/jerotesvillage_cooked_meganose_snow_lizard_meat",
+      "jvpillage:hag_replacement/jerotesvillage_drought_fire_mud",
+      "jvpillage:hag_replacement/jerotesvillage_glitter_sand",
+      "jvpillage:hag_replacement/jerotesvillage_hag_eye",
+      "jvpillage:hag_replacement/jerotesvillage_meror_stimulin",
+      "jvpillage:hag_replacement/jerotesvillage_marine_reptiles_fine_scale",
+      "jvpillage:hag_replacement/jerotesvillage_meganose_snow_lizard_meat",
+      "jvpillage:hag_replacement/jerotesvillage_meror_metal_ingot",
+      "jvpillage:hag_replacement/jerotesvillage_ocean_gemstone",
+      "jvpillage:hag_replacement/jerotesvillage_ocean_gemstone_fragments",
+      "jvpillage:hag_replacement/jerotesvillage_pink_cactus",
+      "jvpillage:hag_replacement/jerotesvillage_pink_slime_ball",
+      "jvpillage:hag_replacement/jerotesvillage_purple_sand",
+      "jvpillage:hag_replacement/jerotesvillage_purple_sand_alchemy_bomb",
+      "jvpillage:hag_replacement/jerotesvillage_qoaiku_metal_block",
+      "jvpillage:hag_replacement/jerotesvillage_qoaiku_metal_ingot",
+      "jvpillage:hag_replacement/jerotesvillage_ruin_stone_brick_slab",
+      "jvpillage:hag_replacement/jerotesvillage_ruin_stone_brick_stairs",
+      "jvpillage:hag_replacement/jerotesvillage_ruin_stone_brick_wall",
+      "jvpillage:hag_replacement/jerotesvillage_ruin_stone_bricks",
+      "jvpillage:hag_replacement/jerotesvillage_second_round_nigrum",
+      "jvpillage:hag_replacement/jerotesvillage_serpon_alloy_block",
+      "jvpillage:hag_replacement/jerotesvillage_serpon_alloy_ingot",
+      "jvpillage:hag_replacement/jerotesvillage_sun_sand",
+      "jvpillage:hag_replacement/minecraft_bone",
+      "jvpillage:hag_replacement/minecraft_chest",
+      "jvpillage:hag_replacement/minecraft_cobblestone",
+      "jvpillage:hag_replacement/minecraft_diamond",
+      "jvpillage:hag_replacement/minecraft_dirt",
+      "jvpillage:hag_replacement/minecraft_fermented_spider_eye",
+      "jvpillage:hag_replacement/minecraft_golden_apple",
+      "jvpillage:hag_replacement/minecraft_gravel",
+      "jvpillage:hag_replacement/minecraft_ice",
+      "jvpillage:hag_replacement/minecraft_iron_ingot",
+      "jvpillage:hag_replacement/minecraft_lapis_block",
+      "jvpillage:hag_replacement/minecraft_lingering_potion",
+      "jvpillage:hag_replacement/minecraft_milk_bucket",
+      "jvpillage:hag_replacement/minecraft_mud",
+      "jvpillage:hag_replacement/minecraft_mud_bricks",
+      "jvpillage:hag_replacement/minecraft_phantom_membrane",
+      "jvpillage:hag_replacement/minecraft_potion",
+      "jvpillage:hag_replacement/minecraft_rabbit_foot",
+      "jvpillage:hag_replacement/minecraft_red_sand",
+      "jvpillage:hag_replacement/minecraft_rotten_flesh",
+      "jvpillage:hag_replacement/minecraft_sand",
+      "jvpillage:hag_replacement/minecraft_scute",
+      "jvpillage:hag_replacement/minecraft_splash_potion",
+      "jvpillage:hag_replacement/minecraft_tnt",
+      "jvpillage:hag_replacement/minecraft_wither_rose",
+      "jvpillage:hag_replacement/jerotesvillage_purple_sand_gecko_tail",
+      "jvpillage:hag_replacement/jerotesvillage_wonderlin_fake_ears",
+      "jvpillage:hag_replacement/minecraft_obsidian",
+      "jvpillage:hag_replacement/minecraft_crying_obsidian",
+      "jvpillage:hag_replacement/minecraft_soul_soil",
+      "jvpillage:hag_replacement/minecraft_soul_sand"
+    ]
+  }
+}

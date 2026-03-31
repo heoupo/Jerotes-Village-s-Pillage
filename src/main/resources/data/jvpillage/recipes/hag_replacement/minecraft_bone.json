@@ -1,0 +1,42 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:bone"
+    }
+  ],
+  "result": [
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "nbt": "{\"Potion\":\"jvpillage:lich_curse\"}"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    }
+  ]
+}

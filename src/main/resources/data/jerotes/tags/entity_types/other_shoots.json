@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:gemstone_throwing_knives_shoot",
+    "jvpillage:purple_sand_alchemy_bomb",
+    "jvpillage:ominous_bomb",
+    "jvpillage:purple_sand_explosive_alchemy_bomb",
+
+    "jvpillage:throwing_stubborn_stone",
+    "jvpillage:anesthetic_throwing_ball",
+    "jvpillage:rotten_bright_melon",
+    "jvpillage:glass_throwing_ball",
+    "jvpillage:potion_throwing_ball",
+    "jvpillage:ice_rock_throwing_ball",
+
+    "jvpillage:bright_bola"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Observer",
+  "icon": "jvpillage:villager_block_observer",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_observer",
+      "title": "Villager Block Observer",
+      "text": "$(l:villager_profession/observer)Observer$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_observer_craft"
+    }
+  ]
+}

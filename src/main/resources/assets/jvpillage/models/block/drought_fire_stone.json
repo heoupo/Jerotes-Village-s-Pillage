@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "jvpillage:block/drought_fire_stone_top",
+    "up": "jvpillage:block/drought_fire_stone_top",
+    "north": "jvpillage:block/drought_fire_stone_side",
+    "east": "jvpillage:block/drought_fire_stone_side",
+    "south": "jvpillage:block/drought_fire_stone_side",
+    "west": "jvpillage:block/drought_fire_stone_side",
+    "particle": "jvpillage:block/drought_fire_stone_top"
+  },
+  "render_type": "solid"
+}

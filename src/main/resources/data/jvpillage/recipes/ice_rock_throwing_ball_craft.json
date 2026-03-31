@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "aaa",
+    "bbb",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "jvpillage:throwing_stubborn_stone"
+    },
+    "b": {
+      "item": "jvpillage:ice_rock"
+    }
+  },
+  "result": {
+    "item": "jvpillage:ice_rock_throwing_ball",
+    "count": 6
+  }
+}

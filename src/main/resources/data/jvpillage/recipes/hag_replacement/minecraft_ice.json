@@ -1,0 +1,19 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:ice"
+    }
+  ],
+  "result": [
+    {
+      "item": "jvpillage:ice_rock"
+    },
+    {
+      "item": "minecraft:packed_ice"
+    },
+    {
+      "item": "minecraft:packed_ice"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "村民工作台 小贩",
+  "icon": "jvpillage:villager_block_hawker",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_hawker",
+      "title": "村民工作台 小贩",
+      "text": "$(l:villager_profession/hawker)小贩$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_hawker_craft"
+    }
+  ]
+}

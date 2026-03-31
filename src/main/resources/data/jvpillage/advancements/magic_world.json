@@ -1,0 +1,41 @@
+{
+  "parent": "jvpillage:coven",
+  "display": {
+    "icon": {
+      "item": "jvpillage:big_witchs_hat"
+    },
+    "title": {
+      "translate": "advancements.jvpillage.magic_world.title"
+    },
+    "description": {
+      "translate": "advancements.jvpillage.magic_world.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "magic_world": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "jvpillage:witch_residence"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+    ]
+  }
+}

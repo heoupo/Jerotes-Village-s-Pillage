@@ -1,0 +1,37 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:mud"
+    }
+  ],
+  "result": [
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "jvpillage:industrial_residual_soil"
+    },
+    {
+      "item": "jvpillage:industrial_residual_soil"
+    },
+    {
+      "item": "jvpillage:industrial_residual_soil"
+    },
+    {
+      "item": "jvpillage:industrial_residual_soil"
+    },
+    {
+      "item": "jvpillage:drought_fire_mud"
+    }
+  ]
+}

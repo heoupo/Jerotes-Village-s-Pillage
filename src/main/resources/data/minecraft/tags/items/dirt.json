@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:snow_frozen_soil",
+    "jvpillage:drought_fire_mud",
+    "jvpillage:industrial_residual_soil"
+  ]
+}

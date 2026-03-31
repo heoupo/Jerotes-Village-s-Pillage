@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "jvpillage:giant_monster_horn"
+  },
+  "base": {
+    "item": "jvpillage:giant_monster_helmet"
+  },
+  "addition": {
+    "item": "jvpillage:giant_monster_horn"
+  },
+  "result": {
+    "item": "jvpillage:giant_monster_horned_helmet"
+  }
+}

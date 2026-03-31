@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "jvpillage:block/drought_fire_bricks",
+    "particle": "jvpillage:block/drought_fire_bricks"
+  }
+}

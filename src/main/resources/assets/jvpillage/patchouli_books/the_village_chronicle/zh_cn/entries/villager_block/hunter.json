@@ -1,0 +1,17 @@
+{
+  "name": "村民工作台 猎人",
+  "icon": "jvpillage:villager_block_hunter",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_hunter",
+      "title": "村民工作台 猎人",
+      "text": "$(l:villager_profession/hunter)猎人$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_hunter_craft"
+    }
+  ]
+}

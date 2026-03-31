@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "jvpillage:block/carved_lodestone_top",
+    "side": "jvpillage:block/carved_lodestone_side"
+  }
+}

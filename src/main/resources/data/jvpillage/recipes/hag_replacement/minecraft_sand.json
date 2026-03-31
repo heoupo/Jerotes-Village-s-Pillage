@@ -1,0 +1,22 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:sand"
+    }
+  ],
+  "result": [
+    {
+      "item": "jvpillage:sun_sand"
+    },
+    {
+      "item": "jvpillage:glitter_sand"
+    },
+    {
+      "item": "jvpillage:purple_sand"
+    },
+    {
+      "item": "minecraft:red_sand"
+    }
+  ]
+}

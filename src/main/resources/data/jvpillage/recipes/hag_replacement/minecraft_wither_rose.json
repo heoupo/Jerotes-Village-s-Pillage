@@ -1,0 +1,15 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:wither_rose"
+    }
+  ],
+  "result": [
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "nbt": "{\"Potion\":\"jvpillage:wither_sleep\"}"
+    }
+  ]
+}

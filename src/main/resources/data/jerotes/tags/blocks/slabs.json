@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:purple_sandstone_slab",
+    "jvpillage:smooth_purple_sandstone_slab",
+    "jvpillage:cut_purple_sandstone_slab",
+    "jvpillage:sun_sandstone_slab",
+    "jvpillage:smooth_sun_sandstone_slab",
+    "jvpillage:cut_sun_sandstone_slab",
+    "jvpillage:glitter_sandstone_slab",
+    "jvpillage:smooth_glitter_sandstone_slab",
+    "jvpillage:cut_glitter_sandstone_slab",
+    "jvpillage:bright_cobblestone_slab",
+    "jvpillage:drought_fire_brick_slab",
+    "jvpillage:sediment_mud_brick_slab"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "jvpillage:block/drought_fire_bricks"
+  }
+}

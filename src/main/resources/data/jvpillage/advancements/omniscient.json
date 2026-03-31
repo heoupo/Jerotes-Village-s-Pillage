@@ -1,0 +1,51 @@
+{
+  "parent": "jvpillage:jerotesvillage_craft_use",
+  "display": {
+    "icon": {
+      "item": "jvpillage:second_rounder_map"
+    },
+    "title": {
+      "translate": "advancements.jvpillage.omniscient.title"
+    },
+    "description": {
+      "translate": "advancements.jvpillage.omniscient.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "omniscient": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "jvpillage:second_rounder_map"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "jvpillage:bitter_cold_igloo_map_craft",
+      "jvpillage:explorer_camp_map_craft",
+      "jvpillage:piglin_base_map_craft",
+      "jvpillage:hoglin_farm_map_craft",
+      "jvpillage:sediment_catacombs_map_craft",
+      "jvpillage:serpon_training_ground_map_craft",
+      "jvpillage:serpon_watchtower_map_craft",
+      "jvpillage:wilderness_giant_camp_craft",
+      "jvpillage:wilderness_giant_hunter_camp_map_craft",
+      "jvpillage:witch_coven_map_craft",
+      "jvpillage:witch_residence_map_craft",
+      "jvpillage:illager_tower_map_craft",
+      "jvpillage:botanize_village_map_craft",
+      "jvpillage:wonderlin_cave_map_craft"
+    ]
+  }
+}

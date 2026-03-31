@@ -1,0 +1,6 @@
+{
+  "parent": "jvpillage:item/firepower_pourer_crossbow",
+  "textures": {
+    "layer0": "jvpillage:item/firepower_pourer_crossbow_firework"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "jvpillage:block/stripped_wonderland_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "jvpillage:block/stripped_wonderland_wood"
+    },
+    "axis=z": {
+      "model": "jvpillage:block/stripped_wonderland_wood",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "open=false": {
+      "model": "jvpillage:block/sediment_urn"
+    },
+    "open=true": {
+      "model": "jvpillage:block/sediment_urn_open"
+    }
+  }
+}

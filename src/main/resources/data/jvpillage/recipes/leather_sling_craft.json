@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "cbc",
+    " a "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:leather"
+    },
+    "b": {
+      "item": "jvpillage:throwing_stubborn_stone"
+    },
+    "c": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "jvpillage:leather_sling",
+    "count": 1
+  }
+}

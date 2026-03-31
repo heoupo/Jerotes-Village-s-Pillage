@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "jvpillage:block/bright_land_drum_top",
+    "side": "jvpillage:block/bright_land_drum"
+  }
+}

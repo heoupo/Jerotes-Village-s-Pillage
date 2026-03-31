@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "cbc",
+    "ddd",
+    "a a"
+  ],
+  "key": {
+    "a": {
+      "tag": "forge:ingots/iron"
+    },
+    "b": {
+      "item": "jerotes:giant_beast_armor_base"
+    },
+    "c": {
+      "item": "jvpillage:explorer_tracked_rocord"
+    },
+    "d": {
+      "tag": "forge:storage_blocks/iron"
+    }
+  },
+  "result": {
+    "item": "jvpillage:ominous_giant_beast_armor",
+    "count": 1
+  }
+}

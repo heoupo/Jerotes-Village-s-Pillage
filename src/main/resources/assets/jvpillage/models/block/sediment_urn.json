@@ -1,0 +1,8 @@
+{
+  "parent": "jvpillage:block/base_sediment_urn",
+  "textures": {
+    "0": "jvpillage:block/sediment_urn",
+    "particle": "jvpillage:block/sediment_urn_particle"
+  },
+  "render_type": "cutout"
+}

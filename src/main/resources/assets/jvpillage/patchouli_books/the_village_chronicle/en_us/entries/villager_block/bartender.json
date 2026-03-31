@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Bartender",
+  "icon": "jvpillage:villager_block_bartender",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_bartender",
+      "title": "Villager Block Bartender",
+      "text": "$(l:villager_profession/bartender)Bartender$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_bartender_craft"
+    }
+  ]
+}

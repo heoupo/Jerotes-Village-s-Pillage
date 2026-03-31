@@ -1,0 +1,13 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:lapis_block"
+    }
+  ],
+  "result": [
+    {
+      "item": "jvpillage:enchanted_stone"
+    }
+  ]
+}

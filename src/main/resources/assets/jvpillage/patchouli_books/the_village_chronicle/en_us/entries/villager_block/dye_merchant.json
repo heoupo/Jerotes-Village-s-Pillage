@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Dye Merchant",
+  "icon": "jvpillage:villager_block_dye_merchant",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_dye_merchant",
+      "title": "Villager Block Dye Merchant",
+      "text": "$(l:villager_profession/dye_merchant)Dye Merchant$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_dye_merchant_craft"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "jvpillage:block/industrial_residual_soil",
+    "particle": "jvpillage:block/industrial_residual_soil"
+  }
+}

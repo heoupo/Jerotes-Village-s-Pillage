@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:enchanted_stone",
+    "jvpillage:bright_cobblestone",
+    "jvpillage:bright_cobblestone_stairs",
+    "jvpillage:bright_cobblestone_slab",
+    "jvpillage:bright_cobblestone_wall"
+  ]
+}

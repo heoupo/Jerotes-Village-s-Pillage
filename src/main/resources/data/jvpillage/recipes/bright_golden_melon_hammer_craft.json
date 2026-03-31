@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "a",
+    "b",
+    "b"
+  ],
+  "key": {
+    "a": {
+      "item": "jvpillage:golden_bright_melon"
+    },
+    "b": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "result": {
+    "item": "jvpillage:bright_golden_melon_hammer",
+    "count": 1
+  }
+}

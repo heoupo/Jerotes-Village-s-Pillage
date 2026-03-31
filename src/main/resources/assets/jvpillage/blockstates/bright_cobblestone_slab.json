@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jvpillage:block/bright_cobblestone_slab"
+    },
+    "type=double": {
+      "model": "jvpillage:block/bright_cobblestone"
+    },
+    "type=top": {
+      "model": "jvpillage:block/bright_cobblestone_slab_top"
+    }
+  }
+}

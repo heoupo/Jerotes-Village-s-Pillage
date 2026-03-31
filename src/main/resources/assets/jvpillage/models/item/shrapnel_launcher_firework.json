@@ -1,0 +1,6 @@
+{
+  "parent": "jvpillage:item/shrapnel_launcher",
+  "textures": {
+    "layer0": "jvpillage:item/shrapnel_launcher_firework"
+  }
+}

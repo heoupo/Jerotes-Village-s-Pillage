@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "a  ",
+    "aa ",
+    "aaa"
+  ],
+  "key": {
+    "a": [
+      {
+        "item": "jvpillage:purple_sandstone"
+      },
+      {
+        "item": "jvpillage:chiseled_purple_sandstone"
+      },
+      {
+        "item": "jvpillage:cut_purple_sandstone"
+      }
+    ]
+  },
+  "result": {
+    "count": 4,
+    "item": "jvpillage:purple_sandstone_stairs"
+  }
+}

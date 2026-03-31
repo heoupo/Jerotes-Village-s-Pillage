@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "jvpillage:slavery_supervisor_upgrade_smithing_template"
+  },
+  "base": {
+    "item": "minecraft:netherite_boots"
+  },
+  "addition": {
+    "tag": "forge:ingots/gold"
+  },
+  "result": {
+    "item": "jvpillage:slavery_supervisor_boots"
+  }
+}

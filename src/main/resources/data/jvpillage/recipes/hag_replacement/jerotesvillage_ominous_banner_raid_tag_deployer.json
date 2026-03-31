@@ -1,0 +1,13 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "jvpillage:ominous_banner_raid_tag_deployer"
+    }
+  ],
+  "result": [
+    {
+      "item": "jvpillage:glory_banner_raid_tag_deployer"
+    }
+  ]
+}

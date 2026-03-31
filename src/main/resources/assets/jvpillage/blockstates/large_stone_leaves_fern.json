@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "jvpillage:block/large_stone_leaves_fern_bottom"
+    },
+    "half=upper": {
+      "model": "jvpillage:block/large_stone_leaves_fern_top"
+    }
+  }
+}

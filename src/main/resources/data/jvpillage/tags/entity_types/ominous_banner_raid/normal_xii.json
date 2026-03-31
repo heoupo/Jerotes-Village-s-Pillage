@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:bitter_cold_sorcerer",
+    "jvpillage:fire_spitter",
+    "jvpillage:lamp_wizard",
+    "jvpillage:submariner",
+    "jvpillage:wild_finder",
+    "jvpillage:purple_sand_witch",
+
+    "jvpillage:executioner",
+    "jvpillage:cycloner",
+    "jvpillage:zombie_keeper",
+    "jvpillage:blaster"
+  ]
+}

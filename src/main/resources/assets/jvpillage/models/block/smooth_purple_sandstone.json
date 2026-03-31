@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "jvpillage:block/purple_sandstone_top"
+  }
+}

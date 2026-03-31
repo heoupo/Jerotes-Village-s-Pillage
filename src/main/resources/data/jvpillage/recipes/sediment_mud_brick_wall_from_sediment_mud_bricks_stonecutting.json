@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "jvpillage:sediment_mud_bricks"
+  },
+  "result": "jvpillage:sediment_mud_brick_wall"
+}

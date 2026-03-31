@@ -1,0 +1,17 @@
+{
+  "name": "村民工作台 厨师",
+  "icon": "jvpillage:villager_block_chef",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_chef",
+      "title": "村民工作台 厨师",
+      "text": "$(l:villager_profession/chef)厨师$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_chef_craft"
+    }
+  ]
+}

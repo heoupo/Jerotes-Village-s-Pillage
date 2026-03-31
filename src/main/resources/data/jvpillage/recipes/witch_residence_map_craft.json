@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "jvpillage:purple_sandwich"
+    },
+    {
+      "item": "jvpillage:second_rounder_map"
+    }
+  ],
+  "result": {
+    "item": "jvpillage:witch_residence_map",
+    "count": 1
+  }
+}

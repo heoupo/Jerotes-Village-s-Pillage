@@ -1,0 +1,25 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:mud_bricks"
+    }
+  ],
+  "result": [
+    {
+      "item": "jvpillage:sediment_mud_bricks"
+    },
+    {
+      "item": "jvpillage:sediment_mud_bricks"
+    },
+    {
+      "item": "jvpillage:sediment_mud_bricks"
+    },
+    {
+      "item": "jvpillage:sediment_mud_bricks"
+    },
+    {
+      "item": "jvpillage:sediment_moisture_proof_paste"
+    }
+  ]
+}

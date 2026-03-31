@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "jvpillage:explorer_upgrade_smithing_template"
+  },
+  "base": {
+    "item": "jvpillage:explorer_iron_helmet"
+  },
+  "addition": {
+    "item": "minecraft:leather_helmet"
+  },
+  "result": {
+    "item": "jvpillage:explorer_helmet"
+  }
+}

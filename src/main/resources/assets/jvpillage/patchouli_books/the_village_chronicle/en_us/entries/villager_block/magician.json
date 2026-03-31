@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Magician",
+  "icon": "jvpillage:villager_block_magician",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_magician",
+      "title": "Villager Block Magician",
+      "text": "$(l:villager_profession/magician)Magician$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_magician_craft"
+    }
+  ]
+}

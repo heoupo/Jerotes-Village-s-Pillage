@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "jvpillage:block/gemstone_gravel",
+    "particle": "jvpillage:block/gemstone_gravel"
+  }
+}

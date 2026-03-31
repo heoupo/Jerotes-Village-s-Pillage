@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "jvpillage:drought_fire_stone"
+  },
+  "result": "jvpillage:drought_fire_bricks"
+}

@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "jvpillage:block/wilderness_dirt"
+      },
+      {
+        "model": "jvpillage:block/wilderness_dirt",
+        "y": 90
+      },
+      {
+        "model": "jvpillage:block/wilderness_dirt",
+        "y": 180
+      },
+      {
+        "model": "jvpillage:block/wilderness_dirt",
+        "y": 270
+      }
+    ]
+  }
+}

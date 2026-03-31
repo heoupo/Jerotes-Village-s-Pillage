@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "aa",
+    "aa"
+  ],
+  "key": {
+    "a": {
+      "item": "jvpillage:glitter_sandstone"
+    }
+  },
+  "result": {
+    "count": 4,
+    "item": "jvpillage:cut_glitter_sandstone"
+  }
+}

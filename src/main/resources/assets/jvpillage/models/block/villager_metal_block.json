@@ -1,0 +1,9 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "jvpillage:block/villager_metal_block_top",
+    "side": "jvpillage:block/villager_metal_block",
+    "top": "jvpillage:block/villager_metal_block_top",
+    "particle": "jvpillage:block/villager_metal_block"
+  }
+}

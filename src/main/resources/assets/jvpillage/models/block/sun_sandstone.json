@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "jvpillage:block/sun_sandstone_bottom",
+    "side": "jvpillage:block/sun_sandstone",
+    "top": "jvpillage:block/sun_sandstone_top"
+  }
+}

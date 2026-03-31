@@ -1,0 +1,28 @@
+{
+  "name": "Piglin",
+  "icon": "minecraft:gold_ingot",
+  "category": "jvpillage:villager_profession",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "minecraft:villager{VillagerData:{profession:\"jvpillage:villager_piglin\",level:5}}",
+      "border": true
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:gold_ingot",
+      "title": "Piglin"
+     },
+    {
+      "type": "patchouli:entity",
+      "entity": "minecraft:zombie_villager{VillagerData:{profession:\"jvpillage:villager_piglin\",level:5}}",
+      "border": true
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_piglin",
+      "title": "Villager Block Piglin",
+      "text": "$(l:villager_block/piglin)Villager Block Piglin$()"
+    }
+  ]
+}

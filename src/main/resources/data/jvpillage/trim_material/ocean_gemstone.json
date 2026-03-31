@@ -1,0 +1,9 @@
+{
+  "asset_name": "ocean_gemstone",
+  "description": {
+    "color": "#00B3FF",
+    "translate": "trim_material.jvpillage.ocean_gemstone"
+  },
+  "ingredient": "jvpillage:ocean_gemstone",
+  "item_model_index": 0.9
+}

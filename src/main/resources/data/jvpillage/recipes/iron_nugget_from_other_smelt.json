@@ -1,0 +1,108 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "jvpillage:crazy_axe"
+    },
+    {
+      "item": "jvpillage:ominous_javelin"
+    },
+    {
+      "item": "jvpillage:ominous_dagger"
+    },
+    {
+      "item": "jvpillage:ominous_mace"
+    },
+    {
+      "item": "jvpillage:ominous_bow"
+    },
+    {
+      "item": "jvpillage:ominous_cutlass"
+    },
+    {
+      "item": "jvpillage:firepower_pourer_chainsaw"
+    },
+    {
+      "item": "jvpillage:firepower_pourer_crossbow"
+    },
+    {
+      "item": "jvpillage:ominous_war_beast_armor"
+    },
+    {
+      "item": "jvpillage:ominous_giant_beast_armor"
+    },
+    {
+      "item": "jvpillage:executioners_halberd"
+    },
+    {
+      "item": "jvpillage:executioners_axe"
+    },
+    {
+      "item": "jvpillage:executioners_hammer"
+    },
+    {
+      "item": "jvpillage:horned_helmet"
+    },
+    {
+      "item": "jvpillage:spirve_chopper"
+    },
+    {
+      "item": "jvpillage:spirve_dustpan"
+    },
+    {
+      "item": "jvpillage:spirve_fork"
+    },
+    {
+      "item": "jvpillage:spirve_frame_saw"
+    },
+    {
+      "item": "jvpillage:spirve_gourd_ladle"
+    },
+    {
+      "item": "jvpillage:spirve_hammer"
+    },
+    {
+      "item": "jvpillage:spirve_flail"
+    },
+    {
+      "item": "jvpillage:spirve_hook"
+    },
+    {
+      "item": "jvpillage:spirve_kitchen_knife"
+    },
+    {
+      "item": "jvpillage:spirve_ladle"
+    },
+    {
+      "item": "jvpillage:spirve_morning_star"
+    },
+    {
+      "item": "jvpillage:spirve_pan"
+    },
+    {
+      "item": "jvpillage:spirve_pincer"
+    },
+    {
+      "item": "jvpillage:spirve_razor"
+    },
+    {
+      "item": "jvpillage:spirve_saw"
+    },
+    {
+      "item": "jvpillage:spirve_scissors"
+    },
+    {
+      "item": "jvpillage:spirve_sickle"
+    },
+    {
+      "item": "jvpillage:spirve_spatula"
+    },
+    {
+      "item": "jvpillage:spirve_wrench"
+    }
+  ],
+  "result": "minecraft:iron_nugget"
+}

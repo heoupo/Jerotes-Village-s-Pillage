@@ -1,0 +1,6 @@
+{
+  "parent": "jvpillage:item/ominous_bow",
+  "textures": {
+    "layer0": "jvpillage:item/ominous_bow_pulling_2"
+  }
+}

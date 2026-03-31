@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "jvpillage:glitter_sandstone"
+  },
+  "result": "jvpillage:cut_glitter_sandstone"
+}

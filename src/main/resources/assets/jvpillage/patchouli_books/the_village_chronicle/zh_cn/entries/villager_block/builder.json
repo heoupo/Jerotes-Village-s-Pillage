@@ -1,0 +1,17 @@
+{
+  "name": "村民工作台 建筑工",
+  "icon": "jvpillage:villager_block_builder",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_builder",
+      "title": "村民工作台 建筑工",
+      "text": "$(l:villager_profession/builder)建筑工$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_builder_craft"
+    }
+  ]
+}

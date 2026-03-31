@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:giant_monster_helmet",
+    "jvpillage:giant_monster_horned_helmet",
+    "jvpillage:giant_monster_chestplate",
+    "jvpillage:giant_monster_leggings",
+    "jvpillage:giant_monster_boots",
+    "jvpillage:explorer_helmet",
+    "jvpillage:explorer_chestplate",
+    "jvpillage:explorer_leggings",
+    "jvpillage:explorer_boots"
+  ]
+}

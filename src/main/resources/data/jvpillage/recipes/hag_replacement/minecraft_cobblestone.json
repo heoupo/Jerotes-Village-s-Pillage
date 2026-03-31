@@ -1,0 +1,72 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:cobblestone"
+    }
+  ],
+  "result": [
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "nbt": "{\"Potion\":\"jvpillage:troll_tongue\"}"
+    },
+    {
+      "item": "jvpillage:bright_cobblestone"
+    },
+    {
+      "item": "jvpillage:bright_cobblestone"
+    },
+    {
+      "item": "jvpillage:bright_cobblestone"
+    },
+    {
+      "item": "jvpillage:bright_cobblestone"
+    },
+    {
+      "item": "jvpillage:bright_cobblestone"
+    },
+    {
+      "item": "jvpillage:bright_cobblestone"
+    },
+    {
+      "item": "jvpillage:bright_cobblestone"
+    },
+    {
+      "item": "jvpillage:bright_cobblestone"
+    },
+    {
+      "item": "jvpillage:bright_cobblestone"
+    },
+    {
+      "item": "jvpillage:bright_cobblestone"
+    },
+    {
+      "item": "jvpillage:throwing_stubborn_stone"
+    },
+    {
+      "item": "jvpillage:throwing_stubborn_stone"
+    },
+    {
+      "item": "jvpillage:throwing_stubborn_stone"
+    },
+    {
+      "item": "jvpillage:throwing_stubborn_stone"
+    },
+    {
+      "item": "jvpillage:throwing_stubborn_stone"
+    },
+    {
+      "item": "jvpillage:throwing_stubborn_stone"
+    },
+    {
+      "item": "jvpillage:throwing_stubborn_stone"
+    },
+    {
+      "item": "jvpillage:throwing_stubborn_stone"
+    },
+    {
+      "item": "jvpillage:throwing_stubborn_stone"
+    }
+  ]
+}

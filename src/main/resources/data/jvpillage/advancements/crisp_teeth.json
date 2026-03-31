@@ -1,0 +1,44 @@
+{
+  "parent": "jvpillage:crisp",
+  "display": {
+    "icon": {
+      "item": "jvpillage:golden_bright_melon"
+    },
+    "title": {
+      "translate": "advancements.jvpillage.crisp_teeth.title"
+    },
+    "description": {
+      "translate": "advancements.jvpillage.crisp_teeth.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "crisp_teeth": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "jvpillage:golden_bright_melon"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "jvpillage:golden_bright_melon_crate_craft",
+      "jvpillage:golden_bright_melon_crate_by_gold_craft",
+      "jvpillage:golden_bright_melon_craft_by_crate",
+      "jvpillage:bright_golden_melon_hammer_craft",
+      "jvpillage:golden_bright_melon_craft",
+      "jvpillage:gold_nugget_from_bright_golden_melon_hammer_blast",
+      "jvpillage:gold_nugget_from_bright_golden_melon_hammer_smelt"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.jerotes.jvpillage.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "jvpillage.refmap.json",
+  "mixins": [
+    "CrossbowItemMixin",
+    "EntityMixin",
+    "FireworkStarRecipeMixin",
+    "LivingEntityMixin",
+    "PanicGoalMixin",
+    "PlayerMixin",
+    "WolfMixin"
+  ],
+  "client": [
+    "ChestedHorseRendererMixin",
+    "GameRendererMixin",
+    "GoatRendererMixin",
+    "GuiMixin",
+    "HumanoidArmorLayerMixin",
+    "SkullBlockRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

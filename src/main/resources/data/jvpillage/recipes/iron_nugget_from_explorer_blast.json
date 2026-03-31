@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "jvpillage:explorer_iron_helmet"
+    },
+    {
+      "item": "jvpillage:explorer_iron_chestplate"
+    },
+    {
+      "item": "jvpillage:explorer_iron_leggings"
+    },
+    {
+      "item": "jvpillage:explorer_iron_boots"
+    },
+    {
+      "item": "jvpillage:explorer_helmet"
+    },
+    {
+      "item": "jvpillage:explorer_chestplate"
+    },
+    {
+      "item": "jvpillage:explorer_leggings"
+    },
+    {
+      "item": "jvpillage:explorer_boots"
+    }
+  ],
+  "result": "minecraft:iron_nugget"
+}

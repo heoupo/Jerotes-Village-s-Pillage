@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "jvpillage:block/second_round_nigrum_crate_bottom",
+    "up": "jvpillage:block/second_round_nigrum_crate_top",
+    "north": "jvpillage:block/second_round_nigrum_crate_side",
+    "east": "jvpillage:block/second_round_nigrum_crate_side",
+    "south": "jvpillage:block/second_round_nigrum_crate_side",
+    "west": "jvpillage:block/second_round_nigrum_crate_side",
+    "particle": "jvpillage:block/second_round_nigrum_crate_side"
+  },
+  "render_type": "solid"
+}

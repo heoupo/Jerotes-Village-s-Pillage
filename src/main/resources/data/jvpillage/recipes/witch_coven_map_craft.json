@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "jvpillage:purple_sand"
+    },
+    {
+      "item": "jvpillage:second_rounder_map"
+    }
+  ],
+  "result": {
+    "item": "jvpillage:witch_coven_map",
+    "count": 1
+  }
+}

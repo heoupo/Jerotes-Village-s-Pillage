@@ -1,0 +1,44 @@
+{
+  "parent": "jvpillage:jerotesvillage_craft_use",
+  "display": {
+    "icon": {
+      "item": "jvpillage:second_round_nigrum"
+    },
+    "title": {
+      "translate": "advancements.jvpillage.it_wont_be_toxic_right.title"
+    },
+    "description": {
+      "translate": "advancements.jvpillage.it_wont_be_toxic_right.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "it_wont_be_toxic_right": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "jvpillage:second_round_nigrum"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "jvpillage:cooked_second_round_nigrum",
+      "jvpillage:cooked_second_round_nigrum_campfire_cooking",
+      "jvpillage:cooked_second_round_nigrum_from_smoking",
+      "jvpillage:second_round_nigrum_soup_craft",
+      "jvpillage:hero_soup_craft",
+      "jvpillage:second_round_nigrum_crate_craft",
+      "jvpillage:second_round_nigrum_craft"
+    ]
+  }
+}

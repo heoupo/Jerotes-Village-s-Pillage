@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "jvpillage:item/ominous_banner_raid_tag_deployer"
+  }
+}

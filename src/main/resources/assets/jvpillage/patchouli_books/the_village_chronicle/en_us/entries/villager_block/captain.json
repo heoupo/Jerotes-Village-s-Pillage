@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Captain",
+  "icon": "jvpillage:villager_block_captain",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_captain",
+      "title": "Villager Block Captain",
+      "text": "$(l:villager_profession/captain)Captain$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_captain_craft"
+    }
+  ]
+}

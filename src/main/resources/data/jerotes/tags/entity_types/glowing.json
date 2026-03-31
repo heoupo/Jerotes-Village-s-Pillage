@@ -1,0 +1,10 @@
+{
+  "__comment": "判定为发光的生物类型 如 发光鱿鱼 烈焰人 悦灵 岩浆怪 恼鬼 凋灵",
+  "replace": false,
+  "values": [
+    "jvpillage:firepower_pourer",
+    "jvpillage:lamp_wizard",
+    "jvpillage:boss_show_entity_purple_sand_hag",
+    "jvpillage:boss_show_entity_ominous_banner_projection"
+  ]
+}

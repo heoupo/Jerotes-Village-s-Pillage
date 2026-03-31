@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "jvpillage:block/bright_cobblestone",
+    "side": "jvpillage:block/bright_cobblestone",
+    "top": "jvpillage:block/bright_cobblestone"
+  }
+}

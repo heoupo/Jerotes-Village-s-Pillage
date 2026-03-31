@@ -1,0 +1,22 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:gravel"
+    }
+  ],
+  "result": [
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "jvpillage:gemstone_gravel"
+    }
+  ]
+}

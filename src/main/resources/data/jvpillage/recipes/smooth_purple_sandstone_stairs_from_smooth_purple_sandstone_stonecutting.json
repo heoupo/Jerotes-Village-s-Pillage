@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "jvpillage:smooth_purple_sandstone"
+  },
+  "result": "jvpillage:smooth_purple_sandstone_stairs"
+}

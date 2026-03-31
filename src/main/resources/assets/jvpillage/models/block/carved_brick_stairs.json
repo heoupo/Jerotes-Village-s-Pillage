@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "jvpillage:block/carved_bricks",
+    "side": "jvpillage:block/carved_bricks",
+    "top": "jvpillage:block/carved_bricks"
+  }
+}

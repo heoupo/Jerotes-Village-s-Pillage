@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "jvpillage:glitter_sandstone"
+    }
+  },
+  "result": {
+    "count": 6,
+    "item": "jvpillage:glitter_sandstone_wall"
+  }
+}

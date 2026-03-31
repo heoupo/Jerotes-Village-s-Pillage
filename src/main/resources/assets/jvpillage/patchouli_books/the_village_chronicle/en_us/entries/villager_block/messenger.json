@@ -1,0 +1,17 @@
+{
+  "name": "Village Letter Box",
+  "icon": "jvpillage:villager_block_messenger",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_messenger",
+      "title": "Village Letter Box",
+      "text": "$(l:villager_profession/messenger)Messenger$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_messenger_craft"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:ominous_probe",
+
+    "jvpillage:spirve_insect_net",
+
+    "jvpillage:spirve_scissors",
+    "jvpillage:spirve_razor",
+
+    "jvpillage:hags_brush",
+    "jvpillage:spirve_broom",
+    "jvpillage:spirve_duster",
+    "jvpillage:spirve_mop",
+
+    "jvpillage:hag_eye",
+    "jvpillage:purple_sand_hag_eye",
+
+    "jvpillage:wooden_slingshot",
+    "jvpillage:leather_sling"
+  ]
+}

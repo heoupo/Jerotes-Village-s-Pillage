@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "aaa"
+  ],
+  "key": {
+    "a": [
+      {
+        "item": "jvpillage:sun_sandstone"
+      },
+      {
+        "item": "jvpillage:chiseled_sun_sandstone"
+      }
+    ]
+  },
+  "result": {
+    "count": 6,
+    "item": "jvpillage:sun_sandstone_slab"
+  }
+}

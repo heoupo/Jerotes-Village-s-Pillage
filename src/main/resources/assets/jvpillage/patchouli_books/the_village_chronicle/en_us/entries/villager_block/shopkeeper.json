@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Shopkeeper",
+  "icon": "jvpillage:villager_block_shopkeeper",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_shopkeeper",
+      "title": "Villager Block Shopkeeper",
+      "text": "$(l:villager_profession/shopkeeper)Shopkeeper$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_shopkeeper_craft"
+    }
+  ]
+}

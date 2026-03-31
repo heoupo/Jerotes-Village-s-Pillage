@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "jvpillage:block/deep_dust_block"
+      },
+      {
+        "model": "jvpillage:block/deep_dust_block",
+        "y": 90
+      },
+      {
+        "model": "jvpillage:block/deep_dust_block",
+        "y": 180
+      },
+      {
+        "model": "jvpillage:block/deep_dust_block",
+        "y": 270
+      }
+    ]
+  }
+}

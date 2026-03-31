@@ -1,0 +1,38 @@
+{
+  "parent": "jvpillage:want_to_escape",
+  "display": {
+    "icon": {
+      "item": "jvpillage:ocean_gemstone"
+    },
+    "title": {
+      "translate": "advancements.jvpillage.ocean_gemstone.title"
+    },
+    "description": {
+      "translate": "advancements.jvpillage.ocean_gemstone.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ocean_gemstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "jvpillage:ocean_gemstone"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "jvpillage:gemstone_throwing_knife_craft"
+    ]
+  }
+}

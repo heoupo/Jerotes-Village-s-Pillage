@@ -1,0 +1,40 @@
+{
+  "parent": "jvpillage:jerotesvillage_craft_use",
+  "display": {
+    "icon": {
+      "item": "jvpillage:bright_melon"
+    },
+    "title": {
+      "translate": "advancements.jvpillage.crisp.title"
+    },
+    "description": {
+      "translate": "advancements.jvpillage.crisp.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "crisp": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "jvpillage:bright_melon"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "jvpillage:bright_melon_seeds_craft",
+      "jvpillage:bright_melon_crate_craft",
+      "jvpillage:bright_melon_craft"
+    ]
+  }
+}

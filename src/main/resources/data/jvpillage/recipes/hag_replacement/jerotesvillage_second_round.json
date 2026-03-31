@@ -1,0 +1,13 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "jvpillage:second_round_world_teleport_stone"
+    }
+  ],
+  "result": [
+    {
+      "item": "jvpillage:meror_projection_table"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "jvpillage:block/snow_frozen_soil",
+    "particle": "jvpillage:block/snow_frozen_soil"
+  }
+}

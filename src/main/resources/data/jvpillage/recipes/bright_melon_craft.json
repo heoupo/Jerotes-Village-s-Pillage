@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "jvpillage:bright_melon_crate"
+    }
+  ],
+  "result": {
+    "item": "jvpillage:bright_melon",
+    "count": 9
+  }
+}

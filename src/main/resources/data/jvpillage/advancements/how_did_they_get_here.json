@@ -1,0 +1,54 @@
+{
+  "parent": "jvpillage:jerotesvillage_craft_use",
+  "display": {
+    "icon": {
+      "item": "jvpillage:explorer_helmet"
+    },
+    "title": {
+      "translate": "advancements.jvpillage.how_did_they_get_here.title"
+    },
+    "description": {
+      "translate": "advancements.jvpillage.how_did_they_get_here.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "how_did_they_get_here": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "jvpillage:explorer"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "jvpillage:explorer_iron_helmet_smith",
+      "jvpillage:explorer_iron_chestplate_smith",
+      "jvpillage:explorer_iron_leggings_smith",
+      "jvpillage:explorer_iron_boots_smith",
+      "jvpillage:explorer_helmet_smith",
+      "jvpillage:explorer_chestplate_smith",
+      "jvpillage:explorer_leggings_smith",
+      "jvpillage:explorer_boots_smith",
+      "jvpillage:iron_nugget_from_explorer_smelt",
+      "jvpillage:iron_nugget_from_explorer_blast",
+      "jvpillage:guidelines_for_the_craft_of_the_second_rounder_gem_craft",
+      "jvpillage:second_rounder_gem_craft",
+      "jvpillage:second_round_world_teleport_stone_smith",
+      "jvpillage:ominous_war_beast_armor_craft",
+      "jvpillage:ominous_giant_beast_armor_craft"
+    ]
+  }
+}

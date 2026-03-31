@@ -1,0 +1,27 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "jvpillage:hag_eye"
+    }
+  ],
+  "result": [
+    {
+      "item": "jvpillage:purple_sand_hag_eye"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "nbt": "{\"Potion\":\"jvpillage:purple_sands_secret\"}"
+    },
+    {
+      "item": "minecraft:spider_eye"
+    },
+    {
+      "item": "minecraft:spider_eye"
+    },
+    {
+      "item": "minecraft:spider_eye"
+    }
+  ]
+}

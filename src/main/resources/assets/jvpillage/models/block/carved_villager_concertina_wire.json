@@ -1,0 +1,9 @@
+{
+  "parent": "jvpillage:block/base_carved_villager_concertina_wire",
+  "textures": {
+    "all": "jvpillage:block/carved_villager_concertina_wire",
+    "particle": "jvpillage:block/carved_villager_concertina_wire",
+    "0": "jvpillage:block/carved_villager_concertina_wire"
+  },
+  "render_type": "cutout"
+}

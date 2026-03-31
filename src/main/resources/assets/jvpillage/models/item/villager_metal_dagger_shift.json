@@ -1,0 +1,6 @@
+{
+  "parent": "jvpillage:item/base_dagger_shift",
+  "textures": {
+    "layer0": "jvpillage:item/villager_metal_dagger"
+  }
+}

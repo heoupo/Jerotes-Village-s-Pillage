@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "jvpillage:block/bright_melon_crate_bottom",
+    "up": "jvpillage:block/bright_melon_crate_top",
+    "north": "jvpillage:block/bright_melon_crate_side",
+    "east": "jvpillage:block/bright_melon_crate_side",
+    "south": "jvpillage:block/bright_melon_crate_side",
+    "west": "jvpillage:block/bright_melon_crate_side",
+    "particle": "jvpillage:block/bright_melon_crate_side"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:bone_block"
+    }
+  ],
+  "result": [
+    {
+      "item": "jvpillage:rotten_dog_spawn_egg"
+    }
+  ]
+}

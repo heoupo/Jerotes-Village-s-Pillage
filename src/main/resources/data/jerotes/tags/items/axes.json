@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:spirve_saw",
+    "jvpillage:spirve_frame_saw",
+    "jvpillage:spirve_chopper",
+    "jvpillage:executioners_axe",
+    "jvpillage:executioners_halberd",
+    "jvpillage:crazy_axe"
+  ]
+}

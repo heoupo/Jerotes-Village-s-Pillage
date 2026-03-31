@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "jvpillage:block/glitter_sandstone_top",
+    "side": "jvpillage:block/cut_glitter_sandstone"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "压片机",
+  "icon": "jvpillage:villager_block_physician",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_physician",
+      "title": "压片机",
+      "text": "$(l:villager_profession/physician)医师$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_physician_craft"
+    }
+  ]
+}

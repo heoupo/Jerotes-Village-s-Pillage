@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "jvpillage:block/tyrant_of_the_mountain_realm_statue"
+    },
+    "facing=east": {
+      "model": "jvpillage:block/tyrant_of_the_mountain_realm_statue",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "jvpillage:block/tyrant_of_the_mountain_realm_statue",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jvpillage:block/tyrant_of_the_mountain_realm_statue",
+      "y": 270
+    }
+  }
+}

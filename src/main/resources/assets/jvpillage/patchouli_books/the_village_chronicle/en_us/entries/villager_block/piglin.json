@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Piglin",
+  "icon": "jvpillage:villager_block_piglin",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_piglin",
+      "title": "Villager Block Piglin",
+      "text": "$(l:villager_profession/piglin)Piglin$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_piglin_craft"
+    }
+  ]
+}

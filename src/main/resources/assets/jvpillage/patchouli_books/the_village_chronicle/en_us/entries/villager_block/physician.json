@@ -1,0 +1,17 @@
+{
+  "name": "Tablet Press Machine",
+  "icon": "jvpillage:villager_block_physician",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_bartender",
+      "title": "Tablet Press Machine",
+      "text": "$(l:villager_profession/bartender)Physician$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_bartender_craft"
+    }
+  ]
+}

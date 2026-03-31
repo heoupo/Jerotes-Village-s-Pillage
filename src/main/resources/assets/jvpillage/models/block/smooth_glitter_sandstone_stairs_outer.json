@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "jvpillage:block/glitter_sandstone_top",
+    "side": "jvpillage:block/glitter_sandstone_top",
+    "top": "jvpillage:block/glitter_sandstone_top"
+  }
+}

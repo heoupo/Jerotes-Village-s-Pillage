@@ -1,0 +1,8 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "jvpillage:block/flashing_grass",
+    "particle": "jvpillage:block/flashing_grass"
+  },
+  "render_type": "cutout"
+}

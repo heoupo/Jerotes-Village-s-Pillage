@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "jvpillage:sun_sandstone"
+  },
+  "result": "jvpillage:cut_sun_sandstone_slab"
+}

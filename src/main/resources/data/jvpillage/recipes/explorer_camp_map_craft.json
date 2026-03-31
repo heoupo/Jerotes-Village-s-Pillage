@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "jvpillage:explorer_tracked_rocord"
+    },
+    {
+      "item": "jvpillage:second_rounder_map"
+    }
+  ],
+  "result": {
+    "item": "jvpillage:explorer_camp_map",
+    "count": 1
+  }
+}

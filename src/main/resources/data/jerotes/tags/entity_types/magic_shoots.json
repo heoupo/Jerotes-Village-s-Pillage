@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:bloody_scream",
+    "jvpillage:push_force",
+    "jvpillage:floating_force",
+    "jvpillage:gravity_force",
+    "jvpillage:bitter_cold_frostbite",
+    "jvpillage:elastic_light_ball",
+    "jvpillage:bitter_cold_ice_spike",
+    "jvpillage:radiant_bomb",
+    "jvpillage:arcane_light_spot",
+    "jvpillage:slavery_supervisor_chain"
+  ]
+}

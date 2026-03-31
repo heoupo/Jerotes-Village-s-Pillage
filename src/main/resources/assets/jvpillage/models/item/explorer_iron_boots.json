@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "jvpillage:item/explorer_iron_boots"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:lingering_potion"
+    }
+  ],
+  "result": [
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:big_witch_heal\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:big_witch_hurt\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:loves_shame\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:witch_rot\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:uneasy_rabbit\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:wither_sleep\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:vomit_inducer\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:lich_curse\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:last_stand\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:troll_tongue\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:haunting_imp\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:purple_sands_secret\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:serpent_scale\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:despicable_meror\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:sea_monster_worship\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:dark_heart\"}"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:lingering_potion",
+      "nbt": "{\"Potion\":\"jvpillage:binding_pact\"}"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ]
+}

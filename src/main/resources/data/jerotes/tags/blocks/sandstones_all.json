@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:cut_purple_sandstone",
+    "jvpillage:chiseled_purple_sandstone",
+    "jvpillage:smooth_purple_sandstone",
+
+    "jvpillage:cut_sun_sandstone",
+    "jvpillage:chiseled_sun_sandstone",
+    "jvpillage:smooth_sun_sandstone",
+
+    "jvpillage:cut_glitter_sandstone",
+    "jvpillage:chiseled_glitter_sandstone",
+    "jvpillage:smooth_glitter_sandstone"
+  ]
+}

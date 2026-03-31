@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "jvpillage:block/sediment_coffin_bottom",
+    "side": "jvpillage:block/sediment_coffin",
+    "top": "jvpillage:block/sediment_coffin_top"
+  }
+}

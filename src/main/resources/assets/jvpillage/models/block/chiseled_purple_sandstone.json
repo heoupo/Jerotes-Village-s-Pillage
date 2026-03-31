@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "jvpillage:block/purple_sandstone_top",
+    "side": "jvpillage:block/chiseled_purple_sandstone"
+  }
+}

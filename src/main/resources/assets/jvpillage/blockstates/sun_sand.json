@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "jvpillage:block/sun_sand"
+      },
+      {
+        "model": "jvpillage:block/sun_sand",
+        "y": 90
+      },
+      {
+        "model": "jvpillage:block/sun_sand",
+        "y": 180
+      },
+      {
+        "model": "jvpillage:block/sun_sand",
+        "y": 270
+      }
+    ]
+  }
+}

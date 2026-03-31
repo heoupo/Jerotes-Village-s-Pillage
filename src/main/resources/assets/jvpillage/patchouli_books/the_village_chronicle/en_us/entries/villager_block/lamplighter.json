@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Lamplighter",
+  "icon": "jvpillage:villager_block_lamplighter",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_lamplighter",
+      "title": "Villager Block Lamplighter",
+      "text": "$(l:villager_profession/lamplighter)Lamplighter$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_lamplighter_craft"
+    }
+  ]
+}

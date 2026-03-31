@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "a",
+    "a"
+  ],
+  "key": {
+    "a": {
+      "item": "jvpillage:glitter_sandstone_slab"
+    }
+  },
+  "result": {
+    "item": "jvpillage:chiseled_glitter_sandstone"
+  }
+}

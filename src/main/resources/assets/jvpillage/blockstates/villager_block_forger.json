@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "jvpillage:block/villager_block_forger",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "jvpillage:block/villager_block_forger",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "jvpillage:block/villager_block_forger"
+    },
+    "facing=west": {
+      "model": "jvpillage:block/villager_block_forger",
+      "y": 90
+    }
+  }
+}

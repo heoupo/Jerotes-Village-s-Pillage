@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jvpillage:block/wonderland_slab"
+    },
+    "type=double": {
+      "model": "jvpillage:block/wonderland_planks"
+    },
+    "type=top": {
+      "model": "jvpillage:block/wonderland_slab_top"
+    }
+  }
+}

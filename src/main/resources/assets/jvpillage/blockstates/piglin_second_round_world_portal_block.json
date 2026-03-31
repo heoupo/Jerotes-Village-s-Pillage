@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "jvpillage:block/piglin_second_round_world_portal_block_ns"
+    },
+    "axis=z": {
+      "model": "jvpillage:block/piglin_second_round_world_portal_block_ew"
+    }
+  }
+}

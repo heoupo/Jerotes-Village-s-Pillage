@@ -1,0 +1,19 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:obsidian"
+    }
+  ],
+  "result": [
+    {
+      "item": "minecraft:crying_obsidian"
+    },
+    {
+      "item": "jvpillage:firelight_stone"
+    },
+    {
+      "item": "jvpillage:drought_fire_stone"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:purple_sandstone_stairs",
+    "jvpillage:smooth_purple_sandstone_stairs",
+    "jvpillage:sun_sandstone_stairs",
+    "jvpillage:smooth_sun_sandstone_stairs",
+    "jvpillage:glitter_sandstone_stairs",
+    "jvpillage:smooth_glitter_sandstone_stairs",
+    "jvpillage:bright_cobblestone_stairs",
+    "jvpillage:drought_fire_brick_stairs",
+    "jvpillage:sediment_mud_brick_stairs"
+  ]
+}

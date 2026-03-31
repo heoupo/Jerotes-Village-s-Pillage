@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "jvpillage:block/golden_bright_melon_crate_bottom",
+    "up": "jvpillage:block/golden_bright_melon_crate_top",
+    "north": "jvpillage:block/golden_bright_melon_crate_side",
+    "east": "jvpillage:block/golden_bright_melon_crate_side",
+    "south": "jvpillage:block/golden_bright_melon_crate_side",
+    "west": "jvpillage:block/golden_bright_melon_crate_side",
+    "particle": "jvpillage:block/golden_bright_melon_crate_side"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "村民工作台 店主",
+  "icon": "jvpillage:villager_block_shopkeeper",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_shopkeeper",
+      "title": "村民工作台 店主",
+      "text": "$(l:villager_profession/shopkeeper)店主$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_shopkeeper_craft"
+    }
+  ]
+}

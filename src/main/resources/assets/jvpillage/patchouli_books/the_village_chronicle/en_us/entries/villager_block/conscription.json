@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Conscription",
+  "icon": "jvpillage:villager_block_conscription",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_conscription",
+      "title": "Villager Block Conscription",
+      "text": "$(l:villager_profession/conscription)Conscription$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_conscription_craft"
+    }
+  ]
+}

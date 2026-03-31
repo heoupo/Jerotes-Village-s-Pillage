@@ -1,0 +1,45 @@
+{
+  "parent": "jvpillage:how_did_they_get_here",
+  "display": {
+    "icon": {
+      "item": "jvpillage:ominous_banner_projection_emerald_fragment"
+    },
+    "title": {
+      "translate": "advancements.jvpillage.chivalrous.title"
+    },
+    "description": {
+      "translate": "advancements.jvpillage.chivalrous.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "chivalrous": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "jvpillage:ominous_banner_projection"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "rewards": {
+    "experience": 20,
+    "recipes": [
+      "jvpillage:slavery_supervisor_upgrade_smithing_template_craft",
+      "jvpillage:slavery_supervisor_helmet_smith",
+      "jvpillage:slavery_supervisor_chestplate_smith",
+      "jvpillage:slavery_supervisor_leggings_smith",
+      "jvpillage:slavery_supervisor_boots_smith",
+      "jvpillage:ominous_probe_self_craft"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Builder",
+  "icon": "jvpillage:villager_block_builder",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_builder",
+      "title": "Villager Block Builder",
+      "text": "$(l:villager_profession/builder)Builder$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_builder_craft"
+    }
+  ]
+}

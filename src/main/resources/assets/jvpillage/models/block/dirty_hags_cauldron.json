@@ -1,0 +1,8 @@
+{
+  "parent": "jvpillage:block/base_hags_cauldron",
+  "textures": {
+    "particle": "jvpillage:block/dirty_hags_cauldron_particle",
+    "0": "jvpillage:block/dirty_hags_cauldron"
+  },
+  "render_type": "cutout"
+}

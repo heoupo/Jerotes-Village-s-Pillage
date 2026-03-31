@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "jvpillage:block/ice_rock"
+      },
+      {
+        "model": "jvpillage:block/ice_rock",
+        "y": 90
+      },
+      {
+        "model": "jvpillage:block/ice_rock",
+        "y": 180
+      },
+      {
+        "model": "jvpillage:block/ice_rock",
+        "y": 270
+      }
+    ]
+  }
+}

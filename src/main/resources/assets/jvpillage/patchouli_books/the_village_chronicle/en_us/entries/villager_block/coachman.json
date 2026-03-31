@@ -1,0 +1,17 @@
+{
+  "name": "Villager Block Coachman",
+  "icon": "jvpillage:villager_block_coachman",
+  "category": "jvpillage:villager_block",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_coachman",
+      "title": "Villager Block Coachman",
+      "text": "$(l:villager_profession/coachman)Coachman$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "jvpillage:villager_block_coachman_craft"
+    }
+  ]
+}

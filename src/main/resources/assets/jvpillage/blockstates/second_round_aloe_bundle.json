@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "jvpillage:block/second_round_aloe_bundle_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "jvpillage:block/second_round_aloe_bundle"
+    },
+    "axis=z": {
+      "model": "jvpillage:block/second_round_aloe_bundle_horizontal",
+      "x": 90
+    }
+  }
+}

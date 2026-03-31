@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "jvpillage:block/deepslate_meror_metal_ore",
+    "particle": "jvpillage:block/deepslate_meror_metal_ore"
+  }
+}

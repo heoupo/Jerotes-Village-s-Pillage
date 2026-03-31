@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values":
+  [
+    "jvpillage:giant_monster",
+    "jvpillage:bitter_cold_altar",
+    "jvpillage:bitter_cold_sorcerer",
+    "jvpillage:firepower_pourer",
+    "jvpillage:ominous_banner_projection",
+    "jvpillage:wilderness_wolf"
+  ]
+}

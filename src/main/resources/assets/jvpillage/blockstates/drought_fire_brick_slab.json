@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jvpillage:block/drought_fire_brick_slab"
+    },
+    "type=double": {
+      "model": "jvpillage:block/drought_fire_bricks"
+    },
+    "type=top": {
+      "model": "jvpillage:block/drought_fire_brick_slab_top"
+    }
+  }
+}

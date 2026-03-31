@@ -1,0 +1,7 @@
+{
+  "parent": "jvpillage:block/stem_cross",
+  "textures": {
+    "cross": "jvpillage:block/bright_melons_stage3"
+  },
+  "render_type": "cutout"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "minecraft:chest"
+    }
+  ],
+  "result": [
+    {
+      "item": "jvpillage:sediment_coffin"
+    },
+    {
+      "item": "jvpillage:sediment_urn"
+    }
+  ]
+}

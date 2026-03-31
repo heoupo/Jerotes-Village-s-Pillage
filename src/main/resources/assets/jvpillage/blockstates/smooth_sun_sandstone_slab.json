@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jvpillage:block/smooth_sun_sandstone_slab"
+    },
+    "type=double": {
+      "model": "jvpillage:block/smooth_sun_sandstone"
+    },
+    "type=top": {
+      "model": "jvpillage:block/smooth_sun_sandstone_slab_top"
+    }
+  }
+}

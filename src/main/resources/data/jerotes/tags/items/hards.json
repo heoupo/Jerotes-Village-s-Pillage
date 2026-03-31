@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "jvpillage:aastrong_grass_block",
+    "jvpillage:aastrong_dirt",
+
+    "jvpillage:meror_projection_table",
+    "jvpillage:hags_cauldron",
+    "jvpillage:unstable_hags_cauldron",
+    "jvpillage:dirty_hags_cauldron",
+    "jvpillage:new_hags_cauldron"
+  ]
+}

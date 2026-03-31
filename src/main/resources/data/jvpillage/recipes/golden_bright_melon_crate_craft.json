@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "jvpillage:golden_bright_melon"
+    },
+    {
+      "item": "jvpillage:golden_bright_melon"
+    },
+    {
+      "item": "jvpillage:golden_bright_melon"
+    },
+    {
+      "item": "jvpillage:golden_bright_melon"
+    },
+    {
+      "item": "jvpillage:golden_bright_melon"
+    },
+    {
+      "item": "jvpillage:golden_bright_melon"
+    },
+    {
+      "item": "jvpillage:golden_bright_melon"
+    },
+    {
+      "item": "jvpillage:golden_bright_melon"
+    },
+    {
+      "item": "jvpillage:golden_bright_melon"
+    }
+  ],
+  "result": {
+    "item": "jvpillage:golden_bright_melon_crate"
+  }
+}

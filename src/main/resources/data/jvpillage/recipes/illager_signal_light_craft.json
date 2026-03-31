@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:soul_lantern"
+    },
+    {
+      "item": "minecraft:redstone_block"
+    },
+    {
+      "item": "jvpillage:guidelines_for_the_craft_of_the_second_rounder_gem"
+    },
+    {
+      "item": "jvpillage:second_rounder_map"
+    }
+  ],
+  "result": {
+    "item": "jvpillage:illager_signal_light",
+    "count": 1
+  }
+}

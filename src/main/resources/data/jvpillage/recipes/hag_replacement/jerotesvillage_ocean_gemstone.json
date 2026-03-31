@@ -1,0 +1,13 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "jvpillage:ocean_gemstone"
+    }
+  ],
+  "result": [
+    {
+      "item": "minecraft:quartz"
+    }
+  ]
+}

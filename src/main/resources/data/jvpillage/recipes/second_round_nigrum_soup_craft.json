@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "jvpillage:cooked_second_round_nigrum"
+    },
+    {
+      "item": "jvpillage:cooked_second_round_nigrum"
+    },
+    {
+      "item": "jvpillage:cooked_second_round_nigrum"
+    }
+  ],
+  "result": {
+    "item": "jvpillage:second_round_nigrum_soup"
+  }
+}

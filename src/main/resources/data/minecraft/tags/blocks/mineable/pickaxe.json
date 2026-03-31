@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+
+    "jvpillage:hags_cauldron",
+    "jvpillage:unstable_hags_cauldron",
+    "jvpillage:dirty_hags_cauldron",
+    "jvpillage:new_hags_cauldron",
+
+    "jvpillage:drought_fire_stone",
+    "jvpillage:drought_fire_bricks",
+    "jvpillage:sediment_mud_bricks",
+    "jvpillage:firelight_stone",
+
+    "jvpillage:second_round_anchor_core",
+
+    "jvpillage:sediment_coffin",
+    "jvpillage:sediment_urn",
+
+    "jvpillage:enchanted_stone",
+    "jvpillage:ice_rock",
+    "jvpillage:ocean_gemstone_block",
+    "jvpillage:bright_cobblestone",
+    "jvpillage:meror_projection_table"
+  ]
+}

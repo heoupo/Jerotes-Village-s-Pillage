@@ -1,0 +1,28 @@
+{
+  "name": "厨师",
+  "icon": "minecraft:apple",
+  "category": "jvpillage:villager_profession",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "minecraft:villager{VillagerData:{profession:\"jvpillage:villager_chef\",level:5}}",
+      "border": true
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:apple",
+      "title": "厨师"
+     },
+    {
+      "type": "patchouli:entity",
+      "entity": "minecraft:zombie_villager{VillagerData:{profession:\"jvpillage:villager_chef\",level:5}}",
+      "border": true
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "jvpillage:villager_block_chef",
+      "title": "村民工作台 厨师",
+      "text": "$(l:villager_block/chef)村民工作台 厨师$()"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "jvpillage:block/sun_sandstone_top",
+    "side": "jvpillage:block/sun_sandstone_top",
+    "top": "jvpillage:block/sun_sandstone_top"
+  }
+}

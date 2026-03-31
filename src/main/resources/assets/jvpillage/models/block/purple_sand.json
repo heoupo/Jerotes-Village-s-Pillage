@@ -1,0 +1,6 @@
+{
+  "parent": "jvpillage:block/base_color_cube_all",
+  "textures": {
+    "all": "jvpillage:block/purple_sand"
+  }
+}
