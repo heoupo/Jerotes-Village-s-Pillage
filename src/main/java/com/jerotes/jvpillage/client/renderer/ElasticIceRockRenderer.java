@@ -1,7 +1,7 @@
 package com.jerotes.jvpillage.client.renderer;
 
 import com.jerotes.jvpillage.JVPillage;
-import com.jerotes.jvpillage.client.model.Modelblock;
+import com.jerotes.jvpillage.client.model.Modelrolling_block;
 import com.jerotes.jvpillage.entity.Shoot.Magic.MagicThrow.ElasticIceRockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -14,12 +14,12 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 
 public class ElasticIceRockRenderer extends EntityRenderer<ElasticIceRockEntity> {
-	private final Modelblock model;
+	private final Modelrolling_block model;
 	private static final ResourceLocation LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/elastic_ice_rock.png");
 
 	public ElasticIceRockRenderer(EntityRendererProvider.Context context) {
 		super(context);
-		model = new Modelblock(context.bakeLayer(Modelblock.LAYER_LOCATION));
+		model = new Modelrolling_block(context.bakeLayer(Modelrolling_block.LAYER_LOCATION));
 	}
 
 	@Override
@@ -30,8 +30,7 @@ public class ElasticIceRockRenderer extends EntityRenderer<ElasticIceRockEntity>
 			double velocity = entityIn.getDeltaMovement().length(); // 运动速度
 			// 旋转角度与速度成正比，速度越大角度增量越快
 			float spinAngle = (entityIn.tickCount + partialTicks) * 10.0f * (float) velocity;
-			poseStack.mulPose(Axis.ZP.rotationDegrees(spinAngle));
-			poseStack.mulPose(Axis.XP.rotationDegrees(spinAngle));
+			poseStack.mulPose(Axis.YP.rotationDegrees(spinAngle));
 		}
 		model.renderToBuffer(poseStack, vb, packedLightIn, OverlayTexture.NO_OVERLAY, 1, 1, 1, 1);
 		poseStack.popPose();
