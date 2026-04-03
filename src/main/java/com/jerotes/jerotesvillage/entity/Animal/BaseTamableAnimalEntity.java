@@ -1,10 +1,11 @@
 package com.jerotes.jerotesvillage.entity.Animal;
 
 import com.jerotes.jerotes.entity.Interface.ChangePoseAbout;
-import com.jerotes.jerotes.entity.Interface.HasHomePosEntity;
 import com.jerotes.jerotes.entity.Interface.JerotesEntity;
-import com.jerotes.jerotes.goal.*;
 import com.jerotes.jerotes.util.AttackFind;
+import com.jerotes.jerotes.entity.Interface.HasHomePosEntity;
+import com.jerotes.jerotes.goal.JerotesBaseTamableAnimalGoHomeGoal;
+import com.jerotes.jerotes.goal.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -40,7 +41,7 @@ public abstract class BaseTamableAnimalEntity extends TamableAnimal implements J
 
 	@Override
 	protected void registerGoals() {
-
+		this.goalSelector.addGoal(0, new JerotesAnimalChangeSitWhenOrderedToGoal(this));
 		this.goalSelector.addGoal(3, new JerotesBaseTamableAnimalGoHomeGoal(this, 1.0f));
 		if (!(this.isJerotesFlyingMob())) {
 			this.goalSelector.addGoal(3, new JerotesAnimalChangeFollowOwnerGoal(this, 1.3, 5.0f, 1.0f, false));
@@ -228,6 +229,11 @@ public abstract class BaseTamableAnimalEntity extends TamableAnimal implements J
 		}
 		//
 		//水
+		if (this.isInWater()) {
+			if (!this.level().isClientSide()) {
+				this.setWaterAnim(Math.min(this.getWaterAnim() + 1, 40));
+			}
+		}
 		else {
 			if (!this.level().isClientSide()) {
 				this.setWaterAnim(Math.max(this.getWaterAnim() - 1, 0));
@@ -241,6 +247,19 @@ public abstract class BaseTamableAnimalEntity extends TamableAnimal implements J
 			return super.hurt(damageSource, amount);
 		}
 		boolean bl = super.hurt(damageSource, amount);
+		if (bl) {
+			//取消坐下
+			if (!this.level().isClientSide()) {
+				if (this.getChangeType() == 1) {
+					if (this.getOwner() instanceof Player player) {
+						this.setChangeType(2, player);
+					}
+					else {
+						this.setChangeType(2);
+					}
+				}
+			}
+		}
 		return bl;
 	}
 

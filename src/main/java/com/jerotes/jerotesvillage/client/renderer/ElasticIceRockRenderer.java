@@ -30,8 +30,7 @@ public class ElasticIceRockRenderer extends EntityRenderer<ElasticIceRockEntity>
 			double velocity = entityIn.getDeltaMovement().length(); // 运动速度
 			// 旋转角度与速度成正比，速度越大角度增量越快
 			float spinAngle = (entityIn.tickCount + partialTicks) * 10.0f * (float) velocity;
-			poseStack.mulPose(Axis.ZP.rotationDegrees(spinAngle));
-			poseStack.mulPose(Axis.XP.rotationDegrees(spinAngle));
+			poseStack.mulPose(Axis.YP.rotationDegrees(spinAngle));
 		}
 		model.renderToBuffer(poseStack, vb, packedLightIn, OverlayTexture.NO_OVERLAY, 1, 1, 1, 1);
 		poseStack.popPose();
