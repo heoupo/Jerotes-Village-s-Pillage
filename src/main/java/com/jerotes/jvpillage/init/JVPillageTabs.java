@@ -71,6 +71,8 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.EXPLORER_LEGGINGS.get());
 						tabData.accept(JVPillageItems.EXPLORER_BOOTS.get());
 						tabData.accept(JVPillageItems.HORNED_HELMET.get());
+						tabData.accept(JVPillageItems.BITTER_COLD_SORCERY_GLOVE.get());
+						tabData.accept(JVPillageItems.GRAVITY_COPPER_BALL.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_HELMET.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_CHESTPLATE.get());

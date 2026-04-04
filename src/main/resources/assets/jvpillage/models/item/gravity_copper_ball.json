@@ -1,0 +1,38 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "textures": {
+    "layer0": "jvpillage:item/gravity_copper_ball",
+    "particle": "jvpillage:item/gravity_copper_ball"
+  },
+  "base": {
+    "parent": "jvpillage:item/base_gravity_copper_ball",
+    "textures": {
+      "0": "jvpillage:item/gravity_copper_ball_model",
+      "particle": "jvpillage:item/gravity_copper_ball"
+    }
+  },
+  "perspectives": {
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "jvpillage:item/gravity_copper_ball"
+      },
+      "gui_light": "front"
+    },
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "jvpillage:item/gravity_copper_ball"
+      },
+      "gui_light": "front"
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "jvpillage:item/gravity_copper_ball"
+      },
+      "gui_light": "front"
+    }
+  }
+}
