@@ -86,6 +86,8 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> OMINOUS_MACE = REGISTRY.register("ominous_mace", () -> new OminousMace());
 	public static final RegistryObject<Item> OMINOUS_BOW = REGISTRY.register("ominous_bow", () -> new OminousBow());
 	public static final RegistryObject<Item> OMINOUS_JAVELIN = REGISTRY.register("ominous_javelin", () -> new OminousJavelin());
+	public static final RegistryObject<Item> BITTER_COLD_SORCERY_GLOVE = REGISTRY.register("bitter_cold_sorcery_glove", () -> new BitterColdSorceryGlove());
+	public static final RegistryObject<Item> GRAVITY_COPPER_BALL = REGISTRY.register("gravity_copper_ball", () -> new GravityCopperBall());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_HAMMER_WHIP = REGISTRY.register("slavery_supervisor_hammer_whip", () -> new SlaverySupervisorHammerWhip());
 	public static final RegistryObject<Item> FIREPOWER_POURER_CHAINSAW = REGISTRY.register("firepower_pourer_chainsaw", () -> new FirepowerPourerChainsaw());
 	public static final RegistryObject<Item> FIREPOWER_POURER_CROSSBOW = REGISTRY.register("firepower_pourer_crossbow", () -> new FirepowerPourerCrossbow());
@@ -103,8 +105,7 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> EXPLORER_LEGGINGS = REGISTRY.register("explorer_leggings", () -> new ExplorerArmor.Leggings());
 	public static final RegistryObject<Item> EXPLORER_BOOTS = REGISTRY.register("explorer_boots", () -> new ExplorerArmor.Boots());
 	public static final RegistryObject<Item> HORNED_HELMET = REGISTRY.register("horned_helmet", () -> new HornedArmor.Helmet());
-	public static final RegistryObject<Item> BITTER_COLD_SORCERY_GLOVE = REGISTRY.register("bitter_cold_sorcery_glove", () -> new BitterColdSorceryGlove());
-	public static final RegistryObject<Item> GRAVITY_COPPER_BALL = REGISTRY.register("gravity_copper_ball", () -> new GravityCopperBall());
+	public static final RegistryObject<Item> WARLOCK_TIARA = REGISTRY.register("warlock_tiara", () -> new WarlockArmor.Helmet());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE = REGISTRY.register("slavery_supervisor_upgrade_smithing_template", () -> new SlaverySupervisorUpgradeSmithingTemplate());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_HELMET = REGISTRY.register("slavery_supervisor_helmet", () -> new SlaverySupervisorArmor.Helmet());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_CHESTPLATE = REGISTRY.register("slavery_supervisor_chestplate", () -> new SlaverySupervisorArmor.Chestplate());

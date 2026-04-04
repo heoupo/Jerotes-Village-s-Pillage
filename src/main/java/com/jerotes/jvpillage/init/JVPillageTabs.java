@@ -54,6 +54,8 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.OMINOUS_MACE.get());
 						tabData.accept(JVPillageItems.OMINOUS_BOW.get());
 						tabData.accept(JVPillageItems.OMINOUS_JAVELIN.get());
+						tabData.accept(JVPillageItems.BITTER_COLD_SORCERY_GLOVE.get());
+						tabData.accept(JVPillageItems.GRAVITY_COPPER_BALL.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_HAMMER_WHIP.get());
 						tabData.accept(JVPillageItems.FIREPOWER_POURER_CHAINSAW.get());
 						tabData.accept(JVPillageItems.FIREPOWER_POURER_CROSSBOW.get());
@@ -71,8 +73,7 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.EXPLORER_LEGGINGS.get());
 						tabData.accept(JVPillageItems.EXPLORER_BOOTS.get());
 						tabData.accept(JVPillageItems.HORNED_HELMET.get());
-						tabData.accept(JVPillageItems.BITTER_COLD_SORCERY_GLOVE.get());
-						tabData.accept(JVPillageItems.GRAVITY_COPPER_BALL.get());
+						tabData.accept(JVPillageItems.WARLOCK_TIARA.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_HELMET.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_CHESTPLATE.get());

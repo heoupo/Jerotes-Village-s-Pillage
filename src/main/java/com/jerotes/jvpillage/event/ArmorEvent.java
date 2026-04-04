@@ -3,12 +3,20 @@ package com.jerotes.jvpillage.event;
 import com.jerotes.jerotes.entity.Interface.EliteEntity;
 import com.jerotes.jerotes.spell.SpellList;
 import com.jerotes.jerotes.util.EntityAndItemFind;
+import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jvpillage.JVPillage;
+import com.jerotes.jvpillage.entity.Boss.OminousBannerProjectionEntity;
+import com.jerotes.jvpillage.entity.Monster.IllagerFaction.NecromancyWarlockEntity;
 import com.jerotes.jvpillage.init.JVPillageItems;
+import com.jerotes.jvpillage.init.JVPillageParticleTypes;
+import com.jerotes.jvpillage.init.JVPillageSoundEvents;
 import com.jerotes.jvpillage.item.BaseHagEye;
+import com.jerotes.jvpillage.spell.OtherSpellList;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -16,11 +24,13 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.AbstractIllager;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.npc.VillagerDataHolder;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.armortrim.ArmorTrim;
@@ -28,14 +38,35 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotResult;
 
+import java.util.List;
 import java.util.Optional;
 
 
 @Mod.EventBusSubscriber
 public class ArmorEvent {
+	public static ItemStack findCurio(LivingEntity livingEntity, Item item) {
+		ItemStack foundStack = ItemStack.EMPTY;
+		if (livingEntity != null) {
+			if (ModList.get().isLoaded("curios")) {
+				Optional<SlotResult> slotResult = CuriosApi.getCuriosInventory(livingEntity).map(inv -> inv.findFirstCurio(item))
+						.orElse(Optional.empty());
+				if (slotResult.isPresent()) {
+					foundStack = slotResult.get().stack();
+				}
+			}
+		}
 
+		return foundStack;
+	}
+
+	public static boolean hasCurio(LivingEntity livingEntity, Item item) {
+		return !findCurio(livingEntity, item).isEmpty();
+	}
 	//大巫婆之帽
 	@SubscribeEvent
 	public static void BigWitchsHat(LivingHurtEvent event) {
@@ -56,6 +87,60 @@ public class ArmorEvent {
 					}
 				}
 			}
+		}
+	}
+	//神汉天冠
+	@SubscribeEvent
+	public static boolean WarlockTiara(LivingHurtEvent event) {
+		if (event == null || event.getEntity() == null || event.getSource() == null) {return false;}
+		LivingEntity living = event.getEntity();
+		DamageSource source = event.getSource();
+		float originalAmount = event.getAmount();
+		float maxHealth = living.getMaxHealth();
+		if (living.level().isClientSide()) return false;
+		if (source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
+		if (originalAmount > maxHealth * 20) return false;
+		boolean hasTiara = living.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_TIARA.get() || hasCurio(living, JVPillageItems.WARLOCK_TIARA.get());
+		if (living.getRandom().nextFloat() < 0.2f && hasTiara) {
+			OtherSpellList.EvilSummoning(3, living, living).spellUse();
+			if (source.is(DamageTypeTags.WITCH_RESISTANT_TO)) {
+				float newAmount = originalAmount * 0.8f;
+				if (!Float.isNaN(newAmount) && !Float.isInfinite(newAmount)) {
+					event.setAmount(newAmount);
+				}
+			}
+		}
+		List<Mob> enemies = living.level().getEntitiesOfClass(Mob.class, living.getBoundingBox().inflate(32.0, 32.0, 32.0));
+		enemies.removeIf(entity -> entity == living || entity.getTarget() == living || !((EntityFactionFind.isRaider(entity) && living.getTeam() == null && entity.getTeam() == null) || entity.isAlliedTo(living)));
+		enemies.removeIf(entity -> entity instanceof NecromancyWarlockEntity || entity instanceof OminousBannerProjectionEntity || entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_TIARA.get() || hasCurio(entity, JVPillageItems.WARLOCK_TIARA.get()));
+		float chance = 0.5f + enemies.size() * 0.05f;
+		if (!enemies.isEmpty() && hasTiara && living.level().getRandom().nextFloat() < chance) {
+			Mob target = enemies.stream().filter(e -> e != null && e.isAlive()).findFirst().orElse(null);
+			if (target != null) {
+				ServerLevel serverLevel = living.level() instanceof ServerLevel sl ? sl : null;
+				spawnDamageIndicatorParticles(serverLevel, living);
+				living.teleportTo(target.getX(), target.getY(), target.getZ());
+				spawnDamageIndicatorParticles(serverLevel, living);
+				if (serverLevel != null && !living.isInvisible()) {
+					serverLevel.sendParticles(JVPillageParticleTypes.OMINOUS_SELECTION_DISPLAY.get(),
+							living.getX(), living.getBoundingBox().maxY + 0.5, living.getZ(), 0, 0.0, 0.0, 0.0, 0);
+				}
+				if (!living.isSilent() && living.getRandom().nextFloat() < 0.5f) {
+					living.level().playSound(null, living.getX(), living.getY(), living.getZ(),
+							JVPillageSoundEvents.NECROMANCY_WARLOCK_SELECTION, living.getSoundSource(),
+							5.0f, 0.8f + living.getRandom().nextFloat() * 0.4f);
+				}
+				target.hurt(source, originalAmount * 0.8f);
+				event.setCanceled(true);
+				return false;
+			}
+		}
+		return false;
+	}
+	private static void spawnDamageIndicatorParticles(ServerLevel level, LivingEntity entity) {
+		if (level == null) return;
+		for (int i = 0; i < 24; i++) {
+			level.sendParticles(ParticleTypes.DAMAGE_INDICATOR, entity.getRandomX(0.5f), entity.getRandomY(), entity.getRandomZ(0.5f), 0, 0, 0.0, 0, 0.0);
 		}
 	}
 
