@@ -100,6 +100,8 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.OMINOUS_MACE.get());
 						tabData.accept(JerotesVillageItems.OMINOUS_BOW.get());
 						tabData.accept(JerotesVillageItems.OMINOUS_JAVELIN.get());
+						tabData.accept(JerotesVillageItems.BITTER_COLD_SORCERY_GLOVE.get());
+						tabData.accept(JerotesVillageItems.GRAVITY_COPPER_BALL.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_HAMMER_WHIP.get());
 						tabData.accept(JerotesVillageItems.FIREPOWER_POURER_CHAINSAW.get());
 						tabData.accept(JerotesVillageItems.FIREPOWER_POURER_CROSSBOW.get());

@@ -151,6 +151,8 @@ public class JerotesVillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> EXPLORER_LEGGINGS = REGISTRY.register("explorer_leggings", () -> new ExplorerArmor.Leggings());
 	public static final RegistryObject<Item> EXPLORER_BOOTS = REGISTRY.register("explorer_boots", () -> new ExplorerArmor.Boots());
 	public static final RegistryObject<Item> HORNED_HELMET = REGISTRY.register("horned_helmet", () -> new HornedArmor.Helmet());
+	public static final RegistryObject<Item> BITTER_COLD_SORCERY_GLOVE = REGISTRY.register("bitter_cold_sorcery_glove", () -> new BitterColdSorceryGlove());
+	public static final RegistryObject<Item> GRAVITY_COPPER_BALL = REGISTRY.register("gravity_copper_ball", () -> new GravityCopperBall());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE = REGISTRY.register("slavery_supervisor_upgrade_smithing_template", () -> new SlaverySupervisorUpgradeSmithingTemplate());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_HELMET = REGISTRY.register("slavery_supervisor_helmet", () -> new SlaverySupervisorArmor.Helmet());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_CHESTPLATE = REGISTRY.register("slavery_supervisor_chestplate", () -> new SlaverySupervisorArmor.Chestplate());

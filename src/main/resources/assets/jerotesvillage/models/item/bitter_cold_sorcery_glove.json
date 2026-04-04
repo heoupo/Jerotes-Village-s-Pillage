@@ -1,0 +1,38 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "textures": {
+    "layer0": "jerotesvillage:item/bitter_cold_sorcery_glove",
+    "particle": "jerotesvillage:item/bitter_cold_sorcery_glove"
+  },
+  "base": {
+    "parent": "jerotesvillage:item/base_throwing_ball_glove",
+    "textures": {
+      "0": "jerotesvillage:item/bitter_cold_sorcery_glove_model",
+      "particle": "jerotesvillage:item/bitter_cold_sorcery_glove"
+    }
+  },
+  "perspectives": {
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "jerotesvillage:item/bitter_cold_sorcery_glove"
+      },
+      "gui_light": "front"
+    },
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "jerotesvillage:item/bitter_cold_sorcery_glove"
+      },
+      "gui_light": "front"
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "jerotesvillage:item/bitter_cold_sorcery_glove"
+      },
+      "gui_light": "front"
+    }
+  }
+}
