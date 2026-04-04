@@ -34,6 +34,34 @@
         }
       ],
       "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance_with_looting",
+          "chance": 0.18,
+          "looting_multiplier": 0.1
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.45,
+                "min": 0.15
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "jvpillage:bitter_cold_sorcery_glove"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "jvpillage:entities/bitter_cold_sorcerer"

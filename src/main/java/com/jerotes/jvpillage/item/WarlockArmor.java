@@ -109,7 +109,7 @@ public abstract class WarlockArmor extends ArmorItem implements ItemModelArmor {
 
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "jerotesvillage:textures/models/armor/warlock_tiara_layer_1.png";
+			return "jvpillage:textures/models/armor/warlock_tiara_layer_1.png";
 		}
 	}
 }

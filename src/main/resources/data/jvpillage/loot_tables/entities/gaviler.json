@@ -42,13 +42,16 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "enchantments": [
-                "jerotes:bane_of_humanoids"
-              ],
-              "function": "minecraft:enchant_randomly"
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.75,
+                "min": 0.25
+              },
+              "function": "minecraft:set_damage"
             }
           ],
-          "name": "minecraft:book"
+          "name": "jvpillage:gravity_copper_ball"
         }
       ],
       "rolls": 1.0
