@@ -42,24 +42,6 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "enchantments": [
-                "jerotes:bane_of_humanoids"
-              ],
-              "function": "minecraft:enchant_randomly"
-            }
-          ],
-          "name": "minecraft:book"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
               "add": false,
               "damage": {
                 "type": "minecraft:uniform",
