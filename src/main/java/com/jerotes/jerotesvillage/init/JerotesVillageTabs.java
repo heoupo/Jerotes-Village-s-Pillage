@@ -119,6 +119,7 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.EXPLORER_LEGGINGS.get());
 						tabData.accept(JerotesVillageItems.EXPLORER_BOOTS.get());
 						tabData.accept(JerotesVillageItems.HORNED_HELMET.get());
+						tabData.accept(JerotesVillageItems.WARLOCK_TIARA.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_HELMET.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_CHESTPLATE.get());
