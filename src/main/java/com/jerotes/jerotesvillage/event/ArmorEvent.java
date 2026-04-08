@@ -102,13 +102,15 @@ public class ArmorEvent {
 		if (source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
 		if (originalAmount > maxHealth * 20) return false;
 		boolean hasTiara = living.getItemBySlot(EquipmentSlot.HEAD).getItem() == JerotesVillageItems.WARLOCK_TIARA.get() || hasCurio(living, JerotesVillageItems.WARLOCK_TIARA.get());
-		if (living.getRandom().nextFloat() < 0.2f && hasTiara) {
-			OtherSpellList.EvilSummoning(3, living, living).spellUse();
-			if (source.is(DamageTypeTags.WITCH_RESISTANT_TO)) {
+		if (hasTiara) {
+			if (EntityAndItemFind.MagicResistance(source)) {
 				float newAmount = originalAmount * 0.8f;
 				if (!Float.isNaN(newAmount) && !Float.isInfinite(newAmount)) {
 					event.setAmount(newAmount);
 				}
+			}
+			if (living.getRandom().nextFloat() < 0.2f) {
+				OtherSpellList.EvilSummoning(3, living, living).spellUse();
 			}
 		}
 		List<Mob> enemies = living.level().getEntitiesOfClass(Mob.class, living.getBoundingBox().inflate(32.0, 32.0, 32.0));
@@ -174,24 +176,6 @@ public class ArmorEvent {
 				);
 				if (head.isPresent()) {
 					ArmorTrim armorTrim = head.get();
-					//火
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "fire_secretor_adhesive"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_FIRE)) {
-							damages -= 0.08f;
-						}
-					}
-					//冰
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "frost_yeti_hair"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_FREEZING)) {
-							damages -= 0.08f;
-						}
-					}
-					//雷
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "lightning_worm_chitin"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_LIGHTNING)) {
-							damages -= 0.08f;
-						}
-					}
 					//水
 					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "malignasaur_teeth"))).get().key())) {
 						if (damageSource.is(DamageTypeTags.IS_DROWNING)) {
@@ -205,24 +189,6 @@ public class ArmorEvent {
 				);
 				if (chestplate.isPresent()) {
 					ArmorTrim armorTrim = chestplate.get();
-					//火
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "fire_secretor_adhesive"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_FIRE)) {
-							damages -= 0.08f;
-						}
-					}
-					//冰
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "frost_yeti_hair"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_FREEZING)) {
-							damages -= 0.08f;
-						}
-					}
-					//雷
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "lightning_worm_chitin"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_LIGHTNING)) {
-							damages -= 0.08f;
-						}
-					}
 					//水
 					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "malignasaur_teeth"))).get().key())) {
 						if (damageSource.is(DamageTypeTags.IS_DROWNING)) {
@@ -236,24 +202,6 @@ public class ArmorEvent {
 				);
 				if (leggings.isPresent()) {
 					ArmorTrim armorTrim = leggings.get();
-					//火
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "fire_secretor_adhesive"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_FIRE)) {
-							damages -= 0.08f;
-						}
-					}
-					//冰
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "frost_yeti_hair"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_FREEZING)) {
-							damages -= 0.08f;
-						}
-					}
-					//雷
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "lightning_worm_chitin"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_LIGHTNING)) {
-							damages -= 0.08f;
-						}
-					}
 					//水
 					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "malignasaur_teeth"))).get().key())) {
 						if (damageSource.is(DamageTypeTags.IS_DROWNING)) {
@@ -267,24 +215,6 @@ public class ArmorEvent {
 				);
 				if (boots.isPresent()) {
 					ArmorTrim armorTrim = boots.get();
-					//火
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "fire_secretor_adhesive"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_FIRE)) {
-							damages -= 0.08f;
-						}
-					}
-					//冰
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "frost_yeti_hair"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_FREEZING)) {
-							damages -= 0.08f;
-						}
-					}
-					//雷
-					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "lightning_worm_chitin"))).get().key())) {
-						if (damageSource.is(DamageTypeTags.IS_LIGHTNING)) {
-							damages -= 0.08f;
-						}
-					}
 					//水
 					if (armorTrim.material().is(livingEntity.level().registryAccess().registryOrThrow(Registries.TRIM_MATERIAL).getHolder(ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(JerotesVillage.MODID, "malignasaur_teeth"))).get().key())) {
 						if (damageSource.is(DamageTypeTags.IS_DROWNING)) {

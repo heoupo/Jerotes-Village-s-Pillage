@@ -3,12 +3,8 @@ package com.jerotes.jerotesvillage.item;
 import com.jerotes.jerotesvillage.JerotesVillage;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderSet;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -22,7 +18,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
@@ -30,12 +25,11 @@ import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Optional;
 
-public class ItemMagicMap extends Item {
+public class ItemNetherMagicMap extends Item {
 	private final String string;
 
-	public ItemMagicMap(Properties properties, String string) {
+	public ItemNetherMagicMap(Properties properties, String string) {
 		super(properties);
 		this.string = string;
 	}
@@ -55,7 +49,7 @@ public class ItemMagicMap extends Item {
 		ItemStack itemStack = player.getItemInHand(interactionHand);
 		player.startUsingItem(interactionHand);
 		//二轮世界判定
-		if (player.level().dimension() == Level.OVERWORLD) {
+		if (player.level().dimension() == Level.NETHER) {
 			player.getCooldowns().addCooldown(this, 20);
 			if (level.isClientSide) {
 				return InteractionResultHolder.success(itemStack);
@@ -64,13 +58,6 @@ public class ItemMagicMap extends Item {
 			BlockPos blockPos = player.getOnPos();
 
 			if (level instanceof ServerLevel serverLevel) {
-				ResourceKey<Structure> targetStructure = ResourceKey.create(
-						Registries.STRUCTURE,
-						new ResourceLocation(JerotesVillage.MODID, this.string)
-				);
-				Registry<Structure> structureRegistry = serverLevel.registryAccess().registryOrThrow(Registries.STRUCTURE);
-				Optional<Holder.Reference<Structure>> structureHolder = structureRegistry.getHolder(targetStructure);
-				HolderSet<Structure> holderSet = HolderSet.direct(structureHolder.get());
 				BlockPos blockPos2 = serverLevel.findNearestMapStructure(
 						TagKey.create(Registries.STRUCTURE, new ResourceLocation(JerotesVillage.MODID, string + "_map")), player.blockPosition(), 100, false);
 				if (blockPos2!= null) {
@@ -94,7 +81,7 @@ public class ItemMagicMap extends Item {
 	@Override
 	public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> list, TooltipFlag tooltipFlag) {
 		super.appendHoverText(itemStack, level, list, tooltipFlag);
-		list.add(Component.translatable("item.jerotesvillage.magic_map.desc").withStyle(ChatFormatting.GRAY));
+		list.add(Component.translatable("item.jerotesvillage.nether_magic_map.desc").withStyle(ChatFormatting.GRAY));
 	}
 
 }

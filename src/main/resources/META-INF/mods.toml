@@ -5,7 +5,7 @@ license="${mod_license}"
 modId="${mod_id}"
 version="${mod_version}"
 logoFile="assets/jerotesvillage/icon.png"
-displayName="JerotesVillage‘s Pillage"
+displayName="JerotesVillage's Pillage"
 authors="${mod_authors}"
 description='''${mod_description}'''
 [[dependencies.${mod_id}]]

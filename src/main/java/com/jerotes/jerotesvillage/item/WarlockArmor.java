@@ -26,7 +26,7 @@ public abstract class WarlockArmor extends ArmorItem implements ItemModelArmor {
 		super(new ArmorMaterial() {
 			@Override
 			public int getDurabilityForType(Type type) {
-				return new int[]{13, 15, 16, 11}[type.getSlot().getIndex()] * 35;
+				return new int[]{13, 15, 16, 11}[type.getSlot().getIndex()] * 72;
 			}
 
 			@Override
@@ -91,7 +91,7 @@ public abstract class WarlockArmor extends ArmorItem implements ItemModelArmor {
 
 	public static class Helmet extends WarlockArmor {
 		public Helmet() {
-			super(Type.HELMET, new Properties().fireResistant().rarity(Rarity.RARE));
+			super(Type.HELMET, new Properties().fireResistant().rarity(Rarity.UNCOMMON));
 		}
 
 		@Override

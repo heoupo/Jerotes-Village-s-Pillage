@@ -68,8 +68,17 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.SPEAR_MACHINE_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.UNICYCLE_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.CARVED_IRON_GOLEM_SPAWN_EGG.get());
-
 						//冒险
+						tabData.accept(JerotesVillageItems.ANCIENT_CITY_MAP.get());
+						tabData.accept(JerotesVillageItems.STRONGHOLD_MAP.get());
+						tabData.accept(JerotesVillageItems.DESERT_PYRAMID_MAP.get());
+						tabData.accept(JerotesVillageItems.JUNGLE_PYRAMID_MAP.get());
+						tabData.accept(JerotesVillageItems.OCEAN_MONUMENT_MAP.get());
+						tabData.accept(JerotesVillageItems.WOODLAND_MANSION_MAP.get());
+						tabData.accept(JerotesVillageItems.BASTION_REMNANT_MAP.get());
+						tabData.accept(JerotesVillageItems.NETHER_FORTRESS_MAP.get());
+						tabData.accept(JerotesVillageItems.RUINED_PORTAL_NETHER_MAP.get());
+						tabData.accept(JerotesVillageItems.END_CITY_MAP.get());
 						tabData.accept(JerotesVillageItems.SECOND_ROUND_ANCHOR_CORE.get());
 						//沉降
 						tabData.accept(JerotesVillageItems.SEDIMENT_MUD_BRICKS.get());

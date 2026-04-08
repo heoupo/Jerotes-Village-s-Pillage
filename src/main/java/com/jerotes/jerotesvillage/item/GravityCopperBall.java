@@ -49,11 +49,11 @@ public class GravityCopperBall extends Item implements MagicItem {
 		if(player.isShiftKeyDown()) {
             if (interactionHand == InteractionHand.MAIN_HAND) {
                 OtherSpellList.FloatingForce(3, player, null).spellUse();
-                player.getCooldowns().addCooldown(this, 100);
+                player.getCooldowns().addCooldown(this, 160);
             }
             if (interactionHand == InteractionHand.OFF_HAND) {
                 OtherSpellList.GravityForce(3, player, null).spellUse();
-                player.getCooldowns().addCooldown(this, 100);
+                player.getCooldowns().addCooldown(this, 160);
             }
 		}
 		damageMagicItem(player, itemStack);
@@ -68,7 +68,7 @@ public class GravityCopperBall extends Item implements MagicItem {
 				.append(Component.translatable("spell.jerotes.spell_base", trueLevel(itemStack))).withStyle(ChatFormatting.DARK_PURPLE));
 		list.add(OtherSpellList.PushForce(2, null, null).getSpellDesc().copy()
 				.withStyle(ChatFormatting.LIGHT_PURPLE));
-		list.add(Component.translatable("spell.jerotes.spell_max_distance", OtherSpellList.GemstoneWaves(3, null, null).getSpellDistance())
+		list.add(Component.translatable("spell.jerotes.spell_max_distance", OtherSpellList.PushForce(3, null, null).getSpellDistance())
 				.withStyle(ChatFormatting.LIGHT_PURPLE));
 		list.add(this.getDisplayName().withStyle(ChatFormatting.GRAY));
 	}
