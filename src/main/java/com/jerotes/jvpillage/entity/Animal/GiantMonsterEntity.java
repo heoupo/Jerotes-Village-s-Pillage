@@ -104,9 +104,9 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 	private static final EntityDataAccessor<Boolean> MANUALLY_CONTROL_COMBAT = SynchedEntityData.defineId(GiantMonsterEntity.class, EntityDataSerializers.BOOLEAN);
 	private static final UUID ARMOR_MODIFIER_UUID = UUID.fromString("BDBEC7F5-C1AE-B628-0905-EBFCCB94B1E3");
 	private static final UUID ARMOR_TOUGHNESS_MODIFIER_UUID = UUID.fromString("6E83DF5F-4A12-6F5F-7DC8-CFC26367E728");
-	private static final UUID CHAMPION_ATTACK_DAMAGE_MODIFIER_UUID = UUID.fromString("013e2a60-12ae-480e-afb5-5d07f8994718");
 	private static final UUID CHAMPION_ARMOR_MODIFIER_UUID = UUID.fromString("72937129-8e1c-4736-ba37-883d1cb716ca");
 	private static final UUID CHAMPION_ARMOR_TOUGHNESS_MODIFIER_UUID = UUID.fromString("8a8f000e-2d64-4eea-b97f-538bfd2e8445");
+	private static final UUID CHAMPION_ATTACK_DAMAGE_MODIFIER_UUID = UUID.fromString("013e2a60-12ae-480e-afb5-5d07f8994718");
 	private static final UUID KNOCKBACK_RESISTANCE_MODIFIER_UUID = UUID.fromString("115D4DA3-C3D2-8031-E678-918AADADF94C");
 	private static final EntityDataAccessor<Byte> DATA_ID_FLAGS = SynchedEntityData.defineId(GiantMonsterEntity.class, EntityDataSerializers.BYTE);
 	private static final Ingredient FOOD_ITEMS = Ingredient.of(new ItemStack(Blocks.ICE), new ItemStack(Blocks.PACKED_ICE), new ItemStack(Blocks.FROSTED_ICE), new ItemStack(Blocks.BLUE_ICE), new ItemStack(JVPillageItems.ICE_ROCK.get()));
@@ -115,16 +115,19 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 	private static final EntityDataAccessor<Integer> THROW_TICK = SynchedEntityData.defineId(GiantMonsterEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Boolean> CHAMPION = SynchedEntityData.defineId(GiantMonsterEntity.class, EntityDataSerializers.BOOLEAN);
 	public AnimationState idleAnimationState = new AnimationState();
-	public AnimationState attackAnimationState = new AnimationState();
+	public AnimationState attack1AnimationState = new AnimationState();
+	public AnimationState attack2AnimationState = new AnimationState();
+	public AnimationState attack3AnimationState = new AnimationState();
 	public AnimationState sitAnimationState = new AnimationState();
 	public AnimationState toSitAnimationState = new AnimationState();
 	public AnimationState stopSitAnimationState = new AnimationState();
+	public AnimationState throwAnimationState = new AnimationState();
 	protected SimpleContainer inventory;
 	private LazyOptional<?> itemHandler = null;
 	public SimpleContainer inventory() {
 		return inventory;
 	}
-//
+	//
 	public GiantMonsterEntity(EntityType<? extends GiantMonsterEntity> type, Level world) {
 		super(type, world);
 		setMaxUpStep(1.6f);
@@ -198,20 +201,20 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 	@Override
 	public void performRangedAttack(LivingEntity livingEntity, float f) {
 		if (this.isChampion()) {
-		if (!this.level().isClientSide()) {
-			this.setThrowTick(100);
-			this.setAnimTick(13);
-			this.setAnimationState("attack");
-		}
-		//法术列表-弹力冰岩
-		OtherSpellList.ElasticIceRock(this.getSpellLevel(), this, livingEntity).spellUse();
+			if (!this.level().isClientSide()) {
+				this.setThrowTick(100);
+				this.setAnimTick(13);
+				this.setAnimationState("throw");
+			}
+			//法术列表-弹力冰岩
+			OtherSpellList.ElasticIceRock(this.getSpellLevel(), this, livingEntity).spellUse();
 		}
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		AttributeSupplier.Builder builder = Mob.createMobAttributes();
-		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.25);
-		builder = builder.add(Attributes.MAX_HEALTH, 110);
+		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.28);
+		builder = builder.add(Attributes.MAX_HEALTH, 130);
 		builder = builder.add(Attributes.ARMOR, 4);
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 1.9);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 12);
@@ -224,7 +227,7 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new JerotesMeleeAttackGoal(this, 1.25, true));
+		this.goalSelector.addGoal(1, new JerotesMeleeAttackGoal(this, 1.5, true));
 		this.goalSelector.addGoal(2, new GiantMonsterWrestleAttackGoal(GiantMonsterEntity.this));
 		this.goalSelector.addGoal(1, new GiantMonsterRangedAttackGoal(this, 1.25, 40, 20.0f));
 		this.goalSelector.addGoal(2, new JerotesBreedGoal(this, 1.0));
@@ -471,62 +474,63 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 	}
 	@Override
 	public void pressMainJerotes(Player player) {
-		AttackFind.individualAttackJerotes(this, 40);
 		if (!this.level().isClientSide()) {
-			this.setAttackTick(0);
-			this.setAnimTick(10);
-			this.setAnimationState("attack");
-		}
-		if (!this.isSilent()) {
-			this.level().playSound(null, this.getX(), this.getY(), this.getZ(), JVPillageSoundEvents.GIANT_MONSTER_ATTACK, this.getSoundSource(), 5.0f, 0.8f + this.random.nextFloat() * 0.4f);
+			int attackRandom = this.getRandom().nextInt(30);
+			if (attackRandom > 20) {
+				this.setAttackTick(20);
+				this.setAnimTick(20);
+				this.setAnimationState("attack1");
+			} else if (attackRandom > 10) {
+				this.setAttackTick(20);
+				this.setAnimTick(20);
+				this.setAnimationState("attack2");
+			} else {
+				this.setAttackTick(25);
+				this.setAnimTick(25);
+				this.setAnimationState("attack3");
+			}
 		}
 	}
 	@Override
 	public void pressAddJerotes(Player player) {
-		AttackFind.individualAttackJerotes(this, 40);
 		if (!this.level().isClientSide()) {
-			this.setAttackTick(10);
-			this.setAnimTick(10);
-			this.setAnimationState("attack");
-		}
-		if (!this.isSilent()) {
-			this.level().playSound(null, this.getX(), this.getY(), this.getZ(), JVPillageSoundEvents.GIANT_MONSTER_ATTACK, this.getSoundSource(), 5.0f, 0.8f + this.random.nextFloat() * 0.4f);
-		}
-	}
-	@Override
-	public void individualAttackJerotes(LivingEntity livingEntity) {
-		AttackFind.attackBegin(this, livingEntity);
-		boolean bl = AttackFind.attackAfter(this, livingEntity, 1f, 1f, false, 0);
-		if (bl) {
-			//群攻
-			List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class, livingEntity.getBoundingBox().inflate(0.5, 0.2, 0.5));
-			for (LivingEntity hurt : list) {
-				if (hurt == null) continue;
-				if (AttackFind.FindCanNotAttack(this, hurt, livingEntity)) continue;
-				if (AttackFind.FindCanNotAttack(this, hurt)) continue;
-				if (!this.hasLineOfSight(hurt)) continue;
-				if (hurt instanceof GiantMonsterEntity giantMonster && giantMonster.getTarget() != this && this.getTarget() != giantMonster)
-					continue;
-				AttackFind.attackBegin(this, hurt);
-				boolean bl2 = AttackFind.attackAfter(this, hurt, 0.5f, 0.5f, false, 0f);
-			}
-			//横扫效果
-			Main.sweepAttack(this);
-			//钟
-			if (this.isBells()) {
-				bellUse(this.getOnPos());
+			int attackRandom = this.getRandom().nextInt(30);
+			if (attackRandom > 20) {
+				this.setAttackTick(20);
+				this.setAnimTick(20);
+				this.setAnimationState("attack1");
+			} else if (attackRandom > 10) {
+				this.setAttackTick(20);
+				this.setAnimTick(20);
+				this.setAnimationState("attack2");
+			} else {
+				this.setAttackTick(25);
+				this.setAnimTick(25);
+				this.setAnimationState("attack3");
 			}
 		}
 	}
 	@Override
 	public boolean canPressMainJerotes() {
-		return this.getAttackTick() <= -10;
+		return this.getAttackTick() <= 0;
 	}
 	@Override
 	public boolean canPressAddJerotes() {
-		return this.getAttackTick() <= -10;
+		return this.getAttackTick() <= 0;
 	}
-
+	public AABB getAttackBoundingBox() {
+		Entity entity = this.getVehicle();
+		AABB aabb;
+		if (entity != null) {
+			AABB aabb1 = entity.getBoundingBox();
+			AABB aabb2 = this.getBoundingBox();
+			aabb = new AABB(Math.min(aabb2.minX, aabb1.minX), aabb2.minY, Math.min(aabb2.minZ, aabb1.minZ), Math.max(aabb2.maxX, aabb1.maxX), aabb2.maxY, Math.max(aabb2.maxZ, aabb1.maxZ));
+		} else {
+			aabb = this.getBoundingBox();
+		}
+		AABB aabb1 = aabb.inflate(Math.sqrt((double)2.04F) - (double)0.6F, 0.0D, Math.sqrt((double)2.04F) - (double)0.6F);
+		return aabb1.inflate(0.15d, 0.15d, 0.15d);
+	}
 	private int sitTick = 0;
 	private int bellTick = 0;
 	public boolean isNoHair() {
@@ -575,13 +579,13 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 		super.setTame(bl);
 		if (bl) {
 			this.setIllagerFaction(false);
-			this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(135.0);
+			this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(145.0);
 			this.setHealth(135.0f);
-			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.3);
+			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.32);
 			this.getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(48);
 		} else {
-			this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(110.0);
-			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.25);
+			this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(130.0);
+			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.28);
 			this.getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(24);
 		}
 	}
@@ -678,8 +682,17 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 		this.entityData.set(ANIM_STATE, id);
 	}
 	public int getAnimationState(String animation) {
-		if (Objects.equals(animation, "attack")){
+		if (Objects.equals(animation, "attack1")){
 			return 1;
+		}
+		else if (Objects.equals(animation, "attack2")){
+			return 2;
+		}
+		else if (Objects.equals(animation, "attack3")){
+			return 3;
+		}
+		else if (Objects.equals(animation, "throw")){
+			return 4;
 		}
 		else {
 			return 0;
@@ -687,7 +700,10 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 	}
 	public List<AnimationState> getAllAnimations(){
 		List<AnimationState> list = new ArrayList<>();
-		list.add(this.attackAnimationState);
+		list.add(this.attack1AnimationState);
+		list.add(this.attack2AnimationState);
+		list.add(this.attack3AnimationState);
+		list.add(this.throwAnimationState);
 		return list;
 	}
 	public void stopMostAnimation(AnimationState exception){
@@ -851,8 +867,20 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 						this.stopAllAnimation();
 						break;
 					case 1:
-						this.attackAnimationState.startIfStopped(this.tickCount);
-						this.stopMostAnimation(this.attackAnimationState);
+						this.attack1AnimationState.startIfStopped(this.tickCount);
+						this.stopMostAnimation(this.attack1AnimationState);
+						break;
+					case 2:
+						this.attack2AnimationState.startIfStopped(this.tickCount);
+						this.stopMostAnimation(this.attack2AnimationState);
+						break;
+					case 3:
+						this.attack3AnimationState.startIfStopped(this.tickCount);
+						this.stopMostAnimation(this.attack3AnimationState);
+						break;
+					case 4:
+						this.throwAnimationState.startIfStopped(this.tickCount);
+						this.stopMostAnimation(this.throwAnimationState);
 						break;
 				}
 			}
@@ -991,6 +1019,9 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 		if (!player.getAbilities().instabuild) {
 			itemStack.shrink(1);
 		}
+		if (!this.level().isClientSide()) {
+			this.setThrowTick((Math.max(0, this.getThrowTick() - 1)));
+		}
 		if (this.random.nextInt(64) == 1 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
 			this.tame(player);
 			this.navigation.stop();
@@ -1110,6 +1141,10 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 		if (!this.level().isClientSide) {
 			this.updatePersistentAnger((ServerLevel)this.level(), true);
 		}
+		//随时间降弹力冰岩冷却
+		if (!this.level().isClientSide()) {
+			this.setThrowTick((Math.max(0, this.getThrowTick() - 1)));
+		}
 		//清除动画
 		if (!this.level().isClientSide()) {
 			this.setAnimTick(Math.max(-1, this.getAnimTick() - 1));
@@ -1119,10 +1154,18 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 				this.setAnimationState(0);
 			}
 		}
-		//攻击
+		//近战攻击
 		if (!this.level().isClientSide()) {
-			this.setAttackTick(Math.max(-10, this.getAttackTick() - 1));
-			this.setThrowTick((Math.max(0, this.getThrowTick() - 1)));
+			this.setAttackTick(Math.max(0, this.getAttackTick() - 1));
+		}
+		if (this.getAttackTick() == 10 && this.isAlive()) {
+			this.trueHurt();
+		}
+		if (this.getAttackTick() > 15) {
+			if (this.getTarget() != null) {
+				this.getLookControl().setLookAt(this.getTarget(), 360f, 360f);
+				this.lookAt(this.getTarget(), 360.0f, 360.0f);
+			}
 		}
 		//清除冻结
 		if (this.getTicksFrozen() > 0) {
@@ -1215,39 +1258,53 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 		if (this.isTrueManuallyControlCombatJerotes()) {
 			return false;
 		}
-		if (this.getAttackTick() > -10) {
+		if (this.getAttackTick() > 0) {
 			return false;
 		}
 		if (!this.level().isClientSide()) {
-			this.setAttackTick(10);
-			this.setAnimTick(10);
-			this.setAnimationState("attack");
-		}
-		boolean bl = super.doHurtTarget(entity);
-		if (bl) {
-			if (!this.isSilent()) {
-				this.level().playSound(null, this.getX(), this.getY(), this.getZ(), JVPillageSoundEvents.GIANT_MONSTER_ATTACK, this.getSoundSource(), 5.0f, 0.8f + this.random.nextFloat() * 0.4f);
-			}
-			//群攻
-			List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class, entity.getBoundingBox().inflate(0.5, 0.2, 0.5));
-			for (LivingEntity hurt : list) {
-				if (hurt == null) continue;
-				if (AttackFind.FindCanNotAttack(this, hurt, entity)) continue;
-				if (AttackFind.FindCanNotAttack(this, hurt)) continue;
-				if (!this.hasLineOfSight(hurt)) continue;
-				if (hurt instanceof GiantMonsterEntity giantMonster && giantMonster.getTarget() != this && this.getTarget() != giantMonster)
-					continue;
-				AttackFind.attackBegin(this, hurt);
-				boolean bl2 = AttackFind.attackAfter(this, hurt, 0.5f, 0.5f, false, 0f);
-			}
-			//横扫效果
-			Main.sweepAttack(this);
-			//钟
-			if (this.isBells()) {
-				bellUse(this.getOnPos());
+			int attackRandom = this.getRandom().nextInt(30);
+			if (attackRandom > 20) {
+				this.setAttackTick(15);
+				this.setAnimTick(15);
+				this.setAnimationState("attack1");
+			} else if (attackRandom > 10) {
+				this.setAttackTick(15);
+				this.setAnimTick(15);
+				this.setAnimationState("attack2");
+			} else {
+				this.setAttackTick(20);
+				this.setAnimTick(15);
+				this.setAnimationState("attack3");
 			}
 		}
-		return bl;
+		//钟
+		if (this.isBells()) {
+			bellUse(this.getOnPos());
+		}
+		return true;
+	}
+
+	public boolean trueHurt() {
+		if (!this.isSilent()) {
+			this.level().playSound(null, this.getX(), this.getY(), this.getZ(), JVPillageSoundEvents.GIANT_MONSTER_ATTACK, this.getSoundSource(), 10.0f, 0.8f + this.random.nextFloat() * 0.4f);
+		}
+
+		float damageMulti = 1.0f;
+		float knockbackMulti = 1.0f;
+		List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class, this.getAttackBoundingBox().inflate(1.25f));
+		for (LivingEntity hurt : list) {
+			if (hurt == null) continue;
+			if (AttackFind.FindCanNotAttack(this, hurt)) continue;
+			if (!this.hasLineOfSight(hurt)) continue;
+			if (!Main.canSee(hurt, this)) continue;
+			if (hurt instanceof GiantMonsterEntity giantMonster && giantMonster.getTarget() != this && this.getTarget() != giantMonster)
+				continue;
+			AttackFind.attackBegin(this, hurt);
+			boolean bl2 = AttackFind.attackAfter(this, hurt, damageMulti, knockbackMulti, false, 0f);
+		}
+		//横扫效果
+		Main.sweepAttack(this);
+		return true;
 	}
 
 	public boolean wrestleTarget(LivingEntity entity) {

@@ -1,7 +1,6 @@
 package com.jerotes.jvpillage.world.inventory;
 
 import net.minecraft.world.Container;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -10,48 +9,11 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
 public class JerotesChestMenu extends AbstractContainerMenu {
-   private static final int SLOTS_PER_ROW = 9;
    private final Container container;
    private final int containerRows;
 
-   private JerotesChestMenu(MenuType<?> p_39224_, int p_39225_, Inventory p_39226_, int p_39227_) {
-      this(p_39224_, p_39225_, p_39226_, new SimpleContainer(9 * p_39227_), p_39227_);
-   }
-
-   public static JerotesChestMenu oneRow(int p_39235_, Inventory p_39236_) {
-      return new JerotesChestMenu(MenuType.GENERIC_9x1, p_39235_, p_39236_, 1);
-   }
-
-   public static JerotesChestMenu twoRows(int p_39244_, Inventory p_39245_) {
-      return new JerotesChestMenu(MenuType.GENERIC_9x2, p_39244_, p_39245_, 2);
-   }
-
-   public static JerotesChestMenu threeRows(int p_39256_, Inventory p_39257_) {
-      return new JerotesChestMenu(MenuType.GENERIC_9x3, p_39256_, p_39257_, 3);
-   }
-
-   public static JerotesChestMenu fourRows(int p_39259_, Inventory p_39260_) {
-      return new JerotesChestMenu(MenuType.GENERIC_9x4, p_39259_, p_39260_, 4);
-   }
-
-   public static JerotesChestMenu fiveRows(int p_39263_, Inventory p_39264_) {
-      return new JerotesChestMenu(MenuType.GENERIC_9x5, p_39263_, p_39264_, 5);
-   }
-
-   public static JerotesChestMenu sixRows(int p_39267_, Inventory p_39268_) {
-      return new JerotesChestMenu(MenuType.GENERIC_9x6, p_39267_, p_39268_, 6);
-   }
-
-   public static JerotesChestMenu oneRow(int p_39235_, Inventory p_39236_, Container p_39240_) {
-      return new JerotesChestMenu(MenuType.GENERIC_9x1, p_39235_, p_39236_, p_39240_, 1);
-   }
-
    public static JerotesChestMenu threeRows(int p_39238_, Inventory p_39239_, Container p_39240_) {
       return new JerotesChestMenu(MenuType.GENERIC_9x3, p_39238_, p_39239_, p_39240_, 3);
-   }
-
-   public static JerotesChestMenu sixRows(int p_39247_, Inventory p_39248_, Container p_39249_) {
-      return new JerotesChestMenu(MenuType.GENERIC_9x6, p_39247_, p_39248_, p_39249_, 6);
    }
 
    public JerotesChestMenu(MenuType<?> p_39229_, int p_39230_, Inventory p_39231_, Container p_39232_, int p_39233_) {
@@ -115,9 +77,5 @@ public class JerotesChestMenu extends AbstractContainerMenu {
 
    public Container getContainer() {
       return this.container;
-   }
-
-   public int getRowCount() {
-      return this.containerRows;
    }
 }

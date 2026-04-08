@@ -23,6 +23,16 @@ public class JVPillageTabs {
 						tabData.accept(CarvedBanner());
 
 						//冒险
+						tabData.accept(JVPillageItems.ANCIENT_CITY_MAP.get());
+						tabData.accept(JVPillageItems.STRONGHOLD_MAP.get());
+						tabData.accept(JVPillageItems.DESERT_PYRAMID_MAP.get());
+						tabData.accept(JVPillageItems.JUNGLE_PYRAMID_MAP.get());
+						tabData.accept(JVPillageItems.OCEAN_MONUMENT_MAP.get());
+						tabData.accept(JVPillageItems.WOODLAND_MANSION_MAP.get());
+						tabData.accept(JVPillageItems.BASTION_REMNANT_MAP.get());
+						tabData.accept(JVPillageItems.NETHER_FORTRESS_MAP.get());
+						tabData.accept(JVPillageItems.RUINED_PORTAL_NETHER_MAP.get());
+						tabData.accept(JVPillageItems.END_CITY_MAP.get());
 						tabData.accept(JVPillageItems.SECOND_ROUND_ANCHOR_CORE.get());
 						//沉降
 						tabData.accept(JVPillageItems.SEDIMENT_MUD_BRICKS.get());

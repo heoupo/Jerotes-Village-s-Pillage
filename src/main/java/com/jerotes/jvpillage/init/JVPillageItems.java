@@ -55,6 +55,20 @@ public class JVPillageItems implements JerotesItemsAdd {
 
 	public static final RegistryObject<Item> AASTRONG_GRASS_BLOCK = fireResistanceEpicBlock(JVPillageBlocks.AASTRONG_GRASS_BLOCK);
 	public static final RegistryObject<Item> AASTRONG_DIRT = fireResistanceEpicBlock(JVPillageBlocks.AASTRONG_DIRT);
+
+	//额外地图-主世界
+	public static final RegistryObject<Item> ANCIENT_CITY_MAP = REGISTRY.register("ancient_city_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "ancient_city"));
+	public static final RegistryObject<Item> STRONGHOLD_MAP = REGISTRY.register("stronghold_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "stronghold"));
+	public static final RegistryObject<Item> DESERT_PYRAMID_MAP = REGISTRY.register("desert_pyramid_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "desert_pyramid"));
+	public static final RegistryObject<Item> JUNGLE_PYRAMID_MAP = REGISTRY.register("jungle_pyramid_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "jungle_pyramid"));
+	public static final RegistryObject<Item> WOODLAND_MANSION_MAP = REGISTRY.register("woodland_mansion_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "woodland_mansion"));
+	public static final RegistryObject<Item> OCEAN_MONUMENT_MAP = REGISTRY.register("ocean_monument_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "ocean_monument"));
+	//额外地图-下界/末地
+	public static final RegistryObject<Item> BASTION_REMNANT_MAP = REGISTRY.register("bastion_remnant_map", () -> new ItemNetherMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "bastion_remnant"));
+	public static final RegistryObject<Item> NETHER_FORTRESS_MAP = REGISTRY.register("nether_fortress_map", () -> new ItemNetherMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "nether_fortress"));
+	public static final RegistryObject<Item> RUINED_PORTAL_NETHER_MAP = REGISTRY.register("ruined_portal_nether_map", () -> new ItemNetherMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "ruined_portal_nether"));
+	public static final RegistryObject<Item> END_CITY_MAP = REGISTRY.register("end_city_map", () -> new ItemEndMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "end_city"));
+
 	//沉降
 	public static final RegistryObject<Item> SEDIMENT_MUD_BRICKS = block(JVPillageBlocks.SEDIMENT_MUD_BRICKS);
 	public static final RegistryObject<Item> SEDIMENT_MUD_BRICK_STAIRS = block(JVPillageBlocks.SEDIMENT_MUD_BRICK_STAIRS);
@@ -75,8 +89,8 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> SECOND_ROUND_WORLD_TELEPORT_STONE = REGISTRY.register("second_round_world_teleport_stone", () -> new ItemDesc(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), 1));
 	public static final RegistryObject<Item> OMINOUS_BANNER_RAID_TAG_DEPLOYER = REGISTRY.register("ominous_banner_raid_tag_deployer", () -> new OminousBannerRaidTagDeployer());
 	public static final RegistryObject<Item> GLORY_BANNER_RAID_TAG_DEPLOYER = REGISTRY.register("glory_banner_raid_tag_deployer", () -> new GloryBannerRaidTagDeployer());
-	public static final RegistryObject<Item> EXPLORER_CAMP_MAP = REGISTRY.register("explorer_camp_map", () -> new ItemMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "explorer_camp"));
-	public static final RegistryObject<Item> ILLAGER_TOWER_MAP = REGISTRY.register("illager_tower_map", () -> new ItemMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "illager_tower"));
+	public static final RegistryObject<Item> EXPLORER_CAMP_MAP = REGISTRY.register("explorer_camp_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "explorer_camp"));
+	public static final RegistryObject<Item> ILLAGER_TOWER_MAP = REGISTRY.register("illager_tower_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "illager_tower"));
 	public static final RegistryObject<Item> EXECUTIONERS_AXE = REGISTRY.register("executioners_axe", () -> new ExecutionersAxe());
 	public static final RegistryObject<Item> EXECUTIONERS_HAMMER = REGISTRY.register("executioners_hammer", () -> new ExecutionersHammer());
 	public static final RegistryObject<Item> EXECUTIONERS_HALBERD = REGISTRY.register("executioners_halberd", () -> new ExecutionersHalberd());
@@ -172,8 +186,8 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> DIRTY_HAGS_CAULDRON = fireResistanceRareBlock(JVPillageBlocks.DIRTY_HAGS_CAULDRON);
 	public static final RegistryObject<Item> NEW_HAGS_CAULDRON = fireResistanceEpicBlock(JVPillageBlocks.NEW_HAGS_CAULDRON);
 	public static final RegistryObject<Item> PURPLE_SANDWICH = REGISTRY.register("purple_sandwich", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food(JVPillageFoods.PURPLE_SANDWICH)));
-	public static final RegistryObject<Item> WITCH_COVEN_MAP = REGISTRY.register("witch_coven_map", () -> new ItemMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "witch_coven"));
-	public static final RegistryObject<Item> WITCH_RESIDENCE_MAP = REGISTRY.register("witch_residence_map", () -> new ItemMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), "witch_residence"));
+	public static final RegistryObject<Item> WITCH_COVEN_MAP = REGISTRY.register("witch_coven_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "witch_coven"));
+	public static final RegistryObject<Item> WITCH_RESIDENCE_MAP = REGISTRY.register("witch_residence_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), "witch_residence"));
 	public static final RegistryObject<Item> SPIRVE_HELMET = REGISTRY.register("spirve_helmet", () -> new SpirveArmor.Helmet());
 	public static final RegistryObject<Item> SPIRVE_CHESTPLATE = REGISTRY.register("spirve_chestplate", () -> new SpirveArmor.Chestplate());
 	public static final RegistryObject<Item> SPIRVE_LEGGINGS = REGISTRY.register("spirve_leggings", () -> new SpirveArmor.Leggings());

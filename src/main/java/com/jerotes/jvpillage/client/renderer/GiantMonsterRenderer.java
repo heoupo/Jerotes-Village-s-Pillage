@@ -16,18 +16,21 @@ import net.minecraft.client.renderer.entity.layers.SaddleLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class GiantMonsterRenderer extends MobRenderer<GiantMonsterEntity, Modelgiant_monster<GiantMonsterEntity>> {
-	private static final ResourceLocation LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster.png");
-	private static final ResourceLocation NO_HAIR_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster_no_hair.png");
-	private static final ResourceLocation ILLAGER_FACTION_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster_illager_faction.png");
-	private static final ResourceLocation NO_HAIR_ILLAGER_FACTION_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster_no_hair_illager_faction.png");
-	private static final ResourceLocation NO_HAIR_RIME_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster_rime_scar.png");
-	private static final ResourceLocation RIME_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster_no_hair_rime_scar.png");
-	private static final ResourceLocation TAME_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster_tame.png");
-	private static final ResourceLocation HORN_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster_horn.png");
-	private static final ResourceLocation SADDLE_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster_saddle.png");
-	private static final ResourceLocation CHAIN_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster_chain.png");
-	private static final ResourceLocation BELL_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster_bell.png");
-	private static final ResourceLocation BITTER_COLD_BELL_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster_bitter_cold_bell.png");
+	private static final ResourceLocation LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster.png");
+	private static final ResourceLocation NO_HAIR_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_no_hair.png");
+	private static final ResourceLocation ILLAGER_FACTION_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_illager_faction.png");
+	private static final ResourceLocation RIME_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_rime_scar.png");
+	private static final ResourceLocation NO_HAIR_ILLAGER_FACTION_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_no_hair_illager_faction.png");
+	private static final ResourceLocation NO_HAIR_RIME_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_no_hair_rime_scar.png");
+	private static final ResourceLocation BABY_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_baby.png");
+	private static final ResourceLocation BABY_ILLAGER_FACTION_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_baby_illager_faction.png");
+	private static final ResourceLocation BABY_RIME_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_baby_rime_scar.png");
+	private static final ResourceLocation TAME_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_tame.png");
+	private static final ResourceLocation HORN_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_horn.png");
+	private static final ResourceLocation SADDLE_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_saddle.png");
+	private static final ResourceLocation CHAIN_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_chain.png");
+	private static final ResourceLocation BELL_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_bell.png");
+	private static final ResourceLocation BITTER_COLD_BELL_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/giant_monster/giant_monster_bitter_cold_bell.png");
 	public GiantMonsterRenderer(EntityRendererProvider.Context context) {
 		super(context, new Modelgiant_monster(context.bakeLayer(Modelgiant_monster.LAYER_LOCATION)), 1.8f);
 		this.addLayer(new TameLayer(this, new Modelgiant_monster(context.bakeLayer(Modelgiant_monster.LAYER_LOCATION)), TAME_LOCATION));
@@ -47,6 +50,15 @@ public class GiantMonsterRenderer extends MobRenderer<GiantMonsterEntity, Modelg
 
 	@Override
 	public ResourceLocation getTextureLocation(GiantMonsterEntity entity) {
+		if (entity.isBaby()) {
+			if (entity.isChampion()) {
+				return BABY_RIME_LOCATION;
+			}
+			else if (entity.isIllagerFaction()) {
+				return BABY_ILLAGER_FACTION_LOCATION;
+			}
+			return BABY_LOCATION;
+		}
 		if (entity.isNoHair()) {
 			if (entity.isChampion()) {
 				return NO_HAIR_RIME_LOCATION;

@@ -101,13 +101,15 @@ public class ArmorEvent {
 		if (source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
 		if (originalAmount > maxHealth * 20) return false;
 		boolean hasTiara = living.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_TIARA.get() || hasCurio(living, JVPillageItems.WARLOCK_TIARA.get());
-		if (living.getRandom().nextFloat() < 0.2f && hasTiara) {
-			OtherSpellList.EvilSummoning(3, living, living).spellUse();
-			if (source.is(DamageTypeTags.WITCH_RESISTANT_TO)) {
+		if (hasTiara) {
+			if (EntityAndItemFind.MagicResistance(source)) {
 				float newAmount = originalAmount * 0.8f;
 				if (!Float.isNaN(newAmount) && !Float.isInfinite(newAmount)) {
 					event.setAmount(newAmount);
 				}
+			}
+			if (living.getRandom().nextFloat() < 0.2f) {
+				OtherSpellList.EvilSummoning(3, living, living).spellUse();
 			}
 		}
 		List<Mob> enemies = living.level().getEntitiesOfClass(Mob.class, living.getBoundingBox().inflate(32.0, 32.0, 32.0));
