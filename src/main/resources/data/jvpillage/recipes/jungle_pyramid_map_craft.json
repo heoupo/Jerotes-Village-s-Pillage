@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:mossy_cobblestone"
+    },
+    {
+      "item": "jvpillage:second_rounder_map"
+    }
+  ],
+  "result": {
+    "item": "jvpillage:jungle_pyramid_map",
+    "count": 1
+  }
+}
