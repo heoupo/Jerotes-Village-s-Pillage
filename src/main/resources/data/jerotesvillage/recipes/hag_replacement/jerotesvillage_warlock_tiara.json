@@ -1,0 +1,13 @@
+{
+  "type": "jerotesvillage:hag_replacement",
+  "base": [
+    {
+      "item": "jerotesvillage:warlock_tiara"
+    }
+  ],
+  "result": [
+    {
+      "item": "jerotesvillage:warlock_fake_tiara"
+    }
+  ]
+}
