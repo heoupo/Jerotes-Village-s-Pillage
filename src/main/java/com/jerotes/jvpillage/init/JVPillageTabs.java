@@ -84,6 +84,7 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.EXPLORER_BOOTS.get());
 						tabData.accept(JVPillageItems.HORNED_HELMET.get());
 						tabData.accept(JVPillageItems.WARLOCK_TIARA.get());
+						tabData.accept(JVPillageItems.WARLOCK_FAKE_TIARA.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_HELMET.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_CHESTPLATE.get());

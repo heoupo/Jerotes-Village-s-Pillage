@@ -102,10 +102,4 @@ public class BossBarEvent {
 			RenderSystem.disableBlend();
 		}
 	}
-
-	@SubscribeEvent
-	public static void onRenderBossBarZsiein(CustomizeGuiOverlayEvent.BossEventProgress event) {
-		ResourceLocation barLocation;
-		LerpingBossEvent bossEvent = event.getBossEvent();
-	}
 }

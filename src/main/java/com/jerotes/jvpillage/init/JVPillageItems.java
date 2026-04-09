@@ -120,6 +120,7 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> EXPLORER_BOOTS = REGISTRY.register("explorer_boots", () -> new ExplorerArmor.Boots());
 	public static final RegistryObject<Item> HORNED_HELMET = REGISTRY.register("horned_helmet", () -> new HornedArmor.Helmet());
 	public static final RegistryObject<Item> WARLOCK_TIARA = REGISTRY.register("warlock_tiara", () -> new WarlockArmor.Helmet());
+	public static final RegistryObject<Item> WARLOCK_FAKE_TIARA = REGISTRY.register("warlock_fake_tiara", () -> new WarlockFakeArmor.Helmet());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE = REGISTRY.register("slavery_supervisor_upgrade_smithing_template", () -> new SlaverySupervisorUpgradeSmithingTemplate());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_HELMET = REGISTRY.register("slavery_supervisor_helmet", () -> new SlaverySupervisorArmor.Helmet());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_CHESTPLATE = REGISTRY.register("slavery_supervisor_chestplate", () -> new SlaverySupervisorArmor.Chestplate());

@@ -41,6 +41,7 @@ public class JVPillageModels {
 		event.registerLayerDefinition(Modelgiant_monster_armor.LAYER_LOCATION, Modelgiant_monster_armor::createBodyLayer);
 		event.registerLayerDefinition(Modelblock.LAYER_LOCATION, Modelblock::createBodyLayer);
 		event.registerLayerDefinition(Modelwarlock_tiara.LAYER_LOCATION, Modelwarlock_tiara::createBodyLayer);
+		event.registerLayerDefinition(Modelwarlock_fake_tiara.LAYER_LOCATION, Modelwarlock_fake_tiara::createBodyLayer);
 		event.registerLayerDefinition(Modelbig_witchs_hat.LAYER_LOCATION, Modelbig_witchs_hat::createBodyLayer);
 		event.registerLayerDefinition(Modelrotten_dog.LAYER_LOCATION, Modelrotten_dog::createBodyLayer);
 		event.registerLayerDefinition(Modelhag.LAYER_LOCATION, Modelhag::createBodyLayer);
