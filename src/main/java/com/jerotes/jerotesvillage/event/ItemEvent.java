@@ -14,16 +14,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -37,83 +31,6 @@ import java.util.Optional;
 
 @Mod.EventBusSubscriber(modid = JerotesVillage.MODID)
 public class ItemEvent {
-	@SubscribeEvent
-	public static void addWeaponEffect(LivingAttackEvent event) {
-		LivingEntity entity = event.getEntity();
-		Entity attackBy = event.getSource().getEntity();
-		float amount = event.getAmount();
-		if (entity == null || !entity.isAlive())
-			return;
-		if (attackBy != null) {
-			ItemStack handItem = null;
-			ItemStack otherHandItem = null;
-			if (attackBy instanceof LivingEntity living) {
-				handItem = living.getMainHandItem();
-				otherHandItem = living.getOffhandItem();
-				if (!EntityAndItemFind.MeleeDamageFromMainHandNotOffHand(living)) {
-					handItem = living.getOffhandItem();
-					otherHandItem = living.getMainHandItem();
-				}
-			}
-			if (attackBy instanceof LivingEntity living && living != entity && event.getSource().getDirectEntity() == living && EntityAndItemFind.isMeleeDamage(event.getSource())) {
-				if (living.getAttribute(Attributes.ATTACK_DAMAGE) != null) {
-					float baseDamage = (float) living.getAttributeValue(Attributes.ATTACK_DAMAGE);
-					if (baseDamage <= 0)
-						return;
-
-
-
-				}
-			}
-		}
-	}
-
-	public static float DaggerCount(float fs, float baseDamage) {
-		final float baseMult = fs / baseDamage;
-		final float softCap = 100f;
-		final float hardCap = 300f;
-		final float maxOutput = 500f;
-
-		if (baseDamage > softCap) {
-			float decay = 0.7f - 0.2f * (baseDamage / hardCap);
-			float scaled = softCap * baseMult;
-
-			float bonus = (float) (Math.log(baseDamage + 1) / Math.log(softCap)) * scaled * decay;
-			return Math.min(Math.max(bonus, scaled), maxOutput + baseDamage * 0.2f);
-		}
-		return Math.min(baseDamage * baseMult, maxOutput);
-	}
-
-	@SubscribeEvent
-	public static void addWeaponDamage(LivingDamageEvent event) {
-		LivingEntity entity = event.getEntity();
-		Entity attackBy = event.getSource().getEntity();
-		float amount = event.getAmount();
-		if (entity == null || !entity.isAlive())
-			return;
-		if (attackBy != null) {
-			ItemStack handItem = null;
-			ItemStack otherHandItem = null;
-			if (attackBy instanceof LivingEntity living) {
-				handItem = living.getMainHandItem();
-				otherHandItem = living.getOffhandItem();
-				if (!EntityAndItemFind.MeleeDamageFromMainHandNotOffHand(living)) {
-					handItem = living.getOffhandItem();
-					otherHandItem = living.getMainHandItem();
-				}
-			}
-			if (attackBy instanceof LivingEntity living) {
-				if (((attackBy instanceof Mob || attackBy instanceof Player)) && event.getSource().getDirectEntity() == living && EntityAndItemFind.isMeleeDamage(event.getSource())) {
-					if (living.getAttribute(Attributes.ATTACK_DAMAGE) != null) {
-						float baseDamage = (float) living.getAttributeValue(Attributes.ATTACK_DAMAGE);
-						if (baseDamage <= 0)
-							return;
-					}
-				}
-			}
-		}
-	}
-
 	@SubscribeEvent
 	public static void addWeaponEffectSelf(LivingEvent.LivingTickEvent event) {
 		LivingEntity entity = event.getEntity();

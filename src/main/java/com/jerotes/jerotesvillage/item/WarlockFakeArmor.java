@@ -1,7 +1,7 @@
 package com.jerotes.jerotesvillage.item;
 
 import com.jerotes.jerotes.item.Interface.ItemModelArmor;
-import com.jerotes.jerotesvillage.client.model.Modelwarlock_tiara;
+import com.jerotes.jerotesvillage.client.model.Modelwarlock_fake_tiara;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
@@ -21,8 +21,8 @@ import java.util.List;
 import java.util.function.Consumer;
 
 
-public abstract class WarlockArmor extends ArmorItem implements ItemModelArmor {
-	public WarlockArmor(Type type, Properties properties) {
+public abstract class WarlockFakeArmor extends ArmorItem implements ItemModelArmor {
+	public WarlockFakeArmor(Type type, Properties properties) {
 		super(new ArmorMaterial() {
 			@Override
 			public int getDurabilityForType(Type type) {
@@ -71,8 +71,8 @@ public abstract class WarlockArmor extends ArmorItem implements ItemModelArmor {
 		super.initializeClient(consumer);
 		consumer.accept(new IClientItemExtensions() {
 			public HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-				Modelwarlock_tiara model = new Modelwarlock_tiara(Minecraft.getInstance().getEntityModels().bakeLayer(
-						Modelwarlock_tiara.LAYER_LOCATION)).getArmor(livingEntity);
+				Modelwarlock_fake_tiara model = new Modelwarlock_fake_tiara(Minecraft.getInstance().getEntityModels().bakeLayer(
+						Modelwarlock_fake_tiara.LAYER_LOCATION)).getArmor(livingEntity);
 				model.hat.visible = equipmentSlot == EquipmentSlot.HEAD;
 				model.body.visible = equipmentSlot == EquipmentSlot.CHEST;
 				model.rightArm.visible = equipmentSlot == EquipmentSlot.CHEST;
@@ -89,9 +89,9 @@ public abstract class WarlockArmor extends ArmorItem implements ItemModelArmor {
 		});
 	}
 
-	public static class Helmet extends WarlockArmor {
+	public static class Helmet extends WarlockFakeArmor {
 		public Helmet() {
-			super(Type.HELMET, new Properties().fireResistant().rarity(Rarity.UNCOMMON));
+			super(Type.HELMET, new Properties().fireResistant().rarity(Rarity.RARE));
 		}
 
 		@Override
@@ -113,7 +113,7 @@ public abstract class WarlockArmor extends ArmorItem implements ItemModelArmor {
 
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "jerotesvillage:textures/models/armor/warlock_tiara_layer_1.png";
+			return "jerotesvillage:textures/models/armor/warlock_fake_tiara_layer_1.png";
 		}
 	}
 }

@@ -89,8 +89,14 @@ public class ArmorEvent {
 			}
 		}
 	}
-
-	//神汉天冠
+	//神汉天冠与神汉伪冠共用粒子生成机制
+	private static void spawnDamageIndicatorParticles(ServerLevel level, LivingEntity entity) {
+		if (level == null) return;
+		for (int i = 0; i < 24; i++) {
+			level.sendParticles(ParticleTypes.DAMAGE_INDICATOR, entity.getRandomX(0.5f), entity.getRandomY(), entity.getRandomZ(0.5f), 0, 0, 0.0, 0, 0.0);
+		}
+	}
+	//神汉天冠和神汉伪冠
 	@SubscribeEvent
 	public static boolean WarlockTiara(LivingHurtEvent event) {
 		if (event == null || event.getEntity() == null || event.getSource() == null) {return false;}
@@ -102,7 +108,8 @@ public class ArmorEvent {
 		if (source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
 		if (originalAmount > maxHealth * 20) return false;
 		boolean hasTiara = living.getItemBySlot(EquipmentSlot.HEAD).getItem() == JerotesVillageItems.WARLOCK_TIARA.get() || hasCurio(living, JerotesVillageItems.WARLOCK_TIARA.get());
-		if (hasTiara) {
+		boolean hasfakeTiara = living.getItemBySlot(EquipmentSlot.HEAD).getItem() == JerotesVillageItems.WARLOCK_FAKE_TIARA.get() || hasCurio(living, JerotesVillageItems.WARLOCK_FAKE_TIARA.get());
+		if (hasTiara || hasfakeTiara) {
 			if (EntityAndItemFind.MagicResistance(source)) {
 				float newAmount = originalAmount * 0.8f;
 				if (!Float.isNaN(newAmount) && !Float.isInfinite(newAmount)) {
@@ -112,18 +119,28 @@ public class ArmorEvent {
 			if (living.getRandom().nextFloat() < 0.2f) {
 				OtherSpellList.EvilSummoning(3, living, living).spellUse();
 			}
-		}
+			else {
+				if (!hasfakeTiara && living.getRandom().nextFloat() < 0.7f) {
+					OtherSpellList.OminousGear(3, living, living).spellUse();
+				}
+				else if (living.getRandom().nextFloat() < 0.3f) {
+					OtherSpellList.PurpleSandPhantom(3, living, living).spellUse();
+				}
+				}
+			}
 		List<Mob> enemies = living.level().getEntitiesOfClass(Mob.class, living.getBoundingBox().inflate(32.0, 32.0, 32.0));
 		enemies.removeIf(entity -> entity == living || entity.getTarget() == living || !((EntityFactionFind.isRaider(entity) && living.getTeam() == null && entity.getTeam() == null) || entity.isAlliedTo(living)));
-		enemies.removeIf(entity -> entity instanceof NecromancyWarlockEntity || entity instanceof OminousBannerProjectionEntity || entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JerotesVillageItems.WARLOCK_TIARA.get() || hasCurio(entity, JerotesVillageItems.WARLOCK_TIARA.get()));
+		enemies.removeIf(entity -> entity instanceof NecromancyWarlockEntity || entity instanceof OminousBannerProjectionEntity || entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JerotesVillageItems.WARLOCK_TIARA.get() || hasCurio(entity, JerotesVillageItems.WARLOCK_TIARA.get()) || entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JerotesVillageItems.WARLOCK_FAKE_TIARA.get() || hasCurio(entity, JerotesVillageItems.WARLOCK_FAKE_TIARA.get()));
 		float chance = 0.5f + enemies.size() * 0.05f;
-		if (!enemies.isEmpty() && hasTiara && living.level().getRandom().nextFloat() < chance) {
+		if (!enemies.isEmpty() && (hasTiara || hasfakeTiara) && living.level().getRandom().nextFloat() < chance) {
 			Mob target = enemies.stream().filter(e -> e != null && e.isAlive()).findFirst().orElse(null);
 			if (target != null) {
 				ServerLevel serverLevel = living.level() instanceof ServerLevel sl ? sl : null;
 				spawnDamageIndicatorParticles(serverLevel, living);
-				living.teleportTo(target.getX(), target.getY(), target.getZ());
-				spawnDamageIndicatorParticles(serverLevel, living);
+				if (!hasfakeTiara) {
+					living.teleportTo(target.getX(), target.getY(), target.getZ());
+					spawnDamageIndicatorParticles(serverLevel, living);
+				}
 				if (serverLevel != null && !living.isInvisible()) {
 					serverLevel.sendParticles(JerotesVillageParticleTypes.OMINOUS_SELECTION_DISPLAY.get(),
 							living.getX(), living.getBoundingBox().maxY + 0.5, living.getZ(), 0, 0.0, 0.0, 0.0, 0);
@@ -133,6 +150,7 @@ public class ArmorEvent {
 							JerotesVillageSoundEvents.NECROMANCY_WARLOCK_SELECTION, living.getSoundSource(),
 							5.0f, 0.8f + living.getRandom().nextFloat() * 0.4f);
 				}
+
 				target.hurt(source, originalAmount * 0.8f);
 				event.setCanceled(true);
 				return false;
@@ -140,12 +158,7 @@ public class ArmorEvent {
 		}
 		return false;
 	}
-	private static void spawnDamageIndicatorParticles(ServerLevel level, LivingEntity entity) {
-		if (level == null) return;
-		for (int i = 0; i < 24; i++) {
-			level.sendParticles(ParticleTypes.DAMAGE_INDICATOR, entity.getRandomX(0.5f), entity.getRandomY(), entity.getRandomZ(0.5f), 0, 0, 0.0, 0, 0.0);
-		}
-	}
+
 
 
 	//鬼婆之眼
