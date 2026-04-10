@@ -109,6 +109,7 @@ public class ArmorEvent {
 		if (originalAmount > maxHealth * 20) return false;
 		boolean hasTiara = living.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_TIARA.get() || hasCurio(living, JVPillageItems.WARLOCK_TIARA.get());
 		boolean hasfakeTiara = living.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_FAKE_TIARA.get() || hasCurio(living, JVPillageItems.WARLOCK_FAKE_TIARA.get());
+		float roll = living.getRandom().nextFloat();
 		if (hasTiara || hasfakeTiara) {
 			if (EntityAndItemFind.MagicResistance(source)) {
 				float newAmount = originalAmount * 0.8f;
@@ -116,14 +117,14 @@ public class ArmorEvent {
 					event.setAmount(newAmount);
 				}
 			}
-			if (living.getRandom().nextFloat() < 0.2f) {
+			if (roll <= 0.2f) {
 				OtherSpellList.EvilSummoning(3, living, living).spellUse();
 			}
 			else {
-				if (!hasfakeTiara && living.getRandom().nextFloat() < 0.7f) {
+				if (hasTiara && roll > 0.2f && roll < 0.7f) {
 					OtherSpellList.OminousGear(3, living, living).spellUse();
 				}
-				else if (living.getRandom().nextFloat() < 0.3f) {
+				if (!hasTiara && roll > 0.2f && roll < 0.3f) {
 					OtherSpellList.PurpleSandPhantom(3, living, living).spellUse();
 				}
 			}
