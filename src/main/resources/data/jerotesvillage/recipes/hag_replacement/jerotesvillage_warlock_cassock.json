@@ -1,0 +1,13 @@
+{
+  "type": "jerotesvillage:hag_replacement",
+  "base": [
+    {
+      "item": "jerotesvillage:warlock_cassock"
+    }
+  ],
+  "result": [
+    {
+      "item": "jerotesvillage:fury_blamer_necromancy_warlock_spawn_egg"
+    }
+  ]
+}

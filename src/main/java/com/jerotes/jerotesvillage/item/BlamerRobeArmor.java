@@ -1,7 +1,8 @@
 package com.jerotes.jerotesvillage.item;
 
 import com.jerotes.jerotes.item.Interface.ItemModelArmor;
-import com.jerotes.jerotesvillage.client.model.Modelwarlock_armor;
+import com.jerotes.jerotesvillage.client.model.Modelblamer_robe;
+import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
@@ -12,7 +13,10 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
@@ -20,23 +24,22 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import java.util.List;
 import java.util.function.Consumer;
 
-
-public abstract class WarlockArmor extends ArmorItem implements ItemModelArmor {
-	public WarlockArmor(Type type, Properties properties) {
+public abstract class BlamerRobeArmor extends ArmorItem implements ItemModelArmor {
+	public BlamerRobeArmor(Type type, Properties properties) {
 		super(new ArmorMaterial() {
 			@Override
 			public int getDurabilityForType(Type type) {
-				return new int[]{13, 15, 16, 11}[type.getSlot().getIndex()] * 72;
+				return new int[]{13, 15, 16, 11}[type.getSlot().getIndex()] * 35;
 			}
 
 			@Override
 			public int getDefenseForType(Type type) {
-				return new int[]{2, 4, 3, 5}[type.getSlot().getIndex()];
+				return new int[]{1, 2, 2, 1}[type.getSlot().getIndex()];
 			}
 
 			@Override
 			public int getEnchantmentValue() {
-				return 45;
+				return 20;
 			}
 
 			@Override
@@ -46,17 +49,17 @@ public abstract class WarlockArmor extends ArmorItem implements ItemModelArmor {
 
 			@Override
 			public Ingredient getRepairIngredient() {
-				return Ingredient.of(new ItemStack(Items.IRON_INGOT));
+				return Ingredient.of(new ItemStack(JerotesVillageItems.BLAMER_SOUL.get()));
 			}
 
 			@Override
 			public String getName() {
-				return "warlock_armor";
+				return "blamer_robe";
 			}
 
 			@Override
 			public float getToughness() {
-				return 1f;
+				return 0f;
 			}
 
 			@Override
@@ -71,8 +74,8 @@ public abstract class WarlockArmor extends ArmorItem implements ItemModelArmor {
 		super.initializeClient(consumer);
 		consumer.accept(new IClientItemExtensions() {
 			public HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-				Modelwarlock_armor model = new Modelwarlock_armor(Minecraft.getInstance().getEntityModels().bakeLayer(
-						Modelwarlock_armor.LAYER_LOCATION)).getArmor(livingEntity);
+				Modelblamer_robe model = new Modelblamer_robe(Minecraft.getInstance().getEntityModels().bakeLayer(
+						Modelblamer_robe.LAYER_LOCATION)).getArmor(livingEntity);
 				model.hat.visible = equipmentSlot == EquipmentSlot.HEAD;
 				model.body.visible = equipmentSlot == EquipmentSlot.CHEST;
 				model.rightArm.visible = equipmentSlot == EquipmentSlot.CHEST;
@@ -89,54 +92,23 @@ public abstract class WarlockArmor extends ArmorItem implements ItemModelArmor {
 		});
 	}
 
-	public static class Helmet extends WarlockArmor {
-		public Helmet() {
-			super(Type.HELMET, new Properties().fireResistant().rarity(Rarity.UNCOMMON));
-		}
-
-		@Override
-		public void appendHoverText(ItemStack itemStack, Level level, List<Component> list, TooltipFlag tooltipFlag) {
-			list.add(this.getDisplayName_0().withStyle(ChatFormatting.GRAY));
-			list.add(this.getDisplayName_1().withStyle(ChatFormatting.GRAY));
-			list.add(this.getDisplayName_2().withStyle(ChatFormatting.GRAY));
-		}
-
-		public MutableComponent getDisplayName_0() {
-			return Component.translatable(this.getDescriptionId() + ".desc_0");
-		}
-		public MutableComponent getDisplayName_1() {
-			return Component.translatable(this.getDescriptionId() + ".desc_1");
-		}
-		public MutableComponent getDisplayName_2() {
-			return Component.translatable(this.getDescriptionId() + ".desc_2");
-		}
-
-		@Override
-		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "jerotesvillage:textures/models/armor/warlock_armor_layer_1.png";
-		}
-	}
-	public static class Chestplate extends WarlockArmor {
+	public static class Chestplate extends BlamerRobeArmor {
 		public Chestplate() {
-			super(Type.CHESTPLATE, new Properties().fireResistant().rarity(Rarity.UNCOMMON));
+			super(Type.CHESTPLATE, new Properties());
 		}
 
 		@Override
 		public void appendHoverText(ItemStack itemStack, Level level, List<Component> list, TooltipFlag tooltipFlag) {
-			list.add(this.getDisplayName_0().withStyle(ChatFormatting.GRAY));
-			list.add(this.getDisplayName_1().withStyle(ChatFormatting.GRAY));
+			list.add(this.getDisplayName().withStyle(ChatFormatting.GRAY));
 		}
 
-		public MutableComponent getDisplayName_0() {
-			return Component.translatable(this.getDescriptionId() + ".desc_0");
-		}
-		public MutableComponent getDisplayName_1() {
-			return Component.translatable(this.getDescriptionId() + ".desc_1");
+		public MutableComponent getDisplayName() {
+			return Component.translatable(this.getDescriptionId() + ".desc");
 		}
 
 		@Override
 		public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-			return "jerotesvillage:textures/models/armor/warlock_armor_layer_1.png";
+			return "jerotesvillage:textures/models/armor/blamer_robe_layer_1.png";
 		}
 	}
 }

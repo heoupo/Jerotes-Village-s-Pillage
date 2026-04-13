@@ -7,6 +7,7 @@ import com.jerotes.jerotesvillage.entity.Animal.RottenDogEntity;
 import com.jerotes.jerotesvillage.entity.Animal.WildernessWolfEntity;
 import com.jerotes.jerotesvillage.entity.Boss.Biome.PurpleSandHagEntity;
 import com.jerotes.jerotesvillage.entity.Boss.OminousBannerProjectionEntity;
+import com.jerotes.jerotesvillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
 import com.jerotes.jerotesvillage.entity.Monster.BoundZombieVillagerEntity;
 import com.jerotes.jerotesvillage.entity.Monster.Elite.BigWitchEntity;
 import com.jerotes.jerotesvillage.entity.Monster.Hag.CohortHagEntity;
@@ -183,6 +184,12 @@ public class JerotesVillageEntityType {
 	public static final RegistryObject<EntityType<WildernessWolfEntity>> WILDERNESS_WOLF = register("wilderness_wolf",
 			EntityType.Builder.of(WildernessWolfEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(16).immuneTo(Blocks.POWDER_SNOW)
 					.sized(0.85f, 1.2f));
+	public static final RegistryObject<EntityType<BlamerNecromancyWarlockEntity>> BLAMER_NECROMANCY_WARLOCK = register("blamer_necromancy_warlock",
+			EntityType.Builder.of(BlamerNecromancyWarlockEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(32)
+					.sized(0.6f, 1.95f));
+	public static final RegistryObject<EntityType<FuryBlamerNecromancyWarlockEntity>> FURY_BLAMER_NECROMANCY_WARLOCK = register("fury_blamer_necromancy_warlock",
+			EntityType.Builder.of(FuryBlamerNecromancyWarlockEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(32)
+					.sized(0.6f, 1.95f));
 	//发射物
 	public static final RegistryObject<EntityType<ThrownJavelinVillagerMetalEntity>> THROWN_VILLAGER_METAL_JAVELIN = register("projectile_throw_villager_metal_javelin",
 			EntityType.Builder.<ThrownJavelinVillagerMetalEntity>of(ThrownJavelinVillagerMetalEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64)
@@ -341,6 +348,8 @@ public class JerotesVillageEntityType {
 		event.put(PURPLE_SAND_PHANTOM.get(), PurpleSandPhantomEntity.createAttributes().build());
 		event.put(WILDERNESS_WOLF.get(), WildernessWolfEntity.createAttributes().build());
 
+		event.put(BLAMER_NECROMANCY_WARLOCK.get(), BlamerNecromancyWarlockEntity.createAttributes().build());
+		event.put(FURY_BLAMER_NECROMANCY_WARLOCK.get(), FuryBlamerNecromancyWarlockEntity.createAttributes().build());
 
 		event.put(BOSS_SHOW_ENTITY_PURPLE_SAND_HAG.get(), BossShowEntity.createAttributes().build());
 		event.put(BOSS_SHOW_ENTITY_OMINOUS_BANNER_PROJECTION.get(), BossShowEntity.createAttributes().build());

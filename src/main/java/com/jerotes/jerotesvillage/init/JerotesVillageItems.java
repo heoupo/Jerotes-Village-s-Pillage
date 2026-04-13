@@ -166,6 +166,7 @@ public class JerotesVillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> EXPLORER_BOOTS = REGISTRY.register("explorer_boots", () -> new ExplorerArmor.Boots());
 	public static final RegistryObject<Item> HORNED_HELMET = REGISTRY.register("horned_helmet", () -> new HornedArmor.Helmet());
 	public static final RegistryObject<Item> WARLOCK_TIARA = REGISTRY.register("warlock_tiara", () -> new WarlockArmor.Helmet());
+	public static final RegistryObject<Item> WARLOCK_CASSOCK = REGISTRY.register("warlock_cassock", () -> new WarlockArmor.Chestplate());
 	public static final RegistryObject<Item> WARLOCK_FAKE_TIARA = REGISTRY.register("warlock_fake_tiara", () -> new WarlockFakeArmor.Helmet());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE = REGISTRY.register("slavery_supervisor_upgrade_smithing_template", () -> new SlaverySupervisorUpgradeSmithingTemplate());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_HELMET = REGISTRY.register("slavery_supervisor_helmet", () -> new SlaverySupervisorArmor.Helmet());
@@ -232,6 +233,8 @@ public class JerotesVillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> UNSTABLE_HAGS_CAULDRON = fireResistanceRareBlock(JerotesVillageBlocks.UNSTABLE_HAGS_CAULDRON);
 	public static final RegistryObject<Item> DIRTY_HAGS_CAULDRON = fireResistanceRareBlock(JerotesVillageBlocks.DIRTY_HAGS_CAULDRON);
 	public static final RegistryObject<Item> NEW_HAGS_CAULDRON = fireResistanceEpicBlock(JerotesVillageBlocks.NEW_HAGS_CAULDRON);
+	public static final RegistryObject<Item> BLAMER_SOUL = REGISTRY.register("blamer_soul", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));
+	public static final RegistryObject<Item> BLAMER_ROBE = REGISTRY.register("blamer_robe", () -> new BlamerRobeArmor.Chestplate());
 	public static final RegistryObject<Item> PURPLE_SANDWICH = REGISTRY.register("purple_sandwich", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food(JerotesVillageFoods.PURPLE_SANDWICH)));
 	public static final RegistryObject<Item> WITCH_COVEN_MAP = REGISTRY.register("witch_coven_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "witch_coven"));
 	public static final RegistryObject<Item> WITCH_RESIDENCE_MAP = REGISTRY.register("witch_residence_map", () -> new ItemOverworldMagicMap(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), "witch_residence"));
@@ -282,6 +285,8 @@ public class JerotesVillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> WITCH_SCHOLAR_SPAWN_EGG = REGISTRY.register("witch_scholar_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.WITCH_SCHOLAR, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> SPIRVE_SPAWN_EGG = REGISTRY.register("spirve_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.SPIRVE, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> ROTTEN_DOG_SPAWN_EGG = REGISTRY.register("rotten_dog_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.ROTTEN_DOG, 0xffffff, 0xffffff, new Item.Properties()));
+	public static final RegistryObject<Item> BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG = REGISTRY.register("blamer_necromancy_warlock_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.BLAMER_NECROMANCY_WARLOCK, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
+	public static final RegistryObject<Item> FURY_BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG = REGISTRY.register("fury_blamer_necromancy_warlock_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.FURY_BLAMER_NECROMANCY_WARLOCK, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
 	public static final RegistryObject<Item> BIG_WITCH_SPAWN_EGG = REGISTRY.register("big_witch_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.BIG_WITCH, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
 	public static final RegistryObject<Item> COHORT_HAG_SPAWN_EGG = REGISTRY.register("cohort_hag_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.COHORT_HAG, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
 	public static final RegistryObject<Item> COVEN_HAG_ONE_SPAWN_EGG = REGISTRY.register("coven_hag_one_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.COVEN_HAG_ONE, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));

@@ -129,6 +129,7 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.EXPLORER_BOOTS.get());
 						tabData.accept(JerotesVillageItems.HORNED_HELMET.get());
 						tabData.accept(JerotesVillageItems.WARLOCK_TIARA.get());
+						tabData.accept(JerotesVillageItems.WARLOCK_CASSOCK.get());
 						tabData.accept(JerotesVillageItems.WARLOCK_FAKE_TIARA.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_HELMET.get());
@@ -193,6 +194,8 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.UNSTABLE_HAGS_CAULDRON.get());
 						tabData.accept(JerotesVillageItems.DIRTY_HAGS_CAULDRON.get());
 						tabData.accept(JerotesVillageItems.NEW_HAGS_CAULDRON.get());
+						tabData.accept(JerotesVillageItems.BLAMER_SOUL.get());
+						tabData.accept(JerotesVillageItems.BLAMER_ROBE.get());
 						tabData.accept(JerotesVillageItems.PURPLE_SANDWICH.get());
 						tabData.accept(JerotesVillageItems.WITCH_COVEN_MAP.get());
 						tabData.accept(JerotesVillageItems.WITCH_RESIDENCE_MAP.get());
@@ -242,6 +245,8 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.PURPLE_SAND_RABBIT_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.WITCH_SCHOLAR_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.SPIRVE_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.FURY_BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.ROTTEN_DOG_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.BIG_WITCH_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.COHORT_HAG_SPAWN_EGG.get());

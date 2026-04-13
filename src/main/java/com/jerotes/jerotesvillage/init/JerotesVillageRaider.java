@@ -112,6 +112,10 @@ public class JerotesVillageRaider {
         if (OtherMainConfig.RaidSpawnSpirve) {
             addWaves("SPIRVE", JerotesVillageEntityType.SPIRVE.get(), OtherMainConfig.RaidSpawnSpirveCount);
         }
+        //怒化恶怨巫神汉
+        if (OtherMainConfig.RaidSpawnFuryBlamerNecromancyWarlock) {
+            addWaves("FURY_BLAMER_NECROMANCY_WARLOCK", JerotesVillageEntityType.FURY_BLAMER_NECROMANCY_WARLOCK.get(), OtherMainConfig.RaidSpawnFuryBlamerNecromancyWarlockCount);
+        }
         //大巫婆
         if (OtherMainConfig.RaidSpawnBigWitch) {
             addWaves("BIG_WITCH", JerotesVillageEntityType.BIG_WITCH.get(), OtherMainConfig.RaidSpawnBigWitchCount);

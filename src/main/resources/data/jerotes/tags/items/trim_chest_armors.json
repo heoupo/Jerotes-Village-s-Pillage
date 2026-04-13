@@ -1,8 +1,11 @@
 {
   "replace": false,
   "values": [
+    "jerotesvillage:blamer_robe",
+
     "jerotesvillage:villager_metal_chestplate",
     "jerotesvillage:giant_monster_chestplate",
+    "jerotesvillage:warlock_cassock",
     "jerotesvillage:explorer_chestplate",
     "jerotesvillage:explorer_iron_chestplate",
     "jerotesvillage:spirve_chestplate",
