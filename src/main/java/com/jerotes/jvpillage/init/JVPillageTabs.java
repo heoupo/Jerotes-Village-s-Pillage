@@ -84,6 +84,7 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.EXPLORER_BOOTS.get());
 						tabData.accept(JVPillageItems.HORNED_HELMET.get());
 						tabData.accept(JVPillageItems.WARLOCK_TIARA.get());
+						tabData.accept(JVPillageItems.WARLOCK_CASSOCK.get());
 						tabData.accept(JVPillageItems.WARLOCK_FAKE_TIARA.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_HELMET.get());
@@ -148,6 +149,8 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.UNSTABLE_HAGS_CAULDRON.get());
 						tabData.accept(JVPillageItems.DIRTY_HAGS_CAULDRON.get());
 						tabData.accept(JVPillageItems.NEW_HAGS_CAULDRON.get());
+						tabData.accept(JVPillageItems.BLAMER_SOUL.get());
+						tabData.accept(JVPillageItems.BLAMER_ROBE.get());
 						tabData.accept(JVPillageItems.PURPLE_SANDWICH.get());
 						tabData.accept(JVPillageItems.WITCH_COVEN_MAP.get());
 						tabData.accept(JVPillageItems.WITCH_RESIDENCE_MAP.get());
@@ -198,6 +201,8 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.WITCH_SCHOLAR_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.SPIRVE_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.ROTTEN_DOG_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.FURY_BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.BIG_WITCH_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.COHORT_HAG_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.COVEN_HAG_ONE_SPAWN_EGG.get());

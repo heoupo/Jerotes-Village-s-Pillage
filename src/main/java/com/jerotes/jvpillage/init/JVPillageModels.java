@@ -40,7 +40,8 @@ public class JVPillageModels {
 		event.registerLayerDefinition(Modelgiant_monster.LAYER_LOCATION, Modelgiant_monster::createBodyLayer);
 		event.registerLayerDefinition(Modelgiant_monster_armor.LAYER_LOCATION, Modelgiant_monster_armor::createBodyLayer);
 		event.registerLayerDefinition(Modelblock.LAYER_LOCATION, Modelblock::createBodyLayer);
-		event.registerLayerDefinition(Modelwarlock_tiara.LAYER_LOCATION, Modelwarlock_tiara::createBodyLayer);
+		event.registerLayerDefinition(Modelwarlock_armor.LAYER_LOCATION, Modelwarlock_armor::createBodyLayer);
+		event.registerLayerDefinition(Modelblamer_robe.LAYER_LOCATION, Modelblamer_robe::createBodyLayer);
 		event.registerLayerDefinition(Modelwarlock_fake_tiara.LAYER_LOCATION, Modelwarlock_fake_tiara::createBodyLayer);
 		event.registerLayerDefinition(Modelbig_witchs_hat.LAYER_LOCATION, Modelbig_witchs_hat::createBodyLayer);
 		event.registerLayerDefinition(Modelrotten_dog.LAYER_LOCATION, Modelrotten_dog::createBodyLayer);
@@ -48,5 +49,8 @@ public class JVPillageModels {
 		event.registerLayerDefinition(Modelgemstone_throwing_knives.LAYER_LOCATION, Modelgemstone_throwing_knives::createBodyLayer);
 		event.registerLayerDefinition(Modelillager.LAYER_LOCATION, Modelillager::createBodyLayer);
 		event.registerLayerDefinition(Modelexecutioner.LAYER_LOCATION, Modelexecutioner::createBodyLayer);
+
+		event.registerLayerDefinition(Modelblamer_necromancy_warlock.LAYER_LOCATION, Modelblamer_necromancy_warlock::createBodyLayer);
+		event.registerLayerDefinition(Modelfury_blamer_necromancy_warlock.LAYER_LOCATION, Modelfury_blamer_necromancy_warlock::createBodyLayer);
 	}
 }

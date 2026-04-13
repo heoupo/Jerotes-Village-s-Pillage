@@ -1,13 +1,17 @@
 package com.jerotes.jvpillage.event;
 
 import com.jerotes.jerotes.entity.Interface.EliteEntity;
+import com.jerotes.jerotes.init.JerotesMobEffects;
 import com.jerotes.jerotes.spell.SpellList;
 import com.jerotes.jerotes.util.EntityAndItemFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jvpillage.JVPillage;
 import com.jerotes.jvpillage.entity.Boss.OminousBannerProjectionEntity;
+import com.jerotes.jvpillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
+import com.jerotes.jvpillage.entity.Monster.IllagerFaction.FuryBlamerNecromancyWarlockEntity;
 import com.jerotes.jvpillage.entity.Monster.IllagerFaction.NecromancyWarlockEntity;
 import com.jerotes.jvpillage.init.JVPillageItems;
+import com.jerotes.jvpillage.init.JVPillageMobEffects;
 import com.jerotes.jvpillage.init.JVPillageParticleTypes;
 import com.jerotes.jvpillage.init.JVPillageSoundEvents;
 import com.jerotes.jvpillage.item.BaseHagEye;
@@ -37,6 +41,8 @@ import net.minecraft.world.item.armortrim.ArmorTrim;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -98,7 +104,7 @@ public class ArmorEvent {
 	}
 	//神汉天冠和神汉伪冠
 	@SubscribeEvent
-	public static boolean WarlockTiara(LivingHurtEvent event) {
+	public static boolean WarlockArmor(LivingHurtEvent event) {
 		if (event == null || event.getEntity() == null || event.getSource() == null) {return false;}
 		LivingEntity living = event.getEntity();
 		DamageSource source = event.getSource();
@@ -108,14 +114,13 @@ public class ArmorEvent {
 		if (source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
 		if (originalAmount > maxHealth * 20) return false;
 		boolean hasTiara = living.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_TIARA.get() || hasCurio(living, JVPillageItems.WARLOCK_TIARA.get());
+		boolean hasCassock = living.getItemBySlot(EquipmentSlot.CHEST).getItem() == JVPillageItems.WARLOCK_CASSOCK.get() || hasCurio(living, JVPillageItems.WARLOCK_CASSOCK.get());
 		boolean hasfakeTiara = living.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_FAKE_TIARA.get() || hasCurio(living, JVPillageItems.WARLOCK_FAKE_TIARA.get());
 		float roll = living.getRandom().nextFloat();
+		float damages = 1;
 		if (hasTiara || hasfakeTiara) {
 			if (EntityAndItemFind.MagicResistance(source)) {
-				float newAmount = originalAmount * 0.8f;
-				if (!Float.isNaN(newAmount) && !Float.isInfinite(newAmount)) {
-					event.setAmount(newAmount);
-				}
+				damages -= 0.2f;
 			}
 			if (roll <= 0.2f) {
 				OtherSpellList.EvilSummoning(3, living, living).spellUse();
@@ -129,9 +134,24 @@ public class ArmorEvent {
 				}
 			}
 		}
+		if (hasCassock) {
+			if (EntityAndItemFind.MagicResistance(source)) {
+				damages -= 0.15f;
+				}
+			living.removeEffect(MobEffects.CONFUSION);
+			living.removeEffect(JVPillageMobEffects.UNCLEAN_BODY.get());
+		}
+		event.setAmount(event.getAmount() * damages);
 		List<Mob> enemies = living.level().getEntitiesOfClass(Mob.class, living.getBoundingBox().inflate(32.0, 32.0, 32.0));
 		enemies.removeIf(entity -> entity == living || entity.getTarget() == living || !((EntityFactionFind.isRaider(entity) && living.getTeam() == null && entity.getTeam() == null) || entity.isAlliedTo(living)));
-		enemies.removeIf(entity -> entity instanceof NecromancyWarlockEntity || entity instanceof OminousBannerProjectionEntity || entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_TIARA.get() || hasCurio(entity, JVPillageItems.WARLOCK_TIARA.get()) || entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_FAKE_TIARA.get() || hasCurio(entity, JVPillageItems.WARLOCK_FAKE_TIARA.get()));
+		enemies.removeIf(entity -> entity instanceof NecromancyWarlockEntity
+				|| entity instanceof BlamerNecromancyWarlockEntity
+				|| entity instanceof FuryBlamerNecromancyWarlockEntity
+				|| entity instanceof OminousBannerProjectionEntity
+				|| entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_TIARA.get()
+				|| hasCurio(entity, JVPillageItems.WARLOCK_TIARA.get())
+				|| entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_FAKE_TIARA.get()
+				|| hasCurio(entity, JVPillageItems.WARLOCK_FAKE_TIARA.get()));
 		float chance = 0.5f + enemies.size() * 0.05f;
 		if (!enemies.isEmpty() && (hasTiara || hasfakeTiara) && living.level().getRandom().nextFloat() < chance) {
 			Mob target = enemies.stream().filter(e -> e != null && e.isAlive()).findFirst().orElse(null);
@@ -273,6 +293,28 @@ public class ArmorEvent {
 			}
 		}
 	}
+	//恶怨长袍
+	@SubscribeEvent
+	public static void BlamerRobeTick(LivingEvent.LivingTickEvent event) {
+		LivingEntity livingEntity = event.getEntity();
+		if (livingEntity == null)
+			return;
+		if (livingEntity.getItemBySlot(EquipmentSlot.CHEST).getItem() == JVPillageItems.BLAMER_ROBE.get()) {
+			if (!livingEntity.level().isClientSide()) {
+				livingEntity.addEffect(new MobEffectInstance((JerotesMobEffects.CLOAKING.get()), 25, 0, false, false), livingEntity);
+			}
+			if (livingEntity.getPersistentData().get("jerotes_cloaking_shift_key_down") != null
+					&& !livingEntity.getPersistentData().getBoolean("jerotes_cloaking_shift_key_down")
+					&& livingEntity.isShiftKeyDown()) {
+				for (int i = 0; i < 7; ++i) {
+					double d = livingEntity.getRandom().nextGaussian() * 0.02;
+					double d2 = livingEntity.getRandom().nextGaussian() * 0.02;
+					double d3 = livingEntity.getRandom().nextGaussian() * 0.02;
+					livingEntity.level().addParticle(JVPillageParticleTypes.BLAMER_SOUL.get(), livingEntity.getRandomX(1.0), livingEntity.getRandomY() + 0.5, livingEntity.getRandomZ(1.0), d, d2, d3);
+				}
+			}
+		}
+	}
 	//奴制监督者套装
 	@SubscribeEvent
 	public static void SlaverySupervisorDeath(LivingDeathEvent event) {
@@ -341,6 +383,23 @@ public class ArmorEvent {
 					}
 				}
 			}
+		}
+	}
+
+	@SubscribeEvent
+	public static void BuffAboutAddEffect(MobEffectEvent event) {
+		LivingEntity livingEntity = event.getEntity();
+		MobEffectInstance mobEffectInstance = event.getEffectInstance();
+		if (livingEntity == null)
+			return;
+		if (mobEffectInstance == null)
+			return;
+		//神汉教袍
+		boolean hasCassock = livingEntity.getItemBySlot(EquipmentSlot.CHEST).getItem() == JVPillageItems.WARLOCK_CASSOCK.get() || hasCurio(livingEntity, JVPillageItems.WARLOCK_CASSOCK.get());
+		if (hasCassock) {
+			if (mobEffectInstance.getEffect() == MobEffects.CONFUSION ||
+					mobEffectInstance.getEffect() == JVPillageMobEffects.UNCLEAN_BODY.get())
+				event.setResult(Event.Result.DENY);
 		}
 	}
 }

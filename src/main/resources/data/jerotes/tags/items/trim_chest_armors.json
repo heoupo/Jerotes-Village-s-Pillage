@@ -1,11 +1,13 @@
 {
   "replace": false,
   "values": [
+    "jvpillage:blamer_robe",
+
     "jvpillage:giant_monster_chestplate",
+    "jvpillage:warlock_cassock",
     "jvpillage:explorer_chestplate",
     "jvpillage:explorer_iron_chestplate",
     "jvpillage:spirve_chestplate",
     "jvpillage:slavery_supervisor_chestplate"
-
   ]
 }

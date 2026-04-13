@@ -1,6 +1,0 @@
-{
-  "parent": "jvpillage:item/villager_metal_bow",
-  "textures": {
-    "layer0": "jvpillage:item/villager_metal_bow_pulling_1"
-  }
-}

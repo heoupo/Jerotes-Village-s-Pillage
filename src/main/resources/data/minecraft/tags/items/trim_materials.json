@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "jvpillage:ocean_gemstone"
+    "jvpillage:blamer_soul",
+    "jvpillage:ocean_gemstone",
+    "jvpillage:malignasaur_teeth"
   ]
 }

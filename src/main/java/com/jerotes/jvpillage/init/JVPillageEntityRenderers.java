@@ -92,6 +92,7 @@ public class JVPillageEntityRenderers {
         event.registerEntityRenderer(JVPillageEntityType.BOSS_SHOW_ENTITY_OMINOUS_BANNER_PROJECTION.get(), BossShowEntityOminousBannerProjectionRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.WILDERNESS_WOLF.get(), WildernessWolfRenderer::new);
 
-
+        event.registerEntityRenderer(JVPillageEntityType.BLAMER_NECROMANCY_WARLOCK.get(), BlamerNecromancyWarlockRenderer::new);
+        event.registerEntityRenderer(JVPillageEntityType.FURY_BLAMER_NECROMANCY_WARLOCK.get(), FuryBlamerNecromancyWarlockRenderer::new);
     }
 }

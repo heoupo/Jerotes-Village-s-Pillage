@@ -234,6 +234,9 @@
   "item.jvpillage.warlock_tiara.desc_0": "佩戴者可以减免20%的魔法抵抗伤害",
   "item.jvpillage.warlock_tiara.desc_1": "佩戴者受击有高概率瞬移到同盟者或无仇恨的袭击者处替伤",
   "item.jvpillage.warlock_tiara.desc_2": "佩戴者受击有20%概率触发邪祟召唤，50%的概率触发不祥齿轮,不会同时触发",
+  "item.jvpillage.warlock_cassock": "神汉教袍",
+  "item.jvpillage.warlock_cassock.desc_0": "佩戴者可以减免15%的魔法抵抗伤害",
+  "item.jvpillage.warlock_cassock.desc_1": "佩戴者清除不洁之身和反胃效果",
   "item.jvpillage.warlock_fake_tiara": "神汉伪冠",
   "item.jvpillage.warlock_fake_tiara.desc_0": "佩戴者可以减免20%的魔法抵抗伤害",
   "item.jvpillage.warlock_fake_tiara.desc_1": "佩戴者受击有高概率令同盟者或无仇恨的袭击者替伤",
@@ -367,8 +370,9 @@
   "block.jvpillage.unstable_hags_cauldron": "不安定的鬼婆之锅",
   "block.jvpillage.dirty_hags_cauldron": "肮脏的鬼婆之锅",
   "block.jvpillage.new_hags_cauldron": "崭新的鬼婆之锅",
-  "item.jvpillage.purple_sand_gecko_tail": "紫沙守宫尾巴",
-  "item.jvpillage.purple_sand_gecko_tail.desc": "放过它吧",
+  "item.jvpillage.blamer_soul": "恶怨魂",
+  "item.jvpillage.blamer_robe": "恶怨长袍",
+  "item.jvpillage.blamer_robe.desc": "潜行进入掩行状态",
   "item.jvpillage.purple_sandwich": "紫沙明治",
   "item.jvpillage.witch_coven_map": "女巫集会地图",
   "filled_map.witch_coven_map": "女巫集会地图",
@@ -444,6 +448,10 @@
   "item.jvpillage.spirve_spawn_egg": "灵奴刷怪蛋",
   "entity.jvpillage.rotten_dog": "馊犬",
   "item.jvpillage.rotten_dog_spawn_egg": "馊犬刷怪蛋",
+  "entity.jvpillage.blamer_necromancy_warlock": "恶怨巫神汉",
+  "item.jvpillage.blamer_necromancy_warlock_spawn_egg": "恶怨巫神汉刷怪蛋",
+  "entity.jvpillage.fury_blamer_necromancy_warlock": "怒化恶怨巫神汉",
+  "item.jvpillage.fury_blamer_necromancy_warlock_spawn_egg": "怒化恶怨巫神汉刷怪蛋",
   "entity.jvpillage.big_witch": "大巫婆",
   "item.jvpillage.big_witch_spawn_egg": "大巫婆刷怪蛋",
   "entity.jvpillage.cohort_hag": "偕行鬼婆",
@@ -1715,8 +1723,7 @@
 
   "gui.jvpillage.hag_replacement": "鬼婆置换",
 
-
-  "trim_material.jvpillage.villager_metal": "村民金属质",
+  "trim_material.jvpillage.blamer_soul": "恶怨魂质",
   "trim_material.jvpillage.ocean_gemstone": "海洋宝石质",
   "trim_material.jvpillage.malignasaur_teeth": "恶鳞牙齿质",
 

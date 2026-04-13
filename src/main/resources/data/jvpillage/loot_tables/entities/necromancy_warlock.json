@@ -55,6 +55,27 @@
         }
       ],
       "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.75,
+                "min": 0.25
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "jvpillage:warlock_cassock"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "jvpillage:entities/necromancy_warlock"
