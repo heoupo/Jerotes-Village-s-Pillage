@@ -99,7 +99,7 @@ public class GravityCopperBall extends Item implements MagicItem {
 
 	@Override
 	public int getSpellLevel(ItemStack itemStack) {
-		return 2;
+		return 3;
 	}
 
 	@Override

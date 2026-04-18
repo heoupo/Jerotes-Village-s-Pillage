@@ -2,20 +2,15 @@ package com.jerotes.jerotesvillage;
 
 import com.jerotes.jerotes.spell.SpellRegistry;
 import com.jerotes.jerotesvillage.client.CilentInit;
-import com.jerotes.jerotesvillage.compat.tacz.MerorsResourceManager;
 import com.jerotes.jerotesvillage.config.OtherMainConfig;
 import com.jerotes.jerotesvillage.init.*;
 import com.jerotes.jerotesvillage.network.OtherPacketHandler;
 import com.jerotes.jerotesvillage.spell.OtherSpellType;
-import com.jerotes.jerotesvillage.util.ViewerNameManager;
 import com.jerotes.jerotesvillage.world.features.StructureFeature;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.inventory.RecipeBookType;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -61,17 +56,6 @@ public class JerotesVillage {
         event.enqueueWork(JerotesVillageItems::setup);
         event.enqueueWork(JerotesVillageSpawnPlacements::init);
         event.enqueueWork(JerotesVillageRaider::addRaiders);
-        event.enqueueWork(() -> {
-            if (ModList.get().isLoaded("tacz")) {
-                // 检查是否需要更新资源
-                if (MerorsResourceManager.needsUpdate()) {
-                    LOGGER.info("Updating MerorsEnergeticGun resources...");
-                    MerorsResourceManager.initializeResources();
-                } else {
-                    LOGGER.info("MerorsEnergeticGun resources are up to date");
-                }
-            }
-        });
     }
 
     private void initClient(final FMLClientSetupEvent event) {
@@ -79,10 +63,5 @@ public class JerotesVillage {
         event.enqueueWork(CilentInit::clientInit);
         event.enqueueWork(() -> {
         });
-    }
-
-    @SubscribeEvent
-    public void onAddReloadListeners(AddReloadListenerEvent event) {
-        event.addListener(ViewerNameManager.getInstance());
     }
 }

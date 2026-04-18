@@ -148,6 +148,7 @@ public class JerotesVillageParticleTypes {
 	public static final RegistryObject<SimpleParticleType> OMINOUS_FLAMES_DISPLAY = REGISTRY.register("ominous_flames_display", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> WILDERNESS_DRIVEN_DISPLAY = REGISTRY.register("wilderness_driven_display", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> ELASTIC_ICE_ROCK_DISPLAY = REGISTRY.register("elastic_ice_rock_display", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> BLOODY_BLAME_SOUL_ASSIST_DISPLAY = REGISTRY.register("bloody_blame_soul_assist_display", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> ARCANE_LIGHT_SPOT_DISPLAY = REGISTRY.register("arcane_light_spot_display", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> ELASTIC_LIGHT_BALL_DISPLAY = REGISTRY.register("elastic_light_ball_display", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> RADIANT_BOMB_DISPLAY = REGISTRY.register("radiant_bomb_display", () -> new SimpleParticleType(true));

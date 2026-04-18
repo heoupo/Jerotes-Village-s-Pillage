@@ -1,8 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "jerotesvillage:block/brown_mud_thorns",
-    "particle": "jerotesvillage:block/brown_mud_thorns"
-  },
-  "render_type": "cutout"
-}

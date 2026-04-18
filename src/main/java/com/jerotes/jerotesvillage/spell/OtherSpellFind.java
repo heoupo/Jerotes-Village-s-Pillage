@@ -8,6 +8,7 @@ import com.jerotes.jerotes.util.AttackFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jerotes.util.Main;
 import com.jerotes.jerotesvillage.entity.Animal.WildernessWolfEntity;
+import com.jerotes.jerotesvillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
 import com.jerotes.jerotesvillage.entity.Monster.Hag.CovenHagEntity;
 import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.DefectorEntity;
 import com.jerotes.jerotesvillage.entity.Monster.SpirveEntity;
@@ -31,9 +32,11 @@ import com.jerotes.jerotesvillage.entity.Shoot.Magic.Ray.SlaverySupervisorChainE
 import com.jerotes.jerotesvillage.entity.Shoot.Magic.Target.FloatingForceEntity;
 import com.jerotes.jerotesvillage.entity.Shoot.Magic.Target.GravityForceEntity;
 import com.jerotes.jerotesvillage.init.JerotesVillageEntityType;
+import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.init.JerotesVillageMobEffects;
 import com.jerotes.jerotesvillage.init.JerotesVillageParticleTypes;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -44,6 +47,8 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -87,6 +92,74 @@ public class OtherSpellFind {
 				iceRock.setOwner(caster);
 				serverLevel.addFreshEntity(iceRock);
 			}
+		}
+		return true;
+	}
+	//血怨魂援$法术
+	public static boolean BloodyBlameSoulAssist(LivingEntity caster, int countMin, int countMax, int summonDistance) {
+		if (caster.level() instanceof ServerLevel serverLevel) {
+			PlayerTeam teams = (PlayerTeam) caster.getTeam();
+			int count = countMin;
+			if (countMin < countMax) {
+				count = caster.getRandom().nextInt(countMin, countMax);
+			}
+			for (int i = 0; i < count; ++i) {
+				BlockPos summonPos = Main.findSpawnPositionNearFillOnBlock(caster, summonDistance);
+				if (caster instanceof Player) {
+					Vec3 startPos = caster.getEyePosition(1.0f);
+					Vec3 viewVector = caster.getViewVector(1.0f);
+					Vec3 endPos = startPos.add(viewVector.scale(summonDistance));
+
+					BlockHitResult hitResult = serverLevel.clip(new ClipContext(
+							startPos, endPos,
+							ClipContext.Block.COLLIDER,
+							ClipContext.Fluid.ANY,
+							caster
+					));
+					Vec3 targetPos = Main.adjustPositionForSolidHit(hitResult, startPos, viewVector, summonDistance);
+					BlockPos playerSummonPos = Main.findSafePosition(serverLevel, targetPos);
+					if (playerSummonPos != null && serverLevel.getBlockState(playerSummonPos).isAir()) {
+						summonPos = playerSummonPos;
+					}
+				}
+				BlamerNecromancyWarlockEntity blamerNecromancyWarlockEntity = JerotesVillageEntityType.BLAMER_NECROMANCY_WARLOCK.get().spawn(serverLevel, BlockPos.containing(summonPos.getX(), summonPos.getY(), summonPos.getZ()), MobSpawnType.MOB_SUMMONED);
+				if (blamerNecromancyWarlockEntity != null) {
+					blamerNecromancyWarlockEntity.setTame(true);
+					blamerNecromancyWarlockEntity.setOwnerUUID(caster.getUUID());
+					if (caster instanceof Player player) {
+						blamerNecromancyWarlockEntity.setChangeType(2, player);
+					}
+					else {
+						blamerNecromancyWarlockEntity.setChangeType(2);
+						if (caster instanceof Mob mob && mob.getTarget() != null) {
+							blamerNecromancyWarlockEntity.setTarget(mob);
+						}
+					}
+					if (caster instanceof Mob mob && mob.getTarget() != null) {
+						blamerNecromancyWarlockEntity.setTarget(mob.getTarget());
+					}
+					//buff集群
+					blamerNecromancyWarlockEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0, false, true), blamerNecromancyWarlockEntity);
+					blamerNecromancyWarlockEntity.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1, false, true), blamerNecromancyWarlockEntity);
+					//粒子效果
+					Item totemItem = JerotesVillageItems.TOTEM_OF_FILTHINESS_GOD.get();
+					ItemStack itemStack = new ItemStack(totemItem);
+					for (int n2 = 0; n2 < 128; ++n2) {
+						serverLevel.sendParticles(ParticleTypes.TOTEM_OF_UNDYING,
+								blamerNecromancyWarlockEntity.getRandomX(3), blamerNecromancyWarlockEntity.getRandomY(), blamerNecromancyWarlockEntity.getRandomZ(3),
+								0, 0.0, 0.0, 0.0,
+								0);
+					}
+					for(int n = 0; n < 16; ++n) {
+						serverLevel.sendParticles(new ItemParticleOption(ParticleTypes.ITEM, itemStack),
+								blamerNecromancyWarlockEntity.getRandomX((double)0.5F),
+								blamerNecromancyWarlockEntity.getRandomY(), blamerNecromancyWarlockEntity.getRandomZ((double)0.5F),
+								0, (double)0.0F, (double)0.0F, (double)0.0F, (double)0.0F);
+					}
+					serverLevel.sendParticles(JerotesVillageParticleTypes.TARGET.get(), blamerNecromancyWarlockEntity.getX(), blamerNecromancyWarlockEntity.getY() + 0.1, blamerNecromancyWarlockEntity.getZ(), 0, 0.0, 0.0, 0.0, 0.0);
+				}
+			}
+			serverLevel.gameEvent(GameEvent.ENTITY_PLACE, new BlockPos((int) caster.getX(), (int) caster.getY(), (int) caster.getZ()), GameEvent.Context.of(caster));
 		}
 		return true;
 	}

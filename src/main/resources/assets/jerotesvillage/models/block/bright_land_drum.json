@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "jerotesvillage:block/bright_land_drum_top",
-    "side": "jerotesvillage:block/bright_land_drum"
-  }
-}

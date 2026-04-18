@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "cac",
+    "ded",
+    " b "
+  ],
+  "key": {
+    "a": {
+      "item": "jerotesvillage:warlock_tiara"
+    },
+    "b": {
+      "item": "jerotesvillage:warlock_cassock"
+    },
+    "c": {
+      "item": "jerotesvillage:ocean_gemstone"
+    },
+    "d": {
+      "item": "jerotesvillage:blamer_soul_lantern"
+    },
+    "e": {
+      "item": "minecraft:totem_of_undying"
+    }
+  },
+  "result": {
+    "item": "jerotesvillage:totem_of_filthiness_god",
+    "count": 1
+  }
+}

@@ -1,17 +1,13 @@
 package com.jerotes.jerotesvillage.event;
 
-import com.jerotes.jerotes.forge.JerotesMerorDamageEvent;
 import com.jerotes.jerotes.init.JerotesMobEffects;
 import com.jerotes.jerotes.init.JerotesSoundEvents;
 import com.jerotes.jerotes.item.Tool.ItemToolBaseBandage;
-import com.jerotes.jerotes.util.EntityAndItemFind;
 import com.jerotes.jerotesvillage.JerotesVillage;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.item.HagEye;
 import com.jerotes.jerotesvillage.item.PurpleSandHagEye;
 import com.jerotes.jerotesvillage.item.Tool.ItemToolBaseThrowingBall;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -25,8 +21,6 @@ import net.minecraftforge.fml.common.Mod;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotResult;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Optional;
 
 @Mod.EventBusSubscriber(modid = JerotesVillage.MODID)
@@ -138,55 +132,5 @@ public class ItemEvent {
 
 	public static boolean hasCurio(LivingEntity livingEntity, Item item) {
 		return !findCurio(livingEntity, item).isEmpty();
-	}
-
-
-	@SubscribeEvent
-	public static void TaczAboutMerorDamage(JerotesMerorDamageEvent event) {
-		DamageSource damageSource = event.getDamageSource();
-		if (damageSource == null)
-			return;
-
-		if (ModList.get().isLoaded("tacz")) {
-			try {
-				Class<?> entityKineticBulletClass = Class.forName("com.tacz.guns.entity.EntityKineticBullet");
-				Class<?> modernKineticGunItemClass = Class.forName("com.tacz.guns.item.ModernKineticGunItem");
-
-				if (damageSource.getDirectEntity() != null) {
-					if (entityKineticBulletClass.isInstance(damageSource.getDirectEntity())) {
-						Object bullet = damageSource.getDirectEntity();
-						Method getAmmoIdMethod = entityKineticBulletClass.getMethod("getAmmoId");
-						ResourceLocation ammoId = (ResourceLocation) getAmmoIdMethod.invoke(bullet);
-
-						if (ammoId.toString().equals("merorsenergeticgun:meror_energy_bottles")) {
-							event.setMerorDamage(true);
-						}
-					}
-				}
-
-				if (EntityAndItemFind.isMeleeDamage(damageSource) && damageSource.getEntity() instanceof LivingEntity livingEntity) {
-					ItemStack handItem = livingEntity.getMainHandItem();
-					ItemStack otherHandItem = livingEntity.getOffhandItem();
-					if (!EntityAndItemFind.MeleeDamageFromMainHandNotOffHand(livingEntity)) {
-						handItem = livingEntity.getOffhandItem();
-						otherHandItem = livingEntity.getOffhandItem();
-					}
-					if (modernKineticGunItemClass.isInstance(handItem.getItem())) {
-						Object gunItem = handItem.getItem();
-						Method getGunIdMethod = modernKineticGunItemClass.getMethod("getGunId", ItemStack.class);
-						ResourceLocation gunId = (ResourceLocation) getGunIdMethod.invoke(gunItem, handItem);
-
-						String string = gunId.toString();
-						if (string.equals("merorsenergeticgun:crimson_cunpowder_storm")
-								|| string.equals("merorsenergeticgun:meror_guardian_pistol_iv")
-								|| string.equals("merorsenergeticgun:star_breaker_assault_rifle")) {
-							event.setMerorDamage(true);
-						}
-					}
-				}
-			} catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException |
-					 InvocationTargetException e) {
-			}
-		}
 	}
 }

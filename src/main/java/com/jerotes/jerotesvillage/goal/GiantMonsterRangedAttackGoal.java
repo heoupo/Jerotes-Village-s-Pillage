@@ -44,7 +44,7 @@ public class GiantMonsterRangedAttackGoal extends Goal {
         if (livingEntity == null || !livingEntity.isAlive()) {
             return false;
         }
-        if (this.mob.getThrowTick() > 0) {
+        if (this.mob.getThrowCount() <= 0) {
             return false;
         }
         if (this.mob.distanceToSqr(livingEntity) < 12) {
@@ -63,7 +63,7 @@ public class GiantMonsterRangedAttackGoal extends Goal {
 
     @Override
     public boolean canContinueToUse() {
-        return this.canUse() || this.target.isAlive() && this.mob.getThrowTick() <= 0  && !this.mob.getNavigation().isDone();
+        return this.canUse() || this.target.isAlive() && this.mob.getThrowCount() > 0 && !this.mob.getNavigation().isDone();
     }
 
     @Override
@@ -98,5 +98,6 @@ public class GiantMonsterRangedAttackGoal extends Goal {
             this.attackTime = Mth.floor(Mth.lerp(Math.sqrt(d) / (double)this.attackRadius, (double)this.attackIntervalMin, (double)this.attackIntervalMax));
         }
     }
+
 }
 

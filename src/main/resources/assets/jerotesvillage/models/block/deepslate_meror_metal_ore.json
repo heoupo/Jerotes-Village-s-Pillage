@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "jerotesvillage:block/deepslate_meror_metal_ore",
-    "particle": "jerotesvillage:block/deepslate_meror_metal_ore"
-  }
-}

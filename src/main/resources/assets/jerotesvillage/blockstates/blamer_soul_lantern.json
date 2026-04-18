@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "jerotesvillage:block/blamer_soul_lantern"
+    },
+    "hanging=true": {
+      "model": "jerotesvillage:block/blamer_soul_lantern_hanging"
+    }
+  }
+}

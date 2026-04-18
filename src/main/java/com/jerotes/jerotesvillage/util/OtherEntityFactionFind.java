@@ -16,14 +16,6 @@ public class OtherEntityFactionFind {
 	public static boolean isHag(EntityType type) {
 		return type.is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("jerotes:hag")));
 	}
-	//是否奇灵
-	public static boolean isWonderlin(EntityType type) {
-		return type.is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("jerotes:wonderlin")));
-	}
-	//是否莫厄机械
-	public static boolean isMerorMachine(EntityType type) {
-		return type.is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("jerotes:meror_machine")));
-	}
 	//是否泽林
 	public static boolean isZsiein(EntityType type) {
 		return type.is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("jerotes:zsiein")));

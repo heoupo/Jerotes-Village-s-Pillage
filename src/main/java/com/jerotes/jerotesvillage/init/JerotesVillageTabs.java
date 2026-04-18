@@ -131,6 +131,7 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.WARLOCK_TIARA.get());
 						tabData.accept(JerotesVillageItems.WARLOCK_CASSOCK.get());
 						tabData.accept(JerotesVillageItems.WARLOCK_FAKE_TIARA.get());
+						tabData.accept(JerotesVillageItems.TOTEM_OF_FILTHINESS_GOD.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_HELMET.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_CHESTPLATE.get());
@@ -189,6 +190,8 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.CUT_PURPLE_SANDSTONE.get());
 						tabData.accept(JerotesVillageItems.CUT_PURPLE_SANDSTONE_SLAB.get());
 						tabData.accept(JerotesVillageItems.ENCHANTED_STONE.get());
+						tabData.accept(JerotesVillageItems.BLAMER_SOUL_TORCH.get());
+						tabData.accept(JerotesVillageItems.BLAMER_SOUL_LANTERN.get());
 						tabData.accept(JerotesVillageItems.SPIRVE_HEAD.get());
 						tabData.accept(JerotesVillageItems.HAGS_CAULDRON.get());
 						tabData.accept(JerotesVillageItems.UNSTABLE_HAGS_CAULDRON.get());

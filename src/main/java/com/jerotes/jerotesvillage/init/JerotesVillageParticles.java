@@ -145,6 +145,7 @@ public class JerotesVillageParticles {
 		event.registerSpriteSet(JerotesVillageParticleTypes.TELEPORT_STONE_TELEPORT_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JerotesVillageParticleTypes.OMINOUS_HORN_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JerotesVillageParticleTypes.ELASTIC_ICE_ROCK_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JerotesVillageParticleTypes.BLOODY_BLAME_SOUL_ASSIST_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JerotesVillageParticleTypes.BITTER_COLD_FROSTBITE_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JerotesVillageParticleTypes.BITTER_COLD_ALTAR_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JerotesVillageParticleTypes.OMINOUS_FLAMES_DISPLAY.get(), DisplayParticle::provider);

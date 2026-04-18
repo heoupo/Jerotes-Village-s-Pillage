@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "jerotesvillage:block/deep_dust_block",
-    "particle": "jerotesvillage:block/deep_dust_block"
-  }
-}

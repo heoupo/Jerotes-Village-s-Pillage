@@ -10,6 +10,7 @@ public enum OtherSpellType implements SpellTypeInterface {
 	JEROTESVILLAGE_BLOODY_SCREAM("jerotesvillage_bloody_scream"),
 	JEROTESVILLAGE_PURPLE_SAND_PHANTOM("jerotesvillage_purple_sand_phantom"),
 	JEROTESVILLAGE_ELASTIC_ICE_ROCK("jerotesvillage_elastic_ice_rock"),
+	JEROTESVILLAGE_BLOODY_BLAME_SOUL_ASSIST("jerotesvillage_bloody_blame_soul_assist"),
 	JEROTESVILLAGE_BITTER_COLD_ICE_SPIKE("jerotesvillage_bitter_cold_ice_spike"),
 	JEROTESVILLAGE_ELASTIC_LIGHT_BALL("jerotesvillage_elastic_light_ball"),
 	JEROTESVILLAGE_RADIANT_BOMB("jerotesvillage_radiant_bomb"),
@@ -43,6 +44,7 @@ public enum OtherSpellType implements SpellTypeInterface {
 			case JEROTESVILLAGE_BLOODY_SCREAM -> OtherSpellList.BloodyScream(level, caster, target);
 			case JEROTESVILLAGE_PURPLE_SAND_PHANTOM -> OtherSpellList.PurpleSandPhantom(level, caster, target);
 			case JEROTESVILLAGE_ELASTIC_ICE_ROCK -> OtherSpellList.ElasticIceRock(level, caster, target);
+			case JEROTESVILLAGE_BLOODY_BLAME_SOUL_ASSIST -> OtherSpellList.BloodyBlameSoulAssist(level, caster, target);
 			case JEROTESVILLAGE_BITTER_COLD_ICE_SPIKE -> OtherSpellList.BitterColdIceSpike(level, caster, target);
 			case JEROTESVILLAGE_ELASTIC_LIGHT_BALL -> OtherSpellList.ElasticLightBall(level, caster, target);
 			case JEROTESVILLAGE_RADIANT_BOMB -> OtherSpellList.RadiantBomb(level, caster, target);
