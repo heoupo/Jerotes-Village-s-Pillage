@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jvpillage:item/totem_of_filthiness_god"
+  }
+}

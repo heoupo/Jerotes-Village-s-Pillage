@@ -122,6 +122,7 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> WARLOCK_TIARA = REGISTRY.register("warlock_tiara", () -> new WarlockArmor.Helmet());
 	public static final RegistryObject<Item> WARLOCK_CASSOCK = REGISTRY.register("warlock_cassock", () -> new WarlockArmor.Chestplate());
 	public static final RegistryObject<Item> WARLOCK_FAKE_TIARA = REGISTRY.register("warlock_fake_tiara", () -> new WarlockFakeArmor.Helmet());
+	public static final RegistryObject<Item> TOTEM_OF_FILTHINESS_GOD = REGISTRY.register("totem_of_filthiness_god", () -> new TotemOfFilthinessGod());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE = REGISTRY.register("slavery_supervisor_upgrade_smithing_template", () -> new SlaverySupervisorUpgradeSmithingTemplate());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_HELMET = REGISTRY.register("slavery_supervisor_helmet", () -> new SlaverySupervisorArmor.Helmet());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_CHESTPLATE = REGISTRY.register("slavery_supervisor_chestplate", () -> new SlaverySupervisorArmor.Chestplate());
@@ -182,6 +183,8 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> CUT_PURPLE_SANDSTONE = block(JVPillageBlocks.CUT_PURPLE_SANDSTONE);
 	public static final RegistryObject<Item> CUT_PURPLE_SANDSTONE_SLAB = block(JVPillageBlocks.CUT_PURPLE_SANDSTONE_SLAB);
 	public static final RegistryObject<Item> ENCHANTED_STONE = block(JVPillageBlocks.ENCHANTED_STONE);
+	public static final RegistryObject<Item> BLAMER_SOUL_TORCH = REGISTRY.register("blamer_soul_torch", () -> new StandingAndWallBlockItem(JVPillageBlocks.BLAMER_SOUL_TORCH.get(), JVPillageBlocks.BLAMER_SOUL_WALL_TORCH.get(), new Item.Properties().fireResistant(), Direction.DOWN));
+	public static final RegistryObject<Item> BLAMER_SOUL_LANTERN = block(JVPillageBlocks.BLAMER_SOUL_LANTERN);
 	public static final RegistryObject<Item> SPIRVE_HEAD = REGISTRY.register("spirve_head", () -> new StandingAndWallBlockItem(JVPillageBlocks.SPIRVE_HEAD.get(), JVPillageBlocks.SPIRVE_WALL_HEAD.get(), new Item.Properties().rarity(Rarity.UNCOMMON), Direction.DOWN));
 	public static final RegistryObject<Item> HAGS_CAULDRON = fireResistanceRareBlock(JVPillageBlocks.HAGS_CAULDRON);
 	public static final RegistryObject<Item> UNSTABLE_HAGS_CAULDRON = fireResistanceRareBlock(JVPillageBlocks.UNSTABLE_HAGS_CAULDRON);

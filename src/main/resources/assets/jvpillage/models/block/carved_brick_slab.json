@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "jvpillage:block/carved_bricks",
-    "side": "jvpillage:block/carved_bricks",
-    "top": "jvpillage:block/carved_bricks"
-  }
-}

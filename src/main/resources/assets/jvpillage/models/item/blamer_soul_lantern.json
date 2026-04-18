@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jvpillage:item/blamer_soul_lantern"
+  },
+  "render_type": "cutout"
+}

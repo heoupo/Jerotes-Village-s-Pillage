@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "jvpillage:block/carved_bricks",
-    "particle": "jvpillage:block/carved_bricks"
-  }
-}

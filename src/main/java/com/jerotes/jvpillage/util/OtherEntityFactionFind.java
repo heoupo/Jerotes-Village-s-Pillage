@@ -8,30 +8,13 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 
 public class OtherEntityFactionFind {
-	//是否铜刻类型生物
-	public static boolean isCarved(EntityType type) {
-		return type.is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("jerotes:carved")));
-	}
 	//是否鬼婆
 	public static boolean isHag(EntityType type) {
 		return type.is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("jerotes:hag")));
 	}
-	//是否奇灵
-	public static boolean isWonderlin(EntityType type) {
-		return type.is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("jerotes:wonderlin")));
-	}
-	//是否莫厄机械
-	public static boolean isMerorMachine(EntityType type) {
-		return type.is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("jerotes:meror_machine")));
-	}
 	//是否泽林
 	public static boolean isZsiein(EntityType type) {
 		return type.is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("jerotes:zsiein")));
-	}
-
-	//铜刻佣兵团 Copper Carved Company
-	public static boolean isFactionCopperCarvedCompany(LivingEntity livingEntity) {
-		return EntityFactionFind.getTrueFaction(livingEntity).equals("copper_carved_company");
 	}
 	//紫沙姐妹会 Purple Sand Sisterhood
 	public static boolean isFactionPurpleSandSisterhood(LivingEntity livingEntity) {

@@ -86,6 +86,7 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.WARLOCK_TIARA.get());
 						tabData.accept(JVPillageItems.WARLOCK_CASSOCK.get());
 						tabData.accept(JVPillageItems.WARLOCK_FAKE_TIARA.get());
+						tabData.accept(JVPillageItems.TOTEM_OF_FILTHINESS_GOD.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_HELMET.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_CHESTPLATE.get());
@@ -144,6 +145,8 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.CUT_PURPLE_SANDSTONE.get());
 						tabData.accept(JVPillageItems.CUT_PURPLE_SANDSTONE_SLAB.get());
 						tabData.accept(JVPillageItems.ENCHANTED_STONE.get());
+						tabData.accept(JVPillageItems.BLAMER_SOUL_TORCH.get());
+						tabData.accept(JVPillageItems.BLAMER_SOUL_LANTERN.get());
 						tabData.accept(JVPillageItems.SPIRVE_HEAD.get());
 						tabData.accept(JVPillageItems.HAGS_CAULDRON.get());
 						tabData.accept(JVPillageItems.UNSTABLE_HAGS_CAULDRON.get());

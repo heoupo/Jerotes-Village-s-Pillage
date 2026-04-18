@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "jvpillage:block/spring_froglight_top",
-    "side": "jvpillage:block/spring_froglight_side"
-  }
-}

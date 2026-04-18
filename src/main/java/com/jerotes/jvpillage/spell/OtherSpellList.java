@@ -4,6 +4,7 @@ import com.jerotes.jerotes.spell.MagicSpell;
 import com.jerotes.jerotes.spell.MagicType;
 import com.jerotes.jerotes.util.Main;
 import com.jerotes.jvpillage.JVPillage;
+import com.jerotes.jvpillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
 import com.jerotes.jvpillage.entity.Other.BitterColdAltarEntity;
 import com.jerotes.jvpillage.entity.Other.PurpleSandPhantomEntity;
 import com.jerotes.jvpillage.entity.Other.UncleanTentacleEntity;
@@ -114,6 +115,32 @@ public class OtherSpellList {
 			}
 			public String getSpellModId() {
 				return JVPillage.MODID;
+			}
+		};
+	}
+
+	//血怨魂援
+	public static MagicSpell BloodyBlameSoulAssist(int n, LivingEntity caster, Entity target) {
+		return new MagicSpell(n, caster, target, MagicType.SELF, MagicType.MAIN, "bloody_blame_soul_assist", JVPillageParticleTypes.BLOODY_BLAME_SOUL_ASSIST_DISPLAY.get(), JVPillageSoundEvents.MAGIC_BLOODY_BLAME_SOUL_ASSIST){
+			public boolean spellFindUse() {
+				return OtherSpellFind.BloodyBlameSoulAssist(getCaster(), 1, 1, 16);
+			}
+			public String getSpellModId() {
+				return JVPillage.MODID;
+			}
+			public int baseSpellLevel() {
+				return 4;
+			}
+			public float getSpellDistance() {
+				return 16;
+			}
+			public boolean canUse() {
+				if (getCaster() != null) {
+					List<BlamerNecromancyWarlockEntity> list = getCaster().level().getEntitiesOfClass(BlamerNecromancyWarlockEntity.class, getCaster().getBoundingBox().inflate(24.0, 24.0, 24.0));
+					list.removeIf(summon -> summon.getOwner() != getCaster());
+					return super.canUse() && list.size() < getSpellLevel();
+				}
+				return super.canUse();
 			}
 		};
 	}

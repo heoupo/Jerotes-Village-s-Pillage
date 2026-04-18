@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "jvpillage:warlock_tiara",
+    "jvpillage:warlock_fake_tiara",
     "jvpillage:hag_eye",
     "jvpillage:purple_sand_hag_eye"
   ]

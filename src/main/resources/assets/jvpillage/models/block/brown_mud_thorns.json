@@ -1,8 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "jvpillage:block/brown_mud_thorns",
-    "particle": "jvpillage:block/brown_mud_thorns"
-  },
-  "render_type": "cutout"
-}

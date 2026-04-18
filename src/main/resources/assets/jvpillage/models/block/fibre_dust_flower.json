@@ -1,8 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "jvpillage:block/fibre_dust_flower",
-    "particle": "jvpillage:block/fibre_dust_flower"
-  },
-  "render_type": "cutout"
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "jvpillage:block/villager_metal_base_block",
-    "particle": "jvpillage:block/villager_metal_base_block"
-  }
-}

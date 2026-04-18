@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_right_open",
-  "textures": {
-    "bottom": "jvpillage:block/villager_metal_door_bottom",
-    "top": "jvpillage:block/villager_metal_door_top"
-  }
-}

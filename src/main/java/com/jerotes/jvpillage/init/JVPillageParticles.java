@@ -145,6 +145,7 @@ public class JVPillageParticles {
 		event.registerSpriteSet(JVPillageParticleTypes.TELEPORT_STONE_TELEPORT_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.OMINOUS_HORN_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.ELASTIC_ICE_ROCK_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JVPillageParticleTypes.BLOODY_BLAME_SOUL_ASSIST_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.BITTER_COLD_FROSTBITE_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.BITTER_COLD_ALTAR_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.OMINOUS_FLAMES_DISPLAY.get(), DisplayParticle::provider);

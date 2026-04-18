@@ -9347,6 +9347,16 @@
       }
     ]
   },
+  "magic_bloody_blame_soul_assist": {
+    "subtitle": "subtitle.jvpillage.magic_bloody_blame_soul_assist",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "jvpillage:others/magic/summon",
+        "volume": 1.0
+      }
+    ]
+  },
   "magic_serpon_fireball": {
     "subtitle": "subtitle.jvpillage.magic_serpon_fireball",
     "category": "neutral",

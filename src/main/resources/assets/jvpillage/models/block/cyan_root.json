@@ -1,8 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "jvpillage:block/cyan_root",
-    "particle": "jvpillage:block/cyan_root"
-  },
-  "render_type": "cutout"
-}

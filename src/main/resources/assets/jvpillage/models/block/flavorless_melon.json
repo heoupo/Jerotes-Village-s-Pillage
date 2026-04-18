@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "jvpillage:block/flavorless_melon_top",
-    "side": "jvpillage:block/flavorless_melon_side"
-  }
-}

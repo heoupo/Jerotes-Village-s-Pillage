@@ -91,6 +91,7 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 public class GiantMonsterEntity extends BaseTamableAnimalEntity implements RangedAttackMob, CanBeIllagerFactionEntity, ControlVehicleEntity, HornableEntity, NeutralMob, ArmorEntity, Saddleable, ContainerListener, HasCustomInventoryScreen, Shearable, IForgeShearable , SpellUseEntity , BannerChampionEntity {
+	private static final EntityDataAccessor<Integer> THROW_COUNT = SynchedEntityData.defineId(GiantMonsterEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Integer> ATTACK_TICK = SynchedEntityData.defineId(GiantMonsterEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Integer> HAIR_TICK = SynchedEntityData.defineId(GiantMonsterEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Integer> HORN_TICK = SynchedEntityData.defineId(GiantMonsterEntity.class, EntityDataSerializers.INT);
@@ -202,9 +203,11 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 	public void performRangedAttack(LivingEntity livingEntity, float f) {
 		if (this.isChampion()) {
 			if (!this.level().isClientSide()) {
-				this.setThrowTick(100);
+				this.setThrowCount(this.getThrowCount()-1);
 				this.setAnimTick(13);
 				this.setAnimationState("throw");
+				if(this.getThrowCount()<=1)
+				{this.setThrowTick(120);}
 			}
 			//法术列表-弹力冰岩
 			OtherSpellList.ElasticIceRock(this.getSpellLevel(), this, livingEntity).spellUse();
@@ -229,7 +232,7 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		this.goalSelector.addGoal(1, new JerotesMeleeAttackGoal(this, 1.5, true));
 		this.goalSelector.addGoal(2, new GiantMonsterWrestleAttackGoal(GiantMonsterEntity.this));
-		this.goalSelector.addGoal(1, new GiantMonsterRangedAttackGoal(this, 1.25, 40, 20.0f));
+		this.goalSelector.addGoal(0, new GiantMonsterRangedAttackGoal(this, 1.25, 13, 20.0f));
 		this.goalSelector.addGoal(2, new JerotesBreedGoal(this, 1.0));
 		this.goalSelector.addGoal(4, new JerotesAnimalChangeTemptGoal(this, 1.1, FOOD_ITEMS, false));
 		this.goalSelector.addGoal(5, new JerotesAnimalChangeFollowParentGoal(this, 1.1));
@@ -628,6 +631,13 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 	public boolean isWearingArmor() {
 		return !this.getItemBySlot(EquipmentSlot.CHEST).isEmpty();
 	}
+	//投掷数量设置
+	public void setThrowCount(int n){
+		this.getEntityData().set(THROW_COUNT, n);
+	}
+	public int getThrowCount(){
+		return this.getEntityData().get(THROW_COUNT);
+	}
 
 	public int spellLevel = 1;
 	@Override
@@ -768,6 +778,7 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 		compoundTag.putInt("SitTick", this.sitTick);
 		compoundTag.putInt("BellTick", this.bellTick);
 		compoundTag.putInt("SpellLevel", this.spellLevel);
+		compoundTag.putInt("ThrowCount", this.getThrowCount());
 		compoundTag.putInt("ThrowTick", this.getThrowTick());
 		compoundTag.putInt("HairTick", this.getHairTick());
 		compoundTag.putInt("HornTick", this.getHornTick());
@@ -799,6 +810,7 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 		this.sitTick = compoundTag.getInt("SitTick");
 		this.bellTick = compoundTag.getInt("BellTick");
 		this.spellLevel = compoundTag.getInt("SpellLevel");
+		this.setThrowCount(compoundTag.getInt("ThrowCount"));
 		this.setThrowTick(compoundTag.getInt("ThrowTick"));
 		this.setHairTick(compoundTag.getInt("HairTick"));
 		this.setHornTick(compoundTag.getInt("HornTick"));
@@ -847,6 +859,7 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 		this.getEntityData().define(HAIR_TICK, 0);
 		this.getEntityData().define(HORN_TICK, 0);
 		this.getEntityData().define(WRESTLE_COOLDOWN, 0);
+		this.getEntityData().define(THROW_COUNT, 5);
 		this.getEntityData().define(THROW_TICK, 0);
 		this.getEntityData().define(NO_HAIR, false);
 		this.getEntityData().define(NO_HORN, false);
@@ -1144,6 +1157,11 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 		//随时间降弹力冰岩冷却
 		if (!this.level().isClientSide()) {
 			this.setThrowTick((Math.max(0, this.getThrowTick() - 1)));
+		}
+		if (!this.level().isClientSide()) {
+			if (getThrowTick()<=0 && getThrowCount()<=0){
+				this.setThrowCount(5);
+			}
 		}
 		//清除动画
 		if (!this.level().isClientSide()) {

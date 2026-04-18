@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "cac",
+    "ded",
+    " b "
+  ],
+  "key": {
+    "a": {
+      "item": "jvpillage:warlock_tiara"
+    },
+    "b": {
+      "item": "jvpillage:warlock_cassock"
+    },
+    "c": {
+      "item": "jvpillage:ocean_gemstone"
+    },
+    "d": {
+      "item": "jvpillage:blamer_soul_lantern"
+    },
+    "e": {
+      "item": "minecraft:totem_of_undying"
+    }
+  },
+  "result": {
+    "item": "jvpillage:totem_of_filthiness_god",
+    "count": 1
+  }
+}

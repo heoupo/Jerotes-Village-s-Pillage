@@ -10,6 +10,7 @@ public enum OtherSpellType implements SpellTypeInterface {
 	JVPILLAGE_BLOODY_SCREAM("jvpillage_bloody_scream"),
 	JVPILLAGE_PURPLE_SAND_PHANTOM("jvpillage_purple_sand_phantom"),
 	JVPILLAGE_ELASTIC_ICE_ROCK("jvpillage_elastic_ice_rock"),
+	JVPILLAGE_BLOODY_BLAME_SOUL_ASSIST("jvpillage_bloody_blame_soul_assist"),
 	JVPILLAGE_BITTER_COLD_ICE_SPIKE("jvpillage_bitter_cold_ice_spike"),
 	JVPILLAGE_ELASTIC_LIGHT_BALL("jvpillage_elastic_light_ball"),
 	JVPILLAGE_RADIANT_BOMB("jvpillage_radiant_bomb"),
@@ -43,6 +44,7 @@ public enum OtherSpellType implements SpellTypeInterface {
 			case JVPILLAGE_BLOODY_SCREAM -> OtherSpellList.BloodyScream(level, caster, target);
 			case JVPILLAGE_PURPLE_SAND_PHANTOM -> OtherSpellList.PurpleSandPhantom(level, caster, target);
 			case JVPILLAGE_ELASTIC_ICE_ROCK -> OtherSpellList.ElasticIceRock(level, caster, target);
+			case JVPILLAGE_BLOODY_BLAME_SOUL_ASSIST -> OtherSpellList.BloodyBlameSoulAssist(level, caster, target);
 			case JVPILLAGE_BITTER_COLD_ICE_SPIKE -> OtherSpellList.BitterColdIceSpike(level, caster, target);
 			case JVPILLAGE_ELASTIC_LIGHT_BALL -> OtherSpellList.ElasticLightBall(level, caster, target);
 			case JVPILLAGE_RADIANT_BOMB -> OtherSpellList.RadiantBomb(level, caster, target);

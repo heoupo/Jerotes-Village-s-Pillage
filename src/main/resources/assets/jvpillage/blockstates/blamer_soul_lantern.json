@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "jvpillage:block/blamer_soul_lantern"
+    },
+    "hanging=true": {
+      "model": "jvpillage:block/blamer_soul_lantern_hanging"
+    }
+  }
+}
