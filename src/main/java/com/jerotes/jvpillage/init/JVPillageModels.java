@@ -50,6 +50,7 @@ public class JVPillageModels {
 		event.registerLayerDefinition(Modelillager.LAYER_LOCATION, Modelillager::createBodyLayer);
 		event.registerLayerDefinition(Modelexecutioner.LAYER_LOCATION, Modelexecutioner::createBodyLayer);
 
+		event.registerLayerDefinition(Modelfake_malialosaur.LAYER_LOCATION, Modelfake_malialosaur::createBodyLayer);
 		event.registerLayerDefinition(Modelblamer_necromancy_warlock.LAYER_LOCATION, Modelblamer_necromancy_warlock::createBodyLayer);
 		event.registerLayerDefinition(Modelfury_blamer_necromancy_warlock.LAYER_LOCATION, Modelfury_blamer_necromancy_warlock::createBodyLayer);
 	}

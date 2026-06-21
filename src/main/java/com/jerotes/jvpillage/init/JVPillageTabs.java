@@ -204,6 +204,7 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.WITCH_SCHOLAR_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.SPIRVE_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.ROTTEN_DOG_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.FAKE_MALIALOSAUR_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.FURY_BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.BIG_WITCH_SPAWN_EGG.get());

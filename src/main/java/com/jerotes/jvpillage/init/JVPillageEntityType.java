@@ -1,14 +1,10 @@
 package com.jerotes.jvpillage.init;
 
 import com.jerotes.jvpillage.JVPillage;
-import com.jerotes.jvpillage.entity.Animal.GiantMonsterEntity;
-import com.jerotes.jvpillage.entity.Animal.PurpleSandRabbitEntity;
-import com.jerotes.jvpillage.entity.Animal.RottenDogEntity;
-import com.jerotes.jvpillage.entity.Animal.WildernessWolfEntity;
+import com.jerotes.jvpillage.entity.Animal.*;
 import com.jerotes.jvpillage.entity.Boss.Biome.PurpleSandHagEntity;
 import com.jerotes.jvpillage.entity.Boss.OminousBannerProjectionEntity;
 import com.jerotes.jvpillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
-import com.jerotes.jvpillage.entity.Monster.IllagerFaction.FuryBlamerNecromancyWarlockEntity;
 import com.jerotes.jvpillage.entity.Monster.BoundZombieVillagerEntity;
 import com.jerotes.jvpillage.entity.Monster.Elite.BigWitchEntity;
 import com.jerotes.jvpillage.entity.Monster.Hag.CohortHagEntity;
@@ -179,6 +175,9 @@ public class JVPillageEntityType {
 	public static final RegistryObject<EntityType<FuryBlamerNecromancyWarlockEntity>> FURY_BLAMER_NECROMANCY_WARLOCK = register("fury_blamer_necromancy_warlock",
 			EntityType.Builder.of(FuryBlamerNecromancyWarlockEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(32)
 					.sized(0.6f, 1.95f));
+	public static final RegistryObject<EntityType<FakeMalialosaurEntity>> FAKE_MALIALOSAUR = register("fake_malialosaur",
+			EntityType.Builder.of(FakeMalialosaurEntity::new, MobCategory.WATER_CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(16)
+					.sized(2.0f, 1.25f));
 	//发射物
 	public static final RegistryObject<EntityType<OminousBombEntity>> OMINOUS_BOMB = register("ominous_bomb",
 			EntityType.Builder.<OminousBombEntity>of(OminousBombEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(10)
@@ -324,8 +323,10 @@ public class JVPillageEntityType {
 		event.put(PURPLE_SAND_HAG.get(), PurpleSandHagEntity.createAttributes().build());
 		event.put(PURPLE_SAND_PHANTOM.get(), PurpleSandPhantomEntity.createAttributes().build());
 		event.put(WILDERNESS_WOLF.get(), WildernessWolfEntity.createAttributes().build());
+		event.put(FAKE_MALIALOSAUR.get(), FakeMalialosaurEntity.createAttributes().build());
 		event.put(BLAMER_NECROMANCY_WARLOCK.get(), BlamerNecromancyWarlockEntity.createAttributes().build());
 		event.put(FURY_BLAMER_NECROMANCY_WARLOCK.get(), FuryBlamerNecromancyWarlockEntity.createAttributes().build());
+
 
 		event.put(BOSS_SHOW_ENTITY_PURPLE_SAND_HAG.get(), BossShowEntity.createAttributes().build());
 		event.put(BOSS_SHOW_ENTITY_OMINOUS_BANNER_PROJECTION.get(), BossShowEntity.createAttributes().build());

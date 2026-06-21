@@ -1,0 +1,13 @@
+{
+  "type": "jvpillage:hag_replacement",
+  "base": [
+    {
+      "item": "jvpillage:malignasaur_teeth"
+    }
+  ],
+  "result": [
+    {
+      "item": "jvpillage:fake_malialosaur_spawn_egg"
+    }
+  ]
+}

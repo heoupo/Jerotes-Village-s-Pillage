@@ -3940,52 +3940,52 @@
       }
     ]
   },
-  "malialosaur_ambient": {
-    "subtitle": "subtitle.jvpillage.malialosaur_ambient",
+  "fake_malialosaur_ambient": {
+    "subtitle": "subtitle.jvpillage.fake_malialosaur_ambient",
     "category": "neutral",
     "sounds": [
       {
-        "name": "jvpillage:entities/malialosaur/ambient",
+        "name": "jvpillage:entities/fake_malialosaur/ambient",
         "volume": 1.0
       }
     ]
   },
-  "malialosaur_hurt": {
-    "subtitle": "subtitle.jvpillage.malialosaur_hurt",
+  "fake_malialosaur_hurt": {
+    "subtitle": "subtitle.jvpillage.fake_malialosaur_hurt",
     "category": "neutral",
     "sounds": [
       {
-        "name": "jvpillage:entities/malialosaur/hurt",
+        "name": "jvpillage:entities/fake_malialosaur/hurt",
         "volume": 1.0
       }
     ]
   },
-  "malialosaur_death": {
-    "subtitle": "subtitle.jvpillage.malialosaur_death",
+  "fake_malialosaur_death": {
+    "subtitle": "subtitle.jvpillage.fake_malialosaur_death",
     "category": "neutral",
     "sounds": [
       {
-        "name": "jvpillage:entities/malialosaur/death",
+        "name": "jvpillage:entities/fake_malialosaur/death",
         "volume": 1.0
       }
     ]
   },
-  "malialosaur_attack": {
-    "subtitle": "subtitle.jvpillage.malialosaur_attack",
+  "fake_malialosaur_attack": {
+    "subtitle": "subtitle.jvpillage.fake_malialosaur_attack",
     "category": "neutral",
     "sounds": [
       {
-        "name": "jvpillage:entities/malialosaur/attack",
+        "name": "jvpillage:entities/fake_malialosaur/attack",
         "volume": 1.0
       }
     ]
   },
-  "malialosaur_walk": {
-    "subtitle": "subtitle.jvpillage.malialosaur_walk",
+  "fake_malialosaur_walk": {
+    "subtitle": "subtitle.jvpillage.fake_malialosaur_walk",
     "category": "neutral",
     "sounds": [
       {
-        "name": "jvpillage:entities/malialosaur/walk",
+        "name": "jvpillage:entities/fake_malialosaur/walk",
         "volume": 1.0
       }
     ]
