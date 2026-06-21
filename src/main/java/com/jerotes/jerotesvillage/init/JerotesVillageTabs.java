@@ -251,6 +251,7 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.FURY_BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.ROTTEN_DOG_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.FAKE_MALIALOSAUR_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.BIG_WITCH_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.COHORT_HAG_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.COVEN_HAG_ONE_SPAWN_EGG.get());

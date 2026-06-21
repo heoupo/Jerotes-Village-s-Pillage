@@ -1,10 +1,7 @@
 package com.jerotes.jerotesvillage.init;
 
 import com.jerotes.jerotesvillage.JerotesVillage;
-import com.jerotes.jerotesvillage.entity.Animal.GiantMonsterEntity;
-import com.jerotes.jerotesvillage.entity.Animal.PurpleSandRabbitEntity;
-import com.jerotes.jerotesvillage.entity.Animal.RottenDogEntity;
-import com.jerotes.jerotesvillage.entity.Animal.WildernessWolfEntity;
+import com.jerotes.jerotesvillage.entity.Animal.*;
 import com.jerotes.jerotesvillage.entity.Boss.Biome.PurpleSandHagEntity;
 import com.jerotes.jerotesvillage.entity.Boss.OminousBannerProjectionEntity;
 import com.jerotes.jerotesvillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
@@ -190,6 +187,9 @@ public class JerotesVillageEntityType {
 	public static final RegistryObject<EntityType<FuryBlamerNecromancyWarlockEntity>> FURY_BLAMER_NECROMANCY_WARLOCK = register("fury_blamer_necromancy_warlock",
 			EntityType.Builder.of(FuryBlamerNecromancyWarlockEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(32)
 					.sized(0.6f, 1.95f));
+	public static final RegistryObject<EntityType<FakeMalialosaurEntity>> FAKE_MALIALOSAUR = register("fake_malialosaur",
+			EntityType.Builder.of(FakeMalialosaurEntity::new, MobCategory.WATER_CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(16)
+					.sized(2.0f, 1.25f));
 	//发射物
 	public static final RegistryObject<EntityType<ThrownJavelinVillagerMetalEntity>> THROWN_VILLAGER_METAL_JAVELIN = register("projectile_throw_villager_metal_javelin",
 			EntityType.Builder.<ThrownJavelinVillagerMetalEntity>of(ThrownJavelinVillagerMetalEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64)
@@ -347,7 +347,7 @@ public class JerotesVillageEntityType {
 		event.put(PURPLE_SAND_HAG.get(), PurpleSandHagEntity.createAttributes().build());
 		event.put(PURPLE_SAND_PHANTOM.get(), PurpleSandPhantomEntity.createAttributes().build());
 		event.put(WILDERNESS_WOLF.get(), WildernessWolfEntity.createAttributes().build());
-
+		event.put(FAKE_MALIALOSAUR.get(), FakeMalialosaurEntity.createAttributes().build());
 		event.put(BLAMER_NECROMANCY_WARLOCK.get(), BlamerNecromancyWarlockEntity.createAttributes().build());
 		event.put(FURY_BLAMER_NECROMANCY_WARLOCK.get(), FuryBlamerNecromancyWarlockEntity.createAttributes().build());
 

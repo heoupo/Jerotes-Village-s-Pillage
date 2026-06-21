@@ -98,6 +98,7 @@ public class JerotesVillageEntityRenderers {
         event.registerEntityRenderer(JerotesVillageEntityType.BOSS_SHOW_ENTITY_OMINOUS_BANNER_PROJECTION.get(), BossShowEntityOminousBannerProjectionRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.WILDERNESS_WOLF.get(), WildernessWolfRenderer::new);
 
+        event.registerEntityRenderer(JerotesVillageEntityType.FAKE_MALIALOSAUR.get(), FakeMalialosaurRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.BLAMER_NECROMANCY_WARLOCK.get(), BlamerNecromancyWarlockRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.FURY_BLAMER_NECROMANCY_WARLOCK.get(), FuryBlamerNecromancyWarlockRenderer::new);
 

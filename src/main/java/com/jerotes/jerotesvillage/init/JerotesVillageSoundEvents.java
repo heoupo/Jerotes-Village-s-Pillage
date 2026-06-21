@@ -169,6 +169,11 @@ public class JerotesVillageSoundEvents {
     public static final SoundEvent PURPLE_SAND_HAG_LAUGH_1 = createSoundEvent("purple_sand_hag_laugh_1");
     public static final SoundEvent PURPLE_SAND_HAG_COVENS = createSoundEvent("purple_sand_hag_covens");
     public static final SoundEvent PURPLE_SAND_HAG_CONJURE_SPIRVE = createSoundEvent("purple_sand_hag_conjure_spirve");
+    public static final SoundEvent FAKE_MALIALOSAUR_AMBIENT = createSoundEvent("fake_malialosaur_ambient");
+    public static final SoundEvent FAKE_MALIALOSAUR_HURT = createSoundEvent("fake_malialosaur_hurt");
+    public static final SoundEvent FAKE_MALIALOSAUR_DEATH = createSoundEvent("fake_malialosaur_death");
+    public static final SoundEvent FAKE_MALIALOSAUR_WALK = createSoundEvent("fake_malialosaur_walk");
+    public static final SoundEvent FAKE_MALIALOSAUR_ATTACK = createSoundEvent("fake_malialosaur_attack");
 
     public static final SoundEvent MEROR_TOOL_USE = createSoundEvent("meror_tool_use");
     public static final SoundEvent MEROR_TELEPORT = createSoundEvent("meror_teleport");

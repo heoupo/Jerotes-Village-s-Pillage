@@ -3940,52 +3940,52 @@
       }
     ]
   },
-  "malialosaur_ambient": {
-    "subtitle": "subtitle.jerotesvillage.malialosaur_ambient",
+  "fake_malialosaur_ambient": {
+    "subtitle": "subtitle.jerotesvillage.fake_malialosaur_ambient",
     "category": "neutral",
     "sounds": [
       {
-        "name": "jerotesvillage:entities/malialosaur/ambient",
+        "name": "jerotesvillage:entities/fake_malialosaur/ambient",
         "volume": 1.0
       }
     ]
   },
-  "malialosaur_hurt": {
-    "subtitle": "subtitle.jerotesvillage.malialosaur_hurt",
+  "fake_malialosaur_hurt": {
+    "subtitle": "subtitle.jerotesvillage.fake_malialosaur_hurt",
     "category": "neutral",
     "sounds": [
       {
-        "name": "jerotesvillage:entities/malialosaur/hurt",
+        "name": "jerotesvillage:entities/fake_malialosaur/hurt",
         "volume": 1.0
       }
     ]
   },
-  "malialosaur_death": {
-    "subtitle": "subtitle.jerotesvillage.malialosaur_death",
+  "fake_malialosaur_death": {
+    "subtitle": "subtitle.jerotesvillage.fake_malialosaur_death",
     "category": "neutral",
     "sounds": [
       {
-        "name": "jerotesvillage:entities/malialosaur/death",
+        "name": "jerotesvillage:entities/fake_malialosaur/death",
         "volume": 1.0
       }
     ]
   },
-  "malialosaur_attack": {
-    "subtitle": "subtitle.jerotesvillage.malialosaur_attack",
+  "fake_malialosaur_attack": {
+    "subtitle": "subtitle.jerotesvillage.fake_malialosaur_attack",
     "category": "neutral",
     "sounds": [
       {
-        "name": "jerotesvillage:entities/malialosaur/attack",
+        "name": "jerotesvillage:entities/fake_malialosaur/attack",
         "volume": 1.0
       }
     ]
   },
-  "malialosaur_walk": {
-    "subtitle": "subtitle.jerotesvillage.malialosaur_walk",
+  "fake_malialosaur_walk": {
+    "subtitle": "subtitle.jerotesvillage.fake_malialosaur_walk",
     "category": "neutral",
     "sounds": [
       {
-        "name": "jerotesvillage:entities/malialosaur/walk",
+        "name": "jerotesvillage:entities/fake_malialosaur/walk",
         "volume": 1.0
       }
     ]

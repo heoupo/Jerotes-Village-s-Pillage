@@ -1,0 +1,13 @@
+{
+  "type": "jerotesvillage:hag_replacement",
+  "base": [
+    {
+      "item": "jerotesvillage:malignasaur_teeth"
+    }
+  ],
+  "result": [
+    {
+      "item": "jerotesvillage:fake_malialosaur_spawn_egg"
+    }
+  ]
+}
