@@ -2,6 +2,7 @@ package com.jerotes.jerotesvillage.item;
 
 import com.jerotes.jerotes.item.Tool.ItemToolBaseAxe;
 import com.jerotes.jerotes.util.AttackFind;
+import com.jerotes.jerotes.util.EntityAndItemFind;
 import com.jerotes.jerotes.util.Main;
 import com.jerotes.jerotesvillage.init.JerotesVillageDamageTypes;
 import com.jerotes.jerotesvillage.init.JerotesVillageSoundEvents;
@@ -23,6 +24,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -104,9 +106,7 @@ public class CrazyAxe extends ItemToolBaseAxe {
 				}
 				//方块破坏
 				AABB aABB = livingEntity.getBoundingBox().inflate(1, 0.5, 1).move(0, 0.5, 0);
-				if (livingEntity.getXRot() > 40) {
-					aABB = livingEntity.getBoundingBox().inflate(1, 1, 1);
-				}
+
 				boolean bl = serverLevel.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING) || livingEntity instanceof Player;
 				for (BlockPos blockPos : BlockPos.betweenClosed(Mth.floor(aABB.minX), Mth.floor(aABB.minY), Mth.floor(aABB.minZ), Mth.floor(aABB.maxX), Mth.floor(aABB.maxY), Mth.floor(aABB.maxZ))) {
 					BlockState blockState = serverLevel.getBlockState(blockPos);
@@ -117,18 +117,29 @@ public class CrazyAxe extends ItemToolBaseAxe {
 					if (!Main.canSee(blockPos.getCenter(), livingEntity)) continue;
 					bl = serverLevel.destroyBlock(blockPos, true, livingEntity) || bl;
 				}
+
 				//攻击
 				float reachs = AttackFind.reachAttackReach(livingEntity, itemStack, 3f, 1.5f, 3f, 0.5f);
 				List<LivingEntity> list = serverLevel.getEntitiesOfClass(LivingEntity.class, livingEntity.getBoundingBox().inflate(reachs, reachs, reachs));
 				for (LivingEntity hurt : list) {
 					if (hurt == null || hurt.distanceTo(livingEntity) > reachs * 4) continue;
-					if (AttackFind.FindCanNotAttack(livingEntity, hurt)) continue;
+					if (AttackFind.SameFactionAvoidDamage(livingEntity, hurt, false)) {
+						if (hurt != livingEntity)
+							if (!(hurt instanceof ArmorStand armorStand && armorStand.isMarker())) {
+								if (!hurt.level().isClientSide) {
+									hurt.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 120, 2), livingEntity);
+									hurt.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 120, 0), livingEntity);
+									hurt.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 120, 1), livingEntity);
+								}
+							}
+						continue;
+					}
 					if (!hurt.hasLineOfSight(livingEntity)) continue;
 					if (!Main.canSee(hurt, livingEntity)) continue;
 					double healthOld = hurt.getHealth();
 					DamageSource damageSource = AttackFind.findDamageType(livingEntity, JerotesVillageDamageTypes.AX_CRAZY_ATTACK, livingEntity);
 					AttackFind.attackBegin(livingEntity, hurt);
-					boolean bl2 = AttackFind.attackAfterCustomDamage(livingEntity, hurt, damageSource,0.75f, 0.5f, false, 0f);
+					boolean bl2 = AttackFind.attackAfterCustomDamage(livingEntity, hurt, damageSource,1.0f, 1.5f, false, 0f);
 					if (bl2) {
 						double healthNew = hurt.getHealth();
 						int base = 3;
@@ -140,6 +151,20 @@ public class CrazyAxe extends ItemToolBaseAxe {
 							serverLevel.sendParticles(ParticleTypes.ANGRY_VILLAGER, livingEntity.getRandomX(1f), livingEntity.getRandomY(), livingEntity.getRandomZ(1f), 0, 0, 0.0, 0, 0.0);
 						}
 						level.playSound(null, livingEntity, JerotesVillageSoundEvents.AX_CRAZY_ATTACK, SoundSource.NEUTRAL, 1.0f, 1.0f);
+
+						if (!EntityAndItemFind.isNoSpecialKnockback(hurt.getType())) {
+							if (Main.mobSizeSmall(hurt) || Main.mobSizeMedium(hurt)) {
+								if (livingEntity.onGround()) {
+									hurt.setOnGround(false);
+								}
+								float angleYaw = 90.0F * ((float) Math.PI / 180.0F);
+								double x = livingEntity.getX() + 4.5f * Mth.cos((float) (livingEntity.getYRot() * (Math.PI / 180.0F) + angleYaw));
+								double y = livingEntity.getY();
+								double z = livingEntity.getZ() + 4.5f * Mth.sin((float) (livingEntity.getYRot() * (Math.PI / 180.0F) + angleYaw));
+								if (hurt.isShiftKeyDown()) continue;
+								hurt.teleportTo(x, y, z);
+							}
+						}
 					}
 				}
 				//横扫粒子

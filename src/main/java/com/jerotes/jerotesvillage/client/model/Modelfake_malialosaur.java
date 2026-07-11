@@ -14,7 +14,7 @@ import net.minecraft.util.Mth;
 import org.joml.Vector3f;
 
 public class Modelfake_malialosaur<T extends FakeMalialosaurEntity> extends AgeableHierarchicalModel<T> {
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(JerotesVillage.MODID, "malialosaur"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(JerotesVillage.MODID, "fake_malialosaur"), "main");
 	private final ModelPart root;
 	private final ModelPart head;
 	private final ModelPart jaw;

@@ -3,12 +3,13 @@ package com.jerotes.jerotesvillage.entity.Shoot.Magic.MagicMissile;
 import com.jerotes.jerotes.entity.Shoot.Magic.MagicMissile.BaseMagicMissileEntity;
 import com.jerotes.jerotes.init.JerotesSoundEvents;
 import com.jerotes.jerotes.util.Main;
-import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.LampWizardEntity;
+import com.jerotes.jerotesvillage.JerotesVillage;
 import com.jerotes.jerotesvillage.init.JerotesVillageEntityType;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.init.JerotesVillageParticleTypes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -59,11 +60,8 @@ public class ArcaneLightSpotEntity extends BaseMagicMissileEntity {
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel-1), this.getEffectSource());
                 if (this.getOwner() != null) {
                     String string = ChatFormatting.stripFormatting(this.getOwner().getName().getString());
-                    if (this.getOwner() instanceof LampWizardEntity lampWizardEntity) {
-                        if (lampWizardEntity.isChampion())
-                        {
+                    if ("Soul Lampologer".equals(string) || "Soullampologer".equals(string) || "Lampologer".equals(string)) {
                         livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());
-                        }
                     }
                 }
             }
@@ -85,5 +83,11 @@ public class ArcaneLightSpotEntity extends BaseMagicMissileEntity {
     public ItemStack getItem() {
         ItemStack itemStack = this.getItemRaw();
         return itemStack.isEmpty() ? new ItemStack(JerotesVillageItems.ARCANE_LIGHT_SPOT.get()) : itemStack;
+    }
+    public int beamLightI() {
+        return 0xf8f3d0;
+    }
+    public ResourceLocation TextureLocation() {
+        return new ResourceLocation(JerotesVillage.MODID, "textures/entity/projectiles/arcane_light_spot.png");
     }
 }

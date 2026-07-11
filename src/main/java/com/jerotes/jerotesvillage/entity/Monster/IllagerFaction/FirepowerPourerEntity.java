@@ -1,10 +1,7 @@
 package com.jerotes.jerotesvillage.entity.Monster.IllagerFaction;
 
 import com.jerotes.jerotes.control.GiantMoveControl;
-import com.jerotes.jerotes.entity.Interface.BreakShieldEntity;
-import com.jerotes.jerotes.entity.Interface.EliteEntity;
-import com.jerotes.jerotes.entity.Interface.JerotesEntity;
-import com.jerotes.jerotes.entity.Interface.OminouseBannerRaidForceEntity;
+import com.jerotes.jerotes.entity.Interface.*;
 import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.event.JerotesBossEvent;
 import com.jerotes.jerotes.goal.JerotesHelpAlliesGoal;
@@ -29,7 +26,6 @@ import com.jerotes.jerotesvillage.init.JerotesVillageEntityType;
 import com.jerotes.jerotesvillage.init.JerotesVillageGameRules;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.init.JerotesVillageSoundEvents;
-import com.jerotes.jerotesvillage.util.OtherEntityFactionFind;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
@@ -85,7 +81,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public class FirepowerPourerEntity extends Raider implements EliteEntity, OminouseBannerRaidForceEntity, JerotesEntity, BreakShieldEntity, BannerChampionEntity {
+public class FirepowerPourerEntity extends Raider implements EliteEntity, OminouseBannerRaidForceEntity, JerotesEntity, BreakShieldEntity, BannerChampionEntity , FactionEntity {
     private static final UUID CHAINSAW_ATTACK_DAMAGE_MODIFIER_UUID = UUID.fromString("0a8dd507-ff80-455d-991c-346cd5d360c7");
     private static final EntityDataAccessor<Float> CHAINSAW_HEALTH = SynchedEntityData.defineId(FirepowerPourerEntity.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Float> GUN_HEALTH = SynchedEntityData.defineId(FirepowerPourerEntity.class, EntityDataSerializers.FLOAT);
@@ -127,12 +123,16 @@ public class FirepowerPourerEntity extends Raider implements EliteEntity, Ominou
     }
 
     @Override
-    public boolean isFactionWith(Entity entity) {
-        return entity instanceof LivingEntity livingEntity && (EntityFactionFind.isRaider(livingEntity) || OtherEntityFactionFind.isFactionOminousBannerRaidForce(livingEntity));
+    public String getFirstFactionTypeName() {
+        return "ominous_banner_raid_force";
     }
     @Override
-    public String getFactionTypeName() {
-        return "ominous_banner_raid_force";
+    public List<String> getFactionTypeUntilTame() {
+        List<String> list = new ArrayList<>();
+        list.add(getFirstFactionTypeName());
+        list.add("raider");
+        list.add("illager");
+        return list;
     }
 
     @Override

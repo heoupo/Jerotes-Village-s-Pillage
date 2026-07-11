@@ -1,5 +1,6 @@
 package com.jerotes.jerotesvillage.mixin;
 
+import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.AdventurerEntity;
 import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.ExplorerEntity;
 import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.SlaverySupervisorEntity;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
@@ -59,6 +60,20 @@ public abstract class HumanoidArmorLayerMixin<T extends LivingEntity, M extends 
                 ci.cancel();
             }
             if (item == JerotesVillageItems.SLAVERY_SUPERVISOR_BOOTS.get()) {
+                ci.cancel();
+            }
+        }
+        if (t instanceof AdventurerEntity) {
+            if (item == JerotesVillageItems.ADVENTURER_HELMET.get()) {
+                ci.cancel();
+            }
+            if (item == JerotesVillageItems.ADVENTURER_CHESTPLATE.get()) {
+                ci.cancel();
+            }
+            if (item == JerotesVillageItems.ADVENTURER_LEGGINGS.get()) {
+                ci.cancel();
+            }
+            if (item == JerotesVillageItems.ADVENTURER_BOOTS.get()) {
                 ci.cancel();
             }
         }

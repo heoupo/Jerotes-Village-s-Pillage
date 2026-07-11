@@ -215,5 +215,10 @@ public class JerotesVillageParticles {
 		event.registerSpriteSet(JerotesVillageParticleTypes.DISARMING_ATTACK_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JerotesVillageParticleTypes.DISTRACTING_STRIKE_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JerotesVillageParticleTypes.ELECTROFLASH_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JerotesVillageParticleTypes.RAPIER_FLURRY_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JerotesVillageParticleTypes.RAPIER_PARRY_RIPOSTE_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JerotesVillageParticleTypes.RAPIER_LUNGING_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JerotesVillageParticleTypes.RAGE_CHARGE_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JerotesVillageParticleTypes.OMINOUS_BOMB_TOSS_DISPLAY.get(), DisplayParticle::provider);
 	}
 }

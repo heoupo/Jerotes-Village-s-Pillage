@@ -115,6 +115,7 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.FIREPOWER_POURER_CHAINSAW.get());
 						tabData.accept(JerotesVillageItems.FIREPOWER_POURER_CROSSBOW.get());
 						tabData.accept(JerotesVillageItems.CRAZY_AXE.get());
+						tabData.accept(JerotesVillageItems.OMINOUS_ADVENTURER_RAPIER.get());
 						tabData.accept(JerotesVillageItems.OMINOUS_WAR_BEAST_ARMOR.get());
 						tabData.accept(JerotesVillageItems.OMINOUS_GIANT_BEAST_ARMOR.get());
 						tabData.accept(JerotesVillageItems.EXPLORER_IRON_UPGRADE_SMITHING_TEMPLATE.get());
@@ -127,6 +128,10 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.EXPLORER_CHESTPLATE.get());
 						tabData.accept(JerotesVillageItems.EXPLORER_LEGGINGS.get());
 						tabData.accept(JerotesVillageItems.EXPLORER_BOOTS.get());
+						tabData.accept(JerotesVillageItems.ADVENTURER_HELMET.get());
+						tabData.accept(JerotesVillageItems.ADVENTURER_CHESTPLATE.get());
+						tabData.accept(JerotesVillageItems.ADVENTURER_LEGGINGS.get());
+						tabData.accept(JerotesVillageItems.ADVENTURER_BOOTS.get());
 						tabData.accept(JerotesVillageItems.HORNED_HELMET.get());
 						tabData.accept(JerotesVillageItems.WARLOCK_TIARA.get());
 						tabData.accept(JerotesVillageItems.WARLOCK_CASSOCK.get());
@@ -163,6 +168,7 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.GAVILER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.AX_CRAZY_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.ADVENTURER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.OMINOUS_BANNER_PROJECTION_SPAWN_EGG.get());
 						//苦寒
 						tabData.accept(JerotesVillageItems.SNOW_FROZEN_SOIL.get());

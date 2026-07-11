@@ -1,5 +1,8 @@
 package com.jerotes.jerotesvillage.entity.Shoot.Other;
 
+import com.jerotes.jerotes.util.AttackFind;
+import com.jerotes.jerotes.util.EntityAndItemFind;
+import com.jerotes.jerotes.util.Main;
 import com.jerotes.jerotesvillage.entity.Shoot.Arrow.OminousBombFragmentEntity;
 import com.jerotes.jerotesvillage.init.JerotesVillageEntityType;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
@@ -7,14 +10,22 @@ import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+
+import java.util.List;
 
 public class OminousBombEntity extends ThrowableItemProjectile {
     public OminousBombEntity(EntityType<? extends OminousBombEntity> entityType, Level level) {
@@ -75,9 +86,40 @@ public class OminousBombEntity extends ThrowableItemProjectile {
     public void tick() {
         super.tick();
         if (this.boom >= 40) {
-            if (!this.level().isClientSide) {
+
+            if (!this.level().isClientSide()) {
                 this.level().broadcastEntityEvent(this, (byte)3);
-                this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2.5f, Level.ExplosionInteraction.NONE);
+                float distance = 3f;
+                this.level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.GENERIC_EXPLODE, this.getSoundSource(), 2.5f, 1.0F);
+                if (this.level() instanceof ServerLevel serverLevel) {
+                    for (int i = 0; i < 20; ++i) {
+                        RandomSource random = RandomSource.create();
+                        double d = random.nextGaussian() * 0.02;
+                        double d2 = random.nextGaussian() * 0.02;
+                        double d3 = random.nextGaussian() * 0.02;
+                        float x = (float) this.getX((2.0 * random.nextDouble() - 1.0) * ((distance/2 + random.nextDouble() * 2)));
+                        float y = (float) this.getY((2.0 * random.nextDouble() - 1.0) * ((distance/3 + random.nextDouble() * 2)));
+                        float z = (float) this.getZ((2.0 * random.nextDouble() - 1.0) * ((distance/2 + random.nextDouble() * 2)));
+                        serverLevel.sendParticles(new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(JerotesVillageItems.OMINOUS_BOMB.get())), x, y, z, 0, d, d2, d3, 0);
+                        serverLevel.sendParticles(ParticleTypes.EXPLOSION, x, y, z, 0, d, d2, d3, 0);
+                    }
+                }
+                List<LivingEntity> lists = this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(distance, distance, distance));
+                for (LivingEntity hurt : lists) {
+                    if (this.getOwner() instanceof LivingEntity living && AttackFind.FindCanNotAttack(living, hurt)) continue;
+                    if (!Main.hasLineOfSightEntity(hurt, this)) continue;
+                    DamageSource damageSources = AttackFind.findDamageType(this, DamageTypes.EXPLOSION, this, this.getOwner());
+                    hurt.hurt(damageSources, 15 / (Math.max(1, (this.distanceTo(hurt)))));
+
+                    double d = 0.0;
+                    if (hurt.getAttribute(Attributes.KNOCKBACK_RESISTANCE) != null) {
+                        d = Math.max(hurt.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 1.0);
+                    }
+                    double d2 = Math.max(0, 1 - d);
+                    if ((Main.mobSizeSmall(hurt) || Main.mobSizeMedium(hurt) || Main.mobSizeLarge(hurt)) && !EntityAndItemFind.isNoSpecialKnockback(hurt.getType())) {
+                        hurt.setDeltaMovement(hurt.getDeltaMovement().add(-(this.getX() - hurt.getX()) * 0.1 * (d2 + 0.3), -(this.getY() - hurt.getY()) * 0.1 * (d2 + 0.35), -(this.getZ() - hurt.getZ()) * 0.1 * (d2 + 0.3)));
+                    }
+                }
                 for (int i = 0; i < 12; ++i) {
                     OminousBombFragmentEntity abstractArrow = new OminousBombFragmentEntity(JerotesVillageEntityType.OMINOUS_BOMB_FRAGMENT.get(), this.level());
                     abstractArrow.setPos(this.getX(), this.getY(), this.getZ());
@@ -97,7 +139,7 @@ public class OminousBombEntity extends ThrowableItemProjectile {
 
     @Override
     protected Item getDefaultItem() {
-        return JerotesVillageItems.PURPLE_SAND_ALCHEMY_BOMB.get();
+        return JerotesVillageItems.OMINOUS_BOMB.get();
     }
 
     private ParticleOptions getParticle() {

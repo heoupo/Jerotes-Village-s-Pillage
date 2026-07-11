@@ -1,5 +1,8 @@
 package com.jerotes.jerotesvillage.init;
 
+import com.jerotes.jerotes.client.renderer.MagicMissileRenderer;
+import com.jerotes.jerotes.client.renderer.RayRenderer;
+import com.jerotes.jerotes.client.renderer.TargetRenderer;
 import com.jerotes.jerotesvillage.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
 import net.minecraft.client.renderer.entity.NoopRenderer;
@@ -31,14 +34,14 @@ public class JerotesVillageEntityRenderers {
         event.registerEntityRenderer(JerotesVillageEntityType.BITTER_COLD_ICE_SPIKE.get(), BitterColdIceSpikeRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.BITTER_COLD_FROSTBITE.get(), ShootRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.OMINOUS_FLAMES.get(), ShootRenderer::new);
-        event.registerEntityRenderer(JerotesVillageEntityType.ARCANE_LIGHT_SPOT.get(), ShootRenderer::new);
+        event.registerEntityRenderer(JerotesVillageEntityType.ARCANE_LIGHT_SPOT.get(), MagicMissileRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.ELASTIC_LIGHT_BALL.get(), ElasticLightBallRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.RADIANT_BOMB.get(), ShootRenderer::new);
-        event.registerEntityRenderer(JerotesVillageEntityType.SLAVERY_SUPERVISOR_CHAIN.get(), ShootRenderer::new);
+        event.registerEntityRenderer(JerotesVillageEntityType.SLAVERY_SUPERVISOR_CHAIN.get(), RayRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.BLOODY_SCREAM.get(), ShootRenderer::new);
-        event.registerEntityRenderer(JerotesVillageEntityType.PUSH_FORCE.get(), ShootRenderer::new);
-        event.registerEntityRenderer(JerotesVillageEntityType.FLOATING_FORCE.get(), ShootRenderer::new);
-        event.registerEntityRenderer(JerotesVillageEntityType.GRAVITY_FORCE.get(), ShootRenderer::new);
+        event.registerEntityRenderer(JerotesVillageEntityType.PUSH_FORCE.get(), RayRenderer::new);
+        event.registerEntityRenderer(JerotesVillageEntityType.FLOATING_FORCE.get(), TargetRenderer::new);
+        event.registerEntityRenderer(JerotesVillageEntityType.GRAVITY_FORCE.get(), TargetRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.ICE_ROCK_THROWING_BALL.get(), ShootRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.PURPLE_SAND_ALCHEMY_BOMB.get(), ShootRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.PURPLE_SAND_EXPLOSIVE_ALCHEMY_BOMB.get(), ShootRenderer::new);
@@ -81,6 +84,7 @@ public class JerotesVillageEntityRenderers {
         event.registerEntityRenderer(JerotesVillageEntityType.UNCLEAN_TENTACLE.get(), UncleanTentacleRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.GAVILER.get(), GavilerRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.AX_CRAZY.get(), AxCrazyRenderer::new);
+        event.registerEntityRenderer(JerotesVillageEntityType.ADVENTURER.get(), AdventurerRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.OMINOUS_BANNER_PROJECTION.get(), OminousBannerProjectionRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.GIANT_MONSTER.get(), GiantMonsterRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.PURPLE_SAND_RABBIT.get(), PurpleSandRabbitRenderer::new);

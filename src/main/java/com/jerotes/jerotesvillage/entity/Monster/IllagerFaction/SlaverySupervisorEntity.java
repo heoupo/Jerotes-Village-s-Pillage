@@ -64,6 +64,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class SlaverySupervisorEntity extends MeleeIllagerEntity implements EliteEntity, BannerChampionEntity {
+    public AnimationState idleAnimationState = new AnimationState();
     public AnimationState attack1AnimationState = new AnimationState();
     public AnimationState attack2AnimationState = new AnimationState();
     public AnimationState swordAttack1AnimationState = new AnimationState();

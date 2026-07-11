@@ -2,6 +2,7 @@ package com.jerotes.jerotesvillage.entity.Neutral;
 
 import com.google.common.collect.Lists;
 import com.jerotes.jerotes.entity.Interface.CarvedEntity;
+import com.jerotes.jerotes.entity.Interface.FactionEntity;
 import com.jerotes.jerotes.entity.Interface.JerotesEntity;
 import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.goal.JerotesHelpAlliesGoal;
@@ -18,7 +19,6 @@ import com.jerotes.jerotesvillage.event.RelationshipEvent;
 import com.jerotes.jerotesvillage.goal.CarvedIronGolemMeleeAttackGoal;
 import com.jerotes.jerotesvillage.goal.HelpVillagerGoal;
 import com.jerotes.jerotesvillage.item.CarvedFlag;
-import com.jerotes.jerotesvillage.util.OtherEntityFactionFind;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -65,7 +65,7 @@ import net.minecraftforge.fluids.FluidType;
 import javax.annotation.Nullable;
 import java.util.*;
 
-public class CarvedIronGolemEntity extends IronGolem implements JerotesEntity, CarvedEntity {
+public class CarvedIronGolemEntity extends IronGolem implements JerotesEntity, CarvedEntity , FactionEntity {
 	private static final EntityDataAccessor<Integer> ANIM_STATE = SynchedEntityData.defineId(CarvedIronGolemEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Integer> ANIM_TICK = SynchedEntityData.defineId(CarvedIronGolemEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Integer> NETHERITE_TICK = SynchedEntityData.defineId(CarvedIronGolemEntity.class, EntityDataSerializers.INT);
@@ -84,12 +84,15 @@ public class CarvedIronGolemEntity extends IronGolem implements JerotesEntity, C
 	}
 
 	@Override
-	public boolean isFactionWith(Entity entity) {
-		return entity instanceof LivingEntity livingEntity && OtherEntityFactionFind.isFactionCopperCarvedCompany(livingEntity);
+	public String getFirstFactionTypeName() {
+		return "copper_carved_company";
 	}
 	@Override
-	public String getFactionTypeName() {
-		return "copper_carved_company";
+	public List<String> getFactionTypeUntilTame() {
+		List<String> list = new ArrayList<>();
+		list.add(getFirstFactionTypeName());
+		list.add("villager");
+		return list;
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {

@@ -139,6 +139,9 @@ public class JerotesVillageEntityType {
 	public static final RegistryObject<EntityType<AxCrazyEntity>> AX_CRAZY = register("ax_crazy",
 			EntityType.Builder.of(AxCrazyEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(32)
 					.sized(0.6f, 1.95f));
+	public static final RegistryObject<EntityType<AdventurerEntity>> ADVENTURER = register("adventurer",
+			EntityType.Builder.of(AdventurerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(32)
+					.sized(0.6f, 1.95f));
 	public static final RegistryObject<EntityType<OminousBannerProjectionEntity>> OMINOUS_BANNER_PROJECTION = register("ominous_banner_projection",
 			EntityType.Builder.of(OminousBannerProjectionEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(32).immuneTo(Blocks.POWDER_SNOW)
 					.sized(0.75f, 5.2f));
@@ -333,6 +336,7 @@ public class JerotesVillageEntityType {
 		event.put(UNCLEAN_TENTACLE.get(), UncleanTentacleEntity.createAttributes().build());
 		event.put(GAVILER.get(), GavilerEntity.createAttributes().build());
 		event.put(AX_CRAZY.get(), AxCrazyEntity.createAttributes().build());
+		event.put(ADVENTURER.get(), AdventurerEntity.createAttributes().build());
 		event.put(OMINOUS_BANNER_PROJECTION.get(), OminousBannerProjectionEntity.createAttributes().build());
 		event.put(GIANT_MONSTER.get(), GiantMonsterEntity.createAttributes().build());
 		event.put(PURPLE_SAND_RABBIT.get(), PurpleSandRabbitEntity.createAttributes().build());

@@ -1,9 +1,6 @@
 package com.jerotes.jerotesvillage.entity.Monster.Elite;
 
-import com.jerotes.jerotes.entity.Interface.EliteEntity;
-import com.jerotes.jerotes.entity.Interface.JerotesEntity;
-import com.jerotes.jerotes.entity.Interface.PurpleSandSisterhoodEntity;
-import com.jerotes.jerotes.entity.Interface.SpellUseEntity;
+import com.jerotes.jerotes.entity.Interface.*;
 import com.jerotes.jerotes.event.JerotesBossEvent;
 import com.jerotes.jerotes.goal.JerotesHelpAlliesGoal;
 import com.jerotes.jerotes.goal.JerotesHelpSameFactionGoal;
@@ -19,7 +16,6 @@ import com.jerotes.jerotesvillage.goal.BigWitchAttackGoal;
 import com.jerotes.jerotesvillage.init.JerotesVillageGameRules;
 import com.jerotes.jerotesvillage.init.JerotesVillageMobEffects;
 import com.jerotes.jerotesvillage.init.JerotesVillagePotions;
-import com.jerotes.jerotesvillage.util.OtherEntityFactionFind;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -56,9 +52,11 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
-public class BigWitchEntity extends Witch implements PurpleSandSisterhoodEntity, JerotesEntity, SpellUseEntity, EliteEntity {
+public class BigWitchEntity extends Witch implements PurpleSandSisterhoodEntity, JerotesEntity, SpellUseEntity, EliteEntity , FactionEntity {
 	private static final UUID SPEED_MODIFIER_DRINKING_UUID = UUID.fromString("18D74E90-0454-5B4F-047D-58DC8811BC43");
 	private static final AttributeModifier SPEED_MODIFIER_DRINKING = new AttributeModifier(SPEED_MODIFIER_DRINKING_UUID, "Drinking speed penalty", 0.20, AttributeModifier.Operation.ADDITION);
 	private final JerotesBossEvent bossEvent = new JerotesBossEvent(this, this.getUUID(), BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.NOTCHED_6, false);
@@ -72,11 +70,15 @@ public class BigWitchEntity extends Witch implements PurpleSandSisterhoodEntity,
 	}
 
 	@Override
-	public boolean isFactionWith(Entity entity) {
-		return entity instanceof LivingEntity livingEntity && OtherEntityFactionFind.isFactionPurpleSandSisterhood(livingEntity);
+	public List<String> getFactionTypeUntilTame() {
+		List<String> list = new ArrayList<>();
+		list.add(getFirstFactionTypeName());
+		list.add("raider");
+		return list;
 	}
+
 	@Override
-	public String getFactionTypeName() {
+	public String getFirstFactionTypeName() {
 		return "purple_sand_sisterhood";
 	}
 

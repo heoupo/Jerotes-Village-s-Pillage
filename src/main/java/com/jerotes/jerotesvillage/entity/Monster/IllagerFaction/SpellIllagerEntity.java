@@ -8,7 +8,6 @@ import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jerotes.util.Main;
 import com.jerotes.jerotesvillage.goal.SerponOpenDoorGoal;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
-import com.jerotes.jerotesvillage.util.OtherEntityFactionFind;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -51,7 +50,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpellIllagerEntity extends SpellcasterIllager implements OminouseBannerRaidForceEntity, WizardEntity, InventoryCarrier, InventoryEntity, JerotesEntity, SpellUseEntity {
+public class SpellIllagerEntity extends SpellcasterIllager implements OminouseBannerRaidForceEntity, WizardEntity, InventoryCarrier, InventoryEntity, JerotesEntity, SpellUseEntity ,FactionEntity{
     private static final EntityDataAccessor<Integer> COMBAT_STYLE = SynchedEntityData.defineId(SpellIllagerEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> USE_SELF_NOT_SPELL_LIST = SynchedEntityData.defineId(SpellIllagerEntity.class, EntityDataSerializers.BOOLEAN);
     protected static final EntityDataAccessor<Integer> ANIM_STATE = SynchedEntityData.defineId(SpellIllagerEntity.class, EntityDataSerializers.INT);
@@ -90,14 +89,17 @@ public class SpellIllagerEntity extends SpellcasterIllager implements OminouseBa
     }
 
     @Override
-    public boolean isFactionWith(Entity entity) {
-        return entity instanceof LivingEntity livingEntity && (EntityFactionFind.isRaider(livingEntity) || OtherEntityFactionFind.isFactionOminousBannerRaidForce(livingEntity));
-    }
-    @Override
-    public String getFactionTypeName() {
+    public String getFirstFactionTypeName() {
         return "ominous_banner_raid_force";
     }
-
+    @Override
+    public List<String> getFactionTypeUntilTame() {
+        List<String> list = new ArrayList<>();
+        list.add(getFirstFactionTypeName());
+        list.add("raider");
+        list.add("illager");
+        return list;
+    }
     @VisibleForDebug
     @Override
     public SimpleContainer getInventory() {

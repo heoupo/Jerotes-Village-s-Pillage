@@ -9,6 +9,10 @@
     "jerotesvillage:explorer_helmet",
     "jerotesvillage:explorer_chestplate",
     "jerotesvillage:explorer_leggings",
-    "jerotesvillage:explorer_boots"
+    "jerotesvillage:explorer_boots",
+    "jerotesvillage:adventurer_helmet",
+    "jerotesvillage:adventurer_chestplate",
+    "jerotesvillage:adventurer_leggings",
+    "jerotesvillage:adventurer_boots"
   ]
 }

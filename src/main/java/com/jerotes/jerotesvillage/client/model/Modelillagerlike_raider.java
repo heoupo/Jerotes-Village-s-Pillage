@@ -5,6 +5,7 @@ import com.jerotes.jerotes.entity.Interface.UseShieldEntity;
 import com.jerotes.jerotes.item.Interface.ItemTwoHanded;
 import com.jerotes.jerotesvillage.JerotesVillage;
 import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.FuryBlamerNecromancyWarlockEntity;
+import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.IllagerLikeRaiderEntity;
 import net.minecraft.client.model.AnimationUtils;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -17,7 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 
 
-public class Modelillagerlike_raider<T extends FuryBlamerNecromancyWarlockEntity> extends Modelspecial_action<T> {
+public class Modelillagerlike_raider<T extends IllagerLikeRaiderEntity> extends Modelspecial_action<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(JerotesVillage.MODID, "illagerlike_raider"), "main");
 	public final ModelPart head;
 	public final ModelPart hatOld;

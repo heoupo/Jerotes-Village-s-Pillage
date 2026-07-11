@@ -15,8 +15,8 @@ import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class TrumpeterRenderer extends HumanoidMobRenderer<TrumpeterEntity, Modeltrumpeter<TrumpeterEntity>> {
-    private static final ResourceLocation LOCATION = new ResourceLocation(JerotesVillage.MODID, "textures/entity/trumpeter.png");
-    private static final ResourceLocation ILLAGER_WITHER_LOCATION = new ResourceLocation(JerotesVillage.MODID, "textures/entity/trumpeter_elite_by_illager_wither.png");
+    private static final ResourceLocation LOCATION = new ResourceLocation(JerotesVillage.MODID, "textures/entity/illager/trumpeter.png");
+    private static final ResourceLocation ILLAGER_WITHER_LOCATION = new ResourceLocation(JerotesVillage.MODID, "textures/entity/illager/trumpeter_elite_by_illager_wither.png");
     public TrumpeterRenderer(EntityRendererProvider.Context context) {
         super(context, new Modeltrumpeter(context.bakeLayer(Modeltrumpeter.LAYER_LOCATION)), 0.5f);
         this.addLayer(new HumanoidArmorLayer(this, new ZombieVillagerModel(context.bakeLayer(ModelLayers.ZOMBIE_VILLAGER_INNER_ARMOR)), new ZombieVillagerModel(context.bakeLayer(ModelLayers.ZOMBIE_VILLAGER_OUTER_ARMOR)), context.getModelManager()));

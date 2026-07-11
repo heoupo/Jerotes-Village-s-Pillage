@@ -2757,6 +2757,171 @@
       }
     ]
   },
+  "ax_crazy_angry": {
+    "subtitle": "subtitle.jerotesvillage.ax_crazy_angry",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "jerotesvillage:entities/ax_crazy/angry",
+        "volume": 1.0
+      }
+    ]
+  },
+  "adventurer_ambient": {
+    "subtitle": "subtitle.jerotesvillage.adventurer_ambient",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jerotesvillage:entities/adventurer/ambient_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/ambient_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/ambient_3",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/ambient_4",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "adventurer_hurt": {
+    "subtitle": "subtitle.jerotesvillage.adventurer_hurt",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jerotesvillage:entities/adventurer/hurt_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/hurt_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/hurt_3",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "adventurer_death": {
+    "subtitle": "subtitle.jerotesvillage.adventurer_death",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jerotesvillage:entities/adventurer/death_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/death_2",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "adventurer_attack": {
+    "subtitle": "subtitle.jerotesvillage.adventurer_attack",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jerotesvillage:entities/adventurer/attack_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/attack_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/attack_3",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/attack_4",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "adventurer_cheer": {
+    "subtitle": "subtitle.jerotesvillage.adventurer_cheer",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jerotesvillage:entities/adventurer/cheer_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/cheer_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/cheer_3",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jerotesvillage:entities/adventurer/cheer_4",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "adventurer_stab": {
+    "subtitle": "subtitle.jerotesvillage.adventurer_stab",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jerotesvillage:entities/adventurer/stab",
+        "volume": 1.0
+      }
+    ]
+  },
+  "adventurer_block": {
+    "subtitle": "subtitle.jerotesvillage.adventurer_block",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jerotesvillage:entities/adventurer/block",
+        "volume": 1.0
+      }
+    ]
+  },
+  "adventurer_lunging": {
+    "subtitle": "subtitle.jerotesvillage.adventurer_lunging",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jerotesvillage:entities/adventurer/lunging",
+        "volume": 1.0
+      }
+    ]
+  },
+  "adventurer_bomb": {
+    "subtitle": "subtitle.jerotesvillage.adventurer_bomb",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jerotesvillage:entities/adventurer/bomb",
+        "volume": 1.0
+      }
+    ]
+  },
   "ominous_banner_projection_ambient": {
     "subtitle": "subtitle.jerotesvillage.ominous_banner_projection_ambient",
     "category": "hostile",

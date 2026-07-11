@@ -51,6 +51,9 @@ public class JerotesVillageModels {
 		event.registerLayerDefinition(Modelhag.LAYER_LOCATION, Modelhag::createBodyLayer);
 		event.registerLayerDefinition(Modelgemstone_throwing_knives.LAYER_LOCATION, Modelgemstone_throwing_knives::createBodyLayer);
 		event.registerLayerDefinition(Modelillager.LAYER_LOCATION, Modelillager::createBodyLayer);
+		event.registerLayerDefinition(Modelexplorer_armor.LAYER_LOCATION, Modelexplorer_armor::createBodyLayer);
+		event.registerLayerDefinition(Modeladventurer_armor.LAYER_LOCATION, Modeladventurer_armor::createBodyLayer);
+		event.registerLayerDefinition(Modeladventurer.LAYER_LOCATION, Modeladventurer::createBodyLayer);
 		event.registerLayerDefinition(Modelexecutioner.LAYER_LOCATION, Modelexecutioner::createBodyLayer);
 
 		event.registerLayerDefinition(Modelfake_malialosaur.LAYER_LOCATION, Modelfake_malialosaur::createBodyLayer);
