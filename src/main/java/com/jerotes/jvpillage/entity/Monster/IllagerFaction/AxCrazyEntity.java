@@ -447,6 +447,24 @@ public class AxCrazyEntity extends MeleeIllagerEntity implements EliteEntity, Ba
         if (this.isChampion()) {
             angryAbout = 0.5f;
         }
+        if ("Use".equals(string)) {
+            if (this.getMainHandItem().is(JVPillageItems.CRAZY_AXE.get())) {
+                if (this.isAggressive()) {
+                    this.startUsingItem(InteractionHand.MAIN_HAND);
+                    if (!this.level().isClientSide()) {
+                        this.setAttackTick(0);
+                        this.level().broadcastEntityEvent(this, (byte) 101);
+                    }
+                    if (this.getTarget() != null) {
+                        this.lookAt(this.getTarget(), 360f, 360f);
+                    }
+                    this.getNavigation().stop();
+                }
+                else {
+                    this.stopUsingItem();
+                }
+            }
+        }
         //愤怒
         if (this.getAngryTick() > 0) {
             if (!this.isAggressive()) {
@@ -483,6 +501,9 @@ public class AxCrazyEntity extends MeleeIllagerEntity implements EliteEntity, Ba
             if (this.getNeedStopTick() <= 0 && this.getRandom().nextInt(8 * 20) == 1 && this.isAlive()) {
                 if (!this.level().isClientSide()) {
                     this.setAngryTick(Math.min(240, this.getAngryTick() + 80));
+                }
+                if (!this.isSilent()) {
+                    this.playSound(JVPillageSoundEvents.AX_CRAZY_ANGRY, 5.0f, 1.0f);
                 }
                 if (!this.level().isClientSide()) {
                     this.setStopTick(90);

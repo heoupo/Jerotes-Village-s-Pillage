@@ -3,15 +3,18 @@ package com.jerotes.jvpillage.client.model;
 import com.jerotes.jerotes.client.animation.HumanoidAnimation;
 import com.jerotes.jvpillage.JVPillage;
 import com.jerotes.jvpillage.client.animation.SlaverySupervisorAnimation;
+import com.jerotes.jvpillage.client.animation.SubmarinerAnimation;
 import com.jerotes.jvpillage.entity.Interface.AlwaysShowArmIllagerEntity;
 import com.jerotes.jvpillage.entity.Monster.IllagerFaction.SlaverySupervisorEntity;
 import com.jerotes.jvpillage.init.JVPillageItems;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.monster.AbstractIllager;
 
 
@@ -19,58 +22,54 @@ public class Modelslavery_supervisor<T extends SlaverySupervisorEntity> extends 
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(JVPillage.MODID, "slavery_supervisor"), "main");
 	private final ModelPart head;
 	private final ModelPart hat;
-	private final ModelPart body;
-	private final ModelPart left_arm;
-	private final ModelPart right_arm;
-	private final ModelPart arms;
-	private final ModelPart left_shoulder;
-	private final ModelPart left_leg;
-	private final ModelPart right_leg;
 	private final ModelPart hat_armor;
+	private final ModelPart nose;
+	private final ModelPart body;
 	private final ModelPart body_armor;
-	private final ModelPart left_arm_armor;
-	private final ModelPart right_arm_armor;
-	private final ModelPart arms_armor;
-	private final ModelPart left_shoulder_armor;
 	private final ModelPart body_legs_armor;
+	private final ModelPart arms;
+	private final ModelPart arms_armor;
+	private final ModelPart left_shoulder;
+	private final ModelPart left_shoulder_armor;
+	private final ModelPart left_arm;
+	private final ModelPart left_weapon;
+	private final ModelPart left_arm_armor;
+	private final ModelPart right_arm;
+	private final ModelPart right_weapon;
+	private final ModelPart right_arm_armor;
+	private final ModelPart left_leg;
 	private final ModelPart left_leg_armor;
-	private final ModelPart right_leg_armor;
 	private final ModelPart left_foot_armor;
+	private final ModelPart right_leg;
+	private final ModelPart right_leg_armor;
 	private final ModelPart right_foot_armor;
+
 
 	public Modelslavery_supervisor(ModelPart root) {
 		super(root);
 		this.head = root.getChild("head");
-		this.hat = head.getChild("hat");
+		this.hat = this.head.getChild("hat");
+		this.hat_armor = this.hat.getChild("hat_armor");
+		this.nose = this.head.getChild("nose");
 		this.body = root.getChild("body");
+		this.body_armor = this.body.getChild("body_armor");
+		this.body_legs_armor = this.body.getChild("body_legs_armor");
+		this.arms = this.body.getChild("arms");
+		this.arms_armor = this.arms.getChild("arms_armor");
+		this.left_shoulder = this.arms.getChild("left_shoulder");
+		this.left_shoulder_armor = this.left_shoulder.getChild("left_shoulder_armor");
 		this.left_arm = root.getChild("left_arm");
+		this.left_weapon = this.left_arm.getChild("left_weapon");
+		this.left_arm_armor = this.left_arm.getChild("left_arm_armor");
 		this.right_arm = root.getChild("right_arm");
-		this.arms = body.getChild("arms");
-		this.left_shoulder = arms.getChild("left_shoulder");
+		this.right_weapon = this.right_arm.getChild("right_weapon");
+		this.right_arm_armor = this.right_arm.getChild("right_arm_armor");
 		this.left_leg = root.getChild("left_leg");
+		this.left_leg_armor = this.left_leg.getChild("left_leg_armor");
+		this.left_foot_armor = this.left_leg.getChild("left_foot_armor");
 		this.right_leg = root.getChild("right_leg");
-		//头盔
-		this.hat_armor = hat.getChild("hat_armor");
-		//胸甲
-		this.body_armor = body.getChild("body_armor");
-		//左臂
-		this.left_arm_armor = left_arm.getChild("left_arm_armor");
-		//右臂
-		this.right_arm_armor = right_arm.getChild("right_arm_armor");
-		//抱胸右臂
-		this.arms_armor = arms.getChild("arms_armor");
-		//抱胸左臂
-		this.left_shoulder_armor = left_shoulder.getChild("left_shoulder_armor");
-		//胸甲裤子
-		this.body_legs_armor = body.getChild("body_legs_armor");
-		//左腿
-		this.left_leg_armor = left_leg.getChild("left_leg_armor");
-		//右腿
-		this.right_leg_armor = right_leg.getChild("right_leg_armor");
-		//左脚
-		this.left_foot_armor = left_leg.getChild("left_foot_armor");
-		//右脚
-		this.right_foot_armor = right_leg.getChild("right_foot_armor");
+		this.right_leg_armor = this.right_leg.getChild("right_leg_armor");
+		this.right_foot_armor = this.right_leg.getChild("right_foot_armor");
 	}
 
 	public static LayerDefinition createBodyLayer() {
@@ -115,9 +114,13 @@ public class Modelslavery_supervisor<T extends SlaverySupervisorEntity> extends 
 
 		PartDefinition left_arm = partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(40, 46).mirror().addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(5.0F, 2.0F, 0.0F));
 
+		PartDefinition left_weapon = left_arm.addOrReplaceChild("left_weapon", CubeListBuilder.create(), PartPose.offset(1.0F, 9.0F, 0.0F));
+
 		PartDefinition left_arm_armor = left_arm.addOrReplaceChild("left_arm_armor", CubeListBuilder.create().texOffs(64, 22).mirror().addBox(4.0F, -24.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.75F)).mirror(false), PartPose.offset(-5.0F, 22.0F, 0.0F));
 
 		PartDefinition right_arm = partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(40, 46).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-5.0F, 2.0F, 0.0F));
+
+		PartDefinition right_weapon = right_arm.addOrReplaceChild("right_weapon", CubeListBuilder.create(), PartPose.offset(-1.0F, 9.0F, 0.0F));
 
 		PartDefinition right_arm_armor = right_arm.addOrReplaceChild("right_arm_armor", CubeListBuilder.create().texOffs(64, 22).addBox(-8.0F, -24.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.75F)), PartPose.offset(5.0F, 22.0F, 0.0F));
 
@@ -141,6 +144,7 @@ public class Modelslavery_supervisor<T extends SlaverySupervisorEntity> extends 
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.head.yRot = f4 * ((float)Math.PI / 180F);
 		this.head.xRot = f5 * ((float)Math.PI / 180F);
+		this.animate(t.idleAnimationState, SubmarinerAnimation.IDLE, f3);
 		this.animateWalk(SlaverySupervisorAnimation.WALK, f, f2, 2.0f, 2.0f);
 		this.animate(t.attack1AnimationState, SlaverySupervisorAnimation.ATTACK1, f3);
 		this.animate(t.attack2AnimationState, SlaverySupervisorAnimation.ATTACK2, f3);
@@ -231,5 +235,22 @@ public class Modelslavery_supervisor<T extends SlaverySupervisorEntity> extends 
 		this.right_sleeve.copyFrom(this.right_arm);
 		this.left_pants.copyFrom(this.left_leg);
 		this.right_pants.copyFrom(this.right_leg);
+	}
+	@Override
+	public void translateToHand(HumanoidArm humanoidArm, PoseStack poseStack) {
+		this.getArm(humanoidArm).translateAndRotate(poseStack);
+		this.getWeapon(humanoidArm).translateAndRotate(poseStack);
+	}
+	protected ModelPart getArm(HumanoidArm humanoidArm) {
+		if (humanoidArm == HumanoidArm.LEFT) {
+			return this.left_arm;
+		}
+		return this.right_arm;
+	}
+	protected ModelPart getWeapon(HumanoidArm humanoidArm) {
+		if (humanoidArm == HumanoidArm.LEFT) {
+			return this.left_weapon;
+		}
+		return this.right_weapon;
 	}
 }

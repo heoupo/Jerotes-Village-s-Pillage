@@ -9,6 +9,10 @@
     "jvpillage:explorer_helmet",
     "jvpillage:explorer_chestplate",
     "jvpillage:explorer_leggings",
-    "jvpillage:explorer_boots"
+    "jvpillage:explorer_boots",
+    "jvpillage:adventurer_helmet",
+    "jvpillage:adventurer_chestplate",
+    "jvpillage:adventurer_leggings",
+    "jvpillage:adventurer_boots"
   ]
 }

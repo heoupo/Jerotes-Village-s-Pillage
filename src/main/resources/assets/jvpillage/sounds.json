@@ -2757,6 +2757,171 @@
       }
     ]
   },
+  "ax_crazy_angry": {
+    "subtitle": "subtitle.jvpillage.ax_crazy_angry",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "jvpillage:entities/ax_crazy/angry",
+        "volume": 1.0
+      }
+    ]
+  },
+  "adventurer_ambient": {
+    "subtitle": "subtitle.jvpillage.adventurer_ambient",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jvpillage:entities/adventurer/ambient_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/ambient_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/ambient_3",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/ambient_4",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "adventurer_hurt": {
+    "subtitle": "subtitle.jvpillage.adventurer_hurt",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jvpillage:entities/adventurer/hurt_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/hurt_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/hurt_3",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "adventurer_death": {
+    "subtitle": "subtitle.jvpillage.adventurer_death",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jvpillage:entities/adventurer/death_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/death_2",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "adventurer_attack": {
+    "subtitle": "subtitle.jvpillage.adventurer_attack",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jvpillage:entities/adventurer/attack_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/attack_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/attack_3",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/attack_4",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "adventurer_cheer": {
+    "subtitle": "subtitle.jvpillage.adventurer_cheer",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jvpillage:entities/adventurer/cheer_1",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/cheer_2",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/cheer_3",
+        "volume": 1.0,
+        "weight": 1.0
+      },
+      {
+        "name": "jvpillage:entities/adventurer/cheer_4",
+        "volume": 1.0,
+        "weight": 1.0
+      }
+    ]
+  },
+  "adventurer_stab": {
+    "subtitle": "subtitle.jvpillage.adventurer_stab",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jvpillage:entities/adventurer/stab",
+        "volume": 1.0
+      }
+    ]
+  },
+  "adventurer_block": {
+    "subtitle": "subtitle.jvpillage.adventurer_block",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jvpillage:entities/adventurer/block",
+        "volume": 1.0
+      }
+    ]
+  },
+  "adventurer_lunging": {
+    "subtitle": "subtitle.jvpillage.adventurer_lunging",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jvpillage:entities/adventurer/lunging",
+        "volume": 1.0
+      }
+    ]
+  },
+  "adventurer_bomb": {
+    "subtitle": "subtitle.jvpillage.adventurer_bomb",
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "jvpillage:entities/adventurer/bomb",
+        "volume": 1.0
+      }
+    ]
+  },
   "ominous_banner_projection_ambient": {
     "subtitle": "subtitle.jvpillage.ominous_banner_projection_ambient",
     "category": "hostile",

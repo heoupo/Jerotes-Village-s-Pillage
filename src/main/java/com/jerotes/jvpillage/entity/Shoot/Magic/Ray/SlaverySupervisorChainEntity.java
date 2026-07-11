@@ -21,7 +21,6 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 
 public class SlaverySupervisorChainEntity extends BaseRayEntity {
@@ -49,15 +48,13 @@ public class SlaverySupervisorChainEntity extends BaseRayEntity {
         this.summonTod3 = d3;
     }
 
-    protected void onHitEntity(EntityHitResult entityHitResult) {
-        super.onHitEntity(entityHitResult);
+    protected void hitEntity(Entity entity) {
+        super.hitEntity(entity);
         if (!this.isUseful())
             return;
         if (this.level().isClientSide) {
             return;
         }
-        Entity entity = entityHitResult.getEntity();
-
         if (entity instanceof LivingEntity livingEntity && (this.getOwner() instanceof LivingEntity livingEntity2)) {
             double damage = spellLevelDamage;
             if (livingEntity2.getAttribute(Attributes.ATTACK_DAMAGE) != null) {
@@ -88,7 +85,6 @@ public class SlaverySupervisorChainEntity extends BaseRayEntity {
             }
             this.playSound(SoundEvents.CHAIN_BREAK, 10.0f, 1.0f);
             this.setUseful(false);
-            this.discard();
         }
     }
 
@@ -99,7 +95,14 @@ public class SlaverySupervisorChainEntity extends BaseRayEntity {
             return;
         if (!this.level().isClientSide) {
             this.setUseful(false);
-            this.discard();
+        }
+    }
+    protected void afterHasLineOfSight() {
+        super.afterHasLineOfSight();
+        if (!this.isUseful())
+            return;
+        if (!this.level().isClientSide) {
+            this.setUseful(false);
         }
     }
 
@@ -115,6 +118,12 @@ public class SlaverySupervisorChainEntity extends BaseRayEntity {
     @Override
     protected ParticleOptions getTrailParticle() {
         return new BlockParticleOption(ParticleTypes.BLOCK, Blocks.CHAIN.defaultBlockState());
+    }
+    public boolean showParticle() {
+        return true;
+    }
+    public boolean showBeam() {
+        return false;
     }
 
     @Override
@@ -134,5 +143,13 @@ public class SlaverySupervisorChainEntity extends BaseRayEntity {
     //@Override
     protected float getLiquidInertia() {
         return 1.0f;
+    }
+
+
+    public int beamLightI() {
+        return 0x322727;
+    }
+    public int beamLightII() {
+        return 0x51444e;
     }
 }

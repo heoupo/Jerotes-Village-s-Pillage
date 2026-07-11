@@ -15,7 +15,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
@@ -48,14 +47,13 @@ public class PushForceEntity extends BaseRayEntity {
         this.summonTod3 = d3;
     }
 
-    protected void onHitEntity(EntityHitResult entityHitResult) {
-        super.onHitEntity(entityHitResult);
+    protected void hitEntity(Entity entity) {
+        super.hitEntity(entity);
         if (!this.isUseful())
             return;
         if (this.level().isClientSide) {
             return;
         }
-        Entity entity = entityHitResult.getEntity();
 
         if (entity instanceof LivingEntity livingEntity) {
             double resistance = 1.5;
@@ -81,7 +79,6 @@ public class PushForceEntity extends BaseRayEntity {
             }
             this.playSound(JerotesSoundEvents.SPELL, 3.0f, 1.0f);
             this.setUseful(false);
-            this.discard();
         }
     }
 
@@ -92,12 +89,25 @@ public class PushForceEntity extends BaseRayEntity {
             return;
         if (!this.level().isClientSide) {
             this.setUseful(false);
-            this.discard();
+        }
+    }
+    protected void afterHasLineOfSight() {
+        super.afterHasLineOfSight();
+        if (!this.isUseful())
+            return;
+        if (!this.level().isClientSide) {
+            this.setUseful(false);
         }
     }
 
     public BaseRayEntity getRay() {
         return new PushForceEntity(this.spellLevelDamage, this.spellLevelXZPush, this.spellLevelXZPushBase, this.spellLevelYPush, this.spellLevelYPushBase, this.level(), (LivingEntity) this.getOwner(), summonTod, summonTod2, summonTod3);
+    }
+    public boolean showParticle() {
+        return true;
+    }
+    public boolean showBeam() {
+        return false;
     }
 
     @Override
@@ -124,5 +134,12 @@ public class PushForceEntity extends BaseRayEntity {
     //@Override
     protected float getLiquidInertia() {
         return 1.0f;
+    }
+
+    public int beamLightI() {
+        return 0xc26b4c;
+    }
+    public int beamLightII() {
+        return 0xe3826c;
     }
 }

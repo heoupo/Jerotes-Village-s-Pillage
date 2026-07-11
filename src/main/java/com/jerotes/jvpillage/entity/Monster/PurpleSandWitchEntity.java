@@ -1,5 +1,6 @@
 package com.jerotes.jvpillage.entity.Monster;
 
+import com.jerotes.jerotes.entity.Interface.FactionEntity;
 import com.jerotes.jerotes.entity.Interface.JerotesEntity;
 import com.jerotes.jerotes.entity.Interface.PurpleSandSisterhoodEntity;
 import com.jerotes.jerotes.goal.JerotesHelpAlliesGoal;
@@ -8,7 +9,6 @@ import com.jerotes.jerotes.init.JerotesMobEffects;
 import com.jerotes.jerotes.util.EntityAndItemFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jerotes.util.Main;
-import com.jerotes.jvpillage.util.OtherEntityFactionFind;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -41,9 +41,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
-public class PurpleSandWitchEntity extends Witch implements PurpleSandSisterhoodEntity, JerotesEntity {
+public class PurpleSandWitchEntity extends Witch implements PurpleSandSisterhoodEntity, JerotesEntity , FactionEntity {
 	private static final UUID SPEED_MODIFIER_DRINKING_UUID = UUID.fromString("5727C5E0-5008-5FFA-A277-72981359E585");
 	private static final AttributeModifier SPEED_MODIFIER_DRINKING = new AttributeModifier(SPEED_MODIFIER_DRINKING_UUID, "Drinking speed penalty", -0.25D, AttributeModifier.Operation.ADDITION);
 	private static final EntityDataAccessor<Boolean> DATA_USING_ITEM = SynchedEntityData.defineId(PurpleSandWitchEntity.class, EntityDataSerializers.BOOLEAN);
@@ -64,11 +66,15 @@ public class PurpleSandWitchEntity extends Witch implements PurpleSandSisterhood
 	}
 
 	@Override
-	public boolean isFactionWith(Entity entity) {
-		return entity instanceof LivingEntity livingEntity && OtherEntityFactionFind.isFactionPurpleSandSisterhood(livingEntity);
+	public List<String> getFactionTypeUntilTame() {
+		List<String> list = new ArrayList<>();
+		list.add(getFirstFactionTypeName());
+		list.add("raider");
+		return list;
 	}
+
 	@Override
-	public String getFactionTypeName() {
+	public String getFirstFactionTypeName() {
 		return "purple_sand_sisterhood";
 	}
 

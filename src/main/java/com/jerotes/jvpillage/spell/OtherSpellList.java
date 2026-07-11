@@ -105,6 +105,9 @@ public class OtherSpellList {
 			public boolean canUseTargetNone() {
 				return true;
 			}
+			public int baseSpellLevel() {
+				return 3;
+			}
 		};
 	}
 	//弹力冰岩

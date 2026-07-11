@@ -1,13 +1,14 @@
 package com.jerotes.jvpillage.entity.Other;
 
-import com.jerotes.jvpillage.block.DamagedRuins.MerorProjectionTable;
-import com.jerotes.jvpillage.init.JVPillageEntityType;
-import com.jerotes.jvpillage.init.JVPillageSoundEvents;
+import com.jerotes.jvpillage.block.DamagedRuins.MerorProjectionTableEntity;
+import com.jerotes.jvpillage.item.ItemBossDrop;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -20,9 +21,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.List;
-
 public class BossShowEntity extends LivingEntity {
+	private static final EntityDataAccessor<Integer> BLOCK_X = SynchedEntityData.defineId(BossShowEntity.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<Integer> BLOCK_Y = SynchedEntityData.defineId(BossShowEntity.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<Integer> BLOCK_Z = SynchedEntityData.defineId(BossShowEntity.class, EntityDataSerializers.INT);
 	private final NonNullList<ItemStack> handItems = NonNullList.withSize(2, ItemStack.EMPTY);
 	private final NonNullList<ItemStack> armorItems = NonNullList.withSize(4, ItemStack.EMPTY);
 	public BossShowEntity(EntityType<? extends BossShowEntity> entityType, Level level) {
@@ -33,33 +35,28 @@ public class BossShowEntity extends LivingEntity {
 	@Override
 	public void tick() {
 		super.tick();
-		BlockPos base = new BlockPos(mainx, mainy, mainz);
-		if (this.start < 40) {
-			this.start += 1;
-		}
-		if (!this.level().isClientSide) {
-			if (this.start >= 40) {
-				if (!(this.level().getBlockState(base).getBlock() instanceof MerorProjectionTable) || this.distanceToSqr(base.getCenter()) > 2) {
-					this.discard();
-				}
+		if (this.tickCount % 40 == 0) {
+			BlockPos base = new BlockPos(getBlockAboutX(), getBlockAboutY(), getBlockAboutZ());
+			if (!(this.level().getBlockEntity(base) instanceof MerorProjectionTableEntity merorProjectionTable)) {
+				this.discard();
 			}
-		}
-		List<BossShowEntity> listShow = this.level().getEntitiesOfClass(BossShowEntity.class, this.getBoundingBox());
-		if (listShow.size() > 1) {
-			this.discard();
+			else if (!(merorProjectionTable.getItem(0).getItem() instanceof ItemBossDrop itemBossDrop)) {
+				this.discard();
+			}
+			else if (itemBossDrop.getBossEntityType() != this.getType()) {
+				this.discard();
+			}
 		}
 	}
 
 	@Override
 	public InteractionResult interactAt(Player player, Vec3 vec3, InteractionHand interactionHand) {
-		SoundEvent soundEvent = SoundEvents.GENERIC_HURT;
-		//灾厄旗帜投影
-		if (this.getType() == JVPillageEntityType.BOSS_SHOW_ENTITY_OMINOUS_BANNER_PROJECTION.get())
-			soundEvent = JVPillageSoundEvents.OMINOUS_BANNER_PROJECTION_AMBIENT;
-		//紫沙鬼婆
-		if (this.getType() == JVPillageEntityType.BOSS_SHOW_ENTITY_PURPLE_SAND_HAG.get())
-			soundEvent = JVPillageSoundEvents.PURPLE_SAND_HAG_AMBIENT;
-		this.playSound(soundEvent, 2.0f, 1.0f);
+		BlockPos base = new BlockPos(getBlockAboutX(), getBlockAboutY(), getBlockAboutZ());
+		if ((this.level().getBlockEntity(base) instanceof MerorProjectionTableEntity merorProjectionTable) && (merorProjectionTable.getItem(0).getItem() instanceof ItemBossDrop itemBossDrop)) {
+			SoundEvent soundEvent = itemBossDrop.getBossSoundEvent();
+			this.playSound(soundEvent, 2.0f, 1.0f);
+			return InteractionResult.SUCCESS;
+		}
 		return super.interactAt(player, vec3, interactionHand);
 	}
 
@@ -107,34 +104,53 @@ public class BossShowEntity extends LivingEntity {
 	}
 
 	private int start;
-	public int mainx;
-	public int mainy;
-	public int mainz;
 	public float facing;
 
+	public void setBlockAboutX(int n){
+		this.getEntityData().set(BLOCK_X, n);
+	}
+	public int getBlockAboutX() {return this.getEntityData().get(BLOCK_X);}
+	public void setBlockAboutY(int n){
+		this.getEntityData().set(BLOCK_Y, n);
+	}
+	public int getBlockAboutY() {
+		return this.getEntityData().get(BLOCK_Y);
+	}
+	public void setBlockAboutZ(int n){
+		this.getEntityData().set(BLOCK_Z, n);
+	}
+	public int getBlockAboutZ() {
+		return this.getEntityData().get(BLOCK_Z);
+	}
 	@Override
 	public void addAdditionalSaveData(CompoundTag compoundTag) {
 		super.addAdditionalSaveData(compoundTag);
 		compoundTag.putInt("Start", this.start);
-		compoundTag.putInt("MainX", this.mainx);
-		compoundTag.putInt("MainY", this.mainy);
-		compoundTag.putInt("MainZ", this.mainz);
+		compoundTag.putInt("BlockAboutX", this.getBlockAboutX());
+		compoundTag.putInt("BlockAboutY", this.getBlockAboutY());
+		compoundTag.putInt("BlockAboutZ", this.getBlockAboutZ());
 		compoundTag.putFloat("Facing", this.facing);
 	}
 	@Override
 	public void readAdditionalSaveData(CompoundTag compoundTag) {
 		super.readAdditionalSaveData(compoundTag);
 		this.start = compoundTag.getInt("Start");
-		this.mainx = compoundTag.getInt("MainX");
-		this.mainy = compoundTag.getInt("MainY");
-		this.mainz = compoundTag.getInt("MainZ");
+		this.setBlockAboutX(compoundTag.getInt("BlockAboutX"));
+		this.setBlockAboutY(compoundTag.getInt("BlockAboutY"));
+		this.setBlockAboutZ(compoundTag.getInt("BlockAboutZ"));
 		this.facing = compoundTag.getFloat("Facing");
+	}
+	@Override
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.getEntityData().define(BLOCK_X, 0);
+		this.getEntityData().define(BLOCK_Y, 0);
+		this.getEntityData().define(BLOCK_Z, 0);
 	}
 	@Override
 	public boolean isPushable() {
 		return false;
 	}
-
 	@Override
 	protected void doPush(Entity entity) {
 	}
@@ -158,10 +174,7 @@ public class BossShowEntity extends LivingEntity {
 
 	@Override
 	public void setDeltaMovement(double d, double d2, double d3) {
-		if (this.start >= 40) {
-			super.setDeltaMovement(0, 0, 0);
-		}
-		super.setDeltaMovement(d, d2, d3);
+		super.setDeltaMovement(0, 0, 0);
 	}
 	@Override
 	public boolean canFreeze() {

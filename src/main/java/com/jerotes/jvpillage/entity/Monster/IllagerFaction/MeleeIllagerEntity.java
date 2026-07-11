@@ -9,7 +9,6 @@ import com.jerotes.jerotes.util.Main;
 import com.jerotes.jvpillage.goal.QoaikuGroundOpenDoorGoal;
 import com.jerotes.jvpillage.goal.QoaikuOpenDoorGoal;
 import com.jerotes.jvpillage.init.JVPillageItems;
-import com.jerotes.jvpillage.util.OtherEntityFactionFind;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -59,7 +58,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MeleeIllagerEntity extends AbstractIllager implements OminouseBannerRaidForceEntity, WizardEntity, InventoryCarrier, InventoryEntity, UseShieldEntity, JerotesEntity {
+public class MeleeIllagerEntity extends AbstractIllager implements OminouseBannerRaidForceEntity, WizardEntity, InventoryCarrier, InventoryEntity, UseShieldEntity, JerotesEntity ,FactionEntity{
     private static final EntityDataAccessor<Integer> COMBAT_STYLE = SynchedEntityData.defineId(MeleeIllagerEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> USE_SELF_NOT_SPELL_LIST = SynchedEntityData.defineId(MeleeIllagerEntity.class, EntityDataSerializers.BOOLEAN);
     protected static final EntityDataAccessor<Integer> ANIM_STATE = SynchedEntityData.defineId(MeleeIllagerEntity.class, EntityDataSerializers.INT);
@@ -102,12 +101,16 @@ public class MeleeIllagerEntity extends AbstractIllager implements OminouseBanne
     }
 
     @Override
-    public boolean isFactionWith(Entity entity) {
-        return entity instanceof LivingEntity livingEntity && (EntityFactionFind.isRaider(livingEntity) || OtherEntityFactionFind.isFactionOminousBannerRaidForce(livingEntity));
+    public String getFirstFactionTypeName() {
+        return "ominous_banner_raid_force";
     }
     @Override
-    public String getFactionTypeName() {
-        return "ominous_banner_raid_force";
+    public List<String> getFactionTypeUntilTame() {
+        List<String> list = new ArrayList<>();
+        list.add(getFirstFactionTypeName());
+        list.add("raider");
+        list.add("illager");
+        return list;
     }
 
     @VisibleForDebug

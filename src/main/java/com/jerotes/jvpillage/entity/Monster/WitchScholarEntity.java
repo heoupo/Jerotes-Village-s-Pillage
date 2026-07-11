@@ -1,15 +1,14 @@
 package com.jerotes.jvpillage.entity.Monster;
 
+import com.jerotes.jerotes.entity.Interface.FactionEntity;
 import com.jerotes.jerotes.entity.Interface.JerotesEntity;
 import com.jerotes.jerotes.entity.Interface.PurpleSandSisterhoodEntity;
 import com.jerotes.jerotes.goal.JerotesHelpAlliesGoal;
+import com.jerotes.jerotes.goal.JerotesHelpSameFactionGoal;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jerotes.util.Main;
-import com.jerotes.jerotes.goal.*;
-import com.jerotes.jvpillage.util.OtherEntityFactionFind;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -32,7 +31,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 
-public class WitchScholarEntity extends Witch implements PurpleSandSisterhoodEntity, JerotesEntity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class WitchScholarEntity extends Witch implements PurpleSandSisterhoodEntity, JerotesEntity , FactionEntity {
 	public WitchScholarEntity(EntityType<? extends WitchScholarEntity> entityType, Level level) {
 		super(entityType, level);
 		this.xpReward = 15;
@@ -48,11 +50,15 @@ public class WitchScholarEntity extends Witch implements PurpleSandSisterhoodEnt
 	}
 
 	@Override
-	public boolean isFactionWith(Entity entity) {
-		return entity instanceof LivingEntity livingEntity && OtherEntityFactionFind.isFactionPurpleSandSisterhood(livingEntity);
+	public List<String> getFactionTypeUntilTame() {
+		List<String> list = new ArrayList<>();
+		list.add(getFirstFactionTypeName());
+		list.add("raider");
+		return list;
 	}
+
 	@Override
-	public String getFactionTypeName() {
+	public String getFirstFactionTypeName() {
 		return "purple_sand_sisterhood";
 	}
 

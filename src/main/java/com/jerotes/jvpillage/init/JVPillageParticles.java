@@ -215,5 +215,10 @@ public class JVPillageParticles {
 		event.registerSpriteSet(JVPillageParticleTypes.DISARMING_ATTACK_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.DISTRACTING_STRIKE_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.ELECTROFLASH_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JVPillageParticleTypes.RAPIER_FLURRY_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JVPillageParticleTypes.RAPIER_PARRY_RIPOSTE_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JVPillageParticleTypes.RAPIER_LUNGING_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JVPillageParticleTypes.RAGE_CHARGE_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JVPillageParticleTypes.OMINOUS_BOMB_TOSS_DISPLAY.get(), DisplayParticle::provider);
 	}
 }

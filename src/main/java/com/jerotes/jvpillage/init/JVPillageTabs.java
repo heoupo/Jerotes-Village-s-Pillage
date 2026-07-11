@@ -70,6 +70,7 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.FIREPOWER_POURER_CHAINSAW.get());
 						tabData.accept(JVPillageItems.FIREPOWER_POURER_CROSSBOW.get());
 						tabData.accept(JVPillageItems.CRAZY_AXE.get());
+						tabData.accept(JVPillageItems.OMINOUS_ADVENTURER_RAPIER.get());
 						tabData.accept(JVPillageItems.OMINOUS_WAR_BEAST_ARMOR.get());
 						tabData.accept(JVPillageItems.OMINOUS_GIANT_BEAST_ARMOR.get());
 						tabData.accept(JVPillageItems.EXPLORER_IRON_UPGRADE_SMITHING_TEMPLATE.get());
@@ -82,6 +83,10 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.EXPLORER_CHESTPLATE.get());
 						tabData.accept(JVPillageItems.EXPLORER_LEGGINGS.get());
 						tabData.accept(JVPillageItems.EXPLORER_BOOTS.get());
+						tabData.accept(JVPillageItems.ADVENTURER_HELMET.get());
+						tabData.accept(JVPillageItems.ADVENTURER_CHESTPLATE.get());
+						tabData.accept(JVPillageItems.ADVENTURER_LEGGINGS.get());
+						tabData.accept(JVPillageItems.ADVENTURER_BOOTS.get());
 						tabData.accept(JVPillageItems.HORNED_HELMET.get());
 						tabData.accept(JVPillageItems.WARLOCK_TIARA.get());
 						tabData.accept(JVPillageItems.WARLOCK_CASSOCK.get());
@@ -118,6 +123,7 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.GAVILER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.AX_CRAZY_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.ADVENTURER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.OMINOUS_BANNER_PROJECTION_SPAWN_EGG.get());
 						//苦寒
 						tabData.accept(JVPillageItems.SNOW_FROZEN_SOIL.get());

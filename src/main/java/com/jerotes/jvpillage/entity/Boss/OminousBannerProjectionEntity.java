@@ -17,13 +17,13 @@ import com.jerotes.jvpillage.control.NoRotationControl;
 import com.jerotes.jvpillage.entity.Animal.GiantMonsterEntity;
 import com.jerotes.jvpillage.entity.Animal.WildernessWolfEntity;
 import com.jerotes.jvpillage.entity.Interface.BannerChampionEntity;
+import com.jerotes.jvpillage.event.AdvancementEvent;
 import com.jerotes.jvpillage.event.BossBarEvent;
 import com.jerotes.jvpillage.goal.OminousBannerProjectionRangedAttackGoal;
 import com.jerotes.jvpillage.init.JVPillageEntityType;
 import com.jerotes.jvpillage.init.JVPillageItems;
 import com.jerotes.jvpillage.init.JVPillageSoundEvents;
 import com.jerotes.jvpillage.util.Other;
-import com.jerotes.jvpillage.util.OtherEntityFactionFind;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
@@ -76,7 +76,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class OminousBannerProjectionEntity extends Raider implements OminouseBannerRaidForceEntity, BossEntity, JerotesEntity, RangedAttackMob, SpellUseEntity, BannerChampionEntity {
+public class OminousBannerProjectionEntity extends Raider implements OminouseBannerRaidForceEntity, BossEntity, JerotesEntity, RangedAttackMob, SpellUseEntity, BannerChampionEntity ,FactionEntity{
 	private static final EntityDataAccessor<Integer> ANIM_STATE = SynchedEntityData.defineId(OminousBannerProjectionEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Integer> ANIM_TICK = SynchedEntityData.defineId(OminousBannerProjectionEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Boolean> IS_LAST_ROUND = SynchedEntityData.defineId(OminousBannerProjectionEntity.class, EntityDataSerializers.BOOLEAN);
@@ -137,12 +137,16 @@ public class OminousBannerProjectionEntity extends Raider implements OminouseBan
 	}
 
 	@Override
-	public boolean isFactionWith(Entity entity) {
-		return entity instanceof LivingEntity livingEntity && (EntityFactionFind.isRaider(livingEntity) || OtherEntityFactionFind.isFactionOminousBannerRaidForce(livingEntity));
+	public String getFirstFactionTypeName() {
+		return "ominous_banner_raid_force";
 	}
 	@Override
-	public String getFactionTypeName() {
-		return "ominous_banner_raid_force";
+	public List<String> getFactionTypeUntilTame() {
+		List<String> list = new ArrayList<>();
+		list.add(getFirstFactionTypeName());
+		list.add("raider");
+		list.add("illager");
+		return list;
 	}
 	@Override
 	public void startSeenByPlayer(ServerPlayer serverPlayer) {
@@ -595,10 +599,49 @@ public class OminousBannerProjectionEntity extends Raider implements OminouseBan
 				}
 				//最后一波
 				if (this.round == this.maxRound) {
+					if (this.isChampion()) {
+						for (int ip = 0; ip < 1; ++ip) {
+							summonEntity(JVPillageEntityType.ADVENTURER.get(), 1, 16);
+							summonEntity(JVPillageEntityType.AX_CRAZY.get(), 1, 16);
+							this.points -= 30;
+						}
+					}
 					for (int i = 0; i < 2; ++i) {
 						//玩家数调整
 						for (int counts = 0; counts < Other.getRaidBossCount(this); ++counts) {
-							if ((OtherMainConfig.OminousBannerProjectionAXCrazyCanAppear || this.getTarget() != null && this.getTarget().getMainHandItem().is(TagKey.create(Registries.ITEM, new ResourceLocation(JVPillage.MODID, "ominous_banner_raid_summon_special_elite_item"))))) {
+							if (this.getTarget() != null && this.getTarget() instanceof ServerPlayer player && player.getAdvancements().getOrStartProgress(AdvancementEvent.AdvancementGet(player, "jvpillage:bastard_leader")).isDone()) {
+								String string = "elite";
+								if ((OtherMainConfig.OminousBannerProjectionAXCrazyCanAppear || this.getTarget() != null && this.getTarget().getMainHandItem().is(TagKey.create(Registries.ITEM, new ResourceLocation(JVPillage.MODID, "ominous_banner_raid_summon_special_elite_item"))))) {
+									string = "elite_special";
+								}
+								List<EntityType<?>> entityTypes = Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.tags()).getTag(
+										TagKey.create(ForgeRegistries.ENTITY_TYPES.getRegistryKey(), new ResourceLocation(JVPillage.MODID, "ominous_banner_raid/"+ string))
+								).stream().toList();
+								int size = entityTypes.size();
+								if (Main.randomReach(this.getRandom(), 0, size) == 0) {
+									summonEntity(JVPillageEntityType.ADVENTURER.get(), 1, 16);
+									this.points -= 60;
+									break;
+								}
+								else {
+									if ((OtherMainConfig.OminousBannerProjectionAXCrazyCanAppear || this.getTarget() != null && this.getTarget().getMainHandItem().is(TagKey.create(Registries.ITEM, new ResourceLocation(JVPillage.MODID, "ominous_banner_raid_summon_special_elite_item"))))) {
+										EntityType<?> randomEntity = entityTypeFind("elite_special");
+										if (BiomeCanUse(randomEntity) && randomEntity != EntityType.ARROW) {
+											summonEntity(randomEntity, 1, 16);
+											this.points -= 60;
+											break;
+										}
+									} else {
+										EntityType<?> randomEntity = entityTypeFind("elite");
+										if (BiomeCanUse(randomEntity) && randomEntity != EntityType.ARROW) {
+											summonEntity(randomEntity, 1, 16);
+											this.points -= 60;
+											break;
+										}
+									}
+								}
+							}
+							else if ((OtherMainConfig.OminousBannerProjectionAXCrazyCanAppear || this.getTarget() != null && this.getTarget().getMainHandItem().is(TagKey.create(Registries.ITEM, new ResourceLocation(JVPillage.MODID, "ominous_banner_raid_summon_special_elite_item"))))) {
 								EntityType<?> randomEntity = entityTypeFind("elite_special");
 								if (BiomeCanUse(randomEntity) && randomEntity != EntityType.ARROW) {
 									summonEntity(randomEntity, 1, 16);

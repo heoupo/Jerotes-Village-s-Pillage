@@ -21,7 +21,6 @@ import com.jerotes.jvpillage.goal.SpirveOrHagAttackTargetGoal;
 import com.jerotes.jvpillage.init.JVPillageEntityType;
 import com.jerotes.jvpillage.init.JVPillageItems;
 import com.jerotes.jvpillage.init.JVPillageSoundEvents;
-import com.jerotes.jvpillage.util.OtherEntityFactionFind;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.ChatFormatting;
@@ -108,7 +107,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class BaseHagEntity extends Raider implements WizardEntity, SpellUseEntity, InventoryEntity, UseShieldEntity, NeutralMob, InventoryCarrier, Npc, JerotesEntity, SkinEntity, Enemy, Merchant {
+public abstract class BaseHagEntity extends Raider implements WizardEntity, SpellUseEntity, InventoryEntity, UseShieldEntity, NeutralMob, InventoryCarrier, Npc, JerotesEntity, SkinEntity, Enemy, Merchant , FactionEntity{
 	public AnimationState idleAnimationState = new AnimationState();
 	public AnimationState attack1AnimationState = new AnimationState();
 	public AnimationState attack2AnimationState = new AnimationState();
@@ -224,11 +223,15 @@ public abstract class BaseHagEntity extends Raider implements WizardEntity, Spel
 	}
 
 	@Override
-	public boolean isFactionWith(Entity entity) {
-		return entity instanceof LivingEntity livingEntity && OtherEntityFactionFind.isFactionPurpleSandSisterhood(livingEntity);
+	public List<String> getFactionTypeUntilTame() {
+		List<String> list = new ArrayList<>();
+		list.add(getFirstFactionTypeName());
+		list.add("raider");
+		return list;
 	}
+
 	@Override
-	public String getFactionTypeName() {
+	public String getFirstFactionTypeName() {
 		return "purple_sand_sisterhood";
 	}
 

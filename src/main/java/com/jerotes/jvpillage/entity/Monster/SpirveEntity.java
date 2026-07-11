@@ -86,7 +86,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Predicate;
 
-public class SpirveEntity extends Raider implements SpellUseEntity, UseDaggerEntity, ShiftKeyDownEntity, NeutralMob, WizardEntity, PurpleSandSisterhoodEntity, UseThrowEntity, UseThrownJavelinEntity, InventoryEntity, CrossbowAttackMob, UseCrossbowEntity, UseBowEntity, InventoryCarrier, UseShieldEntity, JerotesEntity, SkinEntity, LightningAbsorptionEntity {
+public class SpirveEntity extends Raider implements SpellUseEntity, UseDaggerEntity, ShiftKeyDownEntity, NeutralMob, WizardEntity, PurpleSandSisterhoodEntity, UseThrowEntity, UseThrownJavelinEntity, InventoryEntity, CrossbowAttackMob, UseCrossbowEntity, UseBowEntity, InventoryCarrier, UseShieldEntity, JerotesEntity, SkinEntity, LightningAbsorptionEntity ,FactionEntity{
 	private static final EntityDataAccessor<Integer> COMBAT_STYLE = SynchedEntityData.defineId(SpirveEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Boolean> USE_SELF_NOT_SPELL_LIST = SynchedEntityData.defineId(SpirveEntity.class, EntityDataSerializers.BOOLEAN);
 	private static final EntityDataAccessor<Integer> SPELL_TICK = SynchedEntityData.defineId(SpirveEntity.class, EntityDataSerializers.INT);
@@ -213,12 +213,15 @@ public class SpirveEntity extends Raider implements SpellUseEntity, UseDaggerEnt
 	}
 
 	@Override
-	public boolean isFactionWith(Entity entity) {
-		return entity instanceof LivingEntity livingEntity && OtherEntityFactionFind.isFactionPurpleSandSisterhood(livingEntity);
+	public String getFirstFactionTypeName() {
+		return "purple_sand_sisterhood";
 	}
 	@Override
-	public String getFactionTypeName() {
-		return "purple_sand_sisterhood";
+	public List<String> getFactionTypeUntilTame() {
+		List<String> list = new ArrayList<>();
+		list.add(getFirstFactionTypeName());
+		list.add("raider");
+		return list;
 	}
 
 	@Override

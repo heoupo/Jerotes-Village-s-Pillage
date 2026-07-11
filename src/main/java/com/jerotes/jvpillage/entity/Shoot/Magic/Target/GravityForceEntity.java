@@ -96,4 +96,10 @@ public class GravityForceEntity extends BaseTargetEntity {
     protected float getLiquidInertia() {
         return 1.0f;
     }
+    public int roundLightI() {
+        return 0xc26b4c;
+    }
+    public int roundLightII() {
+        return 0xe3826c;
+    }
 }

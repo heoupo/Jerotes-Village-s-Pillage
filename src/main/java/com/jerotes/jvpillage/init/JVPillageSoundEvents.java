@@ -140,6 +140,16 @@ public class JVPillageSoundEvents {
     public static final SoundEvent AX_CRAZY_ATTACK = createSoundEvent("ax_crazy_attack");
     public static final SoundEvent AX_CRAZY_CHEER = createSoundEvent("ax_crazy_cheer");
     public static final SoundEvent AX_CRAZY_WALK = createSoundEvent("ax_crazy_walk");
+    public static final SoundEvent AX_CRAZY_ANGRY = createSoundEvent("ax_crazy_angry");
+    public static final SoundEvent ADVENTURER_AMBIENT = createSoundEvent("adventurer_ambient");
+    public static final SoundEvent ADVENTURER_HURT = createSoundEvent("adventurer_hurt");
+    public static final SoundEvent ADVENTURER_DEATH = createSoundEvent("adventurer_death");
+    public static final SoundEvent ADVENTURER_ATTACK = createSoundEvent("adventurer_attack");
+    public static final SoundEvent ADVENTURER_CHEER = createSoundEvent("adventurer_cheer");
+    public static final SoundEvent ADVENTURER_BLOCK = createSoundEvent("adventurer_block");
+    public static final SoundEvent ADVENTURER_LUNGING = createSoundEvent("adventurer_lunging");
+    public static final SoundEvent ADVENTURER_STAB = createSoundEvent("adventurer_stab");
+    public static final SoundEvent ADVENTURER_BOMB = createSoundEvent("adventurer_bomb");
     public static final SoundEvent OMINOUS_BANNER_PROJECTION_AMBIENT = createSoundEvent("ominous_banner_projection_ambient");
     public static final SoundEvent OMINOUS_BANNER_PROJECTION_HURT = createSoundEvent("ominous_banner_projection_hurt");
     public static final SoundEvent OMINOUS_BANNER_PROJECTION_DEATH = createSoundEvent("ominous_banner_projection_death");

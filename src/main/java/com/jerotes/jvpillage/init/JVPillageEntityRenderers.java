@@ -1,5 +1,8 @@
 package com.jerotes.jvpillage.init;
 
+import com.jerotes.jerotes.client.renderer.MagicMissileRenderer;
+import com.jerotes.jerotes.client.renderer.RayRenderer;
+import com.jerotes.jerotes.client.renderer.TargetRenderer;
 import com.jerotes.jvpillage.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
 import net.minecraft.client.renderer.entity.NoopRenderer;
@@ -29,14 +32,14 @@ public class JVPillageEntityRenderers {
         event.registerEntityRenderer(JVPillageEntityType.BITTER_COLD_ICE_SPIKE.get(), BitterColdIceSpikeRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.BITTER_COLD_FROSTBITE.get(), ShootRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.OMINOUS_FLAMES.get(), ShootRenderer::new);
-        event.registerEntityRenderer(JVPillageEntityType.ARCANE_LIGHT_SPOT.get(), ShootRenderer::new);
+        event.registerEntityRenderer(JVPillageEntityType.ARCANE_LIGHT_SPOT.get(), MagicMissileRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.ELASTIC_LIGHT_BALL.get(), ElasticLightBallRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.RADIANT_BOMB.get(), ShootRenderer::new);
-        event.registerEntityRenderer(JVPillageEntityType.SLAVERY_SUPERVISOR_CHAIN.get(), ShootRenderer::new);
+        event.registerEntityRenderer(JVPillageEntityType.SLAVERY_SUPERVISOR_CHAIN.get(), RayRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.BLOODY_SCREAM.get(), ShootRenderer::new);
-        event.registerEntityRenderer(JVPillageEntityType.PUSH_FORCE.get(), ShootRenderer::new);
-        event.registerEntityRenderer(JVPillageEntityType.FLOATING_FORCE.get(), ShootRenderer::new);
-        event.registerEntityRenderer(JVPillageEntityType.GRAVITY_FORCE.get(), ShootRenderer::new);
+        event.registerEntityRenderer(JVPillageEntityType.PUSH_FORCE.get(), RayRenderer::new);
+        event.registerEntityRenderer(JVPillageEntityType.FLOATING_FORCE.get(), TargetRenderer::new);
+        event.registerEntityRenderer(JVPillageEntityType.GRAVITY_FORCE.get(), TargetRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.ICE_ROCK_THROWING_BALL.get(), ShootRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.PURPLE_SAND_ALCHEMY_BOMB.get(), ShootRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.PURPLE_SAND_EXPLOSIVE_ALCHEMY_BOMB.get(), ShootRenderer::new);
@@ -75,6 +78,7 @@ public class JVPillageEntityRenderers {
         event.registerEntityRenderer(JVPillageEntityType.UNCLEAN_TENTACLE.get(), UncleanTentacleRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.GAVILER.get(), GavilerRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.AX_CRAZY.get(), AxCrazyRenderer::new);
+        event.registerEntityRenderer(JVPillageEntityType.ADVENTURER.get(), AdventurerRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.OMINOUS_BANNER_PROJECTION.get(), OminousBannerProjectionRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.GIANT_MONSTER.get(), GiantMonsterRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.PURPLE_SAND_RABBIT.get(), PurpleSandRabbitRenderer::new);

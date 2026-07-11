@@ -214,4 +214,9 @@ public class JVPillageParticleTypes {
 	public static final RegistryObject<SimpleParticleType> DISARMING_ATTACK_DISPLAY = REGISTRY.register("disarming_attack_display", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> DISTRACTING_STRIKE_DISPLAY = REGISTRY.register("distracting_strike_display", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> ELECTROFLASH_DISPLAY = REGISTRY.register("electroflash_display", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> RAPIER_FLURRY_DISPLAY = REGISTRY.register("rapier_flurry_display", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> RAPIER_PARRY_RIPOSTE_DISPLAY = REGISTRY.register("rapier_parry_riposte_display", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> RAPIER_LUNGING_DISPLAY = REGISTRY.register("rapier_lunging_display", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> RAGE_CHARGE_DISPLAY = REGISTRY.register("rage_charge_display", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> OMINOUS_BOMB_TOSS_DISPLAY = REGISTRY.register("ominous_bomb_toss_display", () -> new SimpleParticleType(true));
 }

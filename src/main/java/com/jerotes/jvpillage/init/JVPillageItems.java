@@ -7,6 +7,7 @@ import com.jerotes.jerotes.item.ItemWarBeastArmor;
 import com.jerotes.jerotes.item.Tool.ItemToolBaseShield;
 import com.jerotes.jvpillage.JVPillage;
 import com.jerotes.jvpillage.block.DamagedRuins.MerorProjectionTable;
+import com.jerotes.jvpillage.block.DamagedRuins.MerorProjectionTableEntity;
 import com.jerotes.jvpillage.entity.Shoot.Arrow.VirtualCaveCrystalArrowEntity;
 import com.jerotes.jvpillage.entity.Shoot.Other.OminousBombEntity;
 import com.jerotes.jvpillage.entity.Shoot.Other.PurpleSandAlchemyBombEntity;
@@ -106,6 +107,7 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> FIREPOWER_POURER_CHAINSAW = REGISTRY.register("firepower_pourer_chainsaw", () -> new FirepowerPourerChainsaw());
 	public static final RegistryObject<Item> FIREPOWER_POURER_CROSSBOW = REGISTRY.register("firepower_pourer_crossbow", () -> new FirepowerPourerCrossbow());
 	public static final RegistryObject<Item> CRAZY_AXE = REGISTRY.register("crazy_axe", () -> new CrazyAxe());
+	public static final RegistryObject<Item> OMINOUS_ADVENTURER_RAPIER = REGISTRY.register("ominous_adventurer_rapier", () -> new OminousAdventurerRapier());
 	public static final RegistryObject<Item> OMINOUS_WAR_BEAST_ARMOR = REGISTRY.register("ominous_war_beast_armor", () -> new ItemWarBeastArmor(11, 0x668785, JVPillage.MODID,"ominous", new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
 	public static final RegistryObject<Item> OMINOUS_GIANT_BEAST_ARMOR = REGISTRY.register("ominous_giant_beast_armor", () -> new ItemGiantBeastArmor(13, 0x668785, JVPillage.MODID, "ominous", new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
 	public static final RegistryObject<Item> EXPLORER_IRON_UPGRADE_SMITHING_TEMPLATE = REGISTRY.register("explorer_iron_upgrade_smithing_template", () -> new ExplorerIronUpgradeSmithingTemplate());
@@ -118,6 +120,10 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> EXPLORER_CHESTPLATE = REGISTRY.register("explorer_chestplate", () -> new ExplorerArmor.Chestplate());
 	public static final RegistryObject<Item> EXPLORER_LEGGINGS = REGISTRY.register("explorer_leggings", () -> new ExplorerArmor.Leggings());
 	public static final RegistryObject<Item> EXPLORER_BOOTS = REGISTRY.register("explorer_boots", () -> new ExplorerArmor.Boots());
+	public static final RegistryObject<Item> ADVENTURER_HELMET = REGISTRY.register("adventurer_helmet", () -> new AdventurerArmor.Helmet());
+	public static final RegistryObject<Item> ADVENTURER_CHESTPLATE = REGISTRY.register("adventurer_chestplate", () -> new AdventurerArmor.Chestplate());
+	public static final RegistryObject<Item> ADVENTURER_LEGGINGS = REGISTRY.register("adventurer_leggings", () -> new AdventurerArmor.Leggings());
+	public static final RegistryObject<Item> ADVENTURER_BOOTS = REGISTRY.register("adventurer_boots", () -> new AdventurerArmor.Boots());
 	public static final RegistryObject<Item> HORNED_HELMET = REGISTRY.register("horned_helmet", () -> new HornedArmor.Helmet());
 	public static final RegistryObject<Item> WARLOCK_TIARA = REGISTRY.register("warlock_tiara", () -> new WarlockArmor.Helmet());
 	public static final RegistryObject<Item> WARLOCK_CASSOCK = REGISTRY.register("warlock_cassock", () -> new WarlockArmor.Chestplate());
@@ -129,7 +135,7 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_LEGGINGS = REGISTRY.register("slavery_supervisor_leggings", () -> new SlaverySupervisorArmor.Leggings());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_BOOTS = REGISTRY.register("slavery_supervisor_boots", () -> new SlaverySupervisorArmor.Boots());
 	public static final RegistryObject<Item> OMINOUS_PROBE = REGISTRY.register("ominous_probe", () -> new OminousProbe());
-	public static final RegistryObject<Item> OMINOUS_BANNER_PROJECTION_EMERALD_FRAGMENT = REGISTRY.register("ominous_banner_projection_emerald_fragment", () -> new ItemBossDrop());
+	public static final RegistryObject<Item> OMINOUS_BANNER_PROJECTION_EMERALD_FRAGMENT = REGISTRY.register("ominous_banner_projection_emerald_fragment", () -> new ItemBossDrop(JVPillageEntityType.BOSS_SHOW_ENTITY_OMINOUS_BANNER_PROJECTION, () -> JVPillageSoundEvents.OMINOUS_BANNER_PROJECTION_AMBIENT));
 	public static final RegistryObject<Item> MUSIC_DISC_OMINOUS_BANNER_PROJECTION = REGISTRY.register("music_disc_ominous_banner_projection", () -> new RecordItem(1, JVPillageSoundEvents.OMINOUS_BANNER_PROJECTION_MUSIC, new Item.Properties().fireResistant().stacksTo(1).rarity(Rarity.EPIC), 363));
 	public static final RegistryObject<Item> BOUND_ZOMBIE_VILLAGER_SPAWN_EGG = REGISTRY.register("bound_zombie_villager_spawn_egg", () -> new ForgeSpawnEggItem(JVPillageEntityType.BOUND_ZOMBIE_VILLAGER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> EXPLORER_SPAWN_EGG = REGISTRY.register("explorer_spawn_egg", () -> new ForgeSpawnEggItem(JVPillageEntityType.EXPLORER, 0xffffff, 0xffffff, new Item.Properties()));
@@ -154,6 +160,7 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> NECROMANCY_WARLOCK_SPAWN_EGG = REGISTRY.register("necromancy_warlock_spawn_egg", () -> new ForgeSpawnEggItem(JVPillageEntityType.NECROMANCY_WARLOCK, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
 	public static final RegistryObject<Item> GAVILER_SPAWN_EGG = REGISTRY.register("gaviler_spawn_egg", () -> new ForgeSpawnEggItem(JVPillageEntityType.GAVILER, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
 	public static final RegistryObject<Item> AX_CRAZY_SPAWN_EGG = REGISTRY.register("ax_crazy_spawn_egg", () -> new ForgeSpawnEggItem(JVPillageEntityType.AX_CRAZY, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
+	public static final RegistryObject<Item> ADVENTURER_SPAWN_EGG = REGISTRY.register("adventurer_spawn_egg", () -> new ForgeSpawnEggItem(JVPillageEntityType.ADVENTURER, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
 	public static final RegistryObject<Item> OMINOUS_BANNER_PROJECTION_SPAWN_EGG = REGISTRY.register("ominous_banner_projection_spawn_egg", () -> new ForgeSpawnEggItem(JVPillageEntityType.OMINOUS_BANNER_PROJECTION, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.EPIC)));
 	//苦寒
 	public static final RegistryObject<Item> SNOW_FROZEN_SOIL = block(JVPillageBlocks.SNOW_FROZEN_SOIL);
@@ -234,7 +241,7 @@ public class JVPillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> HAG_EYE = REGISTRY.register("hag_eye", () -> new HagEye());
 	public static final RegistryObject<Item> HAGS_BRUSH = REGISTRY.register("hags_brush", () -> new HagsBrush());
 	public static final RegistryObject<Item> PURPLE_SAND_HAG_EYE = REGISTRY.register("purple_sand_hag_eye", () -> new PurpleSandHagEye());
-	public static final RegistryObject<Item> PURPLE_SAND_HAG_HAIR = REGISTRY.register("purple_sand_hag_hair", () -> new ItemBossDrop());
+	public static final RegistryObject<Item> PURPLE_SAND_HAG_HAIR = REGISTRY.register("purple_sand_hag_hair", () -> new ItemBossDrop(JVPillageEntityType.BOSS_SHOW_ENTITY_PURPLE_SAND_HAG, () -> JVPillageSoundEvents.PURPLE_SAND_HAG_AMBIENT));
 	public static final RegistryObject<Item> MUSIC_DISC_PURPLE_SAND_HAG = REGISTRY.register("music_disc_purple_sand_hag", () -> new RecordItem(1, JVPillageSoundEvents.PURPLE_SAND_HAG_MUSIC, new Item.Properties().fireResistant().stacksTo(1).rarity(Rarity.EPIC), 258));
 	public static final RegistryObject<Item> PURPLE_SAND_ALCHEMY_BOMB = REGISTRY.register("purple_sand_alchemy_bomb", () -> new PurpleSandAlchemyBomb());
 	public static final RegistryObject<Item> PURPLE_SAND_EXPLOSIVE_ALCHEMY_BOMB = REGISTRY.register("purple_sand_explosive_alchemy_bomb", () -> new PurpleSandExplosiveAlchemyBomb());
@@ -502,6 +509,7 @@ public class JVPillageItems implements JerotesItemsAdd {
 		};
 		DispenserBlock.registerBehavior(JVPillageItems.SPIRVE_HEAD.get(), optionalDispenseItemBehaviorHead);
 		//boss掉落物
+		//boss掉落物
 		OptionalDispenseItemBehavior optionalDispenseItemBehaviorBossDrop = new OptionalDispenseItemBehavior(){
 			@Override
 			public ItemStack execute(BlockSource blockSource, ItemStack itemStack) {
@@ -511,13 +519,27 @@ public class JVPillageItems implements JerotesItemsAdd {
 				BlockState blockState = serverLevel.getBlockState(blockPos);
 				this.setSuccess(true);
 				if (blockState.is(JVPillageBlocks.MEROR_PROJECTION_TABLE.get())) {
-					MerorProjectionTable.change(serverLevel, blockState, blockPos, null, itemStack);
+					float facing = 0f;
+					if (blockState.getValue(MerorProjectionTable.FACING) == Direction.EAST) {
+						facing = 270f;
+					} else if (blockState.getValue(MerorProjectionTable.FACING) == Direction.NORTH) {
+						facing = 180f;
+					} else if (blockState.getValue(MerorProjectionTable.FACING) == Direction.WEST) {
+						facing = 90f;
+					} else if (blockState.getValue(MerorProjectionTable.FACING) == Direction.SOUTH) {
+						facing = 0f;
+					}
+					if (serverLevel.getBlockEntity(blockPos) instanceof MerorProjectionTableEntity merorProjectionTable) {
+						if (itemStack.getItem() instanceof ItemBossDrop itemBossDrop && merorProjectionTable.getItem(0).isEmpty()) {
+							merorProjectionTable.setItem(0, itemStack);
+							MerorProjectionTableEntity.summonBoss(blockPos, merorProjectionTable, itemStack, facing, serverLevel);
+						}
+					}
 					return itemStack;
 				}
 				return super.execute(blockSource, itemStack);
 			}
-		};
-		DispenserBlock.registerBehavior(JVPillageItems.MEROR_PROJECTION_TABLE.get(), optionalDispenseItemBehaviorBossDrop);
+		};		DispenserBlock.registerBehavior(JVPillageItems.MEROR_PROJECTION_TABLE.get(), optionalDispenseItemBehaviorBossDrop);
 		DispenserBlock.registerBehavior(JVPillageItems.PURPLE_SAND_HAG_HAIR.get(), optionalDispenseItemBehaviorBossDrop);
 		DispenserBlock.registerBehavior(JVPillageItems.OMINOUS_BANNER_PROJECTION_EMERALD_FRAGMENT.get(), optionalDispenseItemBehaviorBossDrop);
 	}

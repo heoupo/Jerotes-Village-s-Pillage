@@ -15,8 +15,8 @@ import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class ExplorerRenderer extends HumanoidMobRenderer<ExplorerEntity, Modelillager<ExplorerEntity>> {
-    private static final ResourceLocation EXPLORER_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/explorer.png");
-    private static final ResourceLocation KILLER_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/explorer_killer.png");
+    private static final ResourceLocation EXPLORER_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/illager/explorer.png");
+    private static final ResourceLocation KILLER_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/illager/explorer_killer.png");
     public ExplorerRenderer(EntityRendererProvider.Context context) {
         super(context, new Modelillager(context.bakeLayer(Modelillager.LAYER_LOCATION)), 0.5f);
         this.addLayer(new HumanoidArmorLayer<>(this, new ZombieVillagerModel(context.bakeLayer(ModelLayers.ZOMBIE_VILLAGER_INNER_ARMOR)), new ZombieVillagerModel(context.bakeLayer(ModelLayers.ZOMBIE_VILLAGER_OUTER_ARMOR)), context.getModelManager()));

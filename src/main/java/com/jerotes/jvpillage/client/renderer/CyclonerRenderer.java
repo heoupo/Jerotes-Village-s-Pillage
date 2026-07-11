@@ -16,9 +16,9 @@ import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class CyclonerRenderer extends HumanoidMobRenderer<CyclonerEntity, Modelcycloner<CyclonerEntity>> {
-    private static final ResourceLocation LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/cycloner.png");
-    private static final ResourceLocation DRAGONBORN_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/cycloner_dragonborn.png");
-    private static final ResourceLocation ROLL_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/cycloner_roll.png");
+    private static final ResourceLocation LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/illager/cycloner.png");
+    private static final ResourceLocation DRAGONBORN_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/illager/cycloner_dragonborn.png");
+    private static final ResourceLocation ROLL_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/illager/cycloner_roll.png");
     public CyclonerRenderer(EntityRendererProvider.Context context) {
         super(context, new Modelcycloner(context.bakeLayer(Modelcycloner.LAYER_LOCATION)), 0.5f);
         this.addLayer(new HumanoidArmorLayer(this, new ZombieVillagerModel(context.bakeLayer(ModelLayers.ZOMBIE_VILLAGER_INNER_ARMOR)), new ZombieVillagerModel(context.bakeLayer(ModelLayers.ZOMBIE_VILLAGER_OUTER_ARMOR)), context.getModelManager()));
