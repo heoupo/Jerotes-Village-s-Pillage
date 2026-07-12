@@ -5,7 +5,6 @@ import com.jerotes.jerotes.util.AttackFind;
 import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.LampWizardEntity;
 import com.jerotes.jerotesvillage.init.JerotesVillageEntityType;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -54,7 +53,6 @@ public class ElasticLightBallEntity extends MagicAboutThrowEntity {
             if (bl) {
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel-1), this.getEffectSource());
                 if (this.getOwner() != null) {
-                    String string = ChatFormatting.stripFormatting(this.getOwner().getName().getString());
                     if (this.getOwner() instanceof LampWizardEntity lampWizardEntity) {
                         if (lampWizardEntity.isChampion())
                         {

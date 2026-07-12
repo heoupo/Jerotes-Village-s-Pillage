@@ -4,10 +4,10 @@ import com.jerotes.jerotes.entity.Shoot.Magic.MagicMissile.BaseMagicMissileEntit
 import com.jerotes.jerotes.init.JerotesSoundEvents;
 import com.jerotes.jerotes.util.Main;
 import com.jerotes.jerotesvillage.JerotesVillage;
+import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.LampWizardEntity;
 import com.jerotes.jerotesvillage.init.JerotesVillageEntityType;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.init.JerotesVillageParticleTypes;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -59,10 +59,10 @@ public class ArcaneLightSpotEntity extends BaseMagicMissileEntity {
             if (bl) {
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel-1), this.getEffectSource());
                 if (this.getOwner() != null) {
-                    String string = ChatFormatting.stripFormatting(this.getOwner().getName().getString());
-                    if ("Soul Lampologer".equals(string) || "Soullampologer".equals(string) || "Lampologer".equals(string)) {
+                    if (this.getOwner() instanceof LampWizardEntity lampWizardEntity) {
+                        if (lampWizardEntity.isChampion()) {
                         livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());
-                    }
+                    }}
                 }
             }
             this.playSound(JerotesSoundEvents.SPELL, 3.0f, 1.0f);

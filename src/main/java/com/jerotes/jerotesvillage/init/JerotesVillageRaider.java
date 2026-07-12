@@ -96,6 +96,10 @@ public class JerotesVillageRaider {
         if (OtherMainConfig.RaidSpawnAxCrazy) {
             addWaves("AX_CRAZY", JerotesVillageEntityType.AX_CRAZY.get(), OtherMainConfig.RaidSpawnAxCrazyCount);
         }
+        //涉险者
+        if (OtherMainConfig.RaidSpawnAdventurer) {
+            addWaves("ADVENTURER", JerotesVillageEntityType.ADVENTURER.get(), OtherMainConfig.RaidSpawnAdventurerCount);
+        }
         //鬼婆
         if (OtherMainConfig.RaidSpawnHag) {
             addWaves("HAG", JerotesVillageEntityType.COHORT_HAG.get(), OtherMainConfig.RaidSpawnHagCount);

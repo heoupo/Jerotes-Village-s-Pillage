@@ -6,7 +6,6 @@ import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.LampWizardEntity
 import com.jerotes.jerotesvillage.init.JerotesVillageEntityType;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.init.JerotesVillageParticleTypes;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -56,7 +55,6 @@ public class RadiantBombEntity extends MagicAboutEntity {
             if (bl) {
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel-1), this.getEffectSource());
                 if (this.getOwner() != null) {
-                    String string = ChatFormatting.stripFormatting(this.getOwner().getName().getString());
                     if (this.getOwner() instanceof LampWizardEntity lampWizardEntity) {
                         if (lampWizardEntity.isChampion()) {
                             livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());
