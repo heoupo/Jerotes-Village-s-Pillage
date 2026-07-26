@@ -4,10 +4,10 @@ import com.jerotes.jerotes.entity.Shoot.Magic.MagicMissile.BaseMagicMissileEntit
 import com.jerotes.jerotes.init.JerotesSoundEvents;
 import com.jerotes.jerotes.util.Main;
 import com.jerotes.jvpillage.JVPillage;
+import com.jerotes.jvpillage.entity.Monster.IllagerFaction.LampWizardEntity;
 import com.jerotes.jvpillage.init.JVPillageEntityType;
 import com.jerotes.jvpillage.init.JVPillageItems;
 import com.jerotes.jvpillage.init.JVPillageParticleTypes;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -58,12 +58,13 @@ public class ArcaneLightSpotEntity extends BaseMagicMissileEntity {
             boolean bl = livingEntity.hurt(this.damageSources().indirectMagic(this, entity2),  Main.randomReach(RandomSource.create(), 1, 4) + 1);
             if (bl) {
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel-1), this.getEffectSource());
-                if (this.getOwner() != null) {
-                    String string = ChatFormatting.stripFormatting(this.getOwner().getName().getString());
-                    if ("Soul Lampologer".equals(string) || "Soullampologer".equals(string) || "Lampologer".equals(string)) {
-                        livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());
-                    }
+                if (this.getOwner() != null)
+                    if (this.getOwner() instanceof LampWizardEntity lampWizardEntity) {
+                        if (lampWizardEntity.isChampion())
+                        {
+                            livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());
                 }
+            }
             }
             this.playSound(JerotesSoundEvents.SPELL, 3.0f, 1.0f);
             this.discard();

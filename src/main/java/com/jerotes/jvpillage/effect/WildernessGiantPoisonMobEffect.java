@@ -41,7 +41,7 @@ public class WildernessGiantPoisonMobEffect extends BaseMobEffectTick {
 		}
 		DamageSource damageSource = AttackFind.findDamageType(livingEntity, JerotesDamageTypes.POISON);
 		if (EntityFactionFind.isConstruct(livingEntity) || EntityFactionFind.isMachine(livingEntity)) {
-			damageSource = AttackFind.findDamageType(livingEntity, JerotesDamageTypes.CORROSIVE);
+			damageSource = AttackFind.findDamageType(livingEntity, JerotesDamageTypes.CORROSION);
 		}
 		if (livingEntity.getHealth() > 0f) {
 			livingEntity.hurt(damageSource, effectLevel * base);

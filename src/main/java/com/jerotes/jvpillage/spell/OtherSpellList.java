@@ -2,6 +2,7 @@ package com.jerotes.jvpillage.spell;
 
 import com.jerotes.jerotes.spell.MagicSpell;
 import com.jerotes.jerotes.spell.MagicType;
+import com.jerotes.jerotes.spell.SpellSchool;
 import com.jerotes.jerotes.util.Main;
 import com.jerotes.jvpillage.JVPillage;
 import com.jerotes.jvpillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
@@ -10,6 +11,7 @@ import com.jerotes.jvpillage.entity.Other.PurpleSandPhantomEntity;
 import com.jerotes.jvpillage.entity.Other.UncleanTentacleEntity;
 import com.jerotes.jvpillage.init.JVPillageParticleTypes;
 import com.jerotes.jvpillage.init.JVPillageSoundEvents;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -27,6 +29,12 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
+			public int getBaseSpellLevel() {
+				return 3;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.EVOCATION;
+			}
 		};
 	}
 	//紫沙幻影
@@ -35,10 +43,10 @@ public class OtherSpellList {
 			public boolean spellFindUse() {
 				return OtherSpellFind.PurpleSandPhantom(getCaster(), getTarget(), getSpellLevel() * 2, getSpellLevel() * 3, 12, getSpellLevel());
 			}
-			public int baseSpellLevel() {
+			public int getBaseSpellLevel() {
 				return 4;
 			}
-			public float getSpellDistance() {
+			public float getSpellDistanceBase() {
 				return 32;
 			}
 			public String getSpellModId() {
@@ -55,16 +63,25 @@ public class OtherSpellList {
 			public boolean canUseTargetNone() {
 				return true;
 			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.ILLUSION;
+			}
 		};
 	}
 	//苦寒冰锥
 	public static MagicSpell BitterColdIceSpike(int n, LivingEntity caster, Entity target) {
 		return new MagicSpell(n, caster, target, MagicType.SHOOT, MagicType.MAIN, "bitter_cold_ice_spike", JVPillageParticleTypes.BITTER_COLD_ICE_SPIKE_DISPLAY.get(), JVPillageSoundEvents.MAGIC_BITTER_COLD_ICE_SPIKE){
 			public boolean spellFindUse() {
-				return OtherSpellFind.BitterColdIceSpike(getCaster(), getTarget(), getSpellLevel(), 7 + getSpellLevel() * 3, 2.25f, getSpellAccuracy(), 1, 5, getCaster() instanceof Player);
+				return OtherSpellFind.BitterColdIceSpike(getCaster(), getTarget(), getSpellLevel(), 6 + getSpellLevel() * 3, 2.25f, getSpellAccuracy(), 1, 5, getCaster() instanceof Player);
 			}
 			public String getSpellModId() {
 				return JVPillage.MODID;
+			}
+			public int getBaseSpellLevel() {
+				return 2;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.EVOCATION;
 			}
 		};
 	}
@@ -77,6 +94,12 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
+			public int getBaseSpellLevel() {
+				return 3;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.EVOCATION;
+			}
 		};
 	}
 	//光芒爆弹
@@ -88,8 +111,11 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public int baseSpellLevel() {
+			public int getBaseSpellLevel() {
 				return 2;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.EVOCATION;
 			}
 		};
 	}
@@ -99,14 +125,38 @@ public class OtherSpellList {
 			public boolean spellFindUse() {
 				return OtherSpellFind.ArcaneLightSpot(getCaster(), (getTarget() instanceof LivingEntity livingEntity) ? livingEntity : getCaster(), getSpellLevel(), getSpellLevel() * 6, 1, getSpellAccuracy(), 1, 1, 3 + getSpellLevel(), getCaster() instanceof Player);
 			}
+			public int getCastingTicks() {
+				return (1 + getSpellLevel()) * 5 + 4;
+			}
+			public boolean CastingAboutBase(int n) {
+				if (n % 5 == 0 && n != 0) {
+					getCaster().swing(InteractionHand.MAIN_HAND, true);
+					Entity entity = getTarget();
+					if (getCaster() instanceof Player player && Main.getTargetedEntity(player, getSpellDistance()) != null && canUseToEntity(Main.getTargetedEntity(player, getSpellDistance()))) {
+						entity = Main.getTargetedEntity(player, getSpellDistance());
+					}
+					OtherSpellFind.ArcaneLightSpot(getCaster(), (entity instanceof LivingEntity livingEntity) ? livingEntity : getCaster(), getSpellLevel(), getSpellLevel() * 6, 1, getSpellAccuracy(), 1, 1, 1, getCaster() instanceof Player);
+					if (!getCaster().isSilent()) {
+						getCaster().level().playSound(null, getCaster().getX(), getCaster().getY(), getCaster().getZ(), getSound(),
+								getCaster().getSoundSource(), 1.0f, 1.0F);
+					}
+				}
+				return true;
+			}
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
 			public boolean canUseTargetNone() {
 				return true;
 			}
-			public int baseSpellLevel() {
+			public int getBaseSpellLevel() {
 				return 3;
+			}
+			public float getSpellDistanceBase() {
+				return 36;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.EVOCATION;
 			}
 		};
 	}
@@ -118,6 +168,12 @@ public class OtherSpellList {
 			}
 			public String getSpellModId() {
 				return JVPillage.MODID;
+			}
+			public int getBaseSpellLevel() {
+				return 1;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.CONJURATION;
 			}
 		};
 	}
@@ -131,8 +187,8 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public int baseSpellLevel() {
-				return 4;
+			public int getBaseSpellLevel() {
+				return 5;
 			}
 			public float getSpellDistance() {
 				return 16;
@@ -145,16 +201,39 @@ public class OtherSpellList {
 				}
 				return super.canUse();
 			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.NECROMANCY;
+			}
 		};
 	}
 	//苦寒冰霜
 	public static MagicSpell BitterColdFrostbite(int n, LivingEntity caster, Entity target) {
 		return new MagicSpell(n, caster, target, MagicType.SHOOT, MagicType.MAIN, "bitter_cold_frostbite", JVPillageParticleTypes.BITTER_COLD_FROSTBITE_DISPLAY.get(), JVPillageSoundEvents.MAGIC_BITTER_COLD_FROSTBITE){
 			public boolean spellFindUse() {
-				return OtherSpellFind.BitterColdFrostbite(getCaster(), getTarget(), getSpellLevel(), 7 + getSpellLevel() * 3, getSpellAccuracy(), getSpellLevel(), 2, 20 + this.getSpellLevel() * 5, getCaster() instanceof Player);
+				return OtherSpellFind.BitterColdFrostbite(getCaster(), getTarget(), getSpellLevel(), 6 + getSpellLevel() * 3, getSpellAccuracy(), getSpellLevel(), 2, 20 + this.getSpellLevel() * 5, getCaster() instanceof Player);
+			}
+			public int getCastingTicks() {
+				return (19 + this.getSpellLevel() * 5) * 3 + 2;
+			}
+			public boolean CastingAboutBase(int n) {
+				if (n % 3 == 0 && n != 0) {
+					getCaster().swing(InteractionHand.MAIN_HAND, true);
+					OtherSpellFind.BitterColdFrostbite(getCaster(), getTarget(), getSpellLevel(), 6 + getSpellLevel() * 3, getSpellAccuracy(), getSpellLevel(), 2, 1, getCaster() instanceof Player);
+					if (!getCaster().isSilent()) {
+						getCaster().level().playSound(null, getCaster().getX(), getCaster().getY(), getCaster().getZ(), getSound(),
+								getCaster().getSoundSource(), 1.0f, 1.0F);
+					}
+				}
+				return true;
 			}
 			public String getSpellModId() {
 				return JVPillage.MODID;
+			}
+			public int getBaseSpellLevel() {
+				return 3;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.EVOCATION;
 			}
 		};
 	}
@@ -164,8 +243,28 @@ public class OtherSpellList {
 			public boolean spellFindUse() {
 				return OtherSpellFind.OminousFlames(getCaster(), getTarget(), getSpellLevel(), 6 + getSpellLevel() * 3, getSpellAccuracy(), getSpellLevel(), 2, 20 + this.getSpellLevel() * 5, getCaster() instanceof Player);
 			}
+			public int getCastingTicks() {
+				return (19 + this.getSpellLevel() * 5) * 3 + 2;
+			}
+			public boolean CastingAboutBase(int n) {
+				if (n % 3 == 0 && n != 0) {
+					getCaster().swing(InteractionHand.MAIN_HAND, true);
+					OtherSpellFind.OminousFlames(getCaster(), getTarget(), getSpellLevel(), 6 + getSpellLevel() * 3, getSpellAccuracy(), getSpellLevel(), 2, 1, getCaster() instanceof Player);
+					if (!getCaster().isSilent()) {
+						getCaster().level().playSound(null, getCaster().getX(), getCaster().getY(), getCaster().getZ(), getSound(),
+								getCaster().getSoundSource(), 1.0f, 1.0F);
+					}
+				}
+				return true;
+			}
 			public String getSpellModId() {
 				return JVPillage.MODID;
+			}
+			public int getBaseSpellLevel() {
+				return 3;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.EVOCATION;
 			}
 		};
 	}
@@ -178,8 +277,14 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public int baseSpellLevel() {
+			public int getBaseSpellLevel() {
 				return 3;
+			}
+			public float getSpellDistanceBase() {
+				return 18;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.EVOCATION;
 			}
 		};
 	}
@@ -192,31 +297,18 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public int baseSpellLevel() {
+			public int getBaseSpellLevel() {
 				return 2;
 			}
-			public float getSpellDistance() {
+			public float getSpellDistanceBase() {
 				return 8;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.CONJURATION;
 			}
 		};
 	}
-	//迅电流光
-	public static MagicSpell Electroflash(int n, LivingEntity caster, Entity target) {
-		return new MagicSpell(n, caster, target, MagicType.SHOOT, MagicType.MAIN, "electroflash", JVPillageParticleTypes.ELECTROFLASH_DISPLAY.get(), JVPillageSoundEvents.MAGIC_ELECTROFLASH){
-			public boolean spellFindUse() {
-				return OtherSpellFind.Electroflash(getCaster(), getSpellLevel());
-			}
-			public String getSpellModId() {
-				return JVPillage.MODID;
-			}
-			public int baseSpellLevel() {
-				return 3;
-			}
-			public float getSpellDistance() {
-				return 8;
-			}
-		};
-	}
+
 	//漂浮力场
 	public static MagicSpell FloatingForce(int n, LivingEntity caster, Entity target) {
 		return new MagicSpell(n, caster, target, MagicType.SELF, MagicType.MAIN, "floating_force", JVPillageParticleTypes.FLOATING_FORCE_DISPLAY.get(), JVPillageSoundEvents.MAGIC_FLOATING_FORCE){
@@ -226,11 +318,14 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public int baseSpellLevel() {
-				return 2;
+			public int getBaseSpellLevel() {
+				return 3;
 			}
-			public float getSpellDistance() {
+			public float getSpellDistanceBase() {
 				return getSpellLevel() * 8;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.EVOCATION;
 			}
 		};
 	}
@@ -243,11 +338,14 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public int baseSpellLevel() {
-				return 2;
+			public int getBaseSpellLevel() {
+				return 3;
 			}
-			public float getSpellDistance() {
+			public float getSpellDistanceBase() {
 				return getSpellLevel() * 8;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.EVOCATION;
 			}
 		};
 	}
@@ -260,11 +358,17 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public float getSpellDistance() {
-				return 32;
+			public float getSpellDistanceBase() {
+				return 36;
 			}
 			public boolean canUseTargetNone() {
 				return true;
+			}
+			public int getBaseSpellLevel() {
+				return 3;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.NECROMANCY;
 			}
 		};
 	}
@@ -277,11 +381,17 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public float getSpellDistance() {
-				return 32;
+			public float getSpellDistanceBase() {
+				return 36;
 			}
 			public boolean canUseTargetNone() {
 				return true;
+			}
+			public int getBaseSpellLevel() {
+				return 3;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.NECROMANCY;
 			}
 		};
 	}
@@ -294,11 +404,14 @@ public class OtherSpellList {
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public int baseSpellLevel() {
-				return 2;
+			public int getBaseSpellLevel() {
+				return 4;
 			}
-			public float getSpellDistance() {
+			public float getSpellDistanceBase() {
 				return 32;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.ENCHANTMENT;
 			}
 		};
 	}
@@ -306,16 +419,19 @@ public class OtherSpellList {
 	public static MagicSpell OminousGear(int n, LivingEntity caster, Entity target) {
 		return new MagicSpell(n, caster, target, MagicType.SELF, MagicType.MAIN, "ominous_gear", JVPillageParticleTypes.OMINOUS_GEAR_DISPLAY.get(), JVPillageSoundEvents.MAGIC_OMINOUS_GEAR){
 			public boolean spellFindUse() {
-				return OtherSpellFind.OminousGear(getCaster(), getSpellLevel() * 2, getSpellLevel() * 4, 12);
+				return OtherSpellFind.OminousGear(getCaster(), getSpellLevel(), getSpellLevel() * 2, getSpellLevel() * 4, 12);
 			}
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public int baseSpellLevel() {
-				return 2;
+			public int getBaseSpellLevel() {
+				return 3;
 			}
-			public float getSpellDistance() {
+			public float getSpellDistanceBase() {
 				return 12;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.CONJURATION;
 			}
 		};
 	}
@@ -323,15 +439,15 @@ public class OtherSpellList {
 	public static MagicSpell EvilSummoning(int n, LivingEntity caster, Entity target) {
 		return new MagicSpell(n, caster, target, MagicType.TARGET, MagicType.MAIN, "evil_summoning", JVPillageParticleTypes.EVIL_SUMMONING_DISPLAY.get(), JVPillageSoundEvents.MAGIC_EVIL_SUMMONING){
 			public boolean spellFindUse() {
-				return OtherSpellFind.EvilSummoning(getCaster(), (getTarget() instanceof LivingEntity livingEntity) ? livingEntity : getCaster(), getSpellLevel() * 2, getSpellLevel() * 4, 4);
+				return OtherSpellFind.EvilSummoning(getCaster(), (getTarget() instanceof LivingEntity livingEntity) ? livingEntity : getCaster(), getSpellLevel(), getSpellLevel() * 2, getSpellLevel() * 4, 4);
 			}
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public int baseSpellLevel() {
-				return 2;
+			public int getBaseSpellLevel() {
+				return 4;
 			}
-			public float getSpellDistance() {
+			public float getSpellDistanceBase() {
 				return 32;
 			}
 			public boolean canUseTargetNone() {
@@ -345,18 +461,21 @@ public class OtherSpellList {
 				}
 				return super.canUse();
 			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.CONJURATION;
+			}
 		};
 	}
 	//苦寒祭坛
 	public static MagicSpell BitterColdAltar(int n, LivingEntity caster, Entity target) {
 		return new MagicSpell(n, caster, target, MagicType.SELF, MagicType.MAIN, "bitter_cold_altar", JVPillageParticleTypes.BITTER_COLD_ALTAR_DISPLAY.get(), JVPillageSoundEvents.MAGIC_BITTER_COLD_ALTAR){
 			public boolean spellFindUse() {
-				return OtherSpellFind.BitterColdAltar(getCaster(), 1, 1, 16);
+				return OtherSpellFind.BitterColdAltar(getCaster(), getSpellLevel(), 1, 1, 16);
 			}
 			public String getSpellModId() {
 				return JVPillage.MODID;
 			}
-			public float getSpellDistance() {
+			public float getSpellDistanceBase() {
 				return 16;
 			}
 			public boolean canUse() {
@@ -366,6 +485,12 @@ public class OtherSpellList {
 					return super.canUse() && list.isEmpty();
 				}
 				return super.canUse();
+			}
+			public int getBaseSpellLevel() {
+				return 4;
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.CONJURATION;
 			}
 		};
 	}

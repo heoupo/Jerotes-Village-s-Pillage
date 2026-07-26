@@ -276,7 +276,7 @@ public class FuryBlamerNecromancyWarlockEntity extends IllagerLikeRaiderEntity i
         return super.canDrownInFluidType(type);
     }
 
-    public int spellLevel = 3;
+    public int spellLevel = 4;
     @Override
     public int getSpellLevel() {
         return this.spellLevel;

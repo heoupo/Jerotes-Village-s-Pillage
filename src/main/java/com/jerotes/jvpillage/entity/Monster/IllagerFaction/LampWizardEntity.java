@@ -1,8 +1,7 @@
 package com.jerotes.jvpillage.entity.Monster.IllagerFaction;
 
-import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.entity.Interface.SpellUseEntity;
-import com.jerotes.jerotes.util.EntityAndItemFind;
+import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jvpillage.entity.Interface.BannerChampionEntity;
 import com.jerotes.jvpillage.goal.BigWitchAttackGoal;
 import com.jerotes.jvpillage.init.JVPillageBlocks;
@@ -174,7 +173,7 @@ public class LampWizardEntity extends SpellIllagerEntity implements RangedAttack
         return super.isOnFire();
     }
 
-    public int spellLevel = 2;
+    public int spellLevel = 3;
     @Override
     public int getSpellLevel() {
         return this.spellLevel;
@@ -312,8 +311,6 @@ public class LampWizardEntity extends SpellIllagerEntity implements RangedAttack
         if (isInvulnerableTo(damageSource)) {
             return super.hurt(damageSource, amount);
         }
-        if (EntityAndItemFind.MagicResistance(damageSource))
-            return super.hurt(damageSource, amount / 5);
         return super.hurt(damageSource, amount);
     }
 

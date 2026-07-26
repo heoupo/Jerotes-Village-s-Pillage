@@ -205,8 +205,8 @@ public class PurpleSandWitchEntity extends Witch implements PurpleSandSisterhood
 		if (isInvulnerableTo(damageSource)) {
 			return super.hurt(damageSource, amount);
 		}
-		if (EntityAndItemFind.MagicResistance(damageSource))
-			return super.hurt(damageSource, amount/2);
+		if (EntityAndItemFind.canSelfResistMagic(damageSource, amount, this))
+			amount *= 0.8f;
 		return super.hurt(damageSource, amount);
 	}
 }

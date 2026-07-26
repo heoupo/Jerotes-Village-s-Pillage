@@ -56,7 +56,6 @@ public class RadiantBombEntity extends MagicAboutEntity {
             if (bl) {
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel-1), this.getEffectSource());
                 if (this.getOwner() != null) {
-                    String string = ChatFormatting.stripFormatting(this.getOwner().getName().getString());
                     if (this.getOwner() instanceof LampWizardEntity lampWizardEntity) {
                         if (lampWizardEntity.isChampion()) {
                             livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());

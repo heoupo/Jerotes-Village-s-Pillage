@@ -19,7 +19,6 @@ public enum OtherSpellType implements SpellTypeInterface {
 	JVPILLAGE_OMINOUS_FLAMES("jvpillage_ominous_flames"),
 	JVPILLAGE_PUSH_FORCE("jvpillage_push_force"),
 	JVPILLAGE_GEMSTONE_WAVES("jvpillage_gemstone_waves"),
-	JVPILLAGE_ELECTROFLASH("jvpillage_electroflash"),
 	JVPILLAGE_FLOATING_FORCE("jvpillage_floating_force"),
 	JVPILLAGE_GRAVITY_FORCE("jvpillage_gravity_force"),
 	JVPILLAGE_UNCLEAN_BLOOD_RAIN("jvpillage_unclean_blood_rain"),
@@ -53,7 +52,6 @@ public enum OtherSpellType implements SpellTypeInterface {
 			case JVPILLAGE_OMINOUS_FLAMES -> OtherSpellList.OminousFlames(level, caster, target);
 			case JVPILLAGE_PUSH_FORCE -> OtherSpellList.PushForce(level, caster, target);
 			case JVPILLAGE_GEMSTONE_WAVES -> OtherSpellList.GemstoneWaves(level, caster, target);
-			case JVPILLAGE_ELECTROFLASH -> OtherSpellList.Electroflash(level, caster, target);
 			case JVPILLAGE_FLOATING_FORCE -> OtherSpellList.FloatingForce(level, caster, target);
 			case JVPILLAGE_GRAVITY_FORCE -> OtherSpellList.GravityForce(level, caster, target);
 			case JVPILLAGE_UNCLEAN_BLOOD_RAIN -> OtherSpellList.UncleanBloodRain(level, caster, target);

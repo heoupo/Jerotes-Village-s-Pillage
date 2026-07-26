@@ -111,6 +111,9 @@ public final class OtherMainConfig {
     //斧头杀人狂
     public static boolean RaidSpawnAxCrazy;
     public static List<? extends Integer> RaidSpawnAxCrazyCount;
+    //涉险者
+    public static boolean RaidSpawnAdventurer;
+    public static List<? extends Integer> RaidSpawnAdventurerCount;
     //鬼婆
     public static boolean RaidSpawnHag;
     public static List<? extends Integer> RaidSpawnHagCount;
@@ -296,6 +299,9 @@ public final class OtherMainConfig {
         //斧头杀人狂
         RaidSpawnAxCrazy = COMMON.RaidSpawnAxCrazy.get();
         RaidSpawnAxCrazyCount = COMMON.RaidSpawnAxCrazyCount.get();
+        //涉险者
+        RaidSpawnAdventurer = COMMON.RaidSpawnAdventurer.get();
+        RaidSpawnAdventurerCount = COMMON.RaidSpawnAdventurerCount.get();
         //鬼婆
         RaidSpawnHag = COMMON.RaidSpawnHag.get();
         RaidSpawnHagCount = COMMON.RaidSpawnHagCount.get();
@@ -476,6 +482,9 @@ public final class OtherMainConfig {
         //斧头杀人狂
         public final ForgeConfigSpec.BooleanValue RaidSpawnAxCrazy;
         public final ForgeConfigSpec.ConfigValue<List<? extends Integer>> RaidSpawnAxCrazyCount;
+        //涉险者
+        public final ForgeConfigSpec.BooleanValue RaidSpawnAdventurer;
+        public final ForgeConfigSpec.ConfigValue<List<? extends Integer>> RaidSpawnAdventurerCount;
         //鬼婆
         public final ForgeConfigSpec.BooleanValue RaidSpawnHag;
         public final ForgeConfigSpec.ConfigValue<List<? extends Integer>> RaidSpawnHagCount;
@@ -757,6 +766,13 @@ public final class OtherMainConfig {
                     .worldRestart()
                     .defineList("斧头杀人狂袭击中生成数量",
                             Arrays.asList(0, 0, 0, 0, 0, 0, 0, 1), (i) -> i instanceof Integer);
+            //涉险者
+            RaidSpawnAdventurer = builder.comment("Raid Spawn Adventurer")
+                    .define("涉险者袭击中生成", false);
+            RaidSpawnAdventurerCount = builder.comment("Raid Spawn Adventurer Count")
+                    .worldRestart()
+                    .defineList("涉险者袭击中生成数量",
+                            Arrays.asList(1, 0, 0, 0, 0, 0, 0, 1), (i) -> i instanceof Integer);
             //鬼婆
             RaidSpawnHag = builder.comment("Raid Spawn Hag")
                     .define("鬼婆袭击中生成", true);

@@ -96,6 +96,10 @@ public class JVPillageRaider {
         if (OtherMainConfig.RaidSpawnAxCrazy) {
             addWaves("AX_CRAZY", JVPillageEntityType.AX_CRAZY.get(), OtherMainConfig.RaidSpawnAxCrazyCount);
         }
+        //涉险者
+        if (OtherMainConfig.RaidSpawnAdventurer) {
+            addWaves("ADVENTURER", JVPillageEntityType.ADVENTURER.get(), OtherMainConfig.RaidSpawnAdventurerCount);
+        }
         //鬼婆
         if (OtherMainConfig.RaidSpawnHag) {
             addWaves("HAG", JVPillageEntityType.COHORT_HAG.get(), OtherMainConfig.RaidSpawnHagCount);

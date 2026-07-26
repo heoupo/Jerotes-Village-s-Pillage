@@ -1,12 +1,13 @@
 package com.jerotes.jvpillage.spell;
 
-import com.jerotes.jerotes.config.MainConfig;
+import com.jerotes.jerotes.entity.Other.SpellCloud.RainSpellCloudEntity;
+import com.jerotes.jerotes.entity.Other.SpellCloud.SpellCloudEntity;
+import com.jerotes.jerotes.forge.JerotesStopSpellEvent;
 import com.jerotes.jerotes.init.JerotesDamageTypes;
-import com.jerotes.jerotes.init.JerotesMobEffects;
-import com.jerotes.jerotes.spell.SpellFind;
 import com.jerotes.jerotes.util.AttackFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jerotes.util.Main;
+import com.jerotes.jerotes.util.ParticlesUse;
 import com.jerotes.jvpillage.entity.Animal.WildernessWolfEntity;
 import com.jerotes.jvpillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
 import com.jerotes.jvpillage.entity.Monster.Hag.CovenHagEntity;
@@ -17,9 +18,7 @@ import com.jerotes.jvpillage.entity.Other.OminousGearEntity;
 import com.jerotes.jvpillage.entity.Other.PurpleSandPhantomEntity;
 import com.jerotes.jvpillage.entity.Other.UncleanTentacleEntity;
 import com.jerotes.jvpillage.entity.Shoot.Magic.Breath.BloodyScreamEntity;
-import com.jerotes.jvpillage.entity.Shoot.Magic.Cloud.RainEffectCloudEntity;
 import com.jerotes.jvpillage.entity.Shoot.Magic.Cloud.UncleanBloodRainEntity;
-import com.jerotes.jvpillage.entity.Shoot.Magic.MagicBeam.ElectroflashEntity;
 import com.jerotes.jvpillage.entity.Shoot.Magic.MagicMissile.ArcaneLightSpotEntity;
 import com.jerotes.jvpillage.entity.Shoot.Magic.MagicShoot.BitterColdFrostbiteEntity;
 import com.jerotes.jvpillage.entity.Shoot.Magic.MagicShoot.OminousFlamesEntity;
@@ -39,7 +38,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -56,6 +54,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.scores.PlayerTeam;
+import net.minecraftforge.common.MinecraftForge;
 
 import java.util.List;
 
@@ -193,19 +192,10 @@ public class OtherSpellFind {
 				double d3 = caster.getLookAngle().y;
 				double d4 = caster.getLookAngle().z;
 				spell = new BitterColdFrostbiteEntity(spellLevelDamage, spellLevelFreezeTime, serverLevel, caster, d2, d3, d4);
-				spell.setPos(caster.getX(), caster.getY(0.7), caster.getZ());
+				spell.setPos(caster.getX(), caster.getY(0.7) - spell.getBbHeight()/2, caster.getZ());
 				spell.shootFromRotation(caster, caster.getXRot(), (caster.getYRot() - ((count - 1) * distance) / 2 + i * distance), 0f, 1f, spellLevelAccuracy);
 				spell.setOwner(caster);
 				serverLevel.addFreshEntity(spell);
-				caster.getPersistentData().putDouble("jvpillage_bitter_cold_frostbite", caster.getPersistentData().getDouble("jvpillage_bitter_cold_frostbite") - 2);
-			}
-			if (!caster.level().isClientSide()) {
-				caster.getPersistentData().putDouble("jvpillage_bitter_cold_frostbite", tickCount * 2 + caster.getPersistentData().getDouble("jvpillage_bitter_cold_frostbite"));
-				caster.getPersistentData().putInt("jvpillage_bitter_cold_frostbite_spellLevelDamage", spellLevelDamage);
-				caster.getPersistentData().putInt("jvpillage_bitter_cold_frostbite_spellLevelFreezeTime", spellLevelFreezeTime);
-				caster.getPersistentData().putFloat("jvpillage_bitter_cold_frostbite_spellLevelAccuracy", spellLevelAccuracy);
-				caster.getPersistentData().putInt("jvpillage_bitter_cold_frostbite_count", count);
-				caster.getPersistentData().putFloat("jvpillage_bitter_cold_frostbite_distance", distance);
 			}
 		}
 		return true;
@@ -240,19 +230,10 @@ public class OtherSpellFind {
 				double d3 = caster.getLookAngle().y;
 				double d4 = caster.getLookAngle().z;
 				spell = new OminousFlamesEntity(spellLevelDamage, spellLevelFireTime, serverLevel, caster, d2, d3, d4);
-				spell.setPos(caster.getX(), caster.getY(0.7), caster.getZ());
+				spell.setPos(caster.getX(), caster.getY(0.7) - spell.getBbHeight()/2, caster.getZ());
 				spell.shootFromRotation(caster, caster.getXRot(), (caster.getYRot() - ((count - 1) * distance) / 2 + i * distance), 0f, 1f, spellLevelAccuracy);
 				spell.setOwner(caster);
 				serverLevel.addFreshEntity(spell);
-				caster.getPersistentData().putDouble("jvpillage_ominous_flames", caster.getPersistentData().getDouble("jvpillage_ominous_flames") - 2);
-			}
-			if (!caster.level().isClientSide()) {
-				caster.getPersistentData().putDouble("jvpillage_ominous_flames", tickCount * 2 + caster.getPersistentData().getDouble("jvpillage_ominous_flames"));
-				caster.getPersistentData().putInt("jvpillage_ominous_flames_spellLevelDamage", spellLevelDamage);
-				caster.getPersistentData().putInt("jvpillage_ominous_flames_spellLevelFireTime", spellLevelFireTime);
-				caster.getPersistentData().putFloat("jvpillage_ominous_flames_spellLevelAccuracy", spellLevelAccuracy);
-				caster.getPersistentData().putInt("jvpillage_ominous_flames_count", count);
-				caster.getPersistentData().putFloat("jvpillage_ominous_flames_distance", distance);
 			}
 		}
 		return true;
@@ -267,7 +248,7 @@ public class OtherSpellFind {
 					mob.lookAt(target, 360.0f, 360.0f);
 				}
 				spell = new SlaverySupervisorChainEntity(spellLevelDamage, serverLevel, caster, caster.getLookAngle().x, caster.getLookAngle().y, caster.getLookAngle().z);
-				spell.setPos(caster.getX(), caster.getY(0.7), caster.getZ());
+				spell.setPos(caster.getX(), caster.getY(0.7) - spell.getBbHeight()/2, caster.getZ());
 				spell.shootFromRotation(caster, caster.getXRot(), (caster.getYRot() - ((count - 1) * distance) / 2 + i * distance), 0f, 1f, spellLevelAccuracy);
 				spell.setOwner(caster);
 				serverLevel.addFreshEntity(spell);
@@ -291,7 +272,7 @@ public class OtherSpellFind {
 				double d3 = caster.getLookAngle().y;
 				double d4 = caster.getLookAngle().z;
 				spell = new PushForceEntity(spellLevelDamage, spellLevelXZPush, spellLevelXZPushBase, spellLevelYPush, spellLevelYPushBase, serverLevel, caster, d2, d3, d4);
-				spell.setPos(caster.getX(), caster.getY(0.7), caster.getZ());
+				spell.setPos(caster.getX(), caster.getY(0.7) - spell.getBbHeight()/2, caster.getZ());
 				spell.shootFromRotation(caster, caster.getXRot(), (caster.getYRot() - ((count - 1) * distance) / 2 + i * distance), 0f, 1f, spellLevelAccuracy);
 				spell.setOwner(caster);
 				serverLevel.addFreshEntity(spell);
@@ -309,7 +290,7 @@ public class OtherSpellFind {
 					mob.lookAt(target, 360.0f, 360.0f);
 				}
 				spell = new RadiantBombEntity(spellLevelDamage, spellLevelExplode, spellLevelMainEffectTime, spellLevelMainEffectLevel, serverLevel, caster, caster.getLookAngle().x, caster.getLookAngle().y, caster.getLookAngle().z);
-				spell.setPos(caster.getX(), caster.getY(0.7), caster.getZ());
+				spell.setPos(caster.getX(), caster.getY(0.7) - spell.getBbHeight()/2, caster.getZ());
 				spell.shootFromRotation(caster, caster.getXRot(), (caster.getYRot() - ((count - 1) * distance) / 2 + i * distance), 0f, 1f, spellLevelAccuracy);
 				spell.setOwner(caster);
 				serverLevel.addFreshEntity(spell);
@@ -330,38 +311,14 @@ public class OtherSpellFind {
 				double d3 = caster.getLookAngle().y;
 				double d4 = caster.getLookAngle().z;
 				spell = new ArcaneLightSpotEntity(spellLevelDamage, spellLevelMainEffectTime, spellLevelMainEffectLevel, serverLevel, caster, d2, d3, d4);
-				spell.setPos(caster.getX(), caster.getY(0.7), caster.getZ());
+				spell.setPos(caster.getX(), caster.getY(0.7) - spell.getBbHeight()/2, caster.getZ());
 				spell.shootFromRotation(caster, caster.getXRot(), (caster.getYRot() - ((count - 1) * distance) / 2 + i * distance), 0f, 1f, spellLevelAccuracy);
 				spell.setOwner(caster);
 				if (target != null && target != caster) {
 					spell.setTarget(target);
 				}
 				serverLevel.addFreshEntity(spell);
-				caster.getPersistentData().putDouble("jvpillage_arcane_light_spot", caster.getPersistentData().getDouble("jvpillage_arcane_light_spot") - 3);
 			}
-			if (!caster.level().isClientSide()) {
-				caster.getPersistentData().putUUID("jvpillage_arcane_light_spot_target", target != null ? target.getUUID() : null);
-				caster.getPersistentData().putDouble("jvpillage_arcane_light_spot", tickCount * 3 + caster.getPersistentData().getDouble("jvpillage_arcane_light_spot"));
-				caster.getPersistentData().putInt("jvpillage_arcane_light_spot_spellLevelDamage", spellLevelDamage);
-				caster.getPersistentData().putFloat("jvpillage_arcane_light_spot_spellLevelMainEffectTime", spellLevelMainEffectTime);
-				caster.getPersistentData().putFloat("jvpillage_arcane_light_spot_spellLevelMainEffectLevel", spellLevelMainEffectLevel);
-				caster.getPersistentData().putFloat("jvpillage_arcane_light_spot_spellLevelAccuracy", spellLevelAccuracy);
-				caster.getPersistentData().putInt("jvpillage_arcane_light_spot_count", count);
-				caster.getPersistentData().putFloat("jvpillage_arcane_light_spot_distance", distance);
-			}
-		}
-		return true;
-	}
-	//迅电流光$法术
-	public static boolean Electroflash(LivingEntity caster, int spellLevelDamage) {
-		if (caster.level() instanceof ServerLevel serverLevel) {
-			ElectroflashEntity baseBeamEntity = new ElectroflashEntity(JVPillageEntityType.ELECTROFLASH.get(), serverLevel, spellLevelDamage);
-			baseBeamEntity.setPos(caster.getX(), caster.getY(0.75), caster.getZ());
-			baseBeamEntity.setLightLockX((float) caster.getX());
-			baseBeamEntity.setLightLockY((float) (caster.getY(0.75)));
-			baseBeamEntity.setLightLockZ((float) caster.getZ());
-			baseBeamEntity.setOwner(caster);
-			serverLevel.addFreshEntity(baseBeamEntity);
 		}
 		return true;
 	}
@@ -416,13 +373,11 @@ public class OtherSpellFind {
 				if (livingEntityControl.isSensitiveToWater()) {
 					spellLevelDamage *= 5;
 				}
-				//法术反制
-				if (!(MainConfig.SameFactionAvoidDamage && AttackFind.SameFactionAvoidDamage(caster, livingEntityControl)) && livingEntityControl.hasEffect(JerotesMobEffects.COUNTERSPELL.get()) && ((livingEntityControl.getEffect(JerotesMobEffects.COUNTERSPELL.get()).getAmplifier() + 1) >= spellLevelDamage)) {
-					if (!livingEntityControl.level().isClientSide()) {
-						livingEntityControl.removeEffect(JerotesMobEffects.COUNTERSPELL.get());
-					}
-					livingEntityControl.swing(InteractionHand.MAIN_HAND);
-					SpellFind.Counterspell(livingEntityControl);
+				JerotesStopSpellEvent event = new JerotesStopSpellEvent(caster, null, null, livingEntityControl, 1, spellLevelDamage);
+				MinecraftForge.EVENT_BUS.post(event);
+				if (event.isCanceled()) {
+					count -= 1;
+					continue;
 				}
 				else {
 					boolean bl = livingEntityControl.hurt(damageSource, spellLevelDamage * 3);
@@ -436,6 +391,7 @@ public class OtherSpellFind {
 						if (caster.isInWater()) {
 							for (int i = 0; i < 5; ++i) {
 								serverLevel.sendParticles(JVPillageParticleTypes.GEMSTONE_BUBBLE.get(), livingEntityControl.getRandomX(0.8), livingEntityControl.getRandomY(), livingEntityControl.getRandomZ(0.8), 0, 0.0, 0.0, 0.0, 0.0);
+								serverLevel.sendParticles(JVPillageParticleTypes.GEMSTONE_BUBBLE_LAND.get(), livingEntityControl.getRandomX(0.8), livingEntityControl.getRandomY(), livingEntityControl.getRandomZ(0.8), 0, 0.0, 0.0, 0.0, 0.0);
 							}
 						}
 						double d2 = livingEntityControl.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
@@ -530,14 +486,7 @@ public class OtherSpellFind {
 			for (Mob mobFind : list) {
 				if (mobFind == null) continue;
 				if ((caster.distanceTo(mobFind)) > spellLevelDistance * 2) continue;
-				//有队伍
-				if (teams != null) {
-					if (!caster.isAlliedTo(mobFind)) continue;
-				}
-				//常规
-				else {
-					if (!caster.isAlliedTo(mobFind) && !(EntityFactionFind.isRaider(caster) && (mobFind.getTeam() == null && EntityFactionFind.isRaider(mobFind)))) continue;
-				}
+				if (!AttackFind.SameFactionAvoidDamage(caster, mobFind, false)) continue;
 				if (caster instanceof Mob mobCaster) {
 					if (mobFind == target) continue;
 					if (mobCaster == mobFind.getTarget()) continue;
@@ -574,14 +523,7 @@ public class OtherSpellFind {
 				if (livingEntityEffect == null) continue;
 				if (livingEntityEffect == caster) continue;
 				if ((caster.distanceTo(livingEntityEffect)) > spellLevelDistance * 2) continue;
-				//有队伍
-				if (teams != null) {
-					if (!caster.isAlliedTo(livingEntityEffect)) continue;
-				}
-				//常规
-				else {
-					if (!caster.isAlliedTo(livingEntityEffect) && !(EntityFactionFind.isRaider(caster) && (livingEntityEffect.getTeam() == null && EntityFactionFind.isRaider(livingEntityEffect)))) continue;
-				}
+				if (!AttackFind.SameFactionAvoidDamage(caster, livingEntityEffect, false)) continue;
 				if (caster instanceof Mob mob && livingEntityEffect == mob.getTarget()) continue;
 				if (livingEntityEffect instanceof Mob mob && caster == mob.getTarget()) continue;
 				if (!livingEntityEffect.level().isClientSide) {
@@ -603,14 +545,7 @@ public class OtherSpellFind {
 			for (LivingEntity livingEntityEffect : list) {
 				if (livingEntityEffect == null) continue;
 				if ((caster.distanceTo(livingEntityEffect)) > spellLevelDistance * 2) continue;
-				//有队伍
-				if (teams != null) {
-					if (!caster.isAlliedTo(livingEntityEffect)) continue;
-				}
-				//常规
-				else {
-					if (!caster.isAlliedTo(livingEntityEffect) && !(EntityFactionFind.isRaider(caster) && (livingEntityEffect.getTeam() == null && EntityFactionFind.isRaider(livingEntityEffect)))) continue;
-				}
+				if (!AttackFind.SameFactionAvoidDamage(caster, livingEntityEffect, false)) continue;
 				if (caster instanceof Mob mob && livingEntityEffect == mob.getTarget()) continue;
 				if (livingEntityEffect instanceof Mob mob && caster == mob.getTarget()) continue;
 				if (!livingEntityEffect.level().isClientSide) {
@@ -682,19 +617,20 @@ public class OtherSpellFind {
 				if (caster instanceof Player && (target == null || target == caster)) {
 					Vec3 startPos = caster.getEyePosition(1.0f);
 					Vec3 viewVector = caster.getViewVector(1.0f);
-					Vec3 endPos = startPos.add(viewVector.scale(32));
+					Vec3 endPos = startPos.add(viewVector.scale(36));
 
 					BlockHitResult hitResult = serverLevel.clip(new ClipContext(
 							startPos, endPos,
-							ClipContext.Block.COLLIDER,
-							ClipContext.Fluid.ANY,
+							ClipContext.Block.OUTLINE,
+							ClipContext.Fluid.NONE,
 							caster
 					));
-					targetPos = Main.adjustPositionForSolidHit(hitResult, startPos, viewVector, 32);
+					targetPos = Main.adjustPositionForSolidHit(hitResult, startPos, viewVector, 36);
 				}
 				//目标位置
-				RainEffectCloudEntity cloud = new UncleanBloodRainEntity(spellLevelMainEffectTime, spellLevelMainEffectLevel, serverLevel, targetPos.x, targetPos.y, targetPos.z);
+				RainSpellCloudEntity cloud = new UncleanBloodRainEntity(spellLevelMainEffectTime, spellLevelMainEffectLevel, serverLevel, targetPos.x, targetPos.y, targetPos.z);
 				cloud.setOwner(caster);
+				cloud.spellLevelDamage = spellLevelMainEffectLevel;
 				cloud.setParticle(JVPillageParticleTypes.UNCLEAN_BLOOD_RAIN_FOG.get());
 				cloud.setRainParticle(JVPillageParticleTypes.UNCLEAN_BLOOD_RAIN.get());
 				cloud.setRadius(1.5f);
@@ -719,20 +655,22 @@ public class OtherSpellFind {
 				if (caster instanceof Player && (target == null || target == caster)) {
 					Vec3 startPos = caster.getEyePosition(1.0f);
 					Vec3 viewVector = caster.getViewVector(1.0f);
-					Vec3 endPos = startPos.add(viewVector.scale(32));
+					Vec3 endPos = startPos.add(viewVector.scale(36));
 
 					BlockHitResult hitResult = serverLevel.clip(new ClipContext(
 							startPos, endPos,
-							ClipContext.Block.COLLIDER,
-							ClipContext.Fluid.ANY,
+							ClipContext.Block.OUTLINE,
+							ClipContext.Fluid.NONE,
 							caster
 					));
-					targetPos = Main.adjustPositionForSolidHit(hitResult, startPos, viewVector, 32);
+					targetPos = Main.adjustPositionForSolidHit(hitResult, startPos, viewVector, 36);
 				}
 				//目标位置
-				AreaEffectCloud cloud = new AreaEffectCloud(serverLevel, targetPos.x, targetPos.y, targetPos.z);
+				SpellCloudEntity cloud = new SpellCloudEntity(serverLevel, targetPos.x, targetPos.y, targetPos.z);
 				cloud.setOwner(caster);
+				cloud.spellLevelDamage = spellLevelMainEffectLevel;
 				cloud.setParticle(JVPillageParticleTypes.UNCLEAN_BLOOD_FOG.get());
+				cloud.setParticleScaleMultiple(0.5f);
 				cloud.setRadius(1.5f);
 				cloud.setDuration(20 * spellLevelDuration);
 				cloud.setRadiusPerTick((3f - cloud.getRadius()) / (float)cloud.getDuration());
@@ -772,7 +710,7 @@ public class OtherSpellFind {
 		return true;
 	}
 	//不祥齿轮
-	public static boolean OminousGear(LivingEntity caster, int countMin, int countMax, int summonDistance) {
+	public static boolean OminousGear(LivingEntity caster, int spellLevel, int countMin, int countMax, int summonDistance) {
 		if (caster.level() instanceof ServerLevel serverLevel) {
 			int count = countMin;
 			if (countMin < countMax) {
@@ -784,6 +722,7 @@ public class OtherSpellFind {
 				OminousGearEntity gear = JVPillageEntityType.OMINOUS_GEAR.get().spawn(serverLevel, BlockPos.containing(summonPos.getX(), summonPos.getY(), summonPos.getZ()), MobSpawnType.MOB_SUMMONED);
 				if (gear != null) {
 					gear.setOwner(caster);
+					gear.setSpellLevelDamage(spellLevel);
 				}
 			}
 			serverLevel.gameEvent(GameEvent.ENTITY_PLACE, new BlockPos((int) caster.getX(), (int) caster.getY(), (int) caster.getZ()), GameEvent.Context.of(caster));
@@ -794,7 +733,7 @@ public class OtherSpellFind {
 		return true;
 	}
 	//邪祟召唤$法术
-	public static boolean EvilSummoning(LivingEntity caster, LivingEntity target, int countMin, int countMax, int summonDistance) {
+	public static boolean EvilSummoning(LivingEntity caster, LivingEntity target, int spellLevel, int countMin, int countMax, int summonDistance) {
 		if (caster.level() instanceof ServerLevel serverLevel) {
 			PlayerTeam teams = (PlayerTeam) caster.getTeam();
 			int count = countMin;
@@ -808,13 +747,15 @@ public class OtherSpellFind {
 				//目标位置
 				if (uncleanTentacle != null) {
 					uncleanTentacle.setOwner(caster);
+					uncleanTentacle.setSpellLevelDamage(spellLevel);
 					if (teams != null) {
 						serverLevel.getScoreboard().addPlayerToTeam(uncleanTentacle.getStringUUID(), teams);
 					}
 					if (target != null && target != caster) {
 						uncleanTentacle.setTarget(target);
 					}
-					serverLevel.sendParticles(JVPillageParticleTypes.TARGET.get(), uncleanTentacle.getX(), uncleanTentacle.getY() + 0.1, uncleanTentacle.getZ(), 0, 0.0, 0.0, 0.0, 0.0);
+					ParticlesUse.summonParticle(serverLevel, uncleanTentacle, uncleanTentacle.getX(), uncleanTentacle.getY(), uncleanTentacle.getZ(),
+							0xb8003c, 0xff0055);
 				}
 			}
 			serverLevel.gameEvent(GameEvent.ENTITY_PLACE, new BlockPos((int) caster.getX(), (int) caster.getY(), (int) caster.getZ()), GameEvent.Context.of(caster));
@@ -822,7 +763,7 @@ public class OtherSpellFind {
 		return true;
 	}
 	//苦寒祭坛$法术
-	public static boolean BitterColdAltar(LivingEntity caster, int countMin, int countMax, int summonDistance) {
+	public static boolean BitterColdAltar(LivingEntity caster, int spellLevel, int countMin, int countMax, int summonDistance) {
 		if (caster.level() instanceof ServerLevel serverLevel) {
 			PlayerTeam teams = (PlayerTeam) caster.getTeam();
 			int count = countMin;
@@ -838,8 +779,8 @@ public class OtherSpellFind {
 
 					BlockHitResult hitResult = serverLevel.clip(new ClipContext(
 							startPos, endPos,
-							ClipContext.Block.COLLIDER,
-							ClipContext.Fluid.ANY,
+							ClipContext.Block.OUTLINE,
+							ClipContext.Fluid.NONE,
 							caster
 					));
 					Vec3 targetPos = Main.adjustPositionForSolidHit(hitResult, startPos, viewVector, summonDistance);
@@ -848,13 +789,13 @@ public class OtherSpellFind {
 				BitterColdAltarEntity bitterColdAltar = JVPillageEntityType.BITTER_COLD_ALTAR.get().spawn(serverLevel, BlockPos.containing(summonPos.getX(), summonPos.getY(), summonPos.getZ()), MobSpawnType.MOB_SUMMONED);
 				if (bitterColdAltar != null) {
 					bitterColdAltar.setOwner(caster);
+					bitterColdAltar.setSpellLevelDamage(spellLevel);
 					if (teams != null) {
 						serverLevel.getScoreboard().addPlayerToTeam(bitterColdAltar.getStringUUID(), teams);
 					}
 					if (caster instanceof Mob mob && mob.getTarget() != null) {
 						bitterColdAltar.setTarget(mob.getTarget());
 					}
-					serverLevel.sendParticles(JVPillageParticleTypes.TARGET.get(), bitterColdAltar.getX(), bitterColdAltar.getY() + 0.1, bitterColdAltar.getZ(), 0, 0.0, 0.0, 0.0, 0.0);
 				}
 			}
 			serverLevel.gameEvent(GameEvent.ENTITY_PLACE, new BlockPos((int) caster.getX(), (int) caster.getY(), (int) caster.getZ()), GameEvent.Context.of(caster));
@@ -886,7 +827,8 @@ public class OtherSpellFind {
 					if (caster instanceof Mob mob && mob.getTarget() != null) {
 						wildernessWolf.setTarget(mob.getTarget());
 					}
-					serverLevel.sendParticles(JVPillageParticleTypes.TARGET.get(), wildernessWolf.getX(), wildernessWolf.getY() + 0.1, wildernessWolf.getZ(), 0, 0.0, 0.0, 0.0, 0.0);
+					ParticlesUse.summonParticle(serverLevel, wildernessWolf, wildernessWolf.getX(), wildernessWolf.getY(), wildernessWolf.getZ(),
+							0x423a30, 0x625d52);
 				}
 			}
 			serverLevel.gameEvent(GameEvent.ENTITY_PLACE, new BlockPos((int) caster.getX(), (int) caster.getY(), (int) caster.getZ()), GameEvent.Context.of(caster));
@@ -909,7 +851,8 @@ public class OtherSpellFind {
 				if (caster instanceof Mob mob && mob.getTarget() != null) {
 					defector.setTarget(mob.getTarget());
 				}
-				serverLevel.sendParticles(JVPillageParticleTypes.TARGET.get(), defector.getX(), defector.getY() + 0.1, defector.getZ(), 0, 0.0, 0.0, 0.0, 0.0);
+				ParticlesUse.summonParticle(serverLevel, defector, defector.getX(), defector.getY(), defector.getZ(),
+						0x525858, 0x909696);
 			}
 			serverLevel.gameEvent(GameEvent.ENTITY_PLACE, new BlockPos((int) caster.getX(), (int) caster.getY(), (int) caster.getZ()), GameEvent.Context.of(caster));
 			if (!caster.isInvisible()) {
@@ -933,6 +876,8 @@ public class OtherSpellFind {
 				if (caster instanceof Mob mob && mob.getTarget() != null) {
 					hag1.setTarget(mob.getTarget());
 				}
+				ParticlesUse.summonParticle(serverLevel, hag1, hag1.getX(), hag1.getY(), hag1.getZ(),
+						0x374200, 0x7b853d);
 				serverLevel.sendParticles(ParticleTypes.WITCH, hag1.getRandomX(0.5), hag1.getRandomY(), hag1.getRandomZ(0.5), 20, 0, 0, 0, 0);
 			}
 			if (hag2 != null) {
@@ -942,6 +887,8 @@ public class OtherSpellFind {
 				if (caster instanceof Mob mob && mob.getTarget() != null) {
 					hag2.setTarget(mob.getTarget());
 				}
+				ParticlesUse.summonParticle(serverLevel, hag2, hag2.getX(), hag2.getY(), hag2.getZ(),
+						0x374200, 0x7b853d);
 				serverLevel.sendParticles(ParticleTypes.WITCH, hag2.getRandomX(0.5), hag2.getRandomY(), hag2.getRandomZ(0.5), 20, 0, 0, 0, 0);
 			}
 			serverLevel.gameEvent(GameEvent.ENTITY_PLACE, new BlockPos((int) caster.getX(), (int) caster.getY(), (int) caster.getZ()), GameEvent.Context.of(caster));
@@ -964,17 +911,19 @@ public class OtherSpellFind {
 				PurpleSandPhantomEntity purpleSandPhantom = JVPillageEntityType.PURPLE_SAND_PHANTOM.get().spawn(serverLevel, BlockPos.containing(summonPos.getX(), summonPos.getY(), summonPos.getZ()), MobSpawnType.MOB_SUMMONED);
 				if (purpleSandPhantom != null) {
 					purpleSandPhantom.setOwner(caster);
+					purpleSandPhantom.setSpellLevelDamage(spellLevelDamage);
 					if (target instanceof LivingEntity livingEntity) {
 						purpleSandPhantom.setTarget(livingEntity);
 					}
 					purpleSandPhantom.lookAt(target, 360.0f, 360.0f);
-					purpleSandPhantom.spellLevelDamage = spellLevelDamage;
 					if (target instanceof Mob mob) {
 						mob.setTarget(purpleSandPhantom);
 					}
 					if (teams != null) {
 						serverLevel.getScoreboard().addPlayerToTeam(purpleSandPhantom.getStringUUID(), teams);
 					}
+					ParticlesUse.summonParticle(serverLevel, purpleSandPhantom, purpleSandPhantom.getX(), purpleSandPhantom.getY(), purpleSandPhantom.getZ(),
+							0x4e275a, 0xb19cb7);
 					serverLevel.sendParticles(ParticleTypes.WITCH, purpleSandPhantom.getRandomX(0.5), purpleSandPhantom.getRandomY(), purpleSandPhantom.getRandomZ(0.5), 20, 0, 0, 0, 0);
 				}
 			}
@@ -999,6 +948,8 @@ public class OtherSpellFind {
 				if (caster instanceof Mob mob && mob.getTarget() != null) {
 					spirve1.setTarget(mob.getTarget());
 				}
+				ParticlesUse.summonParticle(serverLevel, spirve1, spirve1.getX(), spirve1.getY(), spirve1.getZ(),
+						0x2e2e2e, 0x605c57);
 				serverLevel.sendParticles(ParticleTypes.WITCH, spirve1.getRandomX(0.5), spirve1.getRandomY(), spirve1.getRandomZ(0.5), 20, 0, 0, 0, 0);
 			}
 			if (spirve2 != null) {
@@ -1008,6 +959,8 @@ public class OtherSpellFind {
 				if (caster instanceof Mob mob && mob.getTarget() != null) {
 					spirve2.setTarget(mob.getTarget());
 				}
+				ParticlesUse.summonParticle(serverLevel, spirve2, spirve2.getX(), spirve2.getY(), spirve2.getZ(),
+						0x2e2e2e, 0x605c57);
 				serverLevel.sendParticles(ParticleTypes.WITCH, spirve2.getRandomX(0.5), spirve2.getRandomY(), spirve2.getRandomZ(0.5), 20, 0, 0, 0, 0);
 			}
 			if (spirve3 != null) {
@@ -1017,6 +970,8 @@ public class OtherSpellFind {
 				if (caster instanceof Mob mob && mob.getTarget() != null) {
 					spirve3.setTarget(mob.getTarget());
 				}
+				ParticlesUse.summonParticle(serverLevel, spirve3, spirve3.getX(), spirve3.getY(), spirve3.getZ(),
+						0x2e2e2e, 0x605c57);
 				serverLevel.sendParticles(ParticleTypes.WITCH, spirve3.getRandomX(0.5), spirve3.getRandomY(), spirve3.getRandomZ(0.5), 20, 0, 0, 0, 0);
 			}
 			serverLevel.gameEvent(GameEvent.ENTITY_PLACE, new BlockPos((int) caster.getX(), (int) caster.getY(), (int) caster.getZ()), GameEvent.Context.of(caster));

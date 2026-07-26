@@ -1,5 +1,6 @@
 package com.jerotes.jvpillage.entity.Shoot.Magic.Cloud;
 
+import com.jerotes.jerotes.entity.Other.SpellCloud.RainSpellCloudEntity;
 import com.jerotes.jvpillage.init.JVPillageEntityType;
 import com.jerotes.jvpillage.init.JVPillageMobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -7,7 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
-public class UncleanBloodRainEntity extends RainEffectCloudEntity {
+public class UncleanBloodRainEntity extends RainSpellCloudEntity {
     public UncleanBloodRainEntity(EntityType<? extends UncleanBloodRainEntity> entityType, Level level) {
         super(entityType, level);
     }

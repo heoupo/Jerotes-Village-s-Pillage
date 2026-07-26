@@ -23,7 +23,6 @@ public class JVPillageEntityRenderers {
         event.registerEntityRenderer(JVPillageEntityType.RAIN_EFFECT_CLOUD.get(), NoopRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.OMINOUS_GEAR.get(), OminousGearRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.UNCLEAN_BLOOD_RAIN.get(), NoopRenderer::new);
-        event.registerEntityRenderer(JVPillageEntityType.ELECTROFLASH.get(), ElectroflashRenderer::new);
 
         event.registerEntityRenderer(JVPillageEntityType.ELASTIC_ICE_ROCK.get(), ElasticIceRockRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.OMINOUS_BOMB.get(), OminousBombRenderer::new);

@@ -264,7 +264,7 @@ public class BlamerNecromancyWarlockEntity extends IllagerLikeEntity implements 
         return super.canDrownInFluidType(type);
     }
 
-    public int spellLevel = 3;
+    public int spellLevel = 4;
     @Override
     public int getSpellLevel() {
         return this.spellLevel;
