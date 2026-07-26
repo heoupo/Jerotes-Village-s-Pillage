@@ -2,6 +2,7 @@ package com.jerotes.jerotesvillage.entity.Other;
 
 import com.jerotes.jerotes.entity.Interface.CanBeIllagerFactionEntity;
 import com.jerotes.jerotes.entity.Interface.JerotesEntity;
+import com.jerotes.jerotes.entity.Shoot.Magic.MagicAbout;
 import com.jerotes.jerotes.util.AttackFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jerotes.util.Main;
@@ -39,7 +40,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public class UncleanTentacleEntity extends Mob implements JerotesEntity, TraceableEntity, CanBeIllagerFactionEntity, OwnableEntity {
+public class UncleanTentacleEntity extends Mob implements JerotesEntity, TraceableEntity, CanBeIllagerFactionEntity, OwnableEntity , MagicAbout {
 	private static final EntityDataAccessor<Integer> START_TICK = SynchedEntityData.defineId(UncleanTentacleEntity.class, EntityDataSerializers.INT);
 	public AnimationState startAnimationState = new AnimationState();
 	public AnimationState stopAnimationState = new AnimationState();
@@ -241,9 +242,19 @@ public class UncleanTentacleEntity extends Mob implements JerotesEntity, Traceab
 	public int getStartTick(){
 		return this.getEntityData().get(START_TICK);
 	}
+	//
+	private int spellLevelDamage = 4;
+	@Override
+	public int getSpellLevel() {
+		return this.spellLevelDamage;
+	}
+	public void setSpellLevelDamage(int n) {
+		this.spellLevelDamage = n;
+	}
 	@Override
 	public void addAdditionalSaveData(CompoundTag compoundTag) {
 		super.addAdditionalSaveData(compoundTag);
+		compoundTag.putInt("SpellLevelDamage", this.spellLevelDamage);
 		compoundTag.putInt("StartTick", this.getStartTick());
 		compoundTag.putInt("AnimTick", this.getAnimTick());
 		if (this.ownerUUID != null) {
@@ -255,6 +266,7 @@ public class UncleanTentacleEntity extends Mob implements JerotesEntity, Traceab
 	@Override
 	public void readAdditionalSaveData(CompoundTag compoundTag) {
 		super.readAdditionalSaveData(compoundTag);
+		this.spellLevelDamage = compoundTag.getInt("SpellLevelDamage");
 		this.setStartTick(compoundTag.getInt("StartTick"));
 		this.setAnimTick(compoundTag.getInt("AnimTick"));
 		if (compoundTag.hasUUID("Owner")) {
@@ -392,7 +404,7 @@ public class UncleanTentacleEntity extends Mob implements JerotesEntity, Traceab
 		List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class, this.getAttackBoundingBox().inflate(0.75));
 		for (LivingEntity hurt : list) {
 			if (hurt == null) continue;
-			if ((this.distanceToSqr(hurt)) > 64) continue;
+			if ((this.distanceToSqr(hurt)) > Double.MAX_VALUE) continue;
 			if (AttackFind.FindCanNotAttack(this, hurt)) continue;
 			if (!this.hasLineOfSight(hurt)) continue;
 			if (!Main.canSee(hurt, this)) continue;
@@ -404,7 +416,7 @@ public class UncleanTentacleEntity extends Mob implements JerotesEntity, Traceab
 					damageSource = AttackFind.findDamageType(this, DamageTypes.PLAYER_ATTACK, this, this.getOwner());
 				}
 			}
-			AttackFind.attackAfterCustomDamageNoEnchantAbout(this, hurt, damageSource, 1.0f, 1.0f, false, 0f);
+			AttackFind.attackAfterCustomDamageNoEnchantAbout(this, hurt, damageSource, 0.2f + 0.2f * spellLevelDamage, 1.0f, false, 0f);
 		}
 		//横扫效果
 		Main.sweepAttack(this);

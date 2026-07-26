@@ -2,6 +2,7 @@ package com.jerotes.jerotesvillage.entity.Other;
 
 import com.jerotes.jerotes.entity.Interface.CanBeIllagerFactionEntity;
 import com.jerotes.jerotes.entity.Interface.JerotesEntity;
+import com.jerotes.jerotes.entity.Shoot.Magic.MagicAbout;
 import com.jerotes.jerotes.util.AttackFind;
 import com.jerotes.jerotes.util.EntityAndItemFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
@@ -51,7 +52,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public class BitterColdAltarEntity extends Mob implements JerotesEntity, TraceableEntity, CanBeIllagerFactionEntity, OwnableEntity {
+public class BitterColdAltarEntity extends Mob implements JerotesEntity, TraceableEntity, CanBeIllagerFactionEntity, OwnableEntity , MagicAbout {
 	private static final EntityDataAccessor<Integer> START_TICK = SynchedEntityData.defineId(BitterColdAltarEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Integer> ANIM_STATE = SynchedEntityData.defineId(BitterColdAltarEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Integer> ANIM_TICK = SynchedEntityData.defineId(BitterColdAltarEntity.class, EntityDataSerializers.INT);
@@ -59,6 +60,7 @@ public class BitterColdAltarEntity extends Mob implements JerotesEntity, Traceab
 	public AnimationState stopAnimationState = new AnimationState();
 	private BitterColdAltarPart part_1;
 	private BitterColdAltarPart part_2;
+
 
 	public BitterColdAltarEntity(EntityType<? extends BitterColdAltarEntity> type, Level world) {
 		super(type, world);
@@ -284,9 +286,19 @@ public class BitterColdAltarEntity extends Mob implements JerotesEntity, Traceab
 	public int getStartTick(){
 		return this.getEntityData().get(START_TICK);
 	}
+	//
+	private int spellLevelDamage = 4;
+	@Override
+	public int getSpellLevel() {
+		return this.spellLevelDamage;
+	}
+	public void setSpellLevelDamage(int n) {
+		this.spellLevelDamage = n;
+	}
 	@Override
 	public void addAdditionalSaveData(CompoundTag compoundTag) {
 		super.addAdditionalSaveData(compoundTag);
+		compoundTag.putInt("SpellLevelDamage", this.spellLevelDamage);
 		compoundTag.putFloat("Faces", this.faces);
 		compoundTag.putInt("StartTick", this.getStartTick());
 		if (this.ownerUUID != null) {
@@ -297,6 +309,7 @@ public class BitterColdAltarEntity extends Mob implements JerotesEntity, Traceab
 	@Override
 	public void readAdditionalSaveData(CompoundTag compoundTag) {
 		super.readAdditionalSaveData(compoundTag);
+		this.spellLevelDamage = compoundTag.getInt("SpellLevelDamage");
 		this.faces = compoundTag.getFloat("Faces");
 		this.setStartTick(compoundTag.getInt("StartTick"));
 		if (compoundTag.hasUUID("Owner")) {

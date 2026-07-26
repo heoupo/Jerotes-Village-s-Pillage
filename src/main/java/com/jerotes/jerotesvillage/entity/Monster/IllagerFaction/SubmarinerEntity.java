@@ -176,7 +176,7 @@ public class SubmarinerEntity extends MeleeIllagerEntity implements SpellUseEnti
         }
     }
 
-    public int spellLevel = 2;
+    public int spellLevel = 3;
     @Override
     public int getSpellLevel() {
         return this.spellLevel;

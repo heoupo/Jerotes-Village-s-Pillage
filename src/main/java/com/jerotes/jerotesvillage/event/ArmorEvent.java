@@ -125,14 +125,14 @@ public class ArmorEvent {
 				}
 			}
 			if (roll <= 0.2f) {
-				OtherSpellList.EvilSummoning(3, living, living).spellUse();
+				OtherSpellList.EvilSummoning(4, living, living).spellUse();
 			}
 			else {
 				if (hasTiara && roll > 0.2f && roll < 0.7f) {
-					OtherSpellList.OminousGear(3, living, living).spellUse();
+					OtherSpellList.OminousGear(4, living, living).spellUse();
 				}
 				if (!hasTiara && roll > 0.2f && roll < 0.3f) {
-					OtherSpellList.PurpleSandPhantom(3, living, living).spellUse();
+					OtherSpellList.PurpleSandPhantom(4, living, living).spellUse();
 				}
 				}
 		}

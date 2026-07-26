@@ -22,7 +22,6 @@ import com.jerotes.jerotesvillage.entity.Shoot.Arrow.*;
 import com.jerotes.jerotesvillage.entity.Shoot.Magic.Breath.BloodyScreamEntity;
 import com.jerotes.jerotesvillage.entity.Shoot.Magic.Cloud.RainEffectCloudEntity;
 import com.jerotes.jerotesvillage.entity.Shoot.Magic.Cloud.UncleanBloodRainEntity;
-import com.jerotes.jerotesvillage.entity.Shoot.Magic.MagicBeam.ElectroflashEntity;
 import com.jerotes.jerotesvillage.entity.Shoot.Magic.MagicMissile.ArcaneLightSpotEntity;
 import com.jerotes.jerotesvillage.entity.Shoot.Magic.MagicShoot.BitterColdFrostbiteEntity;
 import com.jerotes.jerotesvillage.entity.Shoot.Magic.MagicShoot.OminousFlamesEntity;
@@ -291,9 +290,6 @@ public class JerotesVillageEntityType {
 	public static final RegistryObject<EntityType<UncleanBloodRainEntity>> UNCLEAN_BLOOD_RAIN = register("unclean_blood_rain",
 			EntityType.Builder.<UncleanBloodRainEntity>of(UncleanBloodRainEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(10)
 					.sized(6.0f, 0.5f));
-	public static final RegistryObject<EntityType<ElectroflashEntity>> ELECTROFLASH = register("electroflash",
-			EntityType.Builder.<ElectroflashEntity>of(ElectroflashEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(4)
-					.sized(0.6f, 0.6f));
 	//投影
 	public static final RegistryObject<EntityType<BossShowEntity>> BOSS_SHOW_ENTITY_PURPLE_SAND_HAG = register("boss_show_entity_purple_sand_hag",
 			EntityType.Builder.of(BossShowEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64)

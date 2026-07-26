@@ -19,7 +19,6 @@ public enum OtherSpellType implements SpellTypeInterface {
 	JEROTESVILLAGE_OMINOUS_FLAMES("jerotesvillage_ominous_flames"),
 	JEROTESVILLAGE_PUSH_FORCE("jerotesvillage_push_force"),
 	JEROTESVILLAGE_GEMSTONE_WAVES("jerotesvillage_gemstone_waves"),
-	JEROTESVILLAGE_ELECTROFLASH("jerotesvillage_electroflash"),
 	JEROTESVILLAGE_FLOATING_FORCE("jerotesvillage_floating_force"),
 	JEROTESVILLAGE_GRAVITY_FORCE("jerotesvillage_gravity_force"),
 	JEROTESVILLAGE_UNCLEAN_BLOOD_RAIN("jerotesvillage_unclean_blood_rain"),
@@ -53,7 +52,6 @@ public enum OtherSpellType implements SpellTypeInterface {
 			case JEROTESVILLAGE_OMINOUS_FLAMES -> OtherSpellList.OminousFlames(level, caster, target);
 			case JEROTESVILLAGE_PUSH_FORCE -> OtherSpellList.PushForce(level, caster, target);
 			case JEROTESVILLAGE_GEMSTONE_WAVES -> OtherSpellList.GemstoneWaves(level, caster, target);
-			case JEROTESVILLAGE_ELECTROFLASH -> OtherSpellList.Electroflash(level, caster, target);
 			case JEROTESVILLAGE_FLOATING_FORCE -> OtherSpellList.FloatingForce(level, caster, target);
 			case JEROTESVILLAGE_GRAVITY_FORCE -> OtherSpellList.GravityForce(level, caster, target);
 			case JEROTESVILLAGE_UNCLEAN_BLOOD_RAIN -> OtherSpellList.UncleanBloodRain(level, caster, target);

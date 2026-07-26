@@ -3,6 +3,7 @@ package com.jerotes.jerotesvillage.item;
 import com.jerotes.jerotes.init.JerotesGameRules;
 import com.jerotes.jerotes.item.Interface.MagicItem;
 import com.jerotes.jerotes.spell.SpellTypeInterface;
+import com.jerotes.jerotes.util.Main;
 import com.jerotes.jerotesvillage.spell.OtherSpellList;
 import com.jerotes.jerotesvillage.spell.OtherSpellType;
 import net.minecraft.ChatFormatting;
@@ -10,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -38,21 +40,28 @@ public class GravityCopperBall extends Item implements MagicItem {
 	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
 		ItemStack itemStack = player.getItemInHand(interactionHand);
 		player.swing(interactionHand);
+		LivingEntity target;
+		Entity hitEntity = Main.getTargetedEntity(player, OtherSpellList.GravityForce(4, null, null).getSpellDistance());
+		if (hitEntity instanceof LivingEntity) {
+			target = (LivingEntity) hitEntity;
+		} else {
+			target = player;
+		}
 		if (itemStack.getDamageValue() >= itemStack.getMaxDamage() - 1) {
 			return InteractionResultHolder.fail(itemStack);
 		}
 		player.startUsingItem(interactionHand);
 		if(!player.isShiftKeyDown()) {
-			OtherSpellList.PushForce(3, player, null).spellUse();
+			OtherSpellList.PushForce(4, player, target).spellUse();
 			player.getCooldowns().addCooldown(this, 20);
 		}
 		if(player.isShiftKeyDown()) {
             if (interactionHand == InteractionHand.MAIN_HAND) {
-                OtherSpellList.FloatingForce(3, player, null).spellUse();
+                OtherSpellList.FloatingForce(4, player, target).spellUse();
                 player.getCooldowns().addCooldown(this, 160);
             }
             if (interactionHand == InteractionHand.OFF_HAND) {
-                OtherSpellList.GravityForce(3, player, null).spellUse();
+                OtherSpellList.GravityForce(4, player, target).spellUse();
                 player.getCooldowns().addCooldown(this, 160);
             }
 		}
@@ -64,11 +73,11 @@ public class GravityCopperBall extends Item implements MagicItem {
 	@Override
 	public void appendHoverText(ItemStack itemStack, Level level, List<Component> list, TooltipFlag tooltipFlag) {
 		super.appendHoverText(itemStack, level, list, tooltipFlag);
-		list.add(OtherSpellList.PushForce(2, null, null).getSpellName().copy()
+		list.add(OtherSpellList.PushForce(4, null, null).getSpellName().copy()
 				.append(Component.translatable("spell.jerotes.spell_base", trueLevel(itemStack))).withStyle(ChatFormatting.DARK_PURPLE));
-		list.add(OtherSpellList.PushForce(2, null, null).getSpellDesc().copy()
+		list.add(OtherSpellList.PushForce(4, null, null).getSpellDesc().copy()
 				.withStyle(ChatFormatting.LIGHT_PURPLE));
-		list.add(Component.translatable("spell.jerotes.spell_max_distance", OtherSpellList.PushForce(3, null, null).getSpellDistance())
+		list.add(Component.translatable("spell.jerotes.spell_max_distance", OtherSpellList.PushForce(4, null, null).getSpellDistance())
 				.withStyle(ChatFormatting.LIGHT_PURPLE));
 		list.add(this.getDisplayName().withStyle(ChatFormatting.GRAY));
 	}
@@ -83,7 +92,7 @@ public class GravityCopperBall extends Item implements MagicItem {
 	}
 
 	public int trueLevel(ItemStack itemStack) {
-		return OtherSpellList.PushForce(3, null, null).getSpellLevel();
+		return OtherSpellList.PushForce(4, null, null).getSpellLevel();
 	}
 
 	@Override
@@ -99,7 +108,7 @@ public class GravityCopperBall extends Item implements MagicItem {
 
 	@Override
 	public int getSpellLevel(ItemStack itemStack) {
-		return 3;
+		return 4;
 	}
 
 	@Override
@@ -123,7 +132,7 @@ public class GravityCopperBall extends Item implements MagicItem {
 
 	@Override
 	public float getSpellDistance(ItemStack itemStack) {
-		return OtherSpellList.BitterColdIceSpike(3, null, null).getSpellDistance();
+		return OtherSpellList.PushForce(4, null, null).getSpellDistance();
 	}
 }
 

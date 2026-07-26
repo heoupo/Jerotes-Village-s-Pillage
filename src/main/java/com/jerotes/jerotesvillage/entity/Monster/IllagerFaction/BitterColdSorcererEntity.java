@@ -1,14 +1,14 @@
 package com.jerotes.jerotesvillage.entity.Monster.IllagerFaction;
 
-import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.entity.Interface.SpellUseEntity;
+import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.goal.*;
 import com.jerotes.jerotes.spell.MagicType;
 import com.jerotes.jerotes.spell.SpellTypeInterface;
 import com.jerotes.jerotesvillage.entity.Interface.BannerChampionEntity;
 import com.jerotes.jerotesvillage.entity.Other.BitterColdAltarEntity;
 import com.jerotes.jerotesvillage.init.JerotesVillageSoundEvents;
-import com.jerotes.jerotesvillage.spell.OtherSpellFind;
+import com.jerotes.jerotesvillage.spell.OtherSpellList;
 import com.jerotes.jerotesvillage.spell.OtherSpellType;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
@@ -183,8 +183,8 @@ public class BitterColdSorcererEntity extends SpellIllagerEntity implements Spel
         return IllagerSpell.DISAPPEAR;
     }
 
-    public int spellLevel = 2;
-    public int altarSpellLevel = 3;
+    public int spellLevel = 3;
+    public int altarSpellLevel = 4;
     @Override
     public int getSpellLevel() {
         //队伍
@@ -306,7 +306,7 @@ public class BitterColdSorcererEntity extends SpellIllagerEntity implements Spel
                     this.setAnimTick(40);
                     this.setAnimationState("ceremony");
                 }
-                OtherSpellFind.BitterColdAltar(this, 1, 1, 16);
+                OtherSpellList.BitterColdAltar(getSpellLevel(), this, this.getTarget() == null ? this : this.getTarget()).spellUse();
                 if (!this.isSilent()) {
                     this.level().playSound(null, this.getX(), this.getY(), this.getZ(), JerotesVillageSoundEvents.BITTER_COLD_SORCERER_ALTAR, this.getSoundSource(), 5.0f, 0.8f + this.getRandom().nextFloat() * 0.4f);
                 }

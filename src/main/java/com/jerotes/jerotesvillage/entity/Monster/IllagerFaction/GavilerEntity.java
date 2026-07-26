@@ -1,14 +1,13 @@
 package com.jerotes.jerotesvillage.entity.Monster.IllagerFaction;
 
 import com.jerotes.jerotes.entity.Interface.EliteEntity;
-import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.entity.Interface.SpellUseEntity;
+import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.event.JerotesBossEvent;
 import com.jerotes.jerotes.goal.JerotesAttackAvoidEntityGoal;
 import com.jerotes.jerotes.goal.JerotesFireRangeAttackGoal;
 import com.jerotes.jerotes.goal.JerotesFlyingRandomStrollGoal;
 import com.jerotes.jerotes.util.AttackFind;
-import com.jerotes.jerotes.util.EntityAndItemFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jerotes.util.Main;
 import com.jerotes.jerotesvillage.config.OtherMainConfig;
@@ -197,7 +196,7 @@ public class GavilerEntity extends SpellIllagerEntity implements RangedAttackMob
     }
     public boolean isLandNavigatorType = true;
 
-    public int spellLevel = 3;
+    public int spellLevel = 4;
     @Override
     public int getSpellLevel() {
         return this.spellLevel;
@@ -474,8 +473,6 @@ public class GavilerEntity extends SpellIllagerEntity implements RangedAttackMob
         if (isInvulnerableTo(damageSource)) {
             return super.hurt(damageSource, amount);
         }
-        if (EntityAndItemFind.MagicResistance(damageSource))
-            return super.hurt(damageSource, amount / 5);
         return super.hurt(damageSource, amount);
     }
 

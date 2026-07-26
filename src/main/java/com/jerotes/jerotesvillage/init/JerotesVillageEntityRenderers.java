@@ -23,7 +23,6 @@ public class JerotesVillageEntityRenderers {
         event.registerEntityRenderer(JerotesVillageEntityType.RAIN_EFFECT_CLOUD.get(), NoopRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.OMINOUS_GEAR.get(), OminousGearRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.UNCLEAN_BLOOD_RAIN.get(), NoopRenderer::new);
-        event.registerEntityRenderer(JerotesVillageEntityType.ELECTROFLASH.get(), ElectroflashRenderer::new);
 
         event.registerEntityRenderer(JerotesVillageEntityType.ELASTIC_ICE_ROCK.get(), ElasticIceRockRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.THROWN_VILLAGER_METAL_JAVELIN.get(), ThrownJavelinRenderer::new);

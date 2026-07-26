@@ -12,6 +12,7 @@ public class JerotesVillageParticleTypes {
 	public static final RegistryObject<SimpleParticleType> SECOND_ROUND_WORLD_PORTAL_PARTICLE = REGISTRY.register("second_round_world_portal_particle", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> MEROR = REGISTRY.register("meror", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> GEMSTONE_BUBBLE = REGISTRY.register("gemstone_bubble", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> GEMSTONE_BUBBLE_LAND = REGISTRY.register("gemstone_bubble_land", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> CORROSIVER_BREATH = REGISTRY.register("corrosiver_breath", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> CORROSIVER_BREATH_FOG = REGISTRY.register("corrosiver_breath_fog", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> OCEAN_CURRENT_BREATH = REGISTRY.register("ocean_current_breath", () -> new SimpleParticleType(true));

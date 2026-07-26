@@ -107,7 +107,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class BaseHagEntity extends Raider implements WizardEntity, SpellUseEntity, InventoryEntity, UseShieldEntity, NeutralMob, InventoryCarrier, Npc, JerotesEntity, SkinEntity, Enemy, Merchant ,FactionEntity{
+public abstract class BaseHagEntity extends Raider implements WizardEntity, SpellUseEntity, PurpleSandSisterhoodEntity, InventoryEntity, UseShieldEntity, NeutralMob, InventoryCarrier, Npc, JerotesEntity, FactionEntity, SkinEntity, Enemy, Merchant {
 	public AnimationState idleAnimationState = new AnimationState();
 	public AnimationState attack1AnimationState = new AnimationState();
 	public AnimationState attack2AnimationState = new AnimationState();
@@ -223,16 +223,15 @@ public abstract class BaseHagEntity extends Raider implements WizardEntity, Spel
 	}
 
 	@Override
+	public String getFirstFactionTypeName() {
+		return "purple_sand_sisterhood";
+	}
+	@Override
 	public List<String> getFactionTypeUntilTame() {
 		List<String> list = new ArrayList<>();
 		list.add(getFirstFactionTypeName());
-		list.add("raider");
+		list.add("radier");
 		return list;
-	}
-
-	@Override
-	public String getFirstFactionTypeName() {
-		return "purple_sand_sisterhood";
 	}
 
 	@VisibleForDebug
@@ -476,8 +475,8 @@ public abstract class BaseHagEntity extends Raider implements WizardEntity, Spel
 	public boolean isMelee(){
 		return this.getEntityData().get(IS_MELEE);
 	}
-	public int spellLevel = 3;
-	public int covenSpellLevel = 4;
+	public int spellLevel = 4;
+	public int covenSpellLevel = 5;
 	public int shieldCoolDown;
 	public int shieldCanUse = 1;
 	@Override
@@ -1938,12 +1937,12 @@ public abstract class BaseHagEntity extends Raider implements WizardEntity, Spel
 							//蜘蛛眼-鬼婆之眼
 							new BasicItemListing(new ItemStack(Items.SPIDER_EYE, 32),
 									new ItemStack(JerotesVillageItems.HAG_EYE.get(), 1), 30, 5, 0.05f),
-							//粉红仙人掌-女巫集会地图
+							//仙人掌-女巫集会地图
 							new BasicItemListing(new ItemStack(Items.CACTUS, 32),
 									new ItemStack(JerotesVillageItems.WITCH_COVEN_MAP.get(), 1), 30, 5, 0.05f),
-							//紫沙守宫尾巴-紫水晶碎片
+							//村民金属锭-紫水晶碎片
 							new BasicItemListing(new ItemStack(JerotesVillageItems.VILLAGER_METAL_INGOT.get(), 1),
-									new ItemStack(Items.AMETHYST_SHARD, 24), 30, 5, 0.05f),
+									new ItemStack(Items.AMETHYST_SHARD, 1), 30, 5, 0.05f),
 							//蜂蜜块-蜂巢
 							new BasicItemListing(new ItemStack(Items.HONEY_BLOCK, 1),
 									new ItemStack(Items.BEE_NEST, 1), 30, 5, 0.05f),

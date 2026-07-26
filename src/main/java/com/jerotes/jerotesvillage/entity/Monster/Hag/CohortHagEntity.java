@@ -35,6 +35,11 @@ public class CohortHagEntity extends BaseHagEntity implements EliteEntity {
 	}
 
 	@Override
+	public int PurpleSandSisterhoodLevel() {
+		return 4;
+	}
+
+	@Override
 	public void startSeenByPlayer(ServerPlayer serverPlayer) {
 		super.startSeenByPlayer(serverPlayer);
 		if (JerotesVillageGameRules.JEROTES_VILLAGE_SOME_ELITE_HAS_BOSS_BAR != null && this.level().getLevelData().getGameRules().getBoolean(JerotesVillageGameRules.JEROTES_VILLAGE_SOME_ELITE_HAS_BOSS_BAR) && OtherMainConfig.EliteCanHasBossBar.contains(this.getEncodeId()))

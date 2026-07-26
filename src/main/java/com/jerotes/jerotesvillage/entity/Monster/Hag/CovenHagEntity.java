@@ -1,6 +1,7 @@
 package com.jerotes.jerotesvillage.entity.Monster.Hag;
 
 import com.jerotes.jerotes.entity.Interface.EliteEntity;
+import com.jerotes.jerotes.entity.Interface.LoreUndyingEntity;
 import com.jerotes.jerotes.init.JerotesMobEffects;
 import com.jerotes.jerotes.spell.SpellType;
 import com.jerotes.jerotes.spell.SpellTypeInterface;
@@ -31,11 +32,16 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CovenHagEntity extends BaseHagEntity implements EliteEntity {
+public class CovenHagEntity extends BaseHagEntity implements EliteEntity, LoreUndyingEntity {
 	private final JerotesBossEvent bossEvent = new JerotesBossEvent(this, this.getUUID(), BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.NOTCHED_6, false);
 	public CovenHagEntity(EntityType<? extends CovenHagEntity> entityType, Level level) {
 		super(entityType, level);
 		this.xpReward = 50;
+	}
+
+	@Override
+	public int PurpleSandSisterhoodLevel() {
+		return 5;
 	}
 
 	@Override
@@ -148,8 +154,8 @@ public class CovenHagEntity extends BaseHagEntity implements EliteEntity {
 		}
 	}
 
-	public int spellLevel = 3;
-	public int covenSpellLevel = 4;
+	public int spellLevel = 4;
+	public int covenSpellLevel = 5;
 	@Override
 	public int getSpellLevel() {
 		if (this.covenSpellLevel > spellLevel && this.isCoven()) {
@@ -229,4 +235,6 @@ public class CovenHagEntity extends BaseHagEntity implements EliteEntity {
 		}
 	}
 }
+
+
 

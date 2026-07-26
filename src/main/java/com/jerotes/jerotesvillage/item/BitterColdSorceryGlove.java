@@ -3,6 +3,7 @@ package com.jerotes.jerotesvillage.item;
 import com.jerotes.jerotes.init.JerotesGameRules;
 import com.jerotes.jerotes.item.Interface.MagicItem;
 import com.jerotes.jerotes.spell.SpellTypeInterface;
+import com.jerotes.jerotes.util.Main;
 import com.jerotes.jerotesvillage.entity.Other.BitterColdAltarEntity;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.spell.OtherSpellList;
@@ -12,6 +13,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -40,28 +42,35 @@ public class BitterColdSorceryGlove extends Item implements MagicItem {
 	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
 		ItemStack itemStack = player.getItemInHand(interactionHand);
 		player.swing(interactionHand);
+		LivingEntity target;
+		Entity hitEntity = Main.getTargetedEntity(player, OtherSpellList.BitterColdIceSpike(4, null, null).getSpellDistance());
+		if (hitEntity instanceof LivingEntity) {
+			target = (LivingEntity) hitEntity;
+		} else {
+			target = player;
+		}
 		//苦寒祭坛的法术等级控制
-		int spelllevel = 2 ;
+		int spelllevel = 3 ;
 		List<BitterColdAltarEntity> listAltar = player.level().getEntitiesOfClass(BitterColdAltarEntity.class, player.getBoundingBox().inflate(32.0, 32.0, 32.0));
 		listAltar.removeIf(entity -> entity.getTarget() == player || !((player.getTeam() == null && entity.getTeam() == null) || (entity.isAlliedTo(player))));
 		if (!listAltar.isEmpty()) {
-			spelllevel = 3;
+			spelllevel = 4;
 		}
 		if (itemStack.getDamageValue() >= itemStack.getMaxDamage() - 1) {
 			return InteractionResultHolder.fail(itemStack);
 		}
 		player.startUsingItem(interactionHand);
 		if(player.isShiftKeyDown()) {
-			OtherSpellList.BitterColdAltar(spelllevel, player, null).spellUse();
+			OtherSpellList.BitterColdAltar(spelllevel, player, target).spellUse();
 			player.getCooldowns().addCooldown(this, 100);
 		}
 		if(!player.isShiftKeyDown()) {
 			if (interactionHand == InteractionHand.MAIN_HAND) {
-				OtherSpellList.BitterColdIceSpike(spelllevel, player, null).spellUse();
+				OtherSpellList.BitterColdIceSpike(spelllevel, player, target).spellUse();
 				player.getCooldowns().addCooldown(this, 20);
 			}
 			if (interactionHand == InteractionHand.OFF_HAND) {
-				OtherSpellList.BitterColdFrostbite(spelllevel, player, null).spellUse();
+				OtherSpellList.BitterColdFrostbite(spelllevel, player, target).spellUse();
 				player.getCooldowns().addCooldown(this, 20);
 			}
 		}
@@ -73,9 +82,9 @@ public class BitterColdSorceryGlove extends Item implements MagicItem {
 	@Override
 	public void appendHoverText(ItemStack itemStack, Level level, List<Component> list, TooltipFlag tooltipFlag) {
 		super.appendHoverText(itemStack, level, list, tooltipFlag);
-		list.add(OtherSpellList.BitterColdIceSpike(2, null, null).getSpellName().copy()
+		list.add(OtherSpellList.BitterColdIceSpike(3, null, null).getSpellName().copy()
 				.append(Component.translatable("spell.jerotes.spell_base", trueLevel(itemStack))).withStyle(ChatFormatting.DARK_PURPLE));
-		list.add(OtherSpellList.BitterColdIceSpike(2, null, null).getSpellDesc().copy()
+		list.add(OtherSpellList.BitterColdIceSpike(3, null, null).getSpellDesc().copy()
 				.withStyle(ChatFormatting.LIGHT_PURPLE));
 		list.add(Component.translatable("spell.jerotes.spell_max_distance", OtherSpellList.BitterColdIceSpike(3, null, null).getSpellDistance())
 				.withStyle(ChatFormatting.LIGHT_PURPLE));
@@ -92,7 +101,7 @@ public class BitterColdSorceryGlove extends Item implements MagicItem {
 	}
 
 	public int trueLevel(ItemStack itemStack) {
-		return OtherSpellList.GemstoneWaves(2, null, null).getSpellLevel();
+		return OtherSpellList.BitterColdIceSpike(3, null, null).getSpellLevel();
 	}
 
 	@Override
@@ -108,7 +117,7 @@ public class BitterColdSorceryGlove extends Item implements MagicItem {
 
 	@Override
 	public int getSpellLevel(ItemStack itemStack) {
-		return 2;
+		return 3;
 	}
 
 	@Override

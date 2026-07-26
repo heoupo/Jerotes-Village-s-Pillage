@@ -41,13 +41,13 @@ public class MaterialEvent {
 		if (itemStack.is(JerotesVillageItems.ICE_ROCK.get())) {
 			event.setEffectCount(3);
 			event.setEffect1(new SlownessAlchemyEffect(2, 1));
-			event.setEffect2(new FreezeAbsorptionAlchemyEffect(2, 1));
+			event.setEffect2(new ColdAbsorptionAlchemyEffect(2, 1));
 			event.setEffect3(new MiningFatigueAlchemyEffect(2, 2));
 		}
 		//鳞熊毛 巨怪毛 巨怪角
 		if (itemStack.is(JerotesVillageItems.GIANT_MONSTER_HAIR.get())  || itemStack.is(JerotesVillageItems.GIANT_MONSTER_HORN.get())) {
 			event.setEffectCount(3);
-			event.setEffect1(new FreezeAbsorptionAlchemyEffect(1, 2));
+			event.setEffect1(new ColdAbsorptionAlchemyEffect(1, 2));
 			event.setEffect2(new WeaknessAlchemyEffect(2, 2));
 			event.setEffect3(new NauseaAlchemyEffect(1, 1));
 		}

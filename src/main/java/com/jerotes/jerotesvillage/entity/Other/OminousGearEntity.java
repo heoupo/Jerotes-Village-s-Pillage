@@ -1,5 +1,6 @@
 package com.jerotes.jerotesvillage.entity.Other;
 
+import com.jerotes.jerotes.entity.Shoot.Magic.MagicAbout;
 import com.jerotes.jerotes.init.JerotesDamageTypes;
 import com.jerotes.jerotes.init.JerotesMobEffects;
 import com.jerotes.jerotes.util.AttackFind;
@@ -18,7 +19,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class OminousGearEntity extends Entity implements TraceableEntity, OwnableEntity {
+public class OminousGearEntity extends Entity implements TraceableEntity, OwnableEntity , MagicAbout {
     private int warmupDelayTicks;
     private boolean sentSpikeEvent;
     private int lifeTicks = 120;
@@ -85,8 +86,18 @@ public class OminousGearEntity extends Entity implements TraceableEntity, Ownabl
         return super.getTeam();
     }
 
+    //
+    private int spellLevelDamage = 3;
+    @Override
+    public int getSpellLevel() {
+        return this.spellLevelDamage;
+    }
+    public void setSpellLevelDamage(int n) {
+        this.spellLevelDamage = n;
+    }
     @Override
     protected void addAdditionalSaveData(CompoundTag compoundTag) {
+        compoundTag.putInt("SpellLevelDamage", this.spellLevelDamage);
         compoundTag.putInt("Warmup", this.warmupDelayTicks);
         if (this.ownerUUID != null) {
             compoundTag.putUUID("Owner", this.ownerUUID);
@@ -94,6 +105,7 @@ public class OminousGearEntity extends Entity implements TraceableEntity, Ownabl
     }
     @Override
     protected void readAdditionalSaveData(CompoundTag compoundTag) {
+        this.spellLevelDamage = compoundTag.getInt("SpellLevelDamage");
         this.warmupDelayTicks = compoundTag.getInt("Warmup");
         if (compoundTag.hasUUID("Owner")) {
             this.ownerUUID = compoundTag.getUUID("Owner");
@@ -148,7 +160,7 @@ public class OminousGearEntity extends Entity implements TraceableEntity, Ownabl
         }
         if (livingEntity2 == null) {
             DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.BLEEDING);
-            boolean bl = livingEntity.hurt(damageSource, 2.0f);
+            boolean bl = livingEntity.hurt(damageSource, 1.0f + 0.5f * spellLevelDamage);
             if (bl) {
                 if (!livingEntity.level().isClientSide) {
                     livingEntity.addEffect(new MobEffectInstance(JerotesMobEffects.BLEEDING.get(), 60, 0, false, false), this);
@@ -163,7 +175,7 @@ public class OminousGearEntity extends Entity implements TraceableEntity, Ownabl
                 return;
             }
             DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.BLEEDING, livingEntity2);
-            boolean bl = livingEntity.hurt(damageSource, 2.0f);
+            boolean bl = livingEntity.hurt(damageSource, 1.0f + 0.5f * spellLevelDamage);
             if (bl) {
                 if (!livingEntity.level().isClientSide) {
                     livingEntity.addEffect(new MobEffectInstance(JerotesMobEffects.BLEEDING.get(), 60, 0, false, false), livingEntity2);

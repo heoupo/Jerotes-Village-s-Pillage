@@ -1,6 +1,7 @@
 package com.jerotes.jerotesvillage.entity.Other;
 
 import com.jerotes.jerotes.entity.Interface.JerotesEntity;
+import com.jerotes.jerotes.entity.Shoot.Magic.MagicAbout;
 import com.jerotes.jerotes.init.JerotesSoundEvents;
 import com.jerotes.jerotes.util.AttackFind;
 import com.jerotes.jerotes.util.Main;
@@ -21,7 +22,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class PurpleSandPhantomEntity extends Mob implements JerotesEntity, TraceableEntity, OwnableEntity {
+public class PurpleSandPhantomEntity extends Mob implements JerotesEntity, TraceableEntity, OwnableEntity , MagicAbout {
 	public PurpleSandPhantomEntity(EntityType<? extends PurpleSandPhantomEntity> type, Level world) {
 		super(type, world);
 	}
@@ -59,7 +60,7 @@ public class PurpleSandPhantomEntity extends Mob implements JerotesEntity, Trace
 		super.doPush(entity);
 	}
 
-	public int spellLevelDamage = 1;
+	public int spellLevelDamage = 4;
 	private int life;
 	@Nullable
 	private LivingEntity owner;
@@ -108,6 +109,14 @@ public class PurpleSandPhantomEntity extends Mob implements JerotesEntity, Trace
 			return livingEntity.getTeam();
 		}
 		return super.getTeam();
+	}
+	//
+	@Override
+	public int getSpellLevel() {
+		return this.spellLevelDamage;
+	}
+	public void setSpellLevelDamage(int n) {
+		this.spellLevelDamage = n;
 	}
 	@Override
 	public void addAdditionalSaveData(CompoundTag compoundTag) {
@@ -161,7 +170,9 @@ public class PurpleSandPhantomEntity extends Mob implements JerotesEntity, Trace
 				if (!list.isEmpty() || this.life > 240) {
 					for (LivingEntity livingEntitys : list) {
 						DamageSource damageSource = AttackFind.findDamageType(this, DamageTypes.WITHER, this, this.getOwner());
-						livingEntitys.hurt(damageSource, this.spellLevelDamage * Main.randomReach(this.getRandom(), 1, 16));
+						livingEntitys.hurt(damageSource,
+								Main.rollDice(spellLevelDamage, 16, this.random)
+						);
 					}
 					for (int i = 0; i < 6; ++i) {
 						serverLevel.sendParticles(ParticleTypes.WITCH, this.getRandomX(0.5), this.getRandomY(), this.getRandomZ(0.5), 5, 0, 0, 0, 0);

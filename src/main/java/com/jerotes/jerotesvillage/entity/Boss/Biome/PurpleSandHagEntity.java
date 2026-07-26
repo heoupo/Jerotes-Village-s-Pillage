@@ -4,6 +4,7 @@ import com.jerotes.jerotes.client.sound.BossMusicPlayer;
 import com.jerotes.jerotes.config.MainConfig;
 import com.jerotes.jerotes.entity.Interface.BossEntity;
 import com.jerotes.jerotes.entity.Interface.InventoryEntity;
+import com.jerotes.jerotes.entity.Interface.LoreUndyingEntity;
 import com.jerotes.jerotes.entity.Interface.SpellUseEntity;
 import com.jerotes.jerotes.event.JerotesBossEvent;
 import com.jerotes.jerotes.goal.JerotesAddSpellAttackGoal;
@@ -23,7 +24,7 @@ import com.jerotes.jerotesvillage.init.JerotesVillageEntityType;
 import com.jerotes.jerotesvillage.init.JerotesVillageSoundEvents;
 import com.jerotes.jerotesvillage.spell.OtherSpellFind;
 import com.jerotes.jerotesvillage.spell.OtherSpellType;
-import com.jerotes.jerotesvillage.util.ParticlesUse;
+import com.jerotes.jerotesvillage.util.OtherParticlesUse;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -56,7 +57,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PurpleSandHagEntity extends BaseHagEntity implements BossEntity {
+public class PurpleSandHagEntity extends BaseHagEntity implements BossEntity , LoreUndyingEntity {
 	private static final EntityDataAccessor<Boolean> IS_LEGEND = SynchedEntityData.defineId(PurpleSandHagEntity.class, EntityDataSerializers.BOOLEAN);
 	private final JerotesBossEvent bossEvent = new JerotesBossEvent(this, this.getUUID(), BossEvent.BossBarColor.PURPLE, false);
 	public PurpleSandHagEntity(EntityType<? extends BaseHagEntity> entityType, Level level) {
@@ -75,6 +76,12 @@ public class PurpleSandHagEntity extends BaseHagEntity implements BossEntity {
 			BossBarEvent.BOSSES.add(this);
 		}
 	}
+
+	@Override
+	public int PurpleSandSisterhoodLevel() {
+		return 6;
+	}
+
 	//百分比
 	public boolean hasPercentageDamage() {
 		return MainConfig.HasPercentageDamage.contains(this.getEncodeId())
@@ -245,9 +252,6 @@ public class PurpleSandHagEntity extends BaseHagEntity implements BossEntity {
 	public int covenSpellLevel = OtherMainConfig.PurpleSandHagSpellNormalLevel + 1;
 	@Override
 	public int getSpellLevel() {
-		if (this.covenSpellLevel > spellLevel && this.isCoven()) {
-			return covenSpellLevel;
-		}
 		return this.spellLevel;
 	}
 	@Override
@@ -334,7 +338,7 @@ public class PurpleSandHagEntity extends BaseHagEntity implements BossEntity {
 						this.setAnimationState("spell2");
 					}
 					OtherSpellFind.HagCoven(this, 3);
-					ParticlesUse.ParticleMagic(this);
+					OtherParticlesUse.ParticleMagic(this);
 					if (!this.isSilent()) {
 						this.level().playSound(null, this.getX(), this.getY(), this.getZ(), JerotesVillageSoundEvents.PURPLE_SAND_HAG_COVENS, this.getSoundSource(), 10.0f, 0.8f + this.getRandom().nextFloat() * 0.4f);
 					}
@@ -350,7 +354,7 @@ public class PurpleSandHagEntity extends BaseHagEntity implements BossEntity {
 						this.setAnimationState("spell2");
 					}
 					OtherSpellFind.ConjureSpirve(this, 3);
-					ParticlesUse.ParticleMagic(this);
+					OtherParticlesUse.ParticleMagic(this);
 					if (!this.isSilent()) {
 						this.level().playSound(null, this.getX(), this.getY(), this.getZ(), JerotesVillageSoundEvents.PURPLE_SAND_HAG_CONJURE_SPIRVE, this.getSoundSource(), 10.0f, 0.8f + this.getRandom().nextFloat() * 0.4f);
 					}
@@ -375,7 +379,7 @@ public class PurpleSandHagEntity extends BaseHagEntity implements BossEntity {
 					serverLevel.levelEvent(null, 1026, this.blockPosition(), 0);
 				}
 				bl = false;
-				net.minecraftforge.event.ForgeEventFactory.onLivingConvert(this, spirve);
+				net.minecraftforge.event.ForgeEventFactory.onLivingConvert(livingEntity, spirve);
 				for (int n = 0; n < simpleContainer.getContainerSize(); ++n) {
 					ItemStack finds = simpleContainer.getItem(n);
 					spirve.mobInventory().addItem(finds);
@@ -396,7 +400,7 @@ public class PurpleSandHagEntity extends BaseHagEntity implements BossEntity {
 					serverLevel.levelEvent(null, 1026, this.blockPosition(), 0);
 				}
 				bl = false;
-				net.minecraftforge.event.ForgeEventFactory.onLivingConvert(this, spirve);
+				net.minecraftforge.event.ForgeEventFactory.onLivingConvert(livingEntity, spirve);
 				for (int n = 0; n < simpleContainer.getContainerSize(); ++n) {
 					ItemStack finds = simpleContainer.getItem(n);
 					spirve.mobInventory().addItem(finds);
@@ -417,7 +421,7 @@ public class PurpleSandHagEntity extends BaseHagEntity implements BossEntity {
 					serverLevel.levelEvent(null, 1026, this.blockPosition(), 0);
 				}
 				bl = false;
-				net.minecraftforge.event.ForgeEventFactory.onLivingConvert(this, spirve);
+				net.minecraftforge.event.ForgeEventFactory.onLivingConvert(livingEntity, spirve);
 				for (int n = 0; n < simpleContainer.getContainerSize(); ++n) {
 					ItemStack finds = simpleContainer.getItem(n);
 					spirve.mobInventory().addItem(finds);
@@ -447,7 +451,7 @@ public class PurpleSandHagEntity extends BaseHagEntity implements BossEntity {
 			return super.hurt(damageSource, amount);
 		}
 		//魔法抗性
-		if (EntityAndItemFind.MagicResistance(damageSource)) {
+		if (EntityAndItemFind.canSelfResistMagic(damageSource, amount, this)) {
 			int spellLevels = this.getSpellLevel() - 1;
 			if (this.level().getDifficulty() == Difficulty.NORMAL) {
 				spellLevels = this.getSpellLevel();
