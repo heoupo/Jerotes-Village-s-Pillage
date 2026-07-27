@@ -187,7 +187,7 @@ public class OtherSpellList {
 				return JerotesVillage.MODID;
 			}
 			public int getBaseSpellLevel() {
-				return 5;
+				return 9;
 			}
 			public float getSpellDistance() {
 				return 16;
