@@ -46,7 +46,7 @@ public class ElasticIceRockEntity extends MagicAboutThrowEntity {
 
         if (entity instanceof LivingEntity livingEntity) {
             DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.FREEZE_MAGIC, this, this.getOwner());
-            livingEntity.hurt(damageSource, 20 + this.spellLevelDamage * 10);
+            livingEntity.hurt(damageSource, 3 + this.spellLevelDamage * 9);
             if (livingEntity.getTicksFrozen() < 140 + 20 * spellLevelFreezeTime) {
                 livingEntity.setTicksFrozen(140 + 20 * spellLevelFreezeTime);
             }
