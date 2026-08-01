@@ -210,7 +210,7 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 				{this.setThrowTick(120);}
 			}
 			//法术列表-弹力冰岩
-			OtherSpellList.ElasticIceRock(this.getSpellLevel(), this, livingEntity).spellUse();
+			OtherSpellList.ElasticIceRock(this.getSpellLevel()+3, this, livingEntity).spellUse();
 		}
 	}
 
@@ -639,7 +639,7 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 		return this.getEntityData().get(THROW_COUNT);
 	}
 
-	public int spellLevel = 1;
+	public int spellLevel = 0;
 	@Override
 	public int getSpellLevel() {
 		return this.spellLevel;

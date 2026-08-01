@@ -170,7 +170,7 @@ public class OtherSpellList {
 				return JVPillage.MODID;
 			}
 			public int getBaseSpellLevel() {
-				return 1;
+				return 3;
 			}
 			public SpellSchool getSpellSchool() {
 				return SpellSchool.CONJURATION;
