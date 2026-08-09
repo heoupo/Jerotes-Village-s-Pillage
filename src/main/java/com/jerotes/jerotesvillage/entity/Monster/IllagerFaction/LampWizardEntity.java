@@ -5,6 +5,7 @@ import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotesvillage.entity.Interface.BannerChampionEntity;
 import com.jerotes.jerotesvillage.goal.BigWitchAttackGoal;
 import com.jerotes.jerotesvillage.init.JerotesVillageBlocks;
+import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.init.JerotesVillageSoundEvents;
 import com.jerotes.jerotesvillage.spell.OtherSpellList;
 import net.minecraft.ChatFormatting;
@@ -43,6 +44,7 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.raid.Raider;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -333,6 +335,15 @@ public class LampWizardEntity extends SpellIllagerEntity implements RangedAttack
             }
         }
         return bl;
+    }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JerotesVillageItems.CHAMPION_LAMP_WIZARD_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JerotesVillageItems.LAMP_WIZARD_SPAWN_EGG.get());
+        }
     }
 }
 

@@ -63,7 +63,7 @@ public class SpirveWoodenBackScratcher extends ItemToolBaseSword {
 		if (itemStack.getDamageValue() >= itemStack.getMaxDamage() - 1) {
 			return InteractionResultHolder.fail(itemStack);
 		}
-		if (Main.getTargetedEntity(player, 3, true) != null && Main.getTargetedEntity(player, 3, true) instanceof LivingEntity livingEntity2) {
+		if (Main.getTargetedEntity(player, 3, true,true) != null && Main.getTargetedEntity(player, 3, true,true) instanceof LivingEntity livingEntity2) {
 			if (!level.isClientSide) {
 				livingEntity2.removeEffect(JerotesMobEffects.PRURITUS.get());
 			}

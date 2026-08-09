@@ -990,4 +990,13 @@ public class ExplorerEntity extends MeleeIllagerEntity implements SpellUseEntity
     public UUID getPersistentAngerTarget() {
         return this.persistentAngerTarget;
     }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JerotesVillageItems.CHAMPION_EXPLORER_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JerotesVillageItems.EXPLORER_SPAWN_EGG.get());
+        }
+    }
 }

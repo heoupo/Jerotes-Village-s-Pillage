@@ -104,6 +104,7 @@ public class JerotesVillageEntityRenderers {
         event.registerEntityRenderer(JerotesVillageEntityType.FAKE_MALIALOSAUR.get(), FakeMalialosaurRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.BLAMER_NECROMANCY_WARLOCK.get(), BlamerNecromancyWarlockRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.FURY_BLAMER_NECROMANCY_WARLOCK.get(), FuryBlamerNecromancyWarlockRenderer::new);
-
+        event.registerEntityRenderer(JerotesVillageEntityType.SLIDER_AX_CRAZY.get(), SliderAxCrazyRenderer::new);
+        event.registerEntityRenderer(JerotesVillageEntityType.FURY_SLIDER_AX_CRAZY.get(), FurySliderAxCrazyRenderer::new);
     }
 }

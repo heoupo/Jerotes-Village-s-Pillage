@@ -59,5 +59,7 @@ public class JerotesVillageModels {
 		event.registerLayerDefinition(Modelfake_malialosaur.LAYER_LOCATION, Modelfake_malialosaur::createBodyLayer);
 		event.registerLayerDefinition(Modelblamer_necromancy_warlock.LAYER_LOCATION, Modelblamer_necromancy_warlock::createBodyLayer);
 		event.registerLayerDefinition(Modelfury_blamer_necromancy_warlock.LAYER_LOCATION, Modelfury_blamer_necromancy_warlock::createBodyLayer);
+		event.registerLayerDefinition(Modelslider_ax_crazy.LAYER_LOCATION, Modelslider_ax_crazy::createBodyLayer);
+		event.registerLayerDefinition(Modelfury_slider_ax_crazy.LAYER_LOCATION, Modelfury_slider_ax_crazy::createBodyLayer);
 	}
 }

@@ -3,7 +3,7 @@ package com.jerotes.jerotesvillage.client.model;
 import com.jerotes.jerotesvillage.JerotesVillage;
 import com.jerotes.jerotesvillage.client.animation.BlamerNecromancyWarlockAnimation;
 import com.jerotes.jerotesvillage.entity.Interface.AlwaysShowArmIllagerEntity;
-import com.jerotes.jerotesvillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
+import com.jerotes.jerotesvillage.entity.MagicSummoned.IllagerLike.BlamerNecromancyWarlockEntity;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;

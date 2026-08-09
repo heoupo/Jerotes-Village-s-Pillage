@@ -13,6 +13,8 @@ import com.jerotes.jerotesvillage.block.PurpleDesert.NewHagsCauldron;
 import com.jerotes.jerotesvillage.block.PurpleDesert.UnstableHagsCauldron;
 import com.jerotes.jerotesvillage.block.ResurrectSediment.MoistureProofPaste;
 import com.jerotes.jerotesvillage.block.ResurrectSediment.SedimentUrn;
+import com.jerotes.jerotesvillage.block.VirtualCave.SliderBlock;
+import com.jerotes.jerotesvillage.block.VirtualCave.SliderMarkBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.EntityType;
@@ -134,7 +136,9 @@ public class JerotesVillageBlocks {
 	//Damaged Ruins 遗迹群系
 	public static final RegistryObject<Block> INDUSTRIAL_RESIDUAL_SOIL = REGISTRY.register("industrial_residual_soil", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(1.0f, 12f).sound(SoundType.GRAVEL)));
 	public static final RegistryObject<Block> MEROR_PROJECTION_TABLE = REGISTRY.register("meror_projection_table", () -> new MerorProjectionTable());
-
+	//Virtual Cave 虚洞群系
+	public static final RegistryObject<Block> SLIDER_BLOCK = REGISTRY.register("slider_block", () -> new SliderBlock());
+	public static final RegistryObject<Block> SLIDER_MARK = REGISTRY.register("slider_mark", () -> new SliderMarkBlock());
 	private static Boolean always(BlockState p_50810_, BlockGetter p_50811_, BlockPos p_50812_, EntityType<?> p_50813_) {
 		return true;
 	}

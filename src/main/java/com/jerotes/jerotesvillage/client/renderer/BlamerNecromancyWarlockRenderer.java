@@ -3,7 +3,7 @@ package com.jerotes.jerotesvillage.client.renderer;
 import com.jerotes.jerotesvillage.JerotesVillage;
 import com.jerotes.jerotesvillage.client.model.Modelblamer_necromancy_warlock;
 import com.jerotes.jerotesvillage.config.OtherMainConfig;
-import com.jerotes.jerotesvillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
+import com.jerotes.jerotesvillage.entity.MagicSummoned.IllagerLike.BlamerNecromancyWarlockEntity;
 import com.jerotes.jerotesvillage.event.WeatherEvent;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;

@@ -7,6 +7,7 @@ import com.jerotes.jerotes.spell.MagicType;
 import com.jerotes.jerotes.spell.SpellTypeInterface;
 import com.jerotes.jerotesvillage.entity.Interface.BannerChampionEntity;
 import com.jerotes.jerotesvillage.entity.Other.BitterColdAltarEntity;
+import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.init.JerotesVillageSoundEvents;
 import com.jerotes.jerotesvillage.spell.OtherSpellList;
 import com.jerotes.jerotesvillage.spell.OtherSpellType;
@@ -38,6 +39,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.raid.Raider;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 
@@ -357,6 +359,15 @@ public class BitterColdSorcererEntity extends SpellIllagerEntity implements Spel
                 double d3 = this.random.nextGaussian() * 0.02;
                 this.level().addAlwaysVisibleParticle(ParticleTypes.SNOWFLAKE, this.getRandomX(1.0), this.getRandomY(), this.getRandomZ(1.0), d, d2, d3);
             }
+        }
+    }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JerotesVillageItems.CHAMPION_BITTER_COLD_SORCERER_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JerotesVillageItems.BITTER_COLD_SORCERER_SPAWN_EGG.get());
         }
     }
 }

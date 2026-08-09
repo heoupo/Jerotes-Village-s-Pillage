@@ -175,6 +175,7 @@ public class JerotesVillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> WARLOCK_CASSOCK = REGISTRY.register("warlock_cassock", () -> new WarlockArmor.Chestplate());
 	public static final RegistryObject<Item> WARLOCK_FAKE_TIARA = REGISTRY.register("warlock_fake_tiara", () -> new WarlockFakeArmor.Helmet());
 	public static final RegistryObject<Item> TOTEM_OF_FILTHINESS_GOD = REGISTRY.register("totem_of_filthiness_god", () -> new TotemOfFilthinessGod());
+	public static final RegistryObject<Item> DEVOURING_AXE_ALIVE_COLLOID = REGISTRY.register("devouring_axe_alive_colloid", () -> new DevouringAxeAliveColloid());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE = REGISTRY.register("slavery_supervisor_upgrade_smithing_template", () -> new SlaverySupervisorUpgradeSmithingTemplate());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_HELMET = REGISTRY.register("slavery_supervisor_helmet", () -> new SlaverySupervisorArmor.Helmet());
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_CHESTPLATE = REGISTRY.register("slavery_supervisor_chestplate", () -> new SlaverySupervisorArmor.Chestplate());
@@ -185,29 +186,42 @@ public class JerotesVillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> MUSIC_DISC_OMINOUS_BANNER_PROJECTION = REGISTRY.register("music_disc_ominous_banner_projection", () -> new RecordItem(1, JerotesVillageSoundEvents.OMINOUS_BANNER_PROJECTION_MUSIC, new Item.Properties().fireResistant().stacksTo(1).rarity(Rarity.EPIC), 363));
 	public static final RegistryObject<Item> BOUND_ZOMBIE_VILLAGER_SPAWN_EGG = REGISTRY.register("bound_zombie_villager_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.BOUND_ZOMBIE_VILLAGER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> EXPLORER_SPAWN_EGG = REGISTRY.register("explorer_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.EXPLORER, 0xffffff, 0xffffff, new Item.Properties()));
+	public static final RegistryObject<Item> CHAMPION_EXPLORER_SPAWN_EGG = REGISTRY.register("champion_explorer_spawn_egg", () -> new ChampionSpawnEgg(JerotesVillageEntityType.EXPLORER));
 	public static final RegistryObject<Item> EXECUTIONER_SPAWN_EGG = REGISTRY.register("executioner_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.EXECUTIONER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> MAPMAKER_SPAWN_EGG = REGISTRY.register("mapmaker_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.MAPMAKER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> DEFECTOR_SPAWN_EGG = REGISTRY.register("defector_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.DEFECTOR, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> BANNER_BEARER_SPAWN_EGG = REGISTRY.register("banner_bearer_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.BANNER_BEARER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> BLASTER_SPAWN_EGG = REGISTRY.register("blaster_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.BLASTER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> TRUMPETER_SPAWN_EGG = REGISTRY.register("trumpeter_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.TRUMPETER, 0xffffff, 0xffffff, new Item.Properties()));
+	public static final RegistryObject<Item> CHAMPION_TRUMPETER_SPAWN_EGG = REGISTRY.register("champion_trumpeter_spawn_egg", () -> new ChampionSpawnEgg(JerotesVillageEntityType.TRUMPETER));
 	public static final RegistryObject<Item> TELEPORTER_SPAWN_EGG = REGISTRY.register("teleporter_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.TELEPORTER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> CYCLONER_SPAWN_EGG = REGISTRY.register("cycloner_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.CYCLONER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> JAVELIN_THROWER_SPAWN_EGG = REGISTRY.register("javelin_thrower_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.JAVELIN_THROWER, 0xffffff, 0xffffff, new Item.Properties()));
+	public static final RegistryObject<Item> CHAMPION_JAVELIN_THROWER_SPAWN_EGG = REGISTRY.register("champion_javelin_thrower_spawn_egg", () -> new ChampionSpawnEgg(JerotesVillageEntityType.JAVELIN_THROWER));
 	public static final RegistryObject<Item> ZOMBIE_KEEPER_SPAWN_EGG = REGISTRY.register("zombie_keeper_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.ZOMBIE_KEEPER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> BITTER_COLD_SORCERER_SPAWN_EGG = REGISTRY.register("bitter_cold_sorcerer_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.BITTER_COLD_SORCERER, 0xffffff, 0xffffff, new Item.Properties()));
+	public static final RegistryObject<Item> CHAMPION_BITTER_COLD_SORCERER_SPAWN_EGG = REGISTRY.register("champion_bitter_cold_sorcerer_spawn_egg", () -> new ChampionSpawnEgg(JerotesVillageEntityType.BITTER_COLD_SORCERER));
 	public static final RegistryObject<Item> FIRE_SPITTER_SPAWN_EGG = REGISTRY.register("fire_spitter_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.FIRE_SPITTER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> WILD_FINDER_SPAWN_EGG = REGISTRY.register("wild_finder_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.WILD_FINDER, 0xffffff, 0xffffff, new Item.Properties()));
+	public static final RegistryObject<Item> CHAMPION_WILD_FINDER_SPAWN_EGG = REGISTRY.register("champion_wild_finder_spawn_egg", () -> new ChampionSpawnEgg(JerotesVillageEntityType.WILD_FINDER));
 	public static final RegistryObject<Item> SUBMARINER_SPAWN_EGG = REGISTRY.register("submariner_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.SUBMARINER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> LAMP_WIZARD_SPAWN_EGG = REGISTRY.register("lamp_wizard_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.LAMP_WIZARD, 0xffffff, 0xffffff, new Item.Properties()));
+	public static final RegistryObject<Item> CHAMPION_LAMP_WIZARD_SPAWN_EGG = REGISTRY.register("champion_lamp_wizard_spawn_egg", () -> new ChampionSpawnEgg(JerotesVillageEntityType.LAMP_WIZARD));
 	public static final RegistryObject<Item> PURPLE_SAND_WITCH_SPAWN_EGG = REGISTRY.register("purple_sand_witch_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.PURPLE_SAND_WITCH, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> SLAVERY_SUPERVISOR_SPAWN_EGG = REGISTRY.register("slavery_supervisor_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.SLAVERY_SUPERVISOR, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
+	public static final RegistryObject<Item> CHAMPION_SLAVERY_SUPERVISOR_SPAWN_EGG = REGISTRY.register("champion_slavery_supervisor_spawn_egg", () -> new ChampionEliteSpawnEgg(JerotesVillageEntityType.SLAVERY_SUPERVISOR));
 	public static final RegistryObject<Item> FIREPOWER_POURER_SPAWN_EGG = REGISTRY.register("firepower_pourer_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.FIREPOWER_POURER, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
+	public static final RegistryObject<Item> CHAMPION_FIREPOWER_POURER_SPAWN_EGG = REGISTRY.register("champion_firepower_pourer_spawn_egg", () -> new ChampionEliteSpawnEgg(JerotesVillageEntityType.FIREPOWER_POURER));
 	public static final RegistryObject<Item> NECROMANCY_WARLOCK_SPAWN_EGG = REGISTRY.register("necromancy_warlock_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.NECROMANCY_WARLOCK, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
+	public static final RegistryObject<Item> CHAMPION_NECROMANCY_WARLOCK_SPAWN_EGG = REGISTRY.register("champion_necromancy_warlock_spawn_egg", () -> new ChampionEliteSpawnEgg(JerotesVillageEntityType.NECROMANCY_WARLOCK));
 	public static final RegistryObject<Item> GAVILER_SPAWN_EGG = REGISTRY.register("gaviler_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.GAVILER, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
+	public static final RegistryObject<Item> CHAMPION_GAVILER_SPAWN_EGG = REGISTRY.register("champion_gaviler_spawn_egg", () -> new ChampionEliteSpawnEgg(JerotesVillageEntityType.GAVILER));
 	public static final RegistryObject<Item> AX_CRAZY_SPAWN_EGG = REGISTRY.register("ax_crazy_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.AX_CRAZY, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
+	public static final RegistryObject<Item> CHAMPION_AX_CRAZY_SPAWN_EGG = REGISTRY.register("champion_ax_crazy_spawn_egg", () -> new ChampionEliteSpawnEgg(JerotesVillageEntityType.AX_CRAZY));
 	public static final RegistryObject<Item> ADVENTURER_SPAWN_EGG = REGISTRY.register("adventurer_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.ADVENTURER, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
+	public static final RegistryObject<Item> CHAMPION_ADVENTURER_SPAWN_EGG = REGISTRY.register("champion_adventurer_spawn_egg", () -> new ChampionEliteSpawnEgg(JerotesVillageEntityType.ADVENTURER));
 	public static final RegistryObject<Item> OMINOUS_BANNER_PROJECTION_SPAWN_EGG = REGISTRY.register("ominous_banner_projection_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.OMINOUS_BANNER_PROJECTION, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.EPIC)));
+	public static final RegistryObject<Item> CHAMPION_OMINOUS_BANNER_PROJECTION_SPAWN_EGG = REGISTRY.register("champion_ominous_banner_projection_spawn_egg", () -> new GloryBannerProjectSpawnEgg());
 	//苦寒
 	public static final RegistryObject<Item> SNOW_FROZEN_SOIL = block(JerotesVillageBlocks.SNOW_FROZEN_SOIL);
 	public static final RegistryObject<Item> ICE_ROCK = block(JerotesVillageBlocks.ICE_ROCK);
@@ -222,6 +236,7 @@ public class JerotesVillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> ICE_ROCK_THROWING_BALL = REGISTRY.register("ice_rock_throwing_ball", () -> new IceRockThrowingBall());
 
 	public static final RegistryObject<Item> GIANT_MONSTER_SPAWN_EGG = REGISTRY.register("giant_monster_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.GIANT_MONSTER, 0xffffff, 0xffffff, new Item.Properties()));
+	public static final RegistryObject<Item> CHAMPION_GIANT_MONSTER_SPAWN_EGG = REGISTRY.register("champion_giant_monster_spawn_egg", () -> new ChampionSpawnEgg(JerotesVillageEntityType.GIANT_MONSTER));
 	public static final RegistryObject<Item> WILDERNESS_WOLF_SPAWN_EGG = REGISTRY.register("wilderness_wolf_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.WILDERNESS_WOLF, 0xffffff, 0xffffff, new Item.Properties()));
 	//紫沙
 	public static final RegistryObject<Item> PURPLE_SAND = block(JerotesVillageBlocks.PURPLE_SAND);
@@ -298,6 +313,8 @@ public class JerotesVillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> FAKE_MALIALOSAUR_SPAWN_EGG = REGISTRY.register("fake_malialosaur_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.FAKE_MALIALOSAUR, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG = REGISTRY.register("blamer_necromancy_warlock_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.BLAMER_NECROMANCY_WARLOCK, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
 	public static final RegistryObject<Item> FURY_BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG = REGISTRY.register("fury_blamer_necromancy_warlock_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.FURY_BLAMER_NECROMANCY_WARLOCK, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
+	public static final RegistryObject<Item> SLIDER_AX_CRAZY_SPAWN_EGG = REGISTRY.register("slider_ax_crazy_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.SLIDER_AX_CRAZY, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
+	public static final RegistryObject<Item> FURY_SLIDER_AX_CRAZY_SPAWN_EGG = REGISTRY.register("fury_slider_ax_crazy_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.FURY_SLIDER_AX_CRAZY, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
 	public static final RegistryObject<Item> BIG_WITCH_SPAWN_EGG = REGISTRY.register("big_witch_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.BIG_WITCH, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
 	public static final RegistryObject<Item> COHORT_HAG_SPAWN_EGG = REGISTRY.register("cohort_hag_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.COHORT_HAG, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
 	public static final RegistryObject<Item> COVEN_HAG_ONE_SPAWN_EGG = REGISTRY.register("coven_hag_one_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.COVEN_HAG_ONE, 0xffffff, 0xffffff, new Item.Properties().rarity(Rarity.RARE)));
@@ -370,6 +387,9 @@ public class JerotesVillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> INDUSTRIAL_RESIDUAL_SOIL = fireResistanceBlock(JerotesVillageBlocks.INDUSTRIAL_RESIDUAL_SOIL);
 	public static final RegistryObject<Item> MEROR_PROJECTION_TABLE = fireResistanceEpicBlock(JerotesVillageBlocks.MEROR_PROJECTION_TABLE);
 	//虚洞
+	public static final RegistryObject<Item> SLIDER_BLOCK = block(JerotesVillageBlocks.SLIDER_BLOCK);
+	public static final RegistryObject<Item> SLIDER_MARK = block(JerotesVillageBlocks.SLIDER_MARK);
+	public static final RegistryObject<Item> SLIDER_MUCUS = REGISTRY.register("slider_mucus", () ->  new ItemDesc(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food(JerotesVillageFoods.SLIDER_MUCUS), 1));
 	public static final RegistryObject<Item> VIRTUAL_CAVE_CRYSTAL_ARROW = REGISTRY.register("virtual_cave_crystal_arrow", () -> new VirtualCaveCrystalArrow());
 	//发射物
 	public static final RegistryObject<Item> BITTER_COLD_FROSTBITE = REGISTRY.register("bitter_cold_frostbite", () -> new Shoot());

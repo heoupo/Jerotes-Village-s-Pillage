@@ -137,6 +137,7 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.WARLOCK_CASSOCK.get());
 						tabData.accept(JerotesVillageItems.WARLOCK_FAKE_TIARA.get());
 						tabData.accept(JerotesVillageItems.TOTEM_OF_FILTHINESS_GOD.get());
+						tabData.accept(JerotesVillageItems.DEVOURING_AXE_ALIVE_COLLOID.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_HELMET.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_CHESTPLATE.get());
@@ -147,29 +148,42 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.MUSIC_DISC_OMINOUS_BANNER_PROJECTION.get());
 						tabData.accept(JerotesVillageItems.BOUND_ZOMBIE_VILLAGER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.EXPLORER_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_EXPLORER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.EXECUTIONER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.MAPMAKER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.DEFECTOR_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.BANNER_BEARER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.BLASTER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.TRUMPETER_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_TRUMPETER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.TELEPORTER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.CYCLONER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.JAVELIN_THROWER_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_JAVELIN_THROWER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.ZOMBIE_KEEPER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.BITTER_COLD_SORCERER_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_BITTER_COLD_SORCERER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.PURPLE_SAND_WITCH_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.FIRE_SPITTER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.WILD_FINDER_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_WILD_FINDER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.SUBMARINER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.LAMP_WIZARD_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_LAMP_WIZARD_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.SLAVERY_SUPERVISOR_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_SLAVERY_SUPERVISOR_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.FIREPOWER_POURER_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_FIREPOWER_POURER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.NECROMANCY_WARLOCK_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.GAVILER_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_GAVILER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.AX_CRAZY_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_AX_CRAZY_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.ADVENTURER_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_ADVENTURER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.OMINOUS_BANNER_PROJECTION_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_OMINOUS_BANNER_PROJECTION_SPAWN_EGG.get());
 						//苦寒
 						tabData.accept(JerotesVillageItems.SNOW_FROZEN_SOIL.get());
 						tabData.accept(JerotesVillageItems.ICE_ROCK.get());
@@ -183,6 +197,7 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.ICE_ROCK_THROWING_BALL.get());
 						tabData.accept(JerotesVillageItems.WILDERNESS_WOLF_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.GIANT_MONSTER_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_GIANT_MONSTER_SPAWN_EGG.get());
 						//紫沙
 						tabData.accept(JerotesVillageItems.PURPLE_SAND.get());
 						tabData.accept(JerotesVillageItems.PURPLE_SANDSTONE.get());
@@ -254,10 +269,12 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.PURPLE_SAND_RABBIT_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.WITCH_SCHOLAR_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.SPIRVE_SPAWN_EGG.get());
-						tabData.accept(JerotesVillageItems.BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
-						tabData.accept(JerotesVillageItems.FURY_BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.ROTTEN_DOG_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.FAKE_MALIALOSAUR_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.FURY_BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.SLIDER_AX_CRAZY_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.FURY_SLIDER_AX_CRAZY_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.BIG_WITCH_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.COHORT_HAG_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.COVEN_HAG_ONE_SPAWN_EGG.get());
@@ -328,6 +345,10 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.CUT_SUN_SANDSTONE_SLAB.get());
 						tabData.accept(JerotesVillageItems.INDUSTRIAL_RESIDUAL_SOIL.get());
 						tabData.accept(JerotesVillageItems.MEROR_PROJECTION_TABLE.get());
+						//虚洞
+						tabData.accept(JerotesVillageItems.SLIDER_BLOCK.get());
+						tabData.accept(JerotesVillageItems.SLIDER_MARK.get());
+						tabData.accept(JerotesVillageItems.SLIDER_MUCUS.get());
 						tabData.accept(JerotesVillageItems.VIRTUAL_CAVE_CRYSTAL_ARROW.get());
 
 					}).withSearchBar().

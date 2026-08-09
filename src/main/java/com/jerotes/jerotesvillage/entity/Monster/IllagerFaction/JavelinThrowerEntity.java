@@ -468,5 +468,13 @@ public class JavelinThrowerEntity extends MeleeIllagerEntity implements AlwaysSh
     public ItemStack createSpawnWeapon(float weaponRandom) {
         return new ItemStack(JerotesVillageItems.OMINOUS_JAVELIN.get());
     }
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JerotesVillageItems.CHAMPION_JAVELIN_THROWER_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JerotesVillageItems.JAVELIN_THROWER_SPAWN_EGG.get());
+        }
+    }
 }
 

@@ -4,7 +4,8 @@ import com.jerotes.jerotesvillage.JerotesVillage;
 import com.jerotes.jerotesvillage.entity.Animal.*;
 import com.jerotes.jerotesvillage.entity.Boss.Biome.PurpleSandHagEntity;
 import com.jerotes.jerotesvillage.entity.Boss.OminousBannerProjectionEntity;
-import com.jerotes.jerotesvillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
+import com.jerotes.jerotesvillage.entity.MagicSummoned.IllagerLike.BlamerNecromancyWarlockEntity;
+import com.jerotes.jerotesvillage.entity.MagicSummoned.IllagerLike.SliderAxCrazyEntity;
 import com.jerotes.jerotesvillage.entity.Monster.BoundZombieVillagerEntity;
 import com.jerotes.jerotesvillage.entity.Monster.Elite.BigWitchEntity;
 import com.jerotes.jerotesvillage.entity.Monster.Hag.CohortHagEntity;
@@ -189,6 +190,12 @@ public class JerotesVillageEntityType {
 	public static final RegistryObject<EntityType<FuryBlamerNecromancyWarlockEntity>> FURY_BLAMER_NECROMANCY_WARLOCK = register("fury_blamer_necromancy_warlock",
 			EntityType.Builder.of(FuryBlamerNecromancyWarlockEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(32)
 					.sized(0.6f, 1.95f));
+	public static final RegistryObject<EntityType<SliderAxCrazyEntity>> SLIDER_AX_CRAZY = register("slider_ax_crazy",
+			EntityType.Builder.of(SliderAxCrazyEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(32)
+					.sized(0.6f, 1.95f));
+	public static final RegistryObject<EntityType<FurySliderAxCrazyEntity>> FURY_SLIDER_AX_CRAZY = register("fury_slider_ax_crazy",
+			EntityType.Builder.of(FurySliderAxCrazyEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(32)
+					.sized(0.6f, 1.95f));
 	public static final RegistryObject<EntityType<FakeMalialosaurEntity>> FAKE_MALIALOSAUR = register("fake_malialosaur",
 			EntityType.Builder.of(FakeMalialosaurEntity::new, MobCategory.WATER_CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(16)
 					.sized(2.0f, 1.25f));
@@ -350,6 +357,8 @@ public class JerotesVillageEntityType {
 		event.put(FAKE_MALIALOSAUR.get(), FakeMalialosaurEntity.createAttributes().build());
 		event.put(BLAMER_NECROMANCY_WARLOCK.get(), BlamerNecromancyWarlockEntity.createAttributes().build());
 		event.put(FURY_BLAMER_NECROMANCY_WARLOCK.get(), FuryBlamerNecromancyWarlockEntity.createAttributes().build());
+		event.put(SLIDER_AX_CRAZY.get(), SliderAxCrazyEntity.createAttributes().build());
+		event.put(FURY_SLIDER_AX_CRAZY.get(), FurySliderAxCrazyEntity.createAttributes().build());
 
 		event.put(BOSS_SHOW_ENTITY_PURPLE_SAND_HAG.get(), BossShowEntity.createAttributes().build());
 		event.put(BOSS_SHOW_ENTITY_OMINOUS_BANNER_PROJECTION.get(), BossShowEntity.createAttributes().build());

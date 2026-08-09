@@ -120,6 +120,10 @@ public class JerotesVillageRaider {
         if (OtherMainConfig.RaidSpawnFuryBlamerNecromancyWarlock) {
             addWaves("FURY_BLAMER_NECROMANCY_WARLOCK", JerotesVillageEntityType.FURY_BLAMER_NECROMANCY_WARLOCK.get(), OtherMainConfig.RaidSpawnFuryBlamerNecromancyWarlockCount);
         }
+        //怒化滑行者斧头杀人狂
+        if (OtherMainConfig.RaidSpawnFurySliderAxCrazy) {
+            addWaves("FURY_SLIDER_AX_CRAZY", JerotesVillageEntityType.FURY_SLIDER_AX_CRAZY.get(), OtherMainConfig.RaidSpawnFurySliderAxCrazyCount);
+        }
         //大巫婆
         if (OtherMainConfig.RaidSpawnBigWitch) {
             addWaves("BIG_WITCH", JerotesVillageEntityType.BIG_WITCH.get(), OtherMainConfig.RaidSpawnBigWitchCount);

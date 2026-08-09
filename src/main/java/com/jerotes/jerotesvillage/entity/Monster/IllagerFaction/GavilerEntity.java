@@ -15,6 +15,7 @@ import com.jerotes.jerotesvillage.entity.Interface.BannerChampionEntity;
 import com.jerotes.jerotesvillage.goal.HighNearestAttackableTargetGoal;
 import com.jerotes.jerotesvillage.goal.SerponOpenDoorGoal;
 import com.jerotes.jerotesvillage.init.JerotesVillageGameRules;
+import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.init.JerotesVillageParticleTypes;
 import com.jerotes.jerotesvillage.init.JerotesVillageSoundEvents;
 import com.jerotes.jerotesvillage.spell.OtherSpellList;
@@ -55,6 +56,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.entity.raid.Raider;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -489,6 +491,15 @@ public class GavilerEntity extends SpellIllagerEntity implements RangedAttackMob
         if (this.deathTime >= 20 && !this.level().isClientSide() && !this.isRemoved()) {
             this.level().broadcastEntityEvent(this, (byte) 60);
             this.remove(RemovalReason.KILLED);
+        }
+    }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JerotesVillageItems.CHAMPION_GAVILER_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JerotesVillageItems.GAVILER_SPAWN_EGG.get());
         }
     }
 }

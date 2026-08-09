@@ -1,0 +1,13 @@
+{
+  "type": "jerotesvillage:hag_replacement",
+  "base": [
+    {
+      "item": "jerotesvillage:crazy_axe"
+    }
+  ],
+  "result": [
+    {
+      "item": "jerotesvillage:fury_slider_ax_crazy_spawn_egg"
+    }
+  ]
+}

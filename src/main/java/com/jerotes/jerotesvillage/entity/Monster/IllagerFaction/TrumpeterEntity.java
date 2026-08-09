@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.entity.Interface.SpellUseEntity;
 import com.jerotes.jerotesvillage.entity.Interface.BannerChampionEntity;
+import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.init.JerotesVillageSoundEvents;
 import com.jerotes.jerotesvillage.spell.OtherSpellFind;
 import com.jerotes.jerotes.goal.*;
@@ -332,6 +333,15 @@ public class TrumpeterEntity extends MeleeIllagerEntity implements SpellUseEntit
     @Override
     public ItemStack createSpawnOffhand(float offhandRandom) {
         return new ItemStack(Items.GOAT_HORN);
+    }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JerotesVillageItems.CHAMPION_TRUMPETER_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JerotesVillageItems.TRUMPETER_SPAWN_EGG.get());
+        }
     }
 }
 

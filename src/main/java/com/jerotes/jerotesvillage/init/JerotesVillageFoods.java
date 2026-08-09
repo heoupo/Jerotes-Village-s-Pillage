@@ -14,4 +14,5 @@ public class JerotesVillageFoods {
     public static final FoodProperties HERO_SOUP = new FoodProperties.Builder().nutrition(8).saturationMod(2.4f).alwaysEat().effect(new MobEffectInstance(JerotesVillageMobEffects.ABUNDANT_COURAGE.get(), 18000, 0), 1.0f).build();
     public static final FoodProperties PURPLE_SANDWICH = new FoodProperties.Builder().nutrition(6).saturationMod(1.2f).build();
     public static final FoodProperties IMMORTAL_BREW = new FoodProperties.Builder().nutrition(2).saturationMod(0.3f).alwaysEat().build();
+    public static final FoodProperties SLIDER_MUCUS = new FoodProperties.Builder().nutrition(1).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 3600, 0), 1.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 160, 0), 1.0f).alwaysEat().build();
 }

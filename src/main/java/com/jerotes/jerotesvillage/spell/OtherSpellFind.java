@@ -9,7 +9,8 @@ import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jerotes.util.Main;
 import com.jerotes.jerotes.util.ParticlesUse;
 import com.jerotes.jerotesvillage.entity.Animal.WildernessWolfEntity;
-import com.jerotes.jerotesvillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
+import com.jerotes.jerotesvillage.entity.MagicSummoned.IllagerLike.BlamerNecromancyWarlockEntity;
+import com.jerotes.jerotesvillage.entity.MagicSummoned.IllagerLike.SliderAxCrazyEntity;
 import com.jerotes.jerotesvillage.entity.Monster.Hag.CovenHagEntity;
 import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.DefectorEntity;
 import com.jerotes.jerotesvillage.entity.Monster.SpirveEntity;
@@ -156,6 +157,65 @@ public class OtherSpellFind {
 								0, (double)0.0F, (double)0.0F, (double)0.0F, (double)0.0F);
 					}
 					serverLevel.sendParticles(JerotesVillageParticleTypes.TARGET.get(), blamerNecromancyWarlockEntity.getX(), blamerNecromancyWarlockEntity.getY() + 0.1, blamerNecromancyWarlockEntity.getZ(), 0, 0.0, 0.0, 0.0, 0.0);
+				}
+			}
+			serverLevel.gameEvent(GameEvent.ENTITY_PLACE, new BlockPos((int) caster.getX(), (int) caster.getY(), (int) caster.getZ()), GameEvent.Context.of(caster));
+		}
+		return true;
+	}
+	//斧相滑壳$法术
+	public static boolean CohesionSlideAxe(LivingEntity caster, int countMin, int countMax, int summonDistance) {
+		if (caster.level() instanceof ServerLevel serverLevel) {
+			PlayerTeam teams = (PlayerTeam) caster.getTeam();
+			int count = countMin;
+			if (countMin < countMax) {
+				count = caster.getRandom().nextInt(countMin, countMax);
+			}
+			for (int i = 0; i < count; ++i) {
+				BlockPos summonPos = Main.findSpawnPositionNearFillOnBlock(caster, summonDistance);
+				if (caster instanceof Player) {
+					Vec3 startPos = caster.getEyePosition(1.0f);
+					Vec3 viewVector = caster.getViewVector(1.0f);
+					Vec3 endPos = startPos.add(viewVector.scale(summonDistance));
+
+					BlockHitResult hitResult = serverLevel.clip(new ClipContext(
+							startPos, endPos,
+							ClipContext.Block.COLLIDER,
+							ClipContext.Fluid.ANY,
+							caster
+					));
+					Vec3 targetPos = Main.adjustPositionForSolidHit(hitResult, startPos, viewVector, summonDistance);
+					BlockPos playerSummonPos = Main.findSafePosition(serverLevel, targetPos);
+					if (playerSummonPos != null && serverLevel.getBlockState(playerSummonPos).isAir()) {
+						summonPos = playerSummonPos;
+					}
+				}
+				SliderAxCrazyEntity sliderAxCrazyEntity = JerotesVillageEntityType.SLIDER_AX_CRAZY.get().spawn(serverLevel, BlockPos.containing(summonPos.getX(), summonPos.getY(), summonPos.getZ()), MobSpawnType.MOB_SUMMONED);
+				if (sliderAxCrazyEntity != null) {
+					sliderAxCrazyEntity.setTame(true);
+					sliderAxCrazyEntity.setOwnerUUID(caster.getUUID());
+					if (caster instanceof Player player) {
+						sliderAxCrazyEntity.setChangeType(2, player);
+					}
+					else {
+						sliderAxCrazyEntity.setChangeType(2);
+						if (caster instanceof Mob mob && mob.getTarget() != null) {
+							sliderAxCrazyEntity.setTarget(mob);
+						}
+					}
+					if (caster instanceof Mob mob && mob.getTarget() != null) {
+						sliderAxCrazyEntity.setTarget(mob.getTarget());
+					}
+					//粒子效果
+					Item totemItem = JerotesVillageItems.DEVOURING_AXE_ALIVE_COLLOID.get();
+					ItemStack itemStack = new ItemStack(totemItem);
+					for(int n = 0; n < 16; ++n) {
+						serverLevel.sendParticles(new ItemParticleOption(ParticleTypes.ITEM, itemStack),
+								sliderAxCrazyEntity.getRandomX((double)0.5F),
+								sliderAxCrazyEntity.getRandomY(), sliderAxCrazyEntity.getRandomZ((double)0.5F),
+								0, (double)0.0F, (double)0.0F, (double)0.0F, (double)0.0F);
+					}
+					serverLevel.sendParticles(JerotesVillageParticleTypes.TARGET.get(), sliderAxCrazyEntity.getX(), sliderAxCrazyEntity.getY() + 0.1, sliderAxCrazyEntity.getZ(), 0, 0.0, 0.0, 0.0, 0.0);
 				}
 			}
 			serverLevel.gameEvent(GameEvent.ENTITY_PLACE, new BlockPos((int) caster.getX(), (int) caster.getY(), (int) caster.getZ()), GameEvent.Context.of(caster));

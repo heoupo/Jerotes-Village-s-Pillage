@@ -1,4 +1,4 @@
-package com.jerotes.jerotesvillage.entity.MagicSummoned.BlamerNecromancyWarlock;
+package com.jerotes.jerotesvillage.entity.MagicSummoned.IllagerLike;
 
 import com.jerotes.jerotes.entity.Interface.EliteEntity;
 import com.jerotes.jerotes.entity.Interface.SpellUseEntity;
@@ -78,7 +78,7 @@ public class BlamerNecromancyWarlockEntity extends IllagerLikeEntity implements 
 
     public BlamerNecromancyWarlockEntity(EntityType<? extends BlamerNecromancyWarlockEntity> entityType, Level level) {
         super(entityType, level);
-        this.xpReward = 80;
+        this.xpReward = 100;
         this.setCanPickUpLoot(false);
 //他处代码↓
 

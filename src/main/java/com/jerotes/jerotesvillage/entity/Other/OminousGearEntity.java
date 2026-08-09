@@ -159,7 +159,7 @@ public class OminousGearEntity extends Entity implements TraceableEntity, Ownabl
             return;
         }
         if (livingEntity2 == null) {
-            DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.BLEEDING);
+            DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.BLEED);
             boolean bl = livingEntity.hurt(damageSource, 1.0f + 0.5f * spellLevelDamage);
             if (bl) {
                 if (!livingEntity.level().isClientSide) {
@@ -174,7 +174,7 @@ public class OminousGearEntity extends Entity implements TraceableEntity, Ownabl
             if (livingEntity instanceof Mob mobTarget && EntityFactionFind.isRaider(mobTarget) && mobTarget.getTarget() != livingEntity2 && !(livingEntity2 instanceof Mob mob && mob.getTarget() == mobTarget)) {
                 return;
             }
-            DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.BLEEDING, livingEntity2);
+            DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.BLEED, livingEntity2);
             boolean bl = livingEntity.hurt(damageSource, 1.0f + 0.5f * spellLevelDamage);
             if (bl) {
                 if (!livingEntity.level().isClientSide) {

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "cdc",
+    "ded",
+    " b "
+  ],
+  "key": {
+    "b": {
+      "item": "jerotesvillage:crazy_axe"
+    },
+    "c": {
+      "item": "minecraft:redstone"
+    },
+    "d": {
+      "item": "jerotesvillage:slider_mucus"
+    },
+    "e": {
+      "item": "minecraft:armor_stand"
+    }
+  },
+  "result": {
+    "item": "jerotesvillage:devouring_axe_alive_colloid",
+    "count": 1
+  }
+}

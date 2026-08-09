@@ -1036,4 +1036,13 @@ public class AdventurerEntity extends MeleeIllagerEntity implements EliteEntity,
     public ItemStack createSpawnWeapon(float weaponRandom) {
         return new ItemStack(JerotesVillageItems.OMINOUS_ADVENTURER_RAPIER.get());
     }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JerotesVillageItems.CHAMPION_ADVENTURER_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JerotesVillageItems.ADVENTURER_SPAWN_EGG.get());
+        }
+    }
 }
