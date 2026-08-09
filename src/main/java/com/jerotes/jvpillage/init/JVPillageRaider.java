@@ -120,6 +120,10 @@ public class JVPillageRaider {
         if (OtherMainConfig.RaidSpawnFuryBlamerNecromancyWarlock) {
             addWaves("FURY_BLAMER_NECROMANCY_WARLOCK", JVPillageEntityType.FURY_BLAMER_NECROMANCY_WARLOCK.get(), OtherMainConfig.RaidSpawnFuryBlamerNecromancyWarlockCount);
         }
+        //怒化滑行者斧头杀人狂
+        if (OtherMainConfig.RaidSpawnFurySliderAxCrazy) {
+            addWaves("FURY_SLIDER_AX_CRAZY", JVPillageEntityType.FURY_SLIDER_AX_CRAZY.get(), OtherMainConfig.RaidSpawnFurySliderAxCrazyCount);
+        }
         //大巫婆
         if (OtherMainConfig.RaidSpawnBigWitch) {
             addWaves("BIG_WITCH", JVPillageEntityType.BIG_WITCH.get(), OtherMainConfig.RaidSpawnBigWitchCount);

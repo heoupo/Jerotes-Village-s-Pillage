@@ -92,6 +92,7 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.WARLOCK_CASSOCK.get());
 						tabData.accept(JVPillageItems.WARLOCK_FAKE_TIARA.get());
 						tabData.accept(JVPillageItems.TOTEM_OF_FILTHINESS_GOD.get());
+						tabData.accept(JVPillageItems.DEVOURING_AXE_ALIVE_COLLOID.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_UPGRADE_SMITHING_TEMPLATE.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_HELMET.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_CHESTPLATE.get());
@@ -102,29 +103,42 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.MUSIC_DISC_OMINOUS_BANNER_PROJECTION.get());
 						tabData.accept(JVPillageItems.BOUND_ZOMBIE_VILLAGER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.EXPLORER_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_EXPLORER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.EXECUTIONER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.MAPMAKER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.DEFECTOR_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.BANNER_BEARER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.BLASTER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.TRUMPETER_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_TRUMPETER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.TELEPORTER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.CYCLONER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.JAVELIN_THROWER_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_JAVELIN_THROWER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.ZOMBIE_KEEPER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.BITTER_COLD_SORCERER_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_BITTER_COLD_SORCERER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.PURPLE_SAND_WITCH_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.FIRE_SPITTER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.WILD_FINDER_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_WILD_FINDER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.SUBMARINER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.LAMP_WIZARD_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_LAMP_WIZARD_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.SLAVERY_SUPERVISOR_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_SLAVERY_SUPERVISOR_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.FIREPOWER_POURER_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_FIREPOWER_POURER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.NECROMANCY_WARLOCK_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.GAVILER_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_GAVILER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.AX_CRAZY_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_AX_CRAZY_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.ADVENTURER_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_ADVENTURER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.OMINOUS_BANNER_PROJECTION_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_OMINOUS_BANNER_PROJECTION_SPAWN_EGG.get());
 						//苦寒
 						tabData.accept(JVPillageItems.SNOW_FROZEN_SOIL.get());
 						tabData.accept(JVPillageItems.ICE_ROCK.get());
@@ -138,6 +152,7 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.ICE_ROCK_THROWING_BALL.get());
 						tabData.accept(JVPillageItems.WILDERNESS_WOLF_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.GIANT_MONSTER_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_GIANT_MONSTER_SPAWN_EGG.get());
 						//紫沙
 						tabData.accept(JVPillageItems.PURPLE_SAND.get());
 						tabData.accept(JVPillageItems.PURPLE_SANDSTONE.get());
@@ -213,6 +228,8 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.FAKE_MALIALOSAUR_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.FURY_BLAMER_NECROMANCY_WARLOCK_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.SLIDER_AX_CRAZY_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.FURY_SLIDER_AX_CRAZY_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.BIG_WITCH_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.COHORT_HAG_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.COVEN_HAG_ONE_SPAWN_EGG.get());
@@ -282,6 +299,10 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.CUT_SUN_SANDSTONE_SLAB.get());
 						tabData.accept(JVPillageItems.INDUSTRIAL_RESIDUAL_SOIL.get());
 						tabData.accept(JVPillageItems.MEROR_PROJECTION_TABLE.get());
+						//虚洞
+						tabData.accept(JVPillageItems.SLIDER_BLOCK.get());
+						tabData.accept(JVPillageItems.SLIDER_MARK.get());
+						tabData.accept(JVPillageItems.SLIDER_MUCUS.get());
 						tabData.accept(JVPillageItems.VIRTUAL_CAVE_CRYSTAL_ARROW.get());
 
 					}).withSearchBar().

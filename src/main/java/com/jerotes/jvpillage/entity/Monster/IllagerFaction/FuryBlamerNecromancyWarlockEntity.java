@@ -10,7 +10,7 @@ import com.jerotes.jerotes.util.EntityAndItemFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jvpillage.config.OtherMainConfig;
 import com.jerotes.jvpillage.entity.Boss.OminousBannerProjectionEntity;
-import com.jerotes.jvpillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
+import com.jerotes.jvpillage.entity.MagicSummoned.IllagerLike.BlamerNecromancyWarlockEntity;
 import com.jerotes.jvpillage.entity.Other.UncleanTentacleEntity;
 import com.jerotes.jvpillage.init.*;
 import com.jerotes.jvpillage.spell.OtherSpellList;
@@ -79,7 +79,7 @@ public class FuryBlamerNecromancyWarlockEntity extends IllagerLikeRaiderEntity i
 
     public FuryBlamerNecromancyWarlockEntity(EntityType<? extends FuryBlamerNecromancyWarlockEntity> entityType, Level level) {
         super(entityType, level);
-        this.xpReward = 80;
+        this.xpReward = 100;
         this.setCanPickUpLoot(false);
 //他处代码↓
 

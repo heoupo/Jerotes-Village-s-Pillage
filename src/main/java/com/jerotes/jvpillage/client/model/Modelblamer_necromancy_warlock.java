@@ -3,7 +3,7 @@ package com.jerotes.jvpillage.client.model;
 import com.jerotes.jvpillage.JVPillage;
 import com.jerotes.jvpillage.client.animation.BlamerNecromancyWarlockAnimation;
 import com.jerotes.jvpillage.entity.Interface.AlwaysShowArmIllagerEntity;
-import com.jerotes.jvpillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
+import com.jerotes.jvpillage.entity.MagicSummoned.IllagerLike.BlamerNecromancyWarlockEntity;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;

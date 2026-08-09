@@ -5,7 +5,8 @@ import com.jerotes.jerotes.spell.MagicType;
 import com.jerotes.jerotes.spell.SpellSchool;
 import com.jerotes.jerotes.util.Main;
 import com.jerotes.jvpillage.JVPillage;
-import com.jerotes.jvpillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
+import com.jerotes.jvpillage.entity.MagicSummoned.IllagerLike.BlamerNecromancyWarlockEntity;
+import com.jerotes.jvpillage.entity.MagicSummoned.IllagerLike.SliderAxCrazyEntity;
 import com.jerotes.jvpillage.entity.Other.BitterColdAltarEntity;
 import com.jerotes.jvpillage.entity.Other.PurpleSandPhantomEntity;
 import com.jerotes.jvpillage.entity.Other.UncleanTentacleEntity;
@@ -203,6 +204,34 @@ public class OtherSpellList {
 			}
 			public SpellSchool getSpellSchool() {
 				return SpellSchool.NECROMANCY;
+			}
+		};
+	}
+	//斧相滑壳
+	public static MagicSpell CohesionSlideAxe(int n, LivingEntity caster, Entity target) {
+		return new MagicSpell(n, caster, target, MagicType.SELF, MagicType.MAIN, "cohesion_slide_axe", JVPillageParticleTypes.COHESION_SLIDE_AXE_DISPLAY.get(), JVPillageSoundEvents.MAGIC_COHESION_SLIDE_AXE){
+			public boolean spellFindUse() {
+				return OtherSpellFind.CohesionSlideAxe(getCaster(), 1, 1, 16);
+			}
+			public String getSpellModId() {
+				return JVPillage.MODID;
+			}
+			public int getBaseSpellLevel() {
+				return 9;
+			}
+			public float getSpellDistance() {
+				return 16;
+			}
+			public boolean canUse() {
+				if (getCaster() != null) {
+					List<SliderAxCrazyEntity> list = getCaster().level().getEntitiesOfClass(SliderAxCrazyEntity.class, getCaster().getBoundingBox().inflate(24.0, 24.0, 24.0));
+					list.removeIf(summon -> summon.getOwner() != getCaster());
+					return super.canUse() && list.size() < getSpellLevel();
+				}
+				return super.canUse();
+			}
+			public SpellSchool getSpellSchool() {
+				return SpellSchool.CONJURATION;
 			}
 		};
 	}

@@ -7,7 +7,7 @@ import com.jerotes.jerotes.util.EntityAndItemFind;
 import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jvpillage.JVPillage;
 import com.jerotes.jvpillage.entity.Boss.OminousBannerProjectionEntity;
-import com.jerotes.jvpillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
+import com.jerotes.jvpillage.entity.MagicSummoned.IllagerLike.BlamerNecromancyWarlockEntity;
 import com.jerotes.jvpillage.entity.Monster.IllagerFaction.FuryBlamerNecromancyWarlockEntity;
 import com.jerotes.jvpillage.entity.Monster.IllagerFaction.NecromancyWarlockEntity;
 import com.jerotes.jvpillage.init.JVPillageItems;

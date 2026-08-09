@@ -179,6 +179,7 @@ public class JVPillageSoundEvents {
     public static final SoundEvent FAKE_MALIALOSAUR_DEATH = createSoundEvent("fake_malialosaur_death");
     public static final SoundEvent FAKE_MALIALOSAUR_WALK = createSoundEvent("fake_malialosaur_walk");
     public static final SoundEvent FAKE_MALIALOSAUR_ATTACK = createSoundEvent("fake_malialosaur_attack");
+    public static final SoundEvent SLIDER_AMBIENT = createSoundEvent("slider_ambient");
 
     public static final SoundEvent MEROR_TOOL_USE = createSoundEvent("meror_tool_use");
     public static final SoundEvent MEROR_TELEPORT = createSoundEvent("meror_teleport");
@@ -191,6 +192,7 @@ public class JVPillageSoundEvents {
     public static final SoundEvent MAGIC_ARCANE_LIGHT_SPOT = createSoundEvent("magic_arcane_light_spot");
     public static final SoundEvent MAGIC_ELASTIC_ICE_ROCK = createSoundEvent("magic_elastic_ice_rock");
     public static final SoundEvent MAGIC_BLOODY_BLAME_SOUL_ASSIST = createSoundEvent("magic_bloody_blame_soul_assist");
+    public static final SoundEvent MAGIC_COHESION_SLIDE_AXE = createSoundEvent("magic_cohesion_slide_axe");
     public static final SoundEvent MAGIC_BITTER_COLD_FROSTBITE = createSoundEvent("magic_bitter_cold_frostbite");
     public static final SoundEvent MAGIC_OMINOUS_FLAMES = createSoundEvent("magic_ominous_flames");
     public static final SoundEvent MAGIC_PUSH_FORCE = createSoundEvent("magic_push_force");

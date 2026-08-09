@@ -603,6 +603,7 @@ public class OminousBannerProjectionEntity extends Raider implements OminouseBan
 						for (int ip = 0; ip < 1; ++ip) {
 							summonEntity(JVPillageEntityType.ADVENTURER.get(), 1, 16);
 							summonEntity(JVPillageEntityType.AX_CRAZY.get(), 1, 16);
+							summonEntity(JVPillageEntityType.GIANT_MONSTER.get(), 1, 16);
 							this.points -= 30;
 						}
 					}
@@ -1012,6 +1013,14 @@ public class OminousBannerProjectionEntity extends Raider implements OminouseBan
 		++this.deathTime;
 		if (this.deathTime >= 40 && !this.level().isClientSide() && !this.isRemoved()) {
 			this.remove(RemovalReason.DISCARDED);
+		}
+	}
+	public ItemStack getPickResult() {
+		if (this.isChampion()) {
+			return new ItemStack(JVPillageItems.CHAMPION_OMINOUS_BANNER_PROJECTION_SPAWN_EGG.get());
+		}
+		else{
+			return new ItemStack(JVPillageItems.OMINOUS_BANNER_PROJECTION_SPAWN_EGG.get());
 		}
 	}
 }

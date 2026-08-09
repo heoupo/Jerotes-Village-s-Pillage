@@ -678,5 +678,14 @@ public class SlaverySupervisorEntity extends MeleeIllagerEntity implements Elite
     public ItemStack createSpawnWeapon(float weaponRandom) {
         return new ItemStack(JVPillageItems.SLAVERY_SUPERVISOR_HAMMER_WHIP.get());
     }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JVPillageItems.CHAMPION_SLAVERY_SUPERVISOR_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JVPillageItems.SLAVERY_SUPERVISOR_SPAWN_EGG.get());
+        }
+    }
 }
 

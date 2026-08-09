@@ -98,5 +98,7 @@ public class JVPillageEntityRenderers {
         event.registerEntityRenderer(JVPillageEntityType.FAKE_MALIALOSAUR.get(), FakeMalialosaurRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.BLAMER_NECROMANCY_WARLOCK.get(), BlamerNecromancyWarlockRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.FURY_BLAMER_NECROMANCY_WARLOCK.get(), FuryBlamerNecromancyWarlockRenderer::new);
+        event.registerEntityRenderer(JVPillageEntityType.SLIDER_AX_CRAZY.get(), SliderAxCrazyRenderer::new);
+        event.registerEntityRenderer(JVPillageEntityType.FURY_SLIDER_AX_CRAZY.get(), FurySliderAxCrazyRenderer::new);
     }
 }

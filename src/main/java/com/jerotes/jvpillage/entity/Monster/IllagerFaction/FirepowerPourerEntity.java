@@ -1119,5 +1119,14 @@ public class FirepowerPourerEntity extends Raider implements EliteEntity, Ominou
             this.remove(RemovalReason.KILLED);
         }
     }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JVPillageItems.CHAMPION_FIREPOWER_POURER_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JVPillageItems.FIREPOWER_POURER_SPAWN_EGG.get());
+        }
+    }
 }
 

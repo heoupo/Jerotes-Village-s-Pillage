@@ -1,10 +1,8 @@
 package com.jerotes.jvpillage.client.model;
 
 import com.jerotes.jerotes.client.model.Modelspecial_action;
-import com.jerotes.jerotes.entity.Interface.UseShieldEntity;
 import com.jerotes.jerotes.item.Interface.ItemTwoHanded;
 import com.jerotes.jvpillage.JVPillage;
-import com.jerotes.jvpillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
 import com.jerotes.jvpillage.entity.MagicSummoned.IllagerLikeEntity;
 import net.minecraft.client.model.AnimationUtils;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -103,15 +101,15 @@ public class Modelillagerlike<T extends IllagerLikeEntity> extends Modelspecial_
 			this.leftLeg.zRot = 0.0F;
 		}
 
-		BlamerNecromancyWarlockEntity.IllagerArmPose abstractillager$illagerarmpose = t.getArmPose();
+		IllagerLikeEntity.IllagerArmPose abstractillager$illagerarmpose = t.getArmPose();
 
-		if (abstractillager$illagerarmpose == BlamerNecromancyWarlockEntity.IllagerArmPose.ATTACKING) {
+		if (abstractillager$illagerarmpose == IllagerLikeEntity.IllagerArmPose.ATTACKING) {
 			if (t.getMainHandItem().isEmpty()) {
 				AnimationUtils.animateZombieArms(this.leftArm, this.rightArm, true, this.attackTime, f3);
 			} else {
 				AnimationUtils.swingWeaponDown(this.rightArm, this.leftArm, t, this.attackTime, f3);
 			}
-		} else if (abstractillager$illagerarmpose == BlamerNecromancyWarlockEntity.IllagerArmPose.SPELLCASTING) {
+		} else if (abstractillager$illagerarmpose == IllagerLikeEntity.IllagerArmPose.SPELLCASTING) {
 			this.rightArm.z = 0.0F;
 			this.rightArm.x = -5.0F;
 			this.leftArm.z = 0.0F;
@@ -123,20 +121,20 @@ public class Modelillagerlike<T extends IllagerLikeEntity> extends Modelspecial_
 			this.rightArm.yRot = 0.0F;
 			this.leftArm.yRot = 0.0F;
 		} 
-		else if (abstractillager$illagerarmpose == BlamerNecromancyWarlockEntity.IllagerArmPose.BOW_AND_ARROW) {
+		else if (abstractillager$illagerarmpose == IllagerLikeEntity.IllagerArmPose.BOW_AND_ARROW) {
 			this.rightArm.yRot = -0.1F + this.head.yRot;
 			this.rightArm.xRot = (-(float)Math.PI / 2F) + this.head.xRot;
 			this.leftArm.xRot = -0.9424779F + this.head.xRot;
 			this.leftArm.yRot = this.head.yRot - 0.4F;
 			this.leftArm.zRot = ((float)Math.PI / 2F);
 		} 
-		else if (abstractillager$illagerarmpose == BlamerNecromancyWarlockEntity.IllagerArmPose.CROSSBOW_HOLD) {
+		else if (abstractillager$illagerarmpose == IllagerLikeEntity.IllagerArmPose.CROSSBOW_HOLD) {
 			AnimationUtils.animateCrossbowHold(this.rightArm, this.leftArm, this.head, true);
 		} 
-		else if (abstractillager$illagerarmpose == BlamerNecromancyWarlockEntity.IllagerArmPose.CROSSBOW_CHARGE) {
+		else if (abstractillager$illagerarmpose == IllagerLikeEntity.IllagerArmPose.CROSSBOW_CHARGE) {
 			AnimationUtils.animateCrossbowCharge(this.rightArm, this.leftArm, t, true);
 		} 
-		else if (abstractillager$illagerarmpose == BlamerNecromancyWarlockEntity.IllagerArmPose.CELEBRATING) {
+		else if (abstractillager$illagerarmpose == IllagerLikeEntity.IllagerArmPose.CELEBRATING) {
 			this.rightArm.z = 0.0F;
 			this.rightArm.x = -5.0F;
 			this.rightArm.xRot = Mth.cos(f3 * 0.6662F) * 0.05F;
@@ -175,12 +173,12 @@ public class Modelillagerlike<T extends IllagerLikeEntity> extends Modelspecial_
 			this.leftArm.y = 5.2f;
 			this.rightArm.y = 5.2f;
 		}
-        if (t.isAggressive() && t instanceof UseShieldEntity useShield) {
-			if (useShield.shieldCanUse() && useShield.notBowCrossbow(t, InteractionHand.MAIN_HAND) && t.getOffhandItem().getItem() instanceof ShieldItem && t.getUseItem().getItem() instanceof ShieldItem) {
+        if (t.isAggressive()) {
+			if (t.shieldCanUse() && t.notBowCrossbow(t, InteractionHand.MAIN_HAND) && t.getOffhandItem().getItem() instanceof ShieldItem && t.getUseItem().getItem() instanceof ShieldItem) {
 				this.poseBlockingArm(offHand, false);
 			}
 			//主手盾牌
-			else if (useShield.shieldCanUse() && useShield.notBowCrossbow(t, InteractionHand.OFF_HAND) && t.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof ShieldItem && t.getUseItem().getItem() instanceof ShieldItem) {
+			else if (t.shieldCanUse() && t.notBowCrossbow(t, InteractionHand.OFF_HAND) && t.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof ShieldItem && t.getUseItem().getItem() instanceof ShieldItem) {
 				this.poseBlockingArm(mainHand, false);
 			}
 			//主手双手武器
@@ -209,7 +207,7 @@ public class Modelillagerlike<T extends IllagerLikeEntity> extends Modelspecial_
 //			}
 		}
 		specialAnim(t, this, f, f2, f3, f4, f5);
-		boolean flag = abstractillager$illagerarmpose == BlamerNecromancyWarlockEntity.IllagerArmPose.CROSSED;
+		boolean flag = abstractillager$illagerarmpose == IllagerLikeEntity.IllagerArmPose.CROSSED;
 		this.arms.visible = flag;
 		this.leftArm.visible = !flag;
 		this.rightArm.visible = !flag;

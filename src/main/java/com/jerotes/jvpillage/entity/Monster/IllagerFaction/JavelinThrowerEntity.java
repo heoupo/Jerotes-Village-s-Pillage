@@ -2,18 +2,18 @@ package com.jerotes.jvpillage.entity.Monster.IllagerFaction;
 
 import com.google.common.collect.Maps;
 import com.jerotes.jerotes.entity.Interface.InventoryEntity;
-import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.entity.Interface.UseThrowEntity;
 import com.jerotes.jerotes.entity.Interface.UseThrownJavelinEntity;
+import com.jerotes.jerotes.entity.Mob.HumanEntity;
 import com.jerotes.jerotes.entity.Shoot.Arrow.BaseJavelinEntity;
 import com.jerotes.jerotes.goal.JerotesMeleeAttackGoal;
 import com.jerotes.jerotes.goal.JerotesRangedJavelinAttackGoal;
 import com.jerotes.jerotes.goal.JerotesRangedThrowAttackGoal;
 import com.jerotes.jerotes.init.JerotesGameRules;
 import com.jerotes.jerotes.init.JerotesSoundEvents;
+import com.jerotes.jvpillage.entity.Interface.AlwaysShowArmIllagerEntity;
 import com.jerotes.jvpillage.entity.Interface.BannerChampionEntity;
 import com.jerotes.jvpillage.entity.Shoot.Arrow.ThrownOminousJavalinEntity;
-import com.jerotes.jvpillage.entity.Interface.AlwaysShowArmIllagerEntity;
 import com.jerotes.jvpillage.init.JVPillageItems;
 import com.jerotes.jvpillage.init.JVPillageSoundEvents;
 import net.minecraft.ChatFormatting;
@@ -467,6 +467,15 @@ public class JavelinThrowerEntity extends MeleeIllagerEntity implements AlwaysSh
     @Override
     public ItemStack createSpawnWeapon(float weaponRandom) {
         return new ItemStack(JVPillageItems.OMINOUS_JAVELIN.get());
+    }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JVPillageItems.CHAMPION_JAVELIN_THROWER_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JVPillageItems.JAVELIN_THROWER_SPAWN_EGG.get());
+        }
     }
 }
 

@@ -427,5 +427,14 @@ public class WildFinderEntity extends MeleeIllagerEntity implements RangedAttack
     public ItemStack createSpawnOffhand(float offhandRandom) {
         return new ItemStack(JVPillageItems.OMINOUS_TORCH.get());
     }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JVPillageItems.CHAMPION_WILD_FINDER_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JVPillageItems.WILD_FINDER_SPAWN_EGG.get());
+        }
+    }
 }
 

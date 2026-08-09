@@ -146,10 +146,12 @@ public class JVPillageParticles {
 		event.registerSpriteSet(JVPillageParticleTypes.OMINOUS_HORN_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.ELASTIC_ICE_ROCK_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.BLOODY_BLAME_SOUL_ASSIST_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JVPillageParticleTypes.COHESION_SLIDE_AXE_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.BITTER_COLD_FROSTBITE_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.BITTER_COLD_ALTAR_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.OMINOUS_FLAMES_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.WILDERNESS_DRIVEN_DISPLAY.get(), DisplayParticle::provider);
+		event.registerSpriteSet(JVPillageParticleTypes.ARCANE_LIGHT_SPOT_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.ELASTIC_LIGHT_BALL_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.RADIANT_BOMB_DISPLAY.get(), DisplayParticle::provider);
 		event.registerSpriteSet(JVPillageParticleTypes.OMINOUS_GEAR_DISPLAY.get(), DisplayParticle::provider);

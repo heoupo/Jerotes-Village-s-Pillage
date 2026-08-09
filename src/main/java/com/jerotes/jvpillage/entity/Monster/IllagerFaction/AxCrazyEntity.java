@@ -792,5 +792,14 @@ public class AxCrazyEntity extends MeleeIllagerEntity implements EliteEntity, Ba
             this.remove(RemovalReason.KILLED);
         }
     }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JVPillageItems.CHAMPION_AX_CRAZY_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JVPillageItems.AX_CRAZY_SPAWN_EGG.get());
+        }
+    }
 }
 

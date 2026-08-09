@@ -129,6 +129,9 @@ public final class OtherMainConfig {
     //怒化恶怨巫神汉
     public static boolean RaidSpawnFuryBlamerNecromancyWarlock;
     public static List<? extends Integer> RaidSpawnFuryBlamerNecromancyWarlockCount;
+    //怒化滑行者斧头杀人狂
+    public static boolean RaidSpawnFurySliderAxCrazy;
+    public static List<? extends Integer> RaidSpawnFurySliderAxCrazyCount;
     //大巫婆
     public static boolean RaidSpawnBigWitch;
     public static List<? extends Integer> RaidSpawnBigWitchCount;
@@ -317,6 +320,9 @@ public final class OtherMainConfig {
         //怒化恶怨巫神汉
         RaidSpawnFuryBlamerNecromancyWarlock = COMMON.RaidSpawnFuryBlamerNecromancyWarlock.get();
         RaidSpawnFuryBlamerNecromancyWarlockCount = COMMON.RaidSpawnFuryBlamerNecromancyWarlockCount.get();
+        //怒化滑行者斧头杀人狂
+        RaidSpawnFurySliderAxCrazy = COMMON.RaidSpawnFurySliderAxCrazy.get();
+        RaidSpawnFurySliderAxCrazyCount = COMMON.RaidSpawnFurySliderAxCrazyCount.get();
         //大巫婆
         RaidSpawnBigWitch = COMMON.RaidSpawnBigWitch.get();
         RaidSpawnBigWitchCount = COMMON.RaidSpawnBigWitchCount.get();
@@ -500,6 +506,9 @@ public final class OtherMainConfig {
         //怒化恶怨巫神汉
         public final ForgeConfigSpec.BooleanValue RaidSpawnFuryBlamerNecromancyWarlock;
         public final ForgeConfigSpec.ConfigValue<List<? extends Integer>> RaidSpawnFuryBlamerNecromancyWarlockCount;
+        //怒化滑行者斧头杀人狂
+        public final ForgeConfigSpec.BooleanValue RaidSpawnFurySliderAxCrazy;
+        public final ForgeConfigSpec.ConfigValue<List<? extends Integer>> RaidSpawnFurySliderAxCrazyCount;
         //大巫婆
         public final ForgeConfigSpec.BooleanValue RaidSpawnBigWitch;
         public final ForgeConfigSpec.ConfigValue<List<? extends Integer>> RaidSpawnBigWitchCount;
@@ -598,7 +607,7 @@ public final class OtherMainConfig {
                     .define("精英血条战斗开启", true);
             EliteCanHasBossBar = builder.comment("Elite Can Has Boss Bar")
                     .define("可以拥有血条的精英", Lists.newArrayList(
-                            "jvpillage:big_witch", "jvpillage:fury_blamer_necromancy_warlock"));
+                            "jvpillage:big_witch", "jvpillage:fury_blamer_necromancy_warlock", "jvpillage:fury_slider_ax_crazy"));
             DefectorMustAttack = builder.comment("Defector Must Attack")
                     .define("背弃者强制迎战", false);
 
@@ -807,6 +816,13 @@ public final class OtherMainConfig {
             RaidSpawnFuryBlamerNecromancyWarlockCount = builder.comment("Raid Spawn Fury Blamer Necromancy Warlock Count")
                     .worldRestart()
                     .defineList("怒化恶怨巫神汉袭击中生成数量",
+                            Arrays.asList(0, 0, 0, 0, 0, 0, 0, 1), (i) -> i instanceof Integer);
+            //怒化滑行者斧头杀人狂
+            RaidSpawnFurySliderAxCrazy = builder.comment("Raid Spawn Fury Slider AX-Crazy")
+                    .define("怒化滑行者斧头杀人狂袭击中生成", false);
+            RaidSpawnFurySliderAxCrazyCount = builder.comment("Raid Spawn Fury Slider AX-Crazy Count")
+                    .worldRestart()
+                    .defineList("怒化滑行者斧头杀人狂袭击中生成数量",
                             Arrays.asList(0, 0, 0, 0, 0, 0, 0, 1), (i) -> i instanceof Integer);
             //大巫婆
             RaidSpawnBigWitch = builder.comment("Raid Spawn Big Witch")

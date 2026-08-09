@@ -1551,4 +1551,13 @@ public class GiantMonsterEntity extends BaseTamableAnimalEntity implements Range
 	public UUID getPersistentAngerTarget() {
 		return this.persistentAngerTarget;
 	}
+
+	public ItemStack getPickResult() {
+		if (this.isChampion()) {
+			return new ItemStack(JVPillageItems.CHAMPION_GIANT_MONSTER_SPAWN_EGG.get());
+		}
+		else{
+			return new ItemStack(JVPillageItems.GIANT_MONSTER_SPAWN_EGG.get());
+		}
+	}
 }

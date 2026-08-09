@@ -9522,6 +9522,16 @@
       }
     ]
   },
+  "magic_cohesion_slide_axe": {
+    "subtitle": "subtitle.jvpillage.magic_cohesion_slide_axe",
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "jvpillage:others/magic/summon",
+        "volume": 1.0
+      }
+    ]
+  },
   "magic_serpon_fireball": {
     "subtitle": "subtitle.jvpillage.magic_serpon_fireball",
     "category": "neutral",

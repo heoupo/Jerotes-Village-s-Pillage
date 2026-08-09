@@ -9,7 +9,7 @@ import com.jerotes.jerotes.util.EntityFactionFind;
 import com.jerotes.jvpillage.config.OtherMainConfig;
 import com.jerotes.jvpillage.entity.Boss.OminousBannerProjectionEntity;
 import com.jerotes.jvpillage.entity.Interface.BannerChampionEntity;
-import com.jerotes.jvpillage.entity.MagicSummoned.BlamerNecromancyWarlock.BlamerNecromancyWarlockEntity;
+import com.jerotes.jvpillage.entity.MagicSummoned.IllagerLike.BlamerNecromancyWarlockEntity;
 import com.jerotes.jvpillage.entity.Other.UncleanTentacleEntity;
 import com.jerotes.jvpillage.init.*;
 import com.jerotes.jvpillage.spell.OtherSpellList;
@@ -44,6 +44,7 @@ import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.raid.Raider;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.fluids.FluidType;
@@ -526,6 +527,15 @@ public class NecromancyWarlockEntity extends SpellIllagerEntity implements Range
         if (this.deathTime >= 20 && !this.level().isClientSide() && !this.isRemoved()) {
             this.level().broadcastEntityEvent(this, (byte) 60);
             this.remove(RemovalReason.KILLED);
+        }
+    }
+
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JVPillageItems.CHAMPION_NECROMANCY_WARLOCK_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JVPillageItems.NECROMANCY_WARLOCK_SPAWN_EGG.get());
         }
     }
 }
