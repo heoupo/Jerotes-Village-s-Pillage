@@ -94,6 +94,7 @@ public class JerotesVillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> VILLAGER_METAL_DAGGER = REGISTRY.register("villager_metal_dagger", () -> new VillagerMetalDagger());
 	public static final RegistryObject<Item> VILLAGER_METAL_HAMMER = REGISTRY.register("villager_metal_hammer", () -> new VillagerMetalHammer());
 	public static final RegistryObject<Item> VILLAGER_METAL_SPEAR = REGISTRY.register("villager_metal_spear", () -> new VillagerMetalSpear());
+	public static final RegistryObject<Item> VILLAGER_METAL_PIKE = REGISTRY.register("villager_metal_pike", () -> new VillagerMetalPike());
 	public static final RegistryObject<Item> VILLAGER_METAL_HORSEWHIP = REGISTRY.register("villager_metal_horsewhip", () -> new VillagerMetalHorseWhip());
 	public static final RegistryObject<Item> VILLAGER_METAL_BOW = REGISTRY.register("villager_metal_bow", () -> new VillagerMetalBow());
 	public static final RegistryObject<Item> VILLAGER_METAL_CROSSBOW = REGISTRY.register("villager_metal_crossbow", () -> new VillagerMetalCrossbow());

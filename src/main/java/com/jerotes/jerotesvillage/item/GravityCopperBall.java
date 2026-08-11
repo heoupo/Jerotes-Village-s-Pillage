@@ -96,27 +96,17 @@ public class GravityCopperBall extends Item implements MagicItem {
 	}
 
 	@Override
-	public List<SpellTypeInterface> getMainSpellType(ItemStack itemStack) {
-		List<SpellTypeInterface> spellList = new ArrayList<>();
-		spellList.add(OtherSpellType.JEROTESVILLAGE_PUSH_FORCE);
-		return spellList;
-	}
-	@Override
-	public List<SpellTypeInterface> getAddSpellType(ItemStack itemStack) {
-		return new ArrayList<>();
-	}
-
-	@Override
-	public int getSpellLevel(ItemStack itemStack) {
+	public int getSpellLevelMagicItem(ItemStack itemStack) {
 		return 4;
 	}
 
 	@Override
-	public boolean isMelee(ItemStack itemStack) {
-		return true;
+	public boolean isMeleeMagicItem(ItemStack itemStack) {
+		return false;
 	}
+
 	@Override
-	public boolean isHelp(ItemStack itemStack) {
+	public boolean isHelpMagicItem(ItemStack itemStack) {
 		return false;
 	}
 
@@ -131,8 +121,25 @@ public class GravityCopperBall extends Item implements MagicItem {
 	}
 
 	@Override
-	public float getSpellDistance(ItemStack itemStack) {
+	public float getSpellDistanceMagicItem(ItemStack itemStack) {
 		return OtherSpellList.PushForce(4, null, null).getSpellDistance();
+	}
+
+	@Override
+	public List<SpellTypeInterface> getMainSpellTypeMagicItem(ItemStack itemStack) {
+		List<SpellTypeInterface> spellList = new ArrayList<>();
+		spellList.add(OtherSpellType.JEROTESVILLAGE_PUSH_FORCE);
+		return spellList;
+	}
+
+	@Override
+	public List<SpellTypeInterface> getAddSpellTypeMagicItem(ItemStack itemStack) {
+		return new ArrayList<>();
+	}
+
+	@Override
+	public String getSpellIdMagicItem(ItemStack itemStack) {
+		return "jerotesvillage_push_force";
 	}
 }
 

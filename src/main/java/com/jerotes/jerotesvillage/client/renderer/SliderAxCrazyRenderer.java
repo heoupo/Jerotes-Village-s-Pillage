@@ -1,6 +1,6 @@
 package com.jerotes.jerotesvillage.client.renderer;
 
-import com.jerotes.blackgoldalliance.client.layer.GlowOtherBodyLayer;
+import com.jerotes.jerotesvillage.client.layer.GlowOtherBodyLayer;
 import com.jerotes.jerotesvillage.JerotesVillage;
 import com.jerotes.jerotesvillage.client.model.Modelslider_ax_crazy;
 import com.jerotes.jerotesvillage.config.OtherMainConfig;

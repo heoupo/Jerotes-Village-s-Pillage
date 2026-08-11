@@ -1,0 +1,22 @@
+{
+  "__comment": "生物豁免：不祥天选",
+  "replace": false,
+  "values": [
+    {
+      "id": "jvpillage:necromancy_warlock",
+      "required": false
+    },
+    {
+      "id": "jvpillage:blamer_necromancy_warlock",
+      "required": false
+    },
+    {
+      "id": "jvpillage:fury_blamer_necromancy_warlock",
+      "required": false
+    },
+    {
+      "id": "jvpillage:ominous_banner_projection",
+      "required": false
+    }
+  ]
+}

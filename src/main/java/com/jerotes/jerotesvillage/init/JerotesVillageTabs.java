@@ -47,6 +47,7 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.VILLAGER_METAL_DAGGER.get());
 						tabData.accept(JerotesVillageItems.VILLAGER_METAL_HAMMER.get());
 						tabData.accept(JerotesVillageItems.VILLAGER_METAL_SPEAR.get());
+						tabData.accept(JerotesVillageItems.VILLAGER_METAL_PIKE.get());
 						tabData.accept(JerotesVillageItems.VILLAGER_METAL_HORSEWHIP.get());
 						tabData.accept(JerotesVillageItems.VILLAGER_METAL_BOW.get());
 						tabData.accept(JerotesVillageItems.VILLAGER_METAL_CROSSBOW.get());

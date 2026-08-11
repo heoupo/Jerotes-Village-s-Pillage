@@ -350,10 +350,20 @@ public class OtherSpellFind {
 					mob.lookAt(target, 360.0f, 360.0f);
 				}
 				spell = new RadiantBombEntity(spellLevelDamage, spellLevelExplode, spellLevelMainEffectTime, spellLevelMainEffectLevel, serverLevel, caster, caster.getLookAngle().x, caster.getLookAngle().y, caster.getLookAngle().z);
-				spell.setPos(caster.getX(), caster.getY(0.7) - spell.getBbHeight()/2, caster.getZ());
+				spell.setPos(caster.getX(), caster.getY(0.7), caster.getZ());
 				spell.shootFromRotation(caster, caster.getXRot(), (caster.getYRot() - ((count - 1) * distance) / 2 + i * distance), 0f, 1f, spellLevelAccuracy);
 				spell.setOwner(caster);
 				serverLevel.addFreshEntity(spell);
+
+				Vec3 pos = spell.position();
+				for (int i2 = 0; i2 < 40; i2++) {
+					double dx = (caster.getRandom().nextDouble() - 0.5) * 2.0;
+					double dy = (caster.getRandom().nextDouble() - 0.5) * 2.0;
+					double dz = (caster.getRandom().nextDouble() - 0.5) * 2.0;
+					serverLevel.sendParticles(JerotesVillageParticleTypes.RADIANT_BOMB.get(),
+							pos.x, pos.y, pos.z,
+							1, dx, dy, dz, 0.05);
+				}
 			}
 		}
 		return true;

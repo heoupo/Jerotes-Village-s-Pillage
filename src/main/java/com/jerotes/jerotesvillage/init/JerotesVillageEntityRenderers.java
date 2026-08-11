@@ -35,7 +35,7 @@ public class JerotesVillageEntityRenderers {
         event.registerEntityRenderer(JerotesVillageEntityType.OMINOUS_FLAMES.get(), ShootRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.ARCANE_LIGHT_SPOT.get(), MagicMissileRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.ELASTIC_LIGHT_BALL.get(), ElasticLightBallRenderer::new);
-        event.registerEntityRenderer(JerotesVillageEntityType.RADIANT_BOMB.get(), ShootRenderer::new);
+        event.registerEntityRenderer(JerotesVillageEntityType.RADIANT_BOMB.get(), RadiantBombRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.SLAVERY_SUPERVISOR_CHAIN.get(), RayRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.BLOODY_SCREAM.get(), ShootRenderer::new);
         event.registerEntityRenderer(JerotesVillageEntityType.PUSH_FORCE.get(), RayRenderer::new);

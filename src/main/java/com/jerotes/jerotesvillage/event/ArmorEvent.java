@@ -10,10 +10,7 @@ import com.jerotes.jerotesvillage.entity.Boss.OminousBannerProjectionEntity;
 import com.jerotes.jerotesvillage.entity.MagicSummoned.IllagerLike.BlamerNecromancyWarlockEntity;
 import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.FuryBlamerNecromancyWarlockEntity;
 import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.NecromancyWarlockEntity;
-import com.jerotes.jerotesvillage.init.JerotesVillageItems;
-import com.jerotes.jerotesvillage.init.JerotesVillageMobEffects;
-import com.jerotes.jerotesvillage.init.JerotesVillageParticleTypes;
-import com.jerotes.jerotesvillage.init.JerotesVillageSoundEvents;
+import com.jerotes.jerotesvillage.init.*;
 import com.jerotes.jerotesvillage.item.BaseHagEye;
 import com.jerotes.jerotesvillage.spell.OtherSpellList;
 import net.minecraft.core.particles.ParticleTypes;
@@ -151,8 +148,10 @@ public class ArmorEvent {
 				|| entity instanceof FuryBlamerNecromancyWarlockEntity
 				|| entity instanceof OminousBannerProjectionEntity
 				|| entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JerotesVillageItems.WARLOCK_TIARA.get()
-				|| hasCurio(entity, JerotesVillageItems.WARLOCK_TIARA.get()) || entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JerotesVillageItems.WARLOCK_FAKE_TIARA.get()
-				|| hasCurio(entity, JerotesVillageItems.WARLOCK_FAKE_TIARA.get()));
+				|| hasCurio(entity, JerotesVillageItems.WARLOCK_TIARA.get())
+				|| entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JerotesVillageItems.WARLOCK_FAKE_TIARA.get()
+				|| hasCurio(entity, JerotesVillageItems.WARLOCK_FAKE_TIARA.get())
+				|| entity.getType().is(JerotesVillageEntityTypeTags.BAN_OMINOUS_SELECTION));
 		float chance = 0.5f + enemies.size() * 0.05f;
 		if (!enemies.isEmpty() && (hasTiara || hasfakeTiara) && living.level().getRandom().nextFloat() < chance) {
 			Mob target = enemies.stream().filter(e -> e != null && e.isAlive()).findFirst().orElse(null);

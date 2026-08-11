@@ -1,12 +1,20 @@
 package com.jerotes.jerotesvillage.entity.Shoot.Magic.MagicShoot;
 
-import com.jerotes.jerotes.entity.Shoot.Magic.MagicAboutEntity;
+import com.jerotes.jerotes.entity.Shoot.Magic.MagicShoot.BaseMagicBoltEntity;
+import com.jerotes.jerotes.init.JerotesDamageTypes;
+import com.jerotes.jerotes.init.JerotesParticleTypes;
 import com.jerotes.jerotes.init.JerotesSoundEvents;
+import com.jerotes.jerotes.util.AttackFind;
+import com.jerotes.jerotes.util.Main;
+import com.jerotes.jerotes.util.ParticlesUse;
+import com.jerotes.jerotesvillage.JerotesVillage;
 import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.LampWizardEntity;
 import com.jerotes.jerotesvillage.init.JerotesVillageEntityType;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.init.JerotesVillageParticleTypes;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -17,7 +25,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 
-public class RadiantBombEntity extends MagicAboutEntity {
+public class RadiantBombEntity extends BaseMagicBoltEntity {
     public RadiantBombEntity(EntityType<? extends RadiantBombEntity> entityType, Level level) {
         super(entityType, level);
     }
@@ -50,37 +58,51 @@ public class RadiantBombEntity extends MagicAboutEntity {
         Entity entity = entityHitResult.getEntity();
 
         if (entity instanceof LivingEntity livingEntity) {
-            Entity entity2 = this.getOwner();
-            boolean bl = livingEntity.hurt(this.damageSources().indirectMagic(this, entity2),  3 + spellLevelDamage * 4);
+            DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.RADIANT, this, this.getOwner());
+            boolean bl = livingEntity.hurt(damageSource,
+                    Main.rollDice(spellLevelDamage, 10, livingEntity.getRandom())
+            );
             if (bl) {
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel-1), this.getEffectSource());
                 if (this.getOwner() != null) {
                     if (this.getOwner() instanceof LampWizardEntity lampWizardEntity) {
                         if (lampWizardEntity.isChampion()) {
-                            livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());
-                        }
-                    }
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 20 * spellLevelMainEffectTime, spellLevelMainEffectLevel - 1), this.getEffectSource());
+                    }}
                 }
             }
             this.playSound(JerotesSoundEvents.SPELL, 3.0f, 1.0f);
-            this.level().explode(this, this.getX(), this.getY(), this.getZ(), spellLevelExplode, Level.ExplosionInteraction.NONE);
         }
     }
+
     public void lastBreak() {
-        this.level().explode(this, this.getX(), this.getY(), this.getZ(), spellLevelExplode, Level.ExplosionInteraction.NONE);
+        if (!this.level().isClientSide) {
+            for (int n = 0; n < 4; ++n) {
+                ParticlesUse.sendBallParticles(this, JerotesParticleTypes.CURE_WOUNDS.get(), true, 3.0f, 0.3f);
+                ParticlesUse.sendBallParticles(this, JerotesVillageParticleTypes.RADIANT_BOMB.get(), true, 1.0f, 0.05f);
+            }
+            DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.RADIANT, this, this.getOwner());
+            this.level().explode(this, damageSource, null, this.getX(), this.getY(), this.getZ(), spellLevelExplode, false, Level.ExplosionInteraction.NONE);
+        }
     }
 
     @Override
     protected void onHit(HitResult hitResult) {
         super.onHit(hitResult);
         if (!this.level().isClientSide) {
+            for (int n = 0; n < 4; ++n) {
+                ParticlesUse.sendBallParticles(this, JerotesParticleTypes.CURE_WOUNDS.get(), true, 3.0f, 0.3f);
+                ParticlesUse.sendBallParticles(this, JerotesVillageParticleTypes.RADIANT_BOMB.get(), true, 1.0f, 0.05f);
+            }
+            DamageSource damageSource = AttackFind.findDamageType(this, JerotesDamageTypes.RADIANT, this, this.getOwner());
+            this.level().explode(this, damageSource, null, this.getX(), this.getY(), this.getZ(), spellLevelExplode, false, Level.ExplosionInteraction.NONE);
             this.discard();
         }
     }
 
     @Override
     public int getMaxLife() {
-        return 40;
+        return 90;
     }
 
     @Override
@@ -102,5 +124,19 @@ public class RadiantBombEntity extends MagicAboutEntity {
     //@Override
     protected float getLiquidInertia() {
         return 1.0f;
+    }
+
+    public int beamLightI() {
+        return 0xffca52;
+    }
+    public int beamLightII() {
+        return 0xf9ebca;
+    }
+    public int beamLightIII() {
+        return 0xffb306;
+    }
+    public ResourceLocation TextureLocation() {
+        return new ResourceLocation(JerotesVillage.MODID,
+                "textures/entity/projectiles/radiant_bomb.png");
     }
 }

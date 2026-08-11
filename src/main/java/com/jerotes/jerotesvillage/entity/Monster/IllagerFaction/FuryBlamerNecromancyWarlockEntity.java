@@ -492,7 +492,9 @@ public class FuryBlamerNecromancyWarlockEntity extends IllagerLikeRaiderEntity i
                     || entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JerotesVillageItems.WARLOCK_TIARA.get()
                     || hasCurio(entity, JerotesVillageItems.WARLOCK_TIARA.get())
                     || entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JerotesVillageItems.WARLOCK_FAKE_TIARA.get()
-                    || hasCurio(entity, JerotesVillageItems.WARLOCK_FAKE_TIARA.get()));
+                    || hasCurio(entity, JerotesVillageItems.WARLOCK_FAKE_TIARA.get())
+                    || hasCurio(entity, JerotesVillageItems.WARLOCK_FAKE_TIARA.get())
+                    || entity.getType().is(JerotesVillageEntityTypeTags.BAN_OMINOUS_SELECTION));
             if (!listRaider.isEmpty() && this.level().getRandom().nextFloat() < 0.5f + (listRaider.size() * 0.05f) && !damageSource.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
                 for (LivingEntity hurt : listRaider) {
                     if (hurt == null) continue;
@@ -523,9 +525,11 @@ public class FuryBlamerNecromancyWarlockEntity extends IllagerLikeRaiderEntity i
                 }
             }
         }
+        if (AttackFind.isPsychicDamage(damageSource))
+            amount *= 2;
         if (EntityAndItemFind.MagicResistance(damageSource))
             return super.hurt(damageSource, amount/5);
-        if (damageSource.is(DamageTypeTags.IS_FIRE))
+        if (AttackFind.isFireDamage(damageSource))
             return super.hurt(damageSource, amount);
         if (damageSource.is(DamageTypeTags.IS_EXPLOSION))
             return super.hurt(damageSource, amount);
