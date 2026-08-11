@@ -1,0 +1,22 @@
+{
+  "__comment": "生物豁免：不祥天选",
+  "replace": false,
+  "values": [
+    {
+      "id": "jerotesvillage:necromancy_warlock",
+      "required": false
+    },
+    {
+      "id": "jerotesvillage:blamer_necromancy_warlock",
+      "required": false
+    },
+    {
+      "id": "jerotesvillage:fury_blamer_necromancy_warlock",
+      "required": false
+    },
+    {
+      "id": "jerotesvillage:ominous_banner_projection",
+      "required": false
+    }
+  ]
+}

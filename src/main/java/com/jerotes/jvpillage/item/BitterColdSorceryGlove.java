@@ -43,7 +43,7 @@ public class BitterColdSorceryGlove extends Item implements MagicItem {
 		ItemStack itemStack = player.getItemInHand(interactionHand);
 		player.swing(interactionHand);
 		LivingEntity target;
-		Entity hitEntity = Main.getTargetedEntity(player, OtherSpellList.BitterColdIceSpike(4, null, null).getSpellDistance());
+		Entity hitEntity = Main.getTargetedEntity(player, OtherSpellList.BitterColdIceSpike(3, null, null).getSpellDistance());
 		if (hitEntity instanceof LivingEntity) {
 			target = (LivingEntity) hitEntity;
 		} else {
@@ -105,27 +105,17 @@ public class BitterColdSorceryGlove extends Item implements MagicItem {
 	}
 
 	@Override
-	public List<SpellTypeInterface> getMainSpellType(ItemStack itemStack) {
-		List<SpellTypeInterface> spellList = new ArrayList<>();
-		spellList.add(OtherSpellType.JVPILLAGE_BITTER_COLD_ICE_SPIKE);
-		return spellList;
-	}
-	@Override
-	public List<SpellTypeInterface> getAddSpellType(ItemStack itemStack) {
-		return new ArrayList<>();
-	}
-
-	@Override
-	public int getSpellLevel(ItemStack itemStack) {
+	public int getSpellLevelMagicItem(ItemStack itemStack) {
 		return 3;
 	}
 
 	@Override
-	public boolean isMelee(ItemStack itemStack) {
+	public boolean isMeleeMagicItem(ItemStack itemStack) {
 		return true;
 	}
+
 	@Override
-	public boolean isHelp(ItemStack itemStack) {
+	public boolean isHelpMagicItem(ItemStack itemStack) {
 		return false;
 	}
 
@@ -140,8 +130,25 @@ public class BitterColdSorceryGlove extends Item implements MagicItem {
 	}
 
 	@Override
-	public float getSpellDistance(ItemStack itemStack) {
+	public float getSpellDistanceMagicItem(ItemStack itemStack) {
 		return OtherSpellList.BitterColdIceSpike(3, null, null).getSpellDistance();
+	}
+
+	@Override
+	public List<SpellTypeInterface> getMainSpellTypeMagicItem(ItemStack itemStack) {
+		List<SpellTypeInterface> spellList = new ArrayList<>();
+		spellList.add(OtherSpellType.JVPILLAGE_BITTER_COLD_ICE_SPIKE);
+		return spellList;
+	}
+
+	@Override
+	public List<SpellTypeInterface> getAddSpellTypeMagicItem(ItemStack itemStack) {
+		return new ArrayList<>();
+	}
+
+	@Override
+	public String getSpellIdMagicItem(ItemStack itemStack) {
+		return "jvpillage_bitter_cold_ice_spike";
 	}
 }
 

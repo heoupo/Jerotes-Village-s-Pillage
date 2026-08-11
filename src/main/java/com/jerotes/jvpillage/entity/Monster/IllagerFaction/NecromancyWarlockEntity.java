@@ -469,7 +469,8 @@ public class NecromancyWarlockEntity extends SpellIllagerEntity implements Range
                     || entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_TIARA.get()
                     || hasCurio(entity, JVPillageItems.WARLOCK_TIARA.get())
                     || entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_FAKE_TIARA.get()
-                    || hasCurio(entity, JVPillageItems.WARLOCK_FAKE_TIARA.get()));
+                    || hasCurio(entity, JVPillageItems.WARLOCK_FAKE_TIARA.get())
+                    || entity.getType().is(JVPillageEntityTypeTags.BAN_OMINOUS_SELECTION));
             if (!listRaider.isEmpty() && this.level().getRandom().nextFloat() < 0.5f + (listRaider.size() * 0.05f) && !damageSource.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
                 for (LivingEntity hurt : listRaider) {
                     if (hurt == null) continue;

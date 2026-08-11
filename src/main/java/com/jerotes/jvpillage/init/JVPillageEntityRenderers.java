@@ -33,7 +33,7 @@ public class JVPillageEntityRenderers {
         event.registerEntityRenderer(JVPillageEntityType.OMINOUS_FLAMES.get(), ShootRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.ARCANE_LIGHT_SPOT.get(), MagicMissileRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.ELASTIC_LIGHT_BALL.get(), ElasticLightBallRenderer::new);
-        event.registerEntityRenderer(JVPillageEntityType.RADIANT_BOMB.get(), ShootRenderer::new);
+        event.registerEntityRenderer(JVPillageEntityType.RADIANT_BOMB.get(), RadiantBombRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.SLAVERY_SUPERVISOR_CHAIN.get(), RayRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.BLOODY_SCREAM.get(), ShootRenderer::new);
         event.registerEntityRenderer(JVPillageEntityType.PUSH_FORCE.get(), RayRenderer::new);

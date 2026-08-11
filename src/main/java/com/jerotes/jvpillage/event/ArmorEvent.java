@@ -14,6 +14,7 @@ import com.jerotes.jvpillage.init.JVPillageItems;
 import com.jerotes.jvpillage.init.JVPillageMobEffects;
 import com.jerotes.jvpillage.init.JVPillageParticleTypes;
 import com.jerotes.jvpillage.init.JVPillageSoundEvents;
+import com.jerotes.jvpillage.init.JVPillageEntityTypeTags;
 import com.jerotes.jvpillage.item.BaseHagEye;
 import com.jerotes.jvpillage.spell.OtherSpellList;
 import net.minecraft.core.particles.ParticleTypes;
@@ -151,7 +152,8 @@ public class ArmorEvent {
 				|| entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_TIARA.get()
 				|| hasCurio(entity, JVPillageItems.WARLOCK_TIARA.get())
 				|| entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == JVPillageItems.WARLOCK_FAKE_TIARA.get()
-				|| hasCurio(entity, JVPillageItems.WARLOCK_FAKE_TIARA.get()));
+				|| hasCurio(entity, JVPillageItems.WARLOCK_FAKE_TIARA.get())
+				|| entity.getType().is(JVPillageEntityTypeTags.BAN_OMINOUS_SELECTION));
 		float chance = 0.5f + enemies.size() * 0.05f;
 		if (!enemies.isEmpty() && (hasTiara || hasfakeTiara) && living.level().getRandom().nextFloat() < chance) {
 			Mob target = enemies.stream().filter(e -> e != null && e.isAlive()).findFirst().orElse(null);

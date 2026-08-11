@@ -1,6 +1,6 @@
 package com.jerotes.jvpillage.client.renderer;
 
-import com.jerotes.blackgoldalliance.client.layer.GlowOtherBodyLayer;
+import com.jerotes.jvpillage.client.layer.GlowOtherBodyLayer;
 import com.jerotes.jvpillage.JVPillage;
 import com.jerotes.jvpillage.client.model.Modelslider_ax_crazy;
 import com.jerotes.jvpillage.config.OtherMainConfig;
