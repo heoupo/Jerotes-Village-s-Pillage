@@ -4,6 +4,7 @@ import com.jerotes.jerotes.entity.Interface.BreakShieldEntity;
 import com.jerotes.jerotes.entity.Interface.InventoryEntity;
 import com.jerotes.jerotes.entity.Interface.JerotesEntity;
 import com.jerotes.jerotes.entity.Interface.UseShieldEntity;
+import com.jerotes.jerotes.entity.MagicSummoned.MagicSummonedEntity;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
