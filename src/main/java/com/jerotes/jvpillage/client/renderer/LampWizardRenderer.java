@@ -16,8 +16,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 
 public class LampWizardRenderer extends HumanoidMobRenderer<LampWizardEntity, Modellamp_wizard<LampWizardEntity>> {
-    private static final ResourceLocation LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/lamp_wizard.png");
-    private static final ResourceLocation ILLAGER_WITHER_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/lamp_wizard_soullampologer_by_illager_wither.png");
+    private static final ResourceLocation LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/illager/lamp_wizard.png");
+    private static final ResourceLocation ILLAGER_WITHER_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/illager/lamp_wizard_soullampologer_by_illager_wither.png");
     public LampWizardRenderer(EntityRendererProvider.Context context) {
         super(context, new Modellamp_wizard(context.bakeLayer(Modellamp_wizard.LAYER_LOCATION)), 0.5f);
         this.addLayer(new HumanoidArmorLayer(this, new ZombieVillagerModel(context.bakeLayer(ModelLayers.ZOMBIE_VILLAGER_INNER_ARMOR)), new ZombieVillagerModel(context.bakeLayer(ModelLayers.ZOMBIE_VILLAGER_OUTER_ARMOR)), context.getModelManager()));

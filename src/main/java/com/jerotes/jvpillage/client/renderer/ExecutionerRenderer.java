@@ -20,6 +20,7 @@ import net.minecraft.util.Mth;
 
 public class ExecutionerRenderer extends MobRenderer<ExecutionerEntity, Modelexecutioner<ExecutionerEntity>> {
     private static final ResourceLocation LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/illager/executioner.png");
+    private static final ResourceLocation ILLAGER_TW_LOCATION = new ResourceLocation(JVPillage.MODID, "textures/entity/illager/executioner_happiexecutioner_by_twiadvent.png");
     public ExecutionerRenderer(EntityRendererProvider.Context context) {
         super(context, new Modelexecutioner(context.bakeLayer(Modelexecutioner.LAYER_LOCATION)), 0.5f);
         this.addLayer(new CustomHeadLayer(this, context.getModelSet(), 1.0F, 1.0F, 1.0F, context.getItemInHandRenderer()));
@@ -47,6 +48,9 @@ public class ExecutionerRenderer extends MobRenderer<ExecutionerEntity, Modelexe
     public ResourceLocation getTextureLocation(ExecutionerEntity entity) {
         if (WeatherEvent.isAprilFoolsDay() && OtherMainConfig.SpecialDay) {
             return new ResourceLocation(JVPillage.MODID, "textures/entity/ax_crazy_fake.png");
+        }
+        if (entity.isChampion()) {
+            return ILLAGER_TW_LOCATION;
         }
         return LOCATION;
     }

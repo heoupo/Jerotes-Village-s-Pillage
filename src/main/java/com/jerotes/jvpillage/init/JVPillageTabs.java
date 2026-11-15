@@ -105,6 +105,7 @@ public class JVPillageTabs {
 						tabData.accept(JVPillageItems.EXPLORER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.CHAMPION_EXPLORER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.EXECUTIONER_SPAWN_EGG.get());
+						tabData.accept(JVPillageItems.CHAMPION_EXECUTIONER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.MAPMAKER_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.DEFECTOR_SPAWN_EGG.get());
 						tabData.accept(JVPillageItems.BANNER_BEARER_SPAWN_EGG.get());

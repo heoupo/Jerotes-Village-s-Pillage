@@ -384,15 +384,6 @@ public class SliderAxCrazyEntity extends IllagerLikeEntity implements  EliteEnti
             this.setThrowTick(Math.max(0, this.getThrowTick() - 1));
             this.setSpellTick(Math.max(0, this.getSpellTick() - 1));
         }
-        //清除动画
-        if (!this.level().isClientSide()) {
-            this.setAnimTick(Math.max(-1, this.getAnimTick() - 1));
-        }
-        if (this.getAnimTick() == 0) {
-            if (!this.level().isClientSide()) {
-                this.setAnimationState(0);
-            }
-        }
         //战斗
         if (this.getAttackTick() > this.getMinAttack()) {
             if (!this.level().isClientSide()) {
@@ -756,8 +747,8 @@ public class SliderAxCrazyEntity extends IllagerLikeEntity implements  EliteEnti
             }
             if (!this.level().isClientSide()) {
                 this.setStopTick(0);
+                this.setAnimationState(0);
             }
-            this.angryAnimationState.stop();
         }
         if (damageSource.is(JerotesDamageTypes.SYRINGE)) {
             return super.hurt(damageSource, angryAmount * 60);

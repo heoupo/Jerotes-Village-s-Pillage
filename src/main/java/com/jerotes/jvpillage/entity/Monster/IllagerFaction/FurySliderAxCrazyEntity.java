@@ -806,8 +806,8 @@ public class FurySliderAxCrazyEntity extends IllagerLikeRaiderEntity implements 
             }
             if (!this.level().isClientSide()) {
                 this.setStopTick(0);
+                this.setAnimTick(0);
             }
-            this.angryAnimationState.stop();
         }
         if (damageSource.is(JerotesDamageTypes.SYRINGE)) {
             return super.hurt(damageSource, angryAmount * 60);
