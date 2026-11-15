@@ -6,7 +6,6 @@ import com.jerotes.jerotesvillage.config.OtherMainConfig;
 import com.jerotes.jerotesvillage.entity.Monster.IllagerFaction.LampWizardEntity;
 import com.jerotes.jerotesvillage.event.WeatherEvent;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.model.ZombieVillagerModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -16,8 +15,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 
 public class LampWizardRenderer extends HumanoidMobRenderer<LampWizardEntity, Modellamp_wizard<LampWizardEntity>> {
-    private static final ResourceLocation LOCATION = new ResourceLocation(JerotesVillage.MODID, "textures/entity/lamp_wizard.png");
-    private static final ResourceLocation ILLAGER_WITHER_LOCATION = new ResourceLocation(JerotesVillage.MODID, "textures/entity/lamp_wizard_soullampologer_by_illager_wither.png");
+    private static final ResourceLocation LOCATION = new ResourceLocation(JerotesVillage.MODID, "textures/entity/illager/lamp_wizard.png");
+    private static final ResourceLocation ILLAGER_WITHER_LOCATION = new ResourceLocation(JerotesVillage.MODID, "textures/entity/illager/lamp_wizard_soullampologer_by_illager_wither.png");
     public LampWizardRenderer(EntityRendererProvider.Context context) {
         super(context, new Modellamp_wizard(context.bakeLayer(Modellamp_wizard.LAYER_LOCATION)), 0.5f);
         this.addLayer(new HumanoidArmorLayer(this, new ZombieVillagerModel(context.bakeLayer(ModelLayers.ZOMBIE_VILLAGER_INNER_ARMOR)), new ZombieVillagerModel(context.bakeLayer(ModelLayers.ZOMBIE_VILLAGER_OUTER_ARMOR)), context.getModelManager()));
@@ -40,7 +39,6 @@ public class LampWizardRenderer extends HumanoidMobRenderer<LampWizardEntity, Mo
         if (WeatherEvent.isAprilFoolsDay() && OtherMainConfig.SpecialDay) {
             return new ResourceLocation(JerotesVillage.MODID, "textures/entity/ax_crazy_fake_2.png");
         }
-        String string = ChatFormatting.stripFormatting(entity.getName().getString());
         if (entity.isChampion()) {
             return ILLAGER_WITHER_LOCATION;
         }

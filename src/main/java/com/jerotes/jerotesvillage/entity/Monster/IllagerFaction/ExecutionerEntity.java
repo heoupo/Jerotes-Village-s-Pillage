@@ -6,15 +6,24 @@ import com.jerotes.jerotes.goal.JerotesMeleeAttackGoal;
 import com.jerotes.jerotes.init.JerotesGameRules;
 import com.jerotes.jerotes.util.AttackFind;
 import com.jerotes.jerotes.util.Main;
+import com.jerotes.jerotesvillage.entity.Interface.BannerChampionEntity;
 import com.jerotes.jerotesvillage.init.JerotesVillageItems;
 import com.jerotes.jerotesvillage.init.JerotesVillageSoundEvents;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -37,17 +46,18 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-public class ExecutionerEntity extends MeleeIllagerEntity {
+public class ExecutionerEntity extends MeleeIllagerEntity  implements BannerChampionEntity {
     public AnimationState idleAnimationState = new AnimationState();
     public AnimationState attackAnimationState = new AnimationState();
     public AnimationState itemAttack1AnimationState = new AnimationState();
     public AnimationState itemAttack2AnimationState = new AnimationState();
-
+    private static final EntityDataAccessor<Boolean> CHAMPION = SynchedEntityData.defineId(ExecutionerEntity.class, EntityDataSerializers.BOOLEAN);
     public ExecutionerEntity(EntityType<? extends ExecutionerEntity> entityType, Level level) {
         super(entityType, level);
         this.xpReward = 30;
@@ -275,13 +285,30 @@ public class ExecutionerEntity extends MeleeIllagerEntity {
         List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class, this.getAttackBoundingBox().inflate(0.5));
         for (LivingEntity hurt : list) {
             if (hurt == null) continue;
-            if ((this.distanceToSqr(hurt)) > 64) continue;
+            if ((this.distanceToSqr(hurt)) > Double.MAX_VALUE) continue;
             if (AttackFind.FindCanNotAttack(this, hurt)) continue;
             if (!this.hasLineOfSight(hurt)) continue;
             if (!Main.canSee(hurt, this)) continue;
+            double healthOldMain = hurt.getHealth();
             AttackFind.attackBegin(this, hurt);
-            AttackFind.attackAfter(this, hurt, 1.1f, 1.0f, false, 0f);
+            if (this.isChampion()) {
+                boolean bl2 = AttackFind.attackAfter(this, hurt, 1.25f * 1.5f, 1.0f, false, 0f);
+                if (bl2) {
+                    double healthNewMain = hurt.getHealth();
+                    if ((float) (healthOldMain - healthNewMain) / 3 > 0) {
+                        this.heal((float) (healthOldMain - healthNewMain) / 3);
+                    }
+                    if (this.level() instanceof ServerLevel serverLevel) {
+                        for (int i = 0; i < (healthOldMain - healthNewMain) / 6; ++i) {
+                            serverLevel.sendParticles(ParticleTypes.HEART, this.getRandomX(1f), this.getRandomY(), this.getRandomZ(1f), 0, 0, 0.0, 0, 0.0);
+                        }
+                    }
+                }
+            } else {
+                AttackFind.attackAfter(this, hurt, 1.25f, 1.0f, false, 0f);
+            }
         }
+
         //横扫效果
         Main.sweepAttack(this);
         if (JerotesGameRules.JEROTES_MELEE_CAN_BREAK != null && this.level().getLevelData().getGameRules().getBoolean(JerotesGameRules.JEROTES_MELEE_CAN_BREAK)) {
@@ -290,7 +317,48 @@ public class ExecutionerEntity extends MeleeIllagerEntity {
         }
         return true;
     }
+    //冠军重命名与标签
+    @Override
+    public boolean isChampion() {
+        return this.getEntityData().get(CHAMPION);
+    }
+    @Override
+    public void setChampion(boolean bl) {
+        this.getEntityData().set(CHAMPION, bl);
+    }
 
+    public void setCustomNameUseNameTag(@Nullable Component component, Entity self, Entity source, InteractionHand interactionHand) {
+        String string;
+        if (component != null) {
+            string = ChatFormatting.stripFormatting(component.getString());
+            if (("乐刑者".equals(string) || "Happiexecutioner".equals(string))  && self instanceof ExecutionerEntity executionerEntity) {
+                executionerEntity.setChampion(true);
+            }
+        }
+    }
+
+    @Override
+    protected Component getTypeName() {
+        if (this.isChampion())
+            return Component.translatable("entity.jerotesvillage.executioner.champion");
+        return Component.translatable(this.getType().getDescriptionId());
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag compoundTag) {
+        super.addAdditionalSaveData(compoundTag);
+        compoundTag.putBoolean("IsChampion", this.isChampion());
+    }
+    @Override
+    public void readAdditionalSaveData(CompoundTag compoundTag) {
+        super.readAdditionalSaveData(compoundTag);
+        this.setChampion(compoundTag.getBoolean("IsChampion"));
+    }
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.getEntityData().define(CHAMPION,false);
+    }
     @Override
     public ItemStack createSpawnWeapon(float weaponRandom) {
         if (weaponRandom > 0.75) {
@@ -300,6 +368,14 @@ public class ExecutionerEntity extends MeleeIllagerEntity {
             return new ItemStack(JerotesVillageItems.EXECUTIONERS_HALBERD.get());
         }
         return new ItemStack(JerotesVillageItems.EXECUTIONERS_AXE.get());
+    }
+    public ItemStack getPickResult() {
+        if (this.isChampion()) {
+            return new ItemStack(JerotesVillageItems.CHAMPION_EXECUTIONER_SPAWN_EGG.get());
+        }
+        else{
+            return new ItemStack(JerotesVillageItems.EXECUTIONER_SPAWN_EGG.get());
+        }
     }
 }
 

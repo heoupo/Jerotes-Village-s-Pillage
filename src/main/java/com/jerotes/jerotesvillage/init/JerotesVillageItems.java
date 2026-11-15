@@ -189,6 +189,7 @@ public class JerotesVillageItems implements JerotesItemsAdd {
 	public static final RegistryObject<Item> EXPLORER_SPAWN_EGG = REGISTRY.register("explorer_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.EXPLORER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> CHAMPION_EXPLORER_SPAWN_EGG = REGISTRY.register("champion_explorer_spawn_egg", () -> new ChampionSpawnEgg(JerotesVillageEntityType.EXPLORER));
 	public static final RegistryObject<Item> EXECUTIONER_SPAWN_EGG = REGISTRY.register("executioner_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.EXECUTIONER, 0xffffff, 0xffffff, new Item.Properties()));
+	public static final RegistryObject<Item> CHAMPION_EXECUTIONER_SPAWN_EGG = REGISTRY.register("champion_executioner_spawn_egg", () -> new ChampionSpawnEgg(JerotesVillageEntityType.EXECUTIONER));
 	public static final RegistryObject<Item> MAPMAKER_SPAWN_EGG = REGISTRY.register("mapmaker_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.MAPMAKER, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> DEFECTOR_SPAWN_EGG = REGISTRY.register("defector_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.DEFECTOR, 0xffffff, 0xffffff, new Item.Properties()));
 	public static final RegistryObject<Item> BANNER_BEARER_SPAWN_EGG = REGISTRY.register("banner_bearer_spawn_egg", () -> new ForgeSpawnEggItem(JerotesVillageEntityType.BANNER_BEARER, 0xffffff, 0xffffff, new Item.Properties()));

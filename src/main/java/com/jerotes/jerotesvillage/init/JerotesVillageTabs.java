@@ -151,6 +151,7 @@ public class JerotesVillageTabs {
 						tabData.accept(JerotesVillageItems.EXPLORER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.CHAMPION_EXPLORER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.EXECUTIONER_SPAWN_EGG.get());
+						tabData.accept(JerotesVillageItems.CHAMPION_EXECUTIONER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.MAPMAKER_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.DEFECTOR_SPAWN_EGG.get());
 						tabData.accept(JerotesVillageItems.BANNER_BEARER_SPAWN_EGG.get());
