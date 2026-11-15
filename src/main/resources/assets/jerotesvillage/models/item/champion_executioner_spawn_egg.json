@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "jerotesvillage:item/champion_executioner_spawn_egg"
+    "layer0": "jvpillage:item/champion_executioner_spawn_egg"
   }
 }
